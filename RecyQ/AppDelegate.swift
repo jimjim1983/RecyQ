@@ -12,11 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    //var loggedIn: Bool?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let tabbarController = UITabBarController()
+        let firstTab = StatsViewController(nibName: "StatsViewController", bundle:  nil)
+        let secondTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
+        let thirdTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
+        let controllers = [firstTab,secondTab,thirdTab]
+        tabbarController.viewControllers = controllers
+        firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "stats"), tag: 1)
+        secondTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "shop.png"), tag: 2)
+        thirdTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profile.png"), tag: 3)
+        
+        self.window?.rootViewController = tabbarController
+        
         return true
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
