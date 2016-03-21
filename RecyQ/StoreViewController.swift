@@ -19,6 +19,8 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        self.tableView.allowsSelection = true
+        
         let nib = UINib.init(nibName: "StoreTableViewCell", bundle: nil)
     self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
@@ -43,8 +45,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-//        code
-//    }
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+            let storeDetailVC = StoreDetailViewController()
+//        let storeDetailVC = StoreDetailViewController(nibName: "StoreDetailViewController", bundle: nil)
+        self.presentViewController(storeDetailVC, animated: true, completion: nil)
+    }
 
 }
