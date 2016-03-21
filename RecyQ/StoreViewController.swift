@@ -45,10 +45,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-            let storeDetailVC = StoreDetailViewController()
-//        let storeDetailVC = StoreDetailViewController(nibName: "StoreDetailViewController", bundle: nil)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storeDetailVC = StoreDetailViewController()
         self.presentViewController(storeDetailVC, animated: true, completion: nil)
     }
+    
 
 }
