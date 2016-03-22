@@ -12,6 +12,13 @@ class StoreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var storeItemImageView: UIImageView!
+
+    @IBOutlet weak var storeItemLogo: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
