@@ -8,13 +8,22 @@
 
 import UIKit
 
+
+
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    var charityArray = [Charity]()
+    
+    var charity1 = Charity(charityName: "Bamboo bikes in Ghana", charityDescription: "Leuke fietsen", charityLogo: "stats", charityImage: "stats")
+    var charity2 = Charity(charityName: "Korting afvalstoffenheffing", charityDescription: "Minder betalen!", charityLogo: "stats", charityImage: "stats")
+    
+    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        charityArray = [charity1, charity2]
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -22,14 +31,14 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.allowsSelection = true
         
         let nib = UINib.init(nibName: "StoreTableViewCell", bundle: nil)
-    self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
 
         // Do any additional setup after loading the view.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return charityArray.count
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -39,7 +48,9 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StoreTableViewCell
         
-        cell.title.text = "cell title goes here"
+        let charity = charityArray[indexPath.row]
+        cell.textLabel!.text = charity.charityName
+    
         
         
         return cell
