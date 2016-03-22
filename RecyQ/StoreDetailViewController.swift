@@ -10,6 +10,8 @@ import UIKit
 
 class StoreDetailViewController: UIViewController {
     
+    var storeItem: StoreItem!
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var image: UIImageView!
@@ -18,6 +20,7 @@ class StoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        titleLabel.text = storeItem.storeItemName
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
     }

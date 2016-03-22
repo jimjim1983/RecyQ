@@ -11,6 +11,8 @@ import UIKit
 
 
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var currentStoreItem: StoreItem!
 
     var storeItemArray = [StoreItem]()
     
@@ -52,6 +54,8 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StoreTableViewCell
         
         let storeItem = storeItemArray[indexPath.row]
+        
+        currentStoreItem = storeItem
         cell.title.text = storeItem.storeItemName
         cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
@@ -61,14 +65,12 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
          cell.storeItemPrice.text = "\(price) tokens"
         }
    
-    
-        
-        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storeDetailVC = StoreDetailViewController()
+        storeDetailVC.storeItem = currentStoreItem
         let navigationController = UINavigationController(rootViewController: storeDetailVC)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
