@@ -23,7 +23,7 @@
 		A6A595D61CA0354100A120C1 /* StoreDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */; };
 		A6A595D91CA0354F00A120C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */; };
 		A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */; };
-		A6E1FF6A1CA15980006F0F4B /* Charity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF691CA15980006F0F4B /* Charity.swift */; };
+		A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF691CA15980006F0F4B /* StoreItem.swift */; };
 		F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */; };
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -68,7 +68,7 @@
 		A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreDetailViewController.xib; sourceTree = "<group>"; };
 		A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		A6E1FF691CA15980006F0F4B /* Charity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Charity.swift; sourceTree = "<group>"; };
+		A6E1FF691CA15980006F0F4B /* StoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,7 +134,7 @@
 				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
 				A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */,
 				A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */,
-				A6E1FF691CA15980006F0F4B /* Charity.swift */,
+				A6E1FF691CA15980006F0F4B /* StoreItem.swift */,
 				A6A5959D1CA023D400A120C1 /* Main.storyboard */,
 				A6A595A01CA023D400A120C1 /* Assets.xcassets */,
 				A6A595A21CA023D400A120C1 /* LaunchScreen.storyboard */,
@@ -302,7 +302,7 @@
 				A6A595D11CA0352D00A120C1 /* StoreViewController.swift in Sources */,
 				A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */,
 				A6A595CD1CA0351600A120C1 /* StatsViewController.swift in Sources */,
-				A6E1FF6A1CA15980006F0F4B /* Charity.swift in Sources */,
+				A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */,
 				A6A595D51CA0354100A120C1 /* StoreDetailViewController.swift in Sources */,
 				F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */,
 				A6A595D91CA0354F00A120C1 /* ProfileViewController.swift in Sources */,

@@ -12,10 +12,13 @@ import UIKit
 
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var charityArray = [Charity]()
+    var storeItemArray = [StoreItem]()
     
-    var charity1 = Charity(charityName: "Bamboo bikes in Ghana", charityDescription: "Leuke fietsen", charityLogo: "stats", charityImage: "stats")
-    var charity2 = Charity(charityName: "Korting afvalstoffenheffing", charityDescription: "Minder betalen!", charityLogo: "stats", charityImage: "stats")
+    var storeItem1 = StoreItem(storeItemName: "Bamboo bikes in Ghana", storeItemDescription: "Leuke fietsen", storeItemLogo: "stats", storeItemImage: "stats")
+    var storeItem2 = StoreItem(storeItemName: "Afvalstoffenheffing korting", storeItemDescription: "Minder betalen!", storeItemLogo: "stats", storeItemImage: "stats")
+    var storeItem3 = StoreItem(storeItemName: "Test item ZZ", storeItemDescription: "Is it working?", storeItemLogo: "stats", storeItemImage: "stats")
+    var storeItem4 = StoreItem(storeItemName: "Dancing puppies", storeItemDescription: "Dansende hondjes", storeItemLogo: "stats", storeItemImage: "stats")
+
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,7 +26,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        charityArray = [charity1, charity2]
+        storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -38,7 +41,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return charityArray.count
+        return storeItemArray.count
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -48,8 +51,8 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StoreTableViewCell
         
-        let charity = charityArray[indexPath.row]
-        cell.textLabel!.text = charity.charityName
+        let storeItem = storeItemArray[indexPath.row]
+        cell.textLabel!.text = storeItem.storeItemName
     
         
         
