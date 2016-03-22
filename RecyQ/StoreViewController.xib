@@ -23,20 +23,28 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asg-3S-iAE">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="22" width="600" height="534"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7d2-kI-h0o"/>
+                <constraint firstAttribute="bottom" secondItem="asg-3S-iAE" secondAttribute="bottom" constant="44" id="JHl-QL-Ns1"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kf4-ek-OJC"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RAC-gz-bM1"/>
+                <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="SAx-77-via"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ram-J7-xbb"/>
                 <constraint firstItem="faH-6V-y9i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sSU-Ua-0hw"/>
                 <constraint firstAttribute="trailing" secondItem="asg-3S-iAE" secondAttribute="trailing" id="tu4-gc-pZR"/>
                 <constraint firstItem="faH-6V-y9i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yC9-fk-Tll"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="RAC-gz-bM1"/>
+                    <exclude reference="ram-J7-xbb"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
