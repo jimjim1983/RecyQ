@@ -11,8 +11,6 @@ import UIKit
 
 
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var currentStoreItem: StoreItem!
 
     var storeItemArray = [StoreItem]()
     
@@ -55,7 +53,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let storeItem = storeItemArray[indexPath.row]
         
-        currentStoreItem = storeItem
+//        currentStoreItem = storeItem
         cell.title.text = storeItem.storeItemName
         cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
@@ -70,7 +68,8 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storeDetailVC = StoreDetailViewController()
-        storeDetailVC.storeItem = currentStoreItem
+        let storeItem = storeItemArray[indexPath.row]
+        storeDetailVC.storeItem = storeItem
         let navigationController = UINavigationController(rootViewController: storeDetailVC)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
