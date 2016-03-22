@@ -25,6 +25,7 @@ class StoreDetailViewController: UIViewController {
         image.image = storeItem.storeItemImage
         logo.image = storeItem.storeItemLogo
         
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
     }
     
