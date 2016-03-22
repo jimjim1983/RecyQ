@@ -18,22 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecyQ Launch Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgR-WX-VfV">
-                                <rect key="frame" x="20" y="289.5" width="560" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecyQ logo" translatesAutoresizingMaskIntoConstraints="NO" id="wOa-Ue-lG7">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="10U-Lt-cJo"/>
+                                    <constraint firstAttribute="width" constant="240" id="0u1-Pf-Gdw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0u1-Pf-Gdw"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dgR-WX-VfV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Nrw-k3-EWZ"/>
-                            <constraint firstItem="dgR-WX-VfV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Toa-b5-Sri"/>
-                            <constraint firstItem="dgR-WX-VfV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="j84-HF-6tq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dgR-WX-VfV" secondAttribute="trailing" id="uPb-vP-bic"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wOa-Ue-lG7" secondAttribute="bottom" id="2CE-1m-HbO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wOa-Ue-lG7" secondAttribute="trailing" id="5GH-84-OQp"/>
+                            <constraint firstItem="wOa-Ue-lG7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="FP9-1u-TGV"/>
+                            <constraint firstItem="wOa-Ue-lG7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PFJ-ri-LZN"/>
+                            <constraint firstItem="wOa-Ue-lG7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XGL-QT-pmp"/>
+                            <constraint firstItem="wOa-Ue-lG7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="e2v-w8-gTr"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -42,4 +46,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="RecyQ logo" width="1599" height="899"/>
+    </resources>
 </document>
