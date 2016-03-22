@@ -53,6 +53,9 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let storeItem = storeItemArray[indexPath.row]
         cell.textLabel!.text = storeItem.storeItemName
+        cell.descriptionLabel.text = storeItem.storeItemDescription
+        cell.storeItemImageView.image = storeItem.storeItemImage
+        cell.storeItemLogo.image = storeItem.storeItemLogo
     
         
         
