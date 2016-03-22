@@ -11,13 +11,13 @@ import UIKit
 
 
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     var storeItemArray = [StoreItem]()
     
-    var storeItem1 = StoreItem(storeItemName: "Bamboo bikes in Ghana", storeItemDescription: "Leuke fietsen", storeItemLogo: "stats", storeItemImage: "stats")
-    var storeItem2 = StoreItem(storeItemName: "Afvalstoffenheffing korting", storeItemDescription: "Minder betalen!", storeItemLogo: "stats", storeItemImage: "stats")
-    var storeItem3 = StoreItem(storeItemName: "Test item ZZ", storeItemDescription: "Is it working?", storeItemLogo: "stats", storeItemImage: "stats")
-    var storeItem4 = StoreItem(storeItemName: "Dancing puppies", storeItemDescription: "Dansende hondjes", storeItemLogo: "stats", storeItemImage: "stats")
+    var storeItem1 = StoreItem(storeItemName: "Bamboo bikes in Ghana", storeItemDescription: "Leuke fietsen", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 5)
+    var storeItem2 = StoreItem(storeItemName: "Afvalstoffenheffing korting", storeItemDescription: "Minder betalen!", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 5)
+    var storeItem3 = StoreItem(storeItemName: "Test item ZZ", storeItemDescription: "Is it working?", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 5)
+    var storeItem4 = StoreItem(storeItemName: "Dancing puppies", storeItemDescription: "Dansende hondjes", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 5)
 
     
     
@@ -52,7 +52,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StoreTableViewCell
         
         let storeItem = storeItemArray[indexPath.row]
-        cell.textLabel!.text = storeItem.storeItemName
+        cell.title.text = storeItem.storeItemName
         cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
         cell.storeItemLogo.image = storeItem.storeItemLogo

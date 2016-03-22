@@ -10,8 +10,14 @@ import UIKit
 
 class StoreDetailViewController: UIViewController {
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var image: UIImageView!
+    @IBOutlet var logo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
     }
