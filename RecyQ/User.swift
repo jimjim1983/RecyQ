@@ -24,5 +24,5 @@ class User {
 //        self.storeItemLogo = UIImage(named: storeItemLogo)
 //        self.storeItemImage = UIImage(named: storeItemImage)
 //        self.storeItemPrice = storeItemPrice
-    }
+    
 }
