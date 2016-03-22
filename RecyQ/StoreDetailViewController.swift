@@ -9,12 +9,15 @@
 import UIKit
 
 class StoreDetailViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
     }
-
-
+    
+    func navigateBack() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }

@@ -47,7 +47,8 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storeDetailVC = StoreDetailViewController()
-        self.presentViewController(storeDetailVC, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: storeDetailVC)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
 
