@@ -14,15 +14,21 @@ class User {
     var username : String?
     var userID : String?
     var password : String?
-    var amountOfPlastic : UIImage?
-    var storeItemImage : UIImage?
-    var storeItemPrice : Int?
+    var amountOfPlastic : Double?
+    var amountOfPaper : Double?
+    var amountOfTextile: Double?
+    var amountOfGFT: Double?
+    var amountOfDeposits: Double?
     
-//    init(storeItemName: String, storeItemDescription: String, storeItemLogo: String, storeItemImage: String, storeItemPrice: Int){
-//        self.storeItemName = storeItemName
-//        self.storeItemDescription = storeItemDescription
-//        self.storeItemLogo = UIImage(named: storeItemLogo)
-//        self.storeItemImage = UIImage(named: storeItemImage)
-//        self.storeItemPrice = storeItemPrice
+    init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfGFT: Double, amountOfDeposits: Double) {
+        self.username = username
+        self.userID = userID
+        self.password = password
+        self.amountOfPlastic = amountOfPlastic
+        self.amountOfPaper = amountOfPaper
+        self.amountOfTextile = amountOfTextile
+        self.amountOfGFT = amountOfGFT
+        self.amountOfDeposits = amountOfDeposits
+    }
     
 }
