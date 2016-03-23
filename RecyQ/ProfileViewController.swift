@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
         
-        let recyQAnnotation = RecyQAnnotation(title: "RecyQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location)
+        let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location)
         
         let span = MKCoordinateSpanMake(0.002, 0.002)
 
