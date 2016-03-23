@@ -18,14 +18,15 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var idLabel: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!
-    
-  
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.delegate = self
+        
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
+        
+        let recyQAnnotation = RecyQAnnotation(title: "RecyQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location)
         
         let span = MKCoordinateSpanMake(0.002, 0.002)
 
@@ -33,18 +34,45 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         mapView.setRegion(region, animated: true)
         
-        let annotation = MKPointAnnotation()
-       
-        annotation.coordinate = location
-        annotation.title = "Kroy Social Enterprise Pop-Up Store"
-        annotation.subtitle = "Wisseloord 182, 1106 MC, Amsterdam"
+        mapView.addAnnotation(recyQAnnotation)
+
         
-        mapView.addAnnotation(annotation)
         // Do any additional setup after loading the view.
     }
+    
+//When you click on map, open in Maps.
 
 // Change pin colour.
-//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-//        var mapPin = MKPinAnnotationView(
-//    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if let annotation = annotation as? RecyQAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                as? MKPinAnnotationView {
+                    dequeuedView.annotation = annotation
+                    view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                view.pinTintColor = UIColor.greenColor()
+                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+            }
+            return view
+        }
+        return nil
+    }
+    
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! RecyQAnnotation
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+        // can also set this to driving instructions mode, if preferred. i love walking with garbage though.
+        location.mapItem().openInMapsWithLaunchOptions(launchOptions)
+    }
 }
+
+
+
