@@ -8,11 +8,13 @@
 
 import UIKit
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    //var loggedIn: Bool?
+    var client: MSClient?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let tabbarController = UITabBarController()
@@ -26,6 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         thirdTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profile.png"), tag: 3)
         
         self.window?.rootViewController = tabbarController
+        
+        self.client = MSClient(
+            applicationURLString:"https://recyqdb.azurewebsites.net"
+        )
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let client = delegate.client!
+        let item = ["text":"Awesome item"]
+        let itemTable = client.tableWithName("TodoItem")
+        itemTable.insert(item) {
+            (insertedItem, error) in
+            if (error != nil) {
+                print("Error" + error!.description);
+            } else {
+                if let itemString = insertedItem!["id"] {
+                print("This is \(itemString)")
+                }
+            }
+        }
+        
+
         
         return true
 
