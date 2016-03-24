@@ -59,6 +59,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.pinTintColor = UIColor.greenColor()
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+                
             }
             return view
         }
@@ -72,6 +73,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         // can also set this to driving instructions mode, if preferred. i love walking with garbage though.
         location.mapItem().openInMapsWithLaunchOptions(launchOptions)
     }
+    
 }
 
 
