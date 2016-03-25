@@ -17,18 +17,20 @@ class User {
     var amountOfPlastic : Double?
     var amountOfPaper : Double?
     var amountOfTextile: Double?
-    var amountOfGFT: Double?
-    var amountOfDeposits: Double?
+    var amountOfIron: Double?
+    var amountOfEWaste: Double?
+    var amountOfBioWaste: Double?
     
-    init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfGFT: Double, amountOfDeposits: Double) {
+    init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfIron: Double, amountOfEWaste: Double, amountOfBioWaste: Double) {
         self.username = username
         self.userID = userID
         self.password = password
         self.amountOfPlastic = amountOfPlastic
         self.amountOfPaper = amountOfPaper
         self.amountOfTextile = amountOfTextile
-        self.amountOfGFT = amountOfGFT
-        self.amountOfDeposits = amountOfDeposits
+        self.amountOfIron = amountOfIron
+        self.amountOfEWaste = amountOfEWaste
+        self.amountOfBioWaste = amountOfBioWaste
     }
     
 }
