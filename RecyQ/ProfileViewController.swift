@@ -31,7 +31,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
         
-        let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location)
+        let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location, imageName: "customPinImage.png")
+        
+//        let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location)
         
         let span = MKCoordinateSpanMake(0.002, 0.002)
 
@@ -63,11 +65,12 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
                     view = dequeuedView
             } else {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.animatesDrop = true
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.pinTintColor = UIColor.greenColor()
                 view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
-                
+                view.image = UIImage(named: annotation.imageName!)
             }
             return view
         }
