@@ -18,6 +18,11 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var idLabel: UILabel!
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    var string: String!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
         
         mapView.addAnnotation(recyQAnnotation)
+        
+        print("\(string)")
+        emailLabel.text = string
 
         
         // Do any additional setup after loading the view.
