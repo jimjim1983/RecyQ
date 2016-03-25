@@ -48,11 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("This is \(itemString)")
                     thirdTab.string = "\(itemString)"
 //                thirdTab.emailLabel.text = "\(itemString)"
+                    
                 }
             }
         }
-        
-
         
         return true
 

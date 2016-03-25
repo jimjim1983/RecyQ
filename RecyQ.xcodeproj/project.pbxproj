@@ -28,7 +28,7 @@
 		F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */; };
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
-		F2FA16AA1CA4305000B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16A91CA4305000B7B506 /* MicrosoftAzureMobile.framework */; };
+		F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
-		F2FA16A91CA4305000B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
+		F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FA16AA1CA4305000B7B506 /* MicrosoftAzureMobile.framework in Frameworks */,
+				F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 				A6A595AD1CA023D500A120C1 /* RecyQTests */,
 				A6A595B81CA023D500A120C1 /* RecyQUITests */,
 				A6A595951CA023D400A120C1 /* Products */,
-				F2FA16A91CA4305000B7B506 /* MicrosoftAzureMobile.framework */,
+				F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */,
 			);
 			sourceTree = "<group>";
 		};

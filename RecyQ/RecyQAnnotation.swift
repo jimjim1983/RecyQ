@@ -15,7 +15,6 @@ class RecyQAnnotation: NSObject, MKAnnotation {
     let title: String?
     let subtitle: String?
     let coordinate: CLLocationCoordinate2D
-    let hello: String?
 
     init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
