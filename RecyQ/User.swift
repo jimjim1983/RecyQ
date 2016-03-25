@@ -20,8 +20,9 @@ class User {
     var amountOfIron: Double?
     var amountOfEWaste: Double?
     var amountOfBioWaste: Double?
+    var amountOfTokens: Int?
     
-    init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfIron: Double, amountOfEWaste: Double, amountOfBioWaste: Double) {
+    init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfIron: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfTokens: Int) {
         self.username = username
         self.userID = userID
         self.password = password
@@ -31,6 +32,7 @@ class User {
         self.amountOfIron = amountOfIron
         self.amountOfEWaste = amountOfEWaste
         self.amountOfBioWaste = amountOfBioWaste
+        self.amountOfTokens = amountOfTokens
     }
     
 }
