@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         mapView.addAnnotation(recyQAnnotation)
         
-        print("\(string)")
+        print("This is still \(string)")
         emailLabel.text = string
 
         
