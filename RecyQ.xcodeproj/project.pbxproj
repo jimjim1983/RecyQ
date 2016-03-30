@@ -29,6 +29,8 @@
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
 		F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */; };
+		F2FA16CD1CAAD70500B7B506 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA16CB1CAAD70500B7B506 /* CommunityViewController.swift */; };
+		F2FA16CE1CAAD70500B7B506 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA16CC1CAAD70500B7B506 /* CommunityViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
 		F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
+		F2FA16CB1CAAD70500B7B506 /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		F2FA16CC1CAAD70500B7B506 /* CommunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				A6A595971CA023D400A120C1 /* AppDelegate.swift */,
+				F2FA16CB1CAAD70500B7B506 /* CommunityViewController.swift */,
+				F2FA16CC1CAAD70500B7B506 /* CommunityViewController.xib */,
 				A6A595C71CA0350100A120C1 /* LoginViewController.swift */,
 				A6A595C81CA0350100A120C1 /* LoginViewController.xib */,
 				A6A595CB1CA0351600A120C1 /* StatsViewController.swift */,
@@ -277,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FA16CE1CAAD70500B7B506 /* CommunityViewController.xib in Resources */,
 				A6A595D21CA0352D00A120C1 /* StoreViewController.xib in Resources */,
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
 				A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */,
@@ -319,6 +326,7 @@
 				A6A595D51CA0354100A120C1 /* StoreDetailViewController.swift in Sources */,
 				F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */,
 				F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */,
+				F2FA16CD1CAAD70500B7B506 /* CommunityViewController.swift in Sources */,
 				A6A595D91CA0354F00A120C1 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

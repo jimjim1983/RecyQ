@@ -19,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let tabbarController = UITabBarController()
         let firstTab = StatsViewController(nibName: "StatsViewController", bundle:  nil)
-        let secondTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
-        let thirdTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-        let controllers = [firstTab,secondTab,thirdTab]
+        let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
+        let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
+        let secondTab = CommunityViewController(nibName: "CommunityViewController", bundle: nil)
+        let controllers = [firstTab,secondTab,thirdTab, fourthTab]
         tabbarController.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "stats"), tag: 1)
-        secondTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "shop.png"), tag: 2)
-        thirdTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profile.png"), tag: 3)
+        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "stats"), tag: 2)
+        thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "shop.png"), tag: 3)
+        fourthTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profile.png"), tag: 4)
         
         self.window?.rootViewController = tabbarController
         
@@ -45,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 if let itemString = insertedItem! ["voornaam"] {
                 print("This is \(itemString)")
-                    thirdTab.string = "\(itemString)"
+                    fourthTab.string = "\(itemString)"
                     
                 }
             }
