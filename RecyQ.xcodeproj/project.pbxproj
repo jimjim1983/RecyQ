@@ -28,6 +28,8 @@
 		F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */; };
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
+		F2A885AE1CABDE1500FF85AD /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A885AC1CABDE1500FF85AD /* CommunityTableViewCell.swift */; };
+		F2A885AF1CABDE1500FF85AD /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A885AD1CABDE1500FF85AD /* CommunityTableViewCell.xib */; };
 		F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */; };
 		F2FA16CD1CAAD70500B7B506 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FA16CB1CAAD70500B7B506 /* CommunityViewController.swift */; };
 		F2FA16CE1CAAD70500B7B506 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2FA16CC1CAAD70500B7B506 /* CommunityViewController.xib */; };
@@ -79,6 +81,8 @@
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
+		F2A885AC1CABDE1500FF85AD /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
+		F2A885AD1CABDE1500FF85AD /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
 		F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		F2FA16CB1CAAD70500B7B506 /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		F2FA16CC1CAAD70500B7B506 /* CommunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				A6A595C81CA0350100A120C1 /* LoginViewController.xib */,
 				A6A595CB1CA0351600A120C1 /* StatsViewController.swift */,
 				A6A595CC1CA0351600A120C1 /* StatsViewController.xib */,
+				F2A885AC1CABDE1500FF85AD /* CommunityTableViewCell.swift */,
+				F2A885AD1CABDE1500FF85AD /* CommunityTableViewCell.xib */,
 				A6A595CF1CA0352D00A120C1 /* StoreViewController.swift */,
 				A6A595D01CA0352D00A120C1 /* StoreViewController.xib */,
 				A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */,
@@ -288,6 +294,7 @@
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
 				A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
+				F2A885AF1CABDE1500FF85AD /* CommunityTableViewCell.xib in Resources */,
 				A6A595CE1CA0351600A120C1 /* StatsViewController.xib in Resources */,
 				A6A595A11CA023D400A120C1 /* Assets.xcassets in Resources */,
 				A6A595D61CA0354100A120C1 /* StoreDetailViewController.xib in Resources */,
@@ -320,6 +327,7 @@
 				A6A595C91CA0350100A120C1 /* LoginViewController.swift in Sources */,
 				A6A595D11CA0352D00A120C1 /* StoreViewController.swift in Sources */,
 				A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */,
+				F2A885AE1CABDE1500FF85AD /* CommunityTableViewCell.swift in Sources */,
 				A6A595CD1CA0351600A120C1 /* StatsViewController.swift in Sources */,
 				A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */,
 				A6E1FF6C1CA18ECD006F0F4B /* User.swift in Sources */,

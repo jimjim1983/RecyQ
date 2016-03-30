@@ -11,7 +11,7 @@ import UIKit
 class StatsViewController: UIViewController {
     
     @IBOutlet var usernameLabel: UILabel!
-    @IBOutlet var userIDLabel: UILabel!
+//    @IBOutlet var userIDLabel: UILabel!
     @IBOutlet var plasticLabel: UILabel!
     @IBOutlet var paperLabel: UILabel!
     @IBOutlet var textileLabel: UILabel!
@@ -42,7 +42,7 @@ class StatsViewController: UIViewController {
         tokenAmountLabel.text = "\(tokenAmount)"
         }
         
-        userIDLabel.text = testUser.userID
+//        userIDLabel.text = testUser.userID
         if let plastic = testUser.amountOfPlastic {
             plasticLabel.text = "\(plastic) KG"
         }
