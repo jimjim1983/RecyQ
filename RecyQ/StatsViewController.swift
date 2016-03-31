@@ -44,22 +44,22 @@ class StatsViewController: UIViewController {
         
 //        userIDLabel.text = testUser.userID
         if let plastic = testUser.amountOfPlastic {
-            plasticLabel.text = "\(plastic) kg"
+            plasticLabel.text = "\(plastic)"
         }
         if let paper = testUser.amountOfPaper {
-            paperLabel.text = "\(paper) kg"
+            paperLabel.text = "\(paper)"
         }
         if let textile = testUser.amountOfTextile {
-            textileLabel.text = "\(textile) kg"
+            textileLabel.text = "\(textile)"
         }
         if let iron = testUser.amountOfIron {
-            ironLabel.text = "\(iron) kg"
+            ironLabel.text = "\(iron)"
         }
         if let eWaste = testUser.amountOfEWaste {
-            eWasteLabel.text = "\(eWaste) kg"
+            eWasteLabel.text = "\(eWaste)"
         }
         if let bioWaste = testUser.amountOfBioWaste {
-            bioWasteLabel.text = "\(bioWaste) kg"
+            bioWasteLabel.text = "\(bioWaste)"
         }
         
         
