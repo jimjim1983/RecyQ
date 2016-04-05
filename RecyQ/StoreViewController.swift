@@ -14,12 +14,11 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     var storeItemArray = [StoreItem]()
     
-    var storeItem1 = StoreItem(storeItemName: "Free Buurthuis Breakfast", storeItemDescription: "Redeem one token for a free breakfast at Buurthuis.", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 1)
-    var storeItem2 = StoreItem(storeItemName: "50% korting op een tweedehands fiets", storeItemDescription: "Redeem three tokens for a 50% discount off any bicycle at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 3)
-    var storeItem3 = StoreItem(storeItemName: "50% korting op tweedehandse kleding", storeItemDescription: "Redeem two tokens for a 50% discount off any clothing purchase at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 2)
-    var storeItem4 = StoreItem(storeItemName: "50% korting op kleermaker reparaties", storeItemDescription: "Redeem two tokens for a 50% discount off tailor repairs at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 2)
+    var storeItem1 = StoreItem(storeItemName: "Upcycling boodschappentas gemaakt van denim", storeItemDescription: "5 CO2 tokens geven recht op een gratis upcycling boodschappentas gemaakt van denim.", storeItemImage: "upcyclingBagStore", storeItemPrice: 1)
+    var storeItem2 = StoreItem(storeItemName: "10% korting bij de aanschaf van een Go-Upcycle", storeItemDescription: "1 CO2 token geeft eenmalig recht op 10% korting bij de aanschaf van een Go-Upcycle.", storeItemImage: "bicycleStore", storeItemPrice: 1)
+    var storeItem3 = StoreItem(storeItemName: "10% korting bij de aanschaf van vintage kleding/schoenen in de RecyQ Store", storeItemDescription: "1 CO2 token geeft recht op 10% korting bij de aanschaf van vintage kleding/schoenen in de RecyQ Store.", storeItemImage: "clothingStore", storeItemPrice: 1)
+    var storeItem4 = StoreItem(storeItemName: "Doneer aan het Buurtafvalfonds", storeItemDescription: "Doneer CO2 token aan het Buurtafvalfonds voor ondersteuning van buurtactiviteiten.", storeItemImage: "buurtactiviteitStore", storeItemPrice: 1)
 
-    
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -56,7 +55,6 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.title.text = storeItem.storeItemName
         cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
-        cell.storeItemLogo.image = storeItem.storeItemLogo
         
         if let price = storeItem.storeItemPrice {
             if price <= 1 {

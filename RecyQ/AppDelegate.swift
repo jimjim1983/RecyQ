@@ -24,10 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let secondTab = CommunityViewController(nibName: "CommunityViewController", bundle: nil)
         let controllers = [firstTab,secondTab,thirdTab, fourthTab]
         tabbarController.viewControllers = controllers
-        firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "stats"), tag: 1)
-        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "stats"), tag: 2)
-        thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "shop.png"), tag: 3)
-        fourthTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profile.png"), tag: 4)
+        firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
+        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
+        thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "storeGrey"), tag: 3)
+        fourthTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profileGrey"), tag: 4)
+        
+        UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
         
         self.window?.rootViewController = tabbarController
         
