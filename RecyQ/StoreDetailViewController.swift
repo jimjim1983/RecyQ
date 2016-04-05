@@ -22,6 +22,7 @@ class StoreDetailViewController: UIViewController {
       
         titleLabel.text = storeItem.storeItemName
         descriptionLabel.text = storeItem.storeItemDescription
+        descriptionLabel.numberOfLines = 0
         image.image = storeItem.storeItemImage
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")

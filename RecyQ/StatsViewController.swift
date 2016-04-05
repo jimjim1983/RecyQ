@@ -44,7 +44,7 @@ class StatsViewController: UIViewController {
         
         navigationBar.tintColor = UIColor.greenColor()
         navigationBarTitle.title = testUser.username
-        navigationBarImage.image = UIImage(named: "token")
+        navigationBarImage.image = UIImage(named: "recyqToken")
         
         if let tokenAmount = testUser.amountOfTokens {
         tokenAmountLabel.text = "\(tokenAmount)"

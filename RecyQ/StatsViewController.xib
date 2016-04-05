@@ -43,19 +43,12 @@
                         <navigationItem title="Title" id="WVz-GG-Pma"/>
                     </items>
                 </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIu-dC-K3c">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recyqToken" translatesAutoresizingMaskIntoConstraints="NO" id="iIu-dC-K3c">
                     <rect key="frame" x="538" y="22" width="54" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="54" id="k9K-PG-dCr"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-NR-yLc">
-                    <rect key="frame" x="543" y="33" width="44.5" height="21.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                    <color key="shadowColor" red="0.83015625000000004" green="0.83015625000000004" blue="0.83015625000000004" alpha="1" colorSpace="calibratedRGB"/>
-                </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBo-mC-i3x">
                     <rect key="frame" x="0.0" y="66" width="600" height="596"/>
                     <subviews>
@@ -477,9 +470,17 @@
                     <rect key="frame" x="282" y="342" width="37" height="37"/>
                     <color key="color" red="0.0026030296620000002" green="0.83311458329999999" blue="0.0088369494589999997" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-NR-yLc">
+                    <rect key="frame" x="543" y="33.5" width="44.5" height="21.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.83015625000000004" green="0.83015625000000004" blue="0.83015625000000004" alpha="1" colorSpace="calibratedRGB"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="eiq-NR-yLc" firstAttribute="centerX" secondItem="iIu-dC-K3c" secondAttribute="centerX" id="4Fh-FD-PNV"/>
                 <constraint firstItem="cu8-Mc-BjP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5g3-qf-KQ4"/>
                 <constraint firstItem="iIu-dC-K3c" firstAttribute="bottom" secondItem="Duy-tJ-fxt" secondAttribute="bottom" id="AtX-qf-ViQ"/>
                 <constraint firstItem="eiq-NR-yLc" firstAttribute="centerX" secondItem="iIu-dC-K3c" secondAttribute="centerX" id="FHl-lA-j2F"/>
@@ -489,6 +490,7 @@
                 <constraint firstItem="eiq-NR-yLc" firstAttribute="centerY" secondItem="iIu-dC-K3c" secondAttribute="centerY" id="MV5-yQ-fhF"/>
                 <constraint firstAttribute="bottom" secondItem="bBo-mC-i3x" secondAttribute="bottom" constant="60" id="P2x-Hi-4kp"/>
                 <constraint firstItem="bBo-mC-i3x" firstAttribute="top" secondItem="Duy-tJ-fxt" secondAttribute="bottom" id="WHt-tR-yBa"/>
+                <constraint firstItem="eiq-NR-yLc" firstAttribute="centerY" secondItem="iIu-dC-K3c" secondAttribute="centerY" id="Y5V-ZY-cgS"/>
                 <constraint firstItem="bBo-mC-i3x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bpd-di-J1K"/>
                 <constraint firstItem="cu8-Mc-BjP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="g8B-Pv-BBe"/>
                 <constraint firstItem="iIu-dC-K3c" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="hET-6i-NVr"/>
@@ -497,7 +499,16 @@
                 <constraint firstItem="Duy-tJ-fxt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="p3L-dA-6WR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="FHl-lA-j2F"/>
+                    <exclude reference="MV5-yQ-fhF"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="368" y="308"/>
         </view>
     </objects>
+    <resources>
+        <image name="recyqToken" width="40" height="40"/>
+    </resources>
 </document>
