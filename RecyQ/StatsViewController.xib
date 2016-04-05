@@ -137,7 +137,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dc9-7c-gsg">
-                            <rect key="frame" x="10" y="203" width="580" height="89"/>
+                            <rect key="frame" x="10" y="198" width="580" height="89"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Textiel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhR-he-h7g">
                                     <rect key="frame" x="8" y="8" width="74" height="25"/>
@@ -198,7 +198,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vh-P4-wdA">
-                            <rect key="frame" x="10" y="297" width="580" height="89"/>
+                            <rect key="frame" x="10" y="292" width="580" height="89"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IJzer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9C-9p-Hf1">
                                     <rect key="frame" x="8" y="8" width="57" height="25"/>
@@ -259,7 +259,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bvh-gq-5wN">
-                            <rect key="frame" x="10" y="391" width="580" height="89"/>
+                            <rect key="frame" x="10" y="386" width="580" height="89"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Waste" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8R-bS-qGy">
                                     <rect key="frame" x="45" y="29" width="490" height="60"/>
@@ -320,7 +320,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfb-2V-hNh">
-                            <rect key="frame" x="10" y="485" width="580" height="89"/>
+                            <rect key="frame" x="10" y="480" width="580" height="89"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio Waste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9W-ha-LA5">
                                     <rect key="frame" x="8" y="8" width="133" height="25"/>
@@ -381,7 +381,7 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13I-sn-dk3">
-                            <rect key="frame" x="10" y="109" width="580" height="89"/>
+                            <rect key="frame" x="10" y="104" width="580" height="89"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plastic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPL-Ss-BsY">
                                     <rect key="frame" x="8" y="8" width="79" height="25"/>
@@ -460,7 +460,7 @@
                         <constraint firstItem="0vh-P4-wdA" firstAttribute="top" secondItem="dc9-7c-gsg" secondAttribute="bottom" constant="5" id="N1g-hM-Rv5"/>
                         <constraint firstItem="fOC-9d-72e" firstAttribute="leading" secondItem="13I-sn-dk3" secondAttribute="leading" id="Pee-7H-Jen"/>
                         <constraint firstItem="Bvh-gq-5wN" firstAttribute="trailing" secondItem="bfb-2V-hNh" secondAttribute="trailing" id="Tjx-MR-v1K"/>
-                        <constraint firstItem="13I-sn-dk3" firstAttribute="top" secondItem="fOC-9d-72e" secondAttribute="bottom" constant="10" id="X5l-WR-OKI"/>
+                        <constraint firstItem="13I-sn-dk3" firstAttribute="top" secondItem="fOC-9d-72e" secondAttribute="bottom" constant="5" id="X5l-WR-OKI"/>
                         <constraint firstItem="fOC-9d-72e" firstAttribute="leading" secondItem="bBo-mC-i3x" secondAttribute="leading" constant="10" id="ZY9-BV-lcu"/>
                         <constraint firstItem="Bvh-gq-5wN" firstAttribute="leading" secondItem="0vh-P4-wdA" secondAttribute="leading" id="bJr-5m-Xxg"/>
                         <constraint firstItem="fOC-9d-72e" firstAttribute="top" secondItem="bBo-mC-i3x" secondAttribute="top" constant="10" id="hwP-oJ-UFy"/>

@@ -14,10 +14,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     var storeItemArray = [StoreItem]()
     
-    var storeItem1 = StoreItem(storeItemName: "Free Buurthuis Breakfast", storeItemDescription: "Redeem one token for a free breakfast at Buurthuis.", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 1)
-    var storeItem2 = StoreItem(storeItemName: "50% korting op een tweedehands fiets", storeItemDescription: "Redeem three tokens for a 50% discount off any bicycle at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 3)
-    var storeItem3 = StoreItem(storeItemName: "50% korting op tweedehandse kleding", storeItemDescription: "Redeem two tokens for a 50% discount off any clothing purchase at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 2)
-    var storeItem4 = StoreItem(storeItemName: "50% korting op kleermaker reparaties", storeItemDescription: "Redeem two tokens for a 50% discount off tailor repairs at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "stats", storeItemImage: "stats", storeItemPrice: 2)
+    var storeItem1 = StoreItem(storeItemName: "Free Buurthuis Breakfast", storeItemDescription: "Redeem one token for a free breakfast at Buurthuis.", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 1)
+    var storeItem2 = StoreItem(storeItemName: "50% korting op een tweedehands fiets", storeItemDescription: "Redeem three tokens for a 50% discount off any bicycle at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 3)
+    var storeItem3 = StoreItem(storeItemName: "50% korting op tweedehandse kleding", storeItemDescription: "Redeem two tokens for a 50% discount off any clothing purchase at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 2)
+    var storeItem4 = StoreItem(storeItemName: "50% korting op kleermaker reparaties", storeItemDescription: "Redeem two tokens for a 50% discount off tailor repairs at the Kroy Social Enterprise Pop-Up Store", storeItemLogo: "RecyQ logo", storeItemImage: "stats", storeItemPrice: 2)
 
     
     
