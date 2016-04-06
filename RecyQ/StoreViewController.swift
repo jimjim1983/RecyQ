@@ -27,13 +27,14 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
-        self.tableView.allowsSelection = true
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsSelection = true
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
         let nib = UINib.init(nibName: "StoreTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        
         
 
         // Do any additional setup after loading the view.
@@ -44,7 +45,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.view.frame.size.height/2
+        return 307
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -52,16 +53,14 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let storeItem = storeItemArray[indexPath.row]
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.Default
         cell.title.text = storeItem.storeItemName
-        cell.descriptionLabel.text = storeItem.storeItemDescription
+        //cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
+        cell.tokenImageView.image = UIImage (named: "recyqToken")
         
         if let price = storeItem.storeItemPrice {
-            if price <= 1 {
-                cell.storeItemPrice.text = "\(price) token"
-            } else {
-         cell.storeItemPrice.text = "\(price) tokens"
-            }
+                cell.storeItemPrice.text = "\(price)"
         }
    
         return cell
@@ -74,6 +73,5 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let navigationController = UINavigationController(rootViewController: storeDetailVC)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
-    
 
 }
