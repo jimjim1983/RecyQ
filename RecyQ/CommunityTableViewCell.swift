@@ -10,6 +10,9 @@ import UIKit
 
 class CommunityTableViewCell: UITableViewCell {
 
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var co2SavedLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
