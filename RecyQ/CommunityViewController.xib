@@ -201,7 +201,7 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r58-0u-SOu">
-                    <rect key="frame" x="8" y="327" width="398" height="365"/>
+                    <rect key="frame" x="8" y="327" width="398" height="353"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-Zj-bKc">
                             <rect key="frame" x="8" y="8" width="382" height="26"/>
@@ -210,7 +210,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wlD-5f-wkN">
-                            <rect key="frame" x="8" y="42" width="382" height="315"/>
+                            <rect key="frame" x="8" y="42" width="382" height="303"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="sectionIndexBackgroundColor" red="0.1137254902" green="0.83921568629999999" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="sectionIndexTrackingBackgroundColor" red="0.1137254902" green="0.83921568629999999" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -263,7 +263,7 @@
                 <constraint firstItem="bV0-I2-3IO" firstAttribute="leading" secondItem="r58-0u-SOu" secondAttribute="leading" id="ECn-Qs-hh6"/>
                 <constraint firstItem="r58-0u-SOu" firstAttribute="top" secondItem="bV0-I2-3IO" secondAttribute="bottom" constant="8" symbolic="YES" id="Hkx-vr-YtS"/>
                 <constraint firstItem="h1z-ma-kgh" firstAttribute="leading" secondItem="bV0-I2-3IO" secondAttribute="leading" id="JV2-eP-e0y"/>
-                <constraint firstAttribute="bottom" secondItem="r58-0u-SOu" secondAttribute="bottom" constant="44" id="MUs-xs-4K1"/>
+                <constraint firstAttribute="bottom" secondItem="r58-0u-SOu" secondAttribute="bottom" constant="56" id="MUs-xs-4K1"/>
                 <constraint firstItem="h1z-ma-kgh" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="NdW-f2-z1O"/>
                 <constraint firstItem="bV0-I2-3IO" firstAttribute="top" secondItem="h1z-ma-kgh" secondAttribute="bottom" constant="8" symbolic="YES" id="YGh-ps-300"/>
                 <constraint firstItem="h1z-ma-kgh" firstAttribute="trailing" secondItem="bV0-I2-3IO" secondAttribute="trailing" id="fQc-Fc-Eux"/>

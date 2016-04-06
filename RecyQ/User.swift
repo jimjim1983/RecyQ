@@ -21,6 +21,7 @@ class User {
     var amountOfEWaste: Double?
     var amountOfBioWaste: Double?
     var amountOfTokens: Int?
+    var co2Saved: Double?
     
     init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfIron: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfTokens: Int) {
         self.username = username
@@ -33,6 +34,7 @@ class User {
         self.amountOfEWaste = amountOfEWaste
         self.amountOfBioWaste = amountOfBioWaste
         self.amountOfTokens = amountOfTokens
+        self.co2Saved = amountOfPaper*1.42857143 + amountOfPlastic*1.42857143 + amountOfEWaste*1.42857143 + amountOfBioWaste*1.42857143 + amountOfIron*1.42857143 + amountOfTextile*1.42857143
     }
     
 }

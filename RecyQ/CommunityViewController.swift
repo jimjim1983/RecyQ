@@ -34,6 +34,7 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         userArray = [testUser1,testUser2,testUser3,testUser4,testUser5,testUser6,testUser7,testUser8,testUser9,testUser10]
+        userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -67,6 +68,7 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
         let user = userArray[indexPath.row]
         cell.nameLabel.text = user.username
         
+        //change amountOfPlastic to co2 saved calculation
         if let co2Saved = user.amountOfPlastic {
             cell.co2SavedLabel.text = "\(co2Saved)"
         }

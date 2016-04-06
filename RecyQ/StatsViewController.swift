@@ -46,6 +46,13 @@ class StatsViewController: UIViewController {
         navigationBarTitle.title = testUser.username
         navigationBarImage.image = UIImage(named: "recyqToken")
         
+        paperView.layer.cornerRadius = 10
+        plasticView.layer.cornerRadius = 10
+        textileView.layer.cornerRadius = 10
+        ijzerView.layer.cornerRadius = 10
+        ewasteView.layer.cornerRadius = 10
+        biowasteView.layer.cornerRadius = 10
+        
         if let tokenAmount = testUser.amountOfTokens {
         tokenAmountLabel.text = "\(tokenAmount)"
         }
