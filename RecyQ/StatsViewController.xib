@@ -12,6 +12,7 @@
                 <outlet property="activityIndicator" destination="cu8-Mc-BjP" id="wIg-JK-Ruk"/>
                 <outlet property="bioWasteLabel" destination="Bgs-bi-5aN" id="99e-Ta-IKx"/>
                 <outlet property="biowasteView" destination="bfb-2V-hNh" id="TaT-T9-Vsh"/>
+                <outlet property="co2AmountLabel" destination="vwJ-Oc-1LF" id="1rk-ax-S7A"/>
                 <outlet property="eWasteLabel" destination="M8R-bS-qGy" id="7R0-YA-zVd"/>
                 <outlet property="ewasteView" destination="Bvh-gq-5wN" id="G8w-rq-fMZ"/>
                 <outlet property="ijzerView" destination="0vh-P4-wdA" id="xuM-pl-1z3"/>
@@ -545,7 +546,7 @@
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-Oc-1LF" userLabel="CO2 Amount Label">
                                     <rect key="frame" x="416" y="22" width="44.5" height="21.5"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" red="0.83015625000000004" green="0.83015625000000004" blue="0.83015625000000004" alpha="1" colorSpace="calibratedRGB"/>

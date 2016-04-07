@@ -35,7 +35,13 @@ class StatsViewController: UIViewController {
 
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet weak var co2AmountLabel: UILabel!
 
+    var co2Amount: Double!
+    
+    var afvalAmount: Double!
+    
+    var tokenAmount: Double!
     
     var testUser = User(username: "Jimsalabim", userID: "A0123131", password: "hallo", amountOfPlastic: 0.4, amountOfPaper: 0.9, amountOfTextile: 1.4, amountOfIron: 32.1, amountOfEWaste: 0.2, amountOfBioWaste: 120.3, amountOfTokens: 4)
 
@@ -56,9 +62,19 @@ class StatsViewController: UIViewController {
         ewasteView.layer.cornerRadius = 10
         biowasteView.layer.cornerRadius = 10
         
-        if let tokenAmount = testUser.amountOfTokens {
-        tokenAmountLabel.text = "\(tokenAmount)"
-        }
+//        if let tokenAmount = testUser.amountOfTokens {
+//        tokenAmountLabel.text = "\(tokenAmount)"
+//        }
+        
+        afvalAmount = testUser.amountOfPlastic! + testUser.amountOfPaper! + testUser.amountOfTextile! + testUser.amountOfIron! + testUser.amountOfEWaste! + testUser.amountOfBioWaste!
+        
+        tokenAmount = round(afvalAmount/35)
+        
+        co2Amount = (round((afvalAmount/35) * 50))
+        
+        co2AmountLabel.text = "\(Int(co2Amount)) kg"
+        
+        tokenAmountLabel.text = "\(Int(tokenAmount))"
         
 //        userIDLabel.text = testUser.userID
         if let plastic = testUser.amountOfPlastic {
@@ -127,11 +143,11 @@ class StatsViewController: UIViewController {
     
     func slideEwasteView() {
         addSlideAnimation(ewasteView)
+        activityIndicator.stopAnimating()
     }
     
     func slideBiowasteView() {
         addSlideAnimation(biowasteView)
-        activityIndicator.stopAnimating()
     }
     
     func addSlideAnimation(viewName: UIView) {
