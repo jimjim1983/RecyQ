@@ -43,9 +43,10 @@ class StatsViewController: UIViewController {
         super.viewDidLoad()
         
         navigationBar.tintColor = UIColor.greenColor()
-        if let co2Saved = testUser.co2Saved {
-        navigationBarTitle.title = "\(co2Saved)"
-        }
+//        if let co2Saved = testUser.co2Saved {
+//        navigationBarTitle.title = "\(co2Saved)"
+//        }
+        navigationBarTitle.title = "RecyQ"
         navigationBarImage.image = UIImage(named: "recyqToken")
         
         paperView.layer.cornerRadius = 10

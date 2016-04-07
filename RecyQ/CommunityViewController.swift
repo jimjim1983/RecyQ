@@ -54,7 +54,7 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let communityMoney = testUser1.amountOfBioWaste {
+        if let communityMoney = testUser9.amountOfBioWaste {
             communityCounterLabel.text = "\(communityMoney)"
         }
     }
