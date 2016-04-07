@@ -36,6 +36,10 @@ class StatsViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet weak var co2AmountLabel: UILabel!
+    
+    
+    @IBOutlet weak var co2Button: UIButton!
+    @IBOutlet weak var recyQTokenButton: UIButton!
 
     var co2Amount: Double!
     
@@ -48,12 +52,14 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.tintColor = UIColor.greenColor()
+//        navigationBar.tintColor = UIColor.greenColor()
 //        if let co2Saved = testUser.co2Saved {
 //        navigationBarTitle.title = "\(co2Saved)"
 //        }
         navigationBarTitle.title = "RecyQ"
-      
+        
+// if you want to make the nav bar title green
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)]
         
         paperView.layer.cornerRadius = 10
         plasticView.layer.cornerRadius = 10
