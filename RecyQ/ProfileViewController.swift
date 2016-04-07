@@ -56,27 +56,57 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        if let annotation = annotation as? RecyQAnnotation {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-                as? MKPinAnnotationView {
-                    dequeuedView.annotation = annotation
-                    view = dequeuedView
-            } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.animatesDrop = true
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.pinTintColor = UIColor.greenColor()
-                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
-                view.image = UIImage(named: annotation.imageName!)
-            }
-            return view
+        let identifier = "MyPin"
+        
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
         }
-        return nil
+        
+        let detailButton: UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+        
+        // Reuse the annotation if possible
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "RecyQ Green")
+            annotationView!.frame = CGRectMake(0, 0, 55, 55)
+            annotationView!.rightCalloutAccessoryView = detailButton
+        }
+        else
+        {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
     }
     
+//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+//
+//        
+//        if let annotation = annotation as? RecyQAnnotation {
+//            let identifier = "pin"
+//            var view: MKPinAnnotationView
+//            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+//                as? MKPinAnnotationView {
+//                    dequeuedView.annotation = annotation
+//                    view = dequeuedView
+//            } else {
+//                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//                view.animatesDrop = true
+//                view.canShowCallout = true
+//                view.calloutOffset = CGPoint(x: -5, y: 5)
+//                view.pinTintColor = UIColor.greenColor()
+//                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+//                view.image = UIImage(named: annotation.imageName!)
+//            }
+//            return view
+//        }
+//        return nil
+//    }
+//    
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! RecyQAnnotation
