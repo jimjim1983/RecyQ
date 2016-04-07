@@ -30,7 +30,7 @@ class StatsViewController: UIViewController {
 
     //Navbar
     @IBOutlet var navigationBarTitle: UINavigationItem!
-    @IBOutlet var navigationBarImage: UIImageView!
+
     @IBOutlet var tokenAmountLabel: UILabel!
 
     @IBOutlet var scrollView: UIScrollView!
@@ -47,7 +47,7 @@ class StatsViewController: UIViewController {
 //        navigationBarTitle.title = "\(co2Saved)"
 //        }
         navigationBarTitle.title = "RecyQ"
-        navigationBarImage.image = UIImage(named: "recyqToken")
+      
         
         paperView.layer.cornerRadius = 10
         plasticView.layer.cornerRadius = 10
