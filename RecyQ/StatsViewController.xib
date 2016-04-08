@@ -539,14 +539,14 @@
                                         </mask>
                                     </variation>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-NR-yLc">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiq-NR-yLc">
                                     <rect key="frame" x="416" y="22" width="44.5" height="21.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <color key="shadowColor" red="0.83015625000000004" green="0.83015625000000004" blue="0.83015625000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-Oc-1LF" userLabel="CO2 Amount Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-Oc-1LF" userLabel="CO2 Amount Label">
                                     <rect key="frame" x="416" y="22" width="44.5" height="21.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -555,9 +555,15 @@
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78T-pD-AP7" userLabel="CO2 Button">
                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <connections>
+                                        <action selector="co2ButtonPressed:" destination="-1" eventType="touchUpInside" id="is2-Nm-63D"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qr5-L2-t4D" userLabel="RecyQ Token Button">
                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <connections>
+                                        <action selector="recyQButtonPressed:" destination="-1" eventType="touchUpInside" id="fCF-BC-Gk9"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -613,21 +619,6 @@
                                     <exclude reference="QjG-Fj-VMF"/>
                                     <exclude reference="cAL-h5-bWo"/>
                                     <exclude reference="r2g-dr-uPV"/>
-                                    <exclude reference="Gno-Ru-PKj"/>
-                                    <exclude reference="MqH-8N-spj"/>
-                                    <exclude reference="qE4-mG-CTC"/>
-                                    <exclude reference="7ZR-7Y-WFx"/>
-                                    <exclude reference="9u8-dC-VIp"/>
-                                    <exclude reference="P0Q-Yd-dEl"/>
-                                    <exclude reference="RBc-p3-3B6"/>
-                                    <exclude reference="ylM-eV-eRs"/>
-                                    <exclude reference="0b6-nr-mUO"/>
-                                    <exclude reference="1id-Ga-dRP"/>
-                                    <exclude reference="CfP-OS-k72"/>
-                                    <exclude reference="Cia-nF-aA3"/>
-                                    <exclude reference="E1O-HK-QwP"/>
-                                    <exclude reference="HIt-Jw-XCk"/>
-                                    <exclude reference="p9z-v0-ZPq"/>
                                     <exclude reference="7TF-DM-mur"/>
                                     <exclude reference="OzP-N1-nfP"/>
                                     <exclude reference="WhO-z1-Jp4"/>
@@ -639,6 +630,21 @@
                                     <exclude reference="hJu-LX-1Gs"/>
                                     <exclude reference="jxK-CU-R6b"/>
                                     <exclude reference="oEC-XA-8Og"/>
+                                    <exclude reference="7ZR-7Y-WFx"/>
+                                    <exclude reference="9u8-dC-VIp"/>
+                                    <exclude reference="P0Q-Yd-dEl"/>
+                                    <exclude reference="RBc-p3-3B6"/>
+                                    <exclude reference="ylM-eV-eRs"/>
+                                    <exclude reference="Gno-Ru-PKj"/>
+                                    <exclude reference="MqH-8N-spj"/>
+                                    <exclude reference="qE4-mG-CTC"/>
+                                    <exclude reference="0b6-nr-mUO"/>
+                                    <exclude reference="1id-Ga-dRP"/>
+                                    <exclude reference="CfP-OS-k72"/>
+                                    <exclude reference="Cia-nF-aA3"/>
+                                    <exclude reference="E1O-HK-QwP"/>
+                                    <exclude reference="HIt-Jw-XCk"/>
+                                    <exclude reference="p9z-v0-ZPq"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular">
@@ -653,11 +659,6 @@
                                     <include reference="QjG-Fj-VMF"/>
                                     <include reference="cAL-h5-bWo"/>
                                     <include reference="r2g-dr-uPV"/>
-                                    <exclude reference="7ZR-7Y-WFx"/>
-                                    <include reference="9u8-dC-VIp"/>
-                                    <include reference="P0Q-Yd-dEl"/>
-                                    <include reference="RBc-p3-3B6"/>
-                                    <include reference="ylM-eV-eRs"/>
                                     <include reference="7TF-DM-mur"/>
                                     <include reference="OzP-N1-nfP"/>
                                     <include reference="WhO-z1-Jp4"/>
@@ -669,6 +670,11 @@
                                     <include reference="hJu-LX-1Gs"/>
                                     <include reference="jxK-CU-R6b"/>
                                     <exclude reference="oEC-XA-8Og"/>
+                                    <exclude reference="7ZR-7Y-WFx"/>
+                                    <include reference="9u8-dC-VIp"/>
+                                    <include reference="P0Q-Yd-dEl"/>
+                                    <include reference="RBc-p3-3B6"/>
+                                    <include reference="ylM-eV-eRs"/>
                                 </mask>
                             </variation>
                         </view>

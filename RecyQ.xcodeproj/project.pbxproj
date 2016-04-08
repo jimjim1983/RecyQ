@@ -29,9 +29,13 @@
 		A6AE69131CB50BD200C54E98 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */; };
 		A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF691CA15980006F0F4B /* StoreItem.swift */; };
 		A6E1FF6C1CA18ECD006F0F4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF6B1CA18ECD006F0F4B /* User.swift */; };
+		F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */; };
+		F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */; };
 		F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */; };
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
+		F26B8F501CB72E870066F972 /* RecyQTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */; };
+		F26B8F511CB72E870066F972 /* RecyQTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */; };
 		F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,9 +86,13 @@
 		A6C1F9E91CA42BBF00E7B89B /* RecyQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecyQ-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6E1FF691CA15980006F0F4B /* StoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		A6E1FF6B1CA18ECD006F0F4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CO2ViewController.swift; sourceTree = "<group>"; };
+		F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CO2ViewController.xib; sourceTree = "<group>"; };
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
+		F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQTokenViewController.swift; sourceTree = "<group>"; };
+		F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecyQTokenViewController.xib; sourceTree = "<group>"; };
 		F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +151,10 @@
 				A6A595C81CA0350100A120C1 /* LoginViewController.xib */,
 				A6A595CB1CA0351600A120C1 /* StatsViewController.swift */,
 				A6A595CC1CA0351600A120C1 /* StatsViewController.xib */,
+				F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */,
+				F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */,
+				F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */,
+				F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */,
 				A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */,
 				A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */,
 				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
@@ -290,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A595D21CA0352D00A120C1 /* StoreViewController.xib in Resources */,
+				F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */,
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
 				A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
@@ -299,6 +312,7 @@
 				A6A595D61CA0354100A120C1 /* StoreDetailViewController.xib in Resources */,
 				A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */,
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
+				F26B8F511CB72E870066F972 /* RecyQTokenViewController.xib in Resources */,
 				A6AE69111CB50BD200C54E98 /* CommunityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +350,8 @@
 				F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */,
 				F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */,
 				A6A595D91CA0354F00A120C1 /* ProfileViewController.swift in Sources */,
+				F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */,
+				F26B8F501CB72E870066F972 /* RecyQTokenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

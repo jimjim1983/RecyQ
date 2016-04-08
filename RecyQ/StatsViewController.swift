@@ -47,6 +47,8 @@ class StatsViewController: UIViewController {
     
     var tokenAmount: Double!
     
+    var blurEffectView = UIVisualEffectView()
+    
     var testUser = User(username: "Jimsalabim", userID: "A0123131", password: "hallo", amountOfPlastic: 0.4, amountOfPaper: 0.9, amountOfTextile: 1.4, amountOfIron: 32.1, amountOfEWaste: 0.2, amountOfBioWaste: 120.3, amountOfTokens: 4)
 
     override func viewDidLoad() {
@@ -105,6 +107,9 @@ class StatsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+//        blurEffectView.removeFromSuperview()
+        
         scrollView.setContentOffset(CGPointMake(0,0), animated: true)
         
         activityIndicator.startAnimating()
@@ -166,5 +171,28 @@ class StatsViewController: UIViewController {
         viewName.layer.addAnimation(animation, forKey: nil)
         viewName.alpha = 1
     }
+    
+    
+    @IBAction func co2ButtonPressed(sender: UIButton) {
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+//        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+//        view.addSubview(blurEffectView)
+        let co2ViewController = CO2ViewController()
+        co2ViewController.view.backgroundColor = UIColor.clearColor()
+        co2ViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
+        self.presentViewController(co2ViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func recyQButtonPressed(sender: UIButton) {
+        let recyQTokenViewController = RecyQTokenViewController()
+        recyQTokenViewController .view.backgroundColor = UIColor.clearColor()
+        recyQTokenViewController .modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        recyQTokenViewController.recyQTokenAmountLabel.text = self.tokenAmountLabel.text
+        self.presentViewController(recyQTokenViewController , animated: true, completion: nil)
+    }
+    
 
 }
