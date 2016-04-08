@@ -108,7 +108,7 @@ class StatsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-//        blurEffectView.removeFromSuperview()
+        blurEffectView.removeFromSuperview()
         
         scrollView.setContentOffset(CGPointMake(0,0), animated: true)
         
@@ -174,11 +174,11 @@ class StatsViewController: UIViewController {
     
     
     @IBAction func co2ButtonPressed(sender: UIButton) {
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-//        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-//        view.addSubview(blurEffectView)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.addSubview(blurEffectView)
         let co2ViewController = CO2ViewController()
         co2ViewController.view.backgroundColor = UIColor.clearColor()
         co2ViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
