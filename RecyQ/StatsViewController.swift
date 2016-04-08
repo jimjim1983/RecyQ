@@ -30,23 +30,38 @@ class StatsViewController: UIViewController {
 
     //Navbar
     @IBOutlet var navigationBarTitle: UINavigationItem!
-    @IBOutlet var navigationBarImage: UIImageView!
+
     @IBOutlet var tokenAmountLabel: UILabel!
 
     @IBOutlet var scrollView: UIScrollView!
     
+    @IBOutlet weak var co2AmountLabel: UILabel!
+    
+    
+    @IBOutlet weak var co2Button: UIButton!
+    @IBOutlet weak var recyQTokenButton: UIButton!
 
+    var co2Amount: Double!
+    
+    var afvalAmount: Double!
+    
+    var tokenAmount: Double!
+    
+    var blurEffectView = UIVisualEffectView()
     
     var testUser = User(username: "Jimsalabim", userID: "A0123131", password: "hallo", amountOfPlastic: 0.4, amountOfPaper: 0.9, amountOfTextile: 1.4, amountOfIron: 32.1, amountOfEWaste: 0.2, amountOfBioWaste: 120.3, amountOfTokens: 4)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.tintColor = UIColor.greenColor()
-        if let co2Saved = testUser.co2Saved {
-        navigationBarTitle.title = "\(co2Saved)"
-        }
-        navigationBarImage.image = UIImage(named: "recyqToken")
+//        navigationBar.tintColor = UIColor.greenColor()
+//        if let co2Saved = testUser.co2Saved {
+//        navigationBarTitle.title = "\(co2Saved)"
+//        }
+        navigationBarTitle.title = "RecyQ"
+        
+// if you want to make the nav bar title green
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)]
         
         paperView.layer.cornerRadius = 10
         plasticView.layer.cornerRadius = 10
@@ -55,9 +70,19 @@ class StatsViewController: UIViewController {
         ewasteView.layer.cornerRadius = 10
         biowasteView.layer.cornerRadius = 10
         
-        if let tokenAmount = testUser.amountOfTokens {
-        tokenAmountLabel.text = "\(tokenAmount)"
-        }
+//        if let tokenAmount = testUser.amountOfTokens {
+//        tokenAmountLabel.text = "\(tokenAmount)"
+//        }
+        
+        afvalAmount = testUser.amountOfPlastic! + testUser.amountOfPaper! + testUser.amountOfTextile! + testUser.amountOfIron! + testUser.amountOfEWaste! + testUser.amountOfBioWaste!
+        
+        tokenAmount = round(afvalAmount/35)
+        
+        co2Amount = (round((afvalAmount/35) * 50))
+        
+        co2AmountLabel.text = "\(Int(co2Amount)) kg"
+        
+        tokenAmountLabel.text = "\(Int(tokenAmount))"
         
 //        userIDLabel.text = testUser.userID
         if let plastic = testUser.amountOfPlastic {
@@ -82,6 +107,9 @@ class StatsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        blurEffectView.removeFromSuperview()
+        
         scrollView.setContentOffset(CGPointMake(0,0), animated: true)
         
         activityIndicator.startAnimating()
@@ -126,11 +154,11 @@ class StatsViewController: UIViewController {
     
     func slideEwasteView() {
         addSlideAnimation(ewasteView)
+        activityIndicator.stopAnimating()
     }
     
     func slideBiowasteView() {
         addSlideAnimation(biowasteView)
-        activityIndicator.stopAnimating()
     }
     
     func addSlideAnimation(viewName: UIView) {
@@ -143,5 +171,28 @@ class StatsViewController: UIViewController {
         viewName.layer.addAnimation(animation, forKey: nil)
         viewName.alpha = 1
     }
+    
+    
+    @IBAction func co2ButtonPressed(sender: UIButton) {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.addSubview(blurEffectView)
+        let co2ViewController = CO2ViewController()
+        co2ViewController.view.backgroundColor = UIColor.clearColor()
+        co2ViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
+        self.presentViewController(co2ViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func recyQButtonPressed(sender: UIButton) {
+        let recyQTokenViewController = RecyQTokenViewController()
+        recyQTokenViewController .view.backgroundColor = UIColor.clearColor()
+        recyQTokenViewController .modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        recyQTokenViewController.recyQTokenAmountLabel.text = self.tokenAmountLabel.text
+        self.presentViewController(recyQTokenViewController , animated: true, completion: nil)
+    }
+    
 
 }

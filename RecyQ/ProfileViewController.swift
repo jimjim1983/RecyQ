@@ -33,8 +33,6 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location, imageName: "customPinImage.png")
         
-//        let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location)
-        
         let span = MKCoordinateSpanMake(0.002, 0.002)
 
         let region = MKCoordinateRegionMake(location, span)
@@ -52,29 +50,35 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     
 //When you click on map, open in Maps.
 
-// Change pin colour.
+
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        if let annotation = annotation as? RecyQAnnotation {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-                as? MKPinAnnotationView {
-                    dequeuedView.annotation = annotation
-                    view = dequeuedView
-            } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.animatesDrop = true
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.pinTintColor = UIColor.greenColor()
-                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
-                view.image = UIImage(named: annotation.imageName!)
-            }
-            return view
+        let identifier = "MyPin"
+        
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil
         }
-        return nil
+        
+        // Reuse the annotation if possible
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+        
+        if annotationView == nil
+        {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            annotationView!.image = UIImage(named: "RecyQ Green")
+            annotationView!.frame = CGRectMake(0, 0, 55, 55)
+            let recyQCalloutButton = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+            recyQCalloutButton.setImage(UIImage(named: "RecyQ Green"), forState: UIControlState.Normal)
+            annotationView!.rightCalloutAccessoryView = recyQCalloutButton
+        }
+        else
+        {
+            annotationView!.annotation = annotation
+        }
+        
+        return annotationView
     }
     
     

@@ -15,6 +15,12 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var communityCounterImageView: UIImageView!
+    
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     // Test users for the leaderboards
     var userArray = [User]()
     var testUser1 = User(username: "Gerda Hout", userID: "A0123543", password: "hallo", amountOfPlastic: 12.4, amountOfPaper: 0.9, amountOfTextile: 1.4, amountOfIron: 2.5, amountOfEWaste: 7.2, amountOfBioWaste: 0.3, amountOfTokens: 54)
@@ -33,6 +39,8 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
+        
         userArray = [testUser1,testUser2,testUser3,testUser4,testUser5,testUser6,testUser7,testUser8,testUser9,testUser10]
         userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
         
@@ -44,12 +52,14 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
         
         imageView.image = UIImage(named: "buurtactiviteitStore")
         
+        communityCounterImageView.image = UIImage(named: "communityCounter")
+        
         let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let communityMoney = testUser1.amountOfBioWaste {
+        if let communityMoney = testUser9.amountOfBioWaste {
             communityCounterLabel.text = "\(communityMoney)"
         }
     }
