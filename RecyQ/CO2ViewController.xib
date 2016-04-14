@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CO2ViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="borderView" destination="4Ft-mZ-DkW" id="13y-d2-rlZ"/>
                 <outlet property="co2AmountLabel" destination="Ij2-ld-lk9" id="kMc-P5-peT"/>
                 <outlet property="co2View" destination="quT-BJ-wtd" id="g9Q-k3-lpo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -18,6 +19,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ft-mZ-DkW" userLabel="Border View">
+                    <rect key="frame" x="170" y="170" width="260" height="260"/>
+                    <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="260" id="28C-BK-pMd"/>
+                        <constraint firstAttribute="height" constant="260" id="c9m-YM-a2o"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quT-BJ-wtd">
                     <rect key="frame" x="175" y="175" width="250" height="250"/>
                     <subviews>
@@ -72,7 +81,9 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-ll-1JJ">
                             <rect key="frame" x="102" y="211" width="46" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="X"/>
+                            <state key="normal" title="X">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="11O-Tf-lMg"/>
                             </connections>
@@ -99,7 +110,9 @@
             </subviews>
             <constraints>
                 <constraint firstItem="quT-BJ-wtd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="D0J-R0-NJV"/>
+                <constraint firstItem="4Ft-mZ-DkW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IdL-Ra-9ZE"/>
                 <constraint firstItem="quT-BJ-wtd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hge-YD-caM"/>
+                <constraint firstItem="4Ft-mZ-DkW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uGa-9H-Zko"/>
             </constraints>
         </view>
     </objects>

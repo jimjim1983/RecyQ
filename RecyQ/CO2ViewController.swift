@@ -16,14 +16,23 @@ class CO2ViewController: UIViewController {
 
     @IBOutlet weak var xButton: UIButton!
     
+    @IBOutlet weak var borderView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         
-        co2View.layer.cornerRadius = 33;
-        co2View.layer.shadowRadius = 10;
-        co2View.layer.shadowOpacity = 0.2;
+        borderView.layer.cornerRadius = 33
+        borderView.layer.cornerRadius = 33
+        borderView.layer.shadowRadius = 10
+        borderView.layer.shadowOpacity = 0.2
+        borderView.layer.shadowOffset = CGSizeMake(1, 1);
+        borderView.layer.shadowPath = UIBezierPath(roundedRect: borderView.bounds, cornerRadius: 33.0).CGPath
+        co2View.layer.cornerRadius = 33
+        co2View.layer.shadowRadius = 10
+        co2View.layer.shadowOpacity = 0.2
         co2View.layer.shadowOffset = CGSizeMake(1, 1);
         co2View.layer.shadowPath = UIBezierPath(roundedRect: co2View.bounds, cornerRadius: 33.0).CGPath
         co2View.backgroundColor = UIColor.whiteColor()

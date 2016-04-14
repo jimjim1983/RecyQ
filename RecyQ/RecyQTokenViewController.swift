@@ -14,11 +14,20 @@ class RecyQTokenViewController: UIViewController {
    
     @IBOutlet weak var xButton: UIButton!
 
+    @IBOutlet weak var borderView: UIView!
     
     @IBOutlet weak var recyQTokenView: UIView!
     
+    @IBOutlet weak var shopButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        borderView.layer.cornerRadius = 33;
+        borderView.layer.shadowRadius = 10;
+        borderView.layer.shadowOpacity = 0.2;
+        borderView.layer.shadowOffset = CGSizeMake(1, 1)
+        borderView.layer.shadowPath = UIBezierPath(roundedRect: borderView.bounds, cornerRadius: 33.0).CGPath
         
         recyQTokenView.layer.cornerRadius = 33;
         recyQTokenView.layer.shadowRadius = 10;
@@ -27,8 +36,8 @@ class RecyQTokenViewController: UIViewController {
         recyQTokenView.layer.shadowPath = UIBezierPath(roundedRect: recyQTokenView.bounds, cornerRadius: 33.0).CGPath
         recyQTokenView.backgroundColor = UIColor.whiteColor()
 
-//        shopButton.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
+        shopButton.layer.cornerRadius = 10
+       
     }
     
     @IBAction func xButtonPressed(sender: UIButton) {
