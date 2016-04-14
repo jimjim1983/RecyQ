@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CF93BE7D1C94FE708608005 /* Pods_RecyQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966C04DDEEFDCD80B9AF9A52 /* Pods_RecyQ.framework */; };
 		A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A595971CA023D400A120C1 /* AppDelegate.swift */; };
 		A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A5959D1CA023D400A120C1 /* Main.storyboard */; };
 		A6A595A11CA023D400A120C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A595A01CA023D400A120C1 /* Assets.xcassets */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		896F76A6A2778310BE75A9FE /* Pods-RecyQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ.release.xcconfig"; sourceTree = "<group>"; };
+		966C04DDEEFDCD80B9AF9A52 /* Pods_RecyQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A595941CA023D400A120C1 /* RecyQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecyQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A595971CA023D400A120C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6A5959E1CA023D400A120C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 		A6C1F9E91CA42BBF00E7B89B /* RecyQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecyQ-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6E1FF691CA15980006F0F4B /* StoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		A6E1FF6B1CA18ECD006F0F4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B315E3B545646FB0F6110B48 /* Pods-RecyQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ.debug.xcconfig"; sourceTree = "<group>"; };
 		F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CO2ViewController.swift; sourceTree = "<group>"; };
 		F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CO2ViewController.xib; sourceTree = "<group>"; };
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */,
+				2CF93BE7D1C94FE708608005 /* Pods_RecyQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +134,8 @@
 				A6A595AD1CA023D500A120C1 /* RecyQTests */,
 				A6A595B81CA023D500A120C1 /* RecyQUITests */,
 				A6A595951CA023D400A120C1 /* Products */,
-				F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */,
+				CA0C7C101104EB41ED7B8681 /* Pods */,
+				AFE1C6C80342CB3EEB6E835A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,29 +153,14 @@
 			isa = PBXGroup;
 			children = (
 				A6A595971CA023D400A120C1 /* AppDelegate.swift */,
-				A6A595C71CA0350100A120C1 /* LoginViewController.swift */,
-				A6A595C81CA0350100A120C1 /* LoginViewController.xib */,
-				A6A595CB1CA0351600A120C1 /* StatsViewController.swift */,
-				A6A595CC1CA0351600A120C1 /* StatsViewController.xib */,
-				F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */,
-				F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */,
-				F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */,
-				F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */,
-				A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */,
-				A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */,
+				F23AFA6B1CBBDE5B007B0F51 /* Models */,
+				F23AFA6C1CBBDE8D007B0F51 /* View Controllers */,
 				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
 				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
-				A6A595CF1CA0352D00A120C1 /* StoreViewController.swift */,
-				A6A595D01CA0352D00A120C1 /* StoreViewController.xib */,
-				A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */,
-				A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */,
 				F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */,
 				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
-				F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */,
 				A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */,
 				A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */,
-				A6E1FF691CA15980006F0F4B /* StoreItem.swift */,
-				A6E1FF6B1CA18ECD006F0F4B /* User.swift */,
 				A6A5959D1CA023D400A120C1 /* Main.storyboard */,
 				A6A595A01CA023D400A120C1 /* Assets.xcassets */,
 				A6A595A21CA023D400A120C1 /* LaunchScreen.storyboard */,
@@ -197,6 +188,55 @@
 			path = RecyQUITests;
 			sourceTree = "<group>";
 		};
+		AFE1C6C80342CB3EEB6E835A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				966C04DDEEFDCD80B9AF9A52 /* Pods_RecyQ.framework */,
+				F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA0C7C101104EB41ED7B8681 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B315E3B545646FB0F6110B48 /* Pods-RecyQ.debug.xcconfig */,
+				896F76A6A2778310BE75A9FE /* Pods-RecyQ.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F23AFA6B1CBBDE5B007B0F51 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A6E1FF6B1CA18ECD006F0F4B /* User.swift */,
+				A6E1FF691CA15980006F0F4B /* StoreItem.swift */,
+				F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F23AFA6C1CBBDE8D007B0F51 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6A595C71CA0350100A120C1 /* LoginViewController.swift */,
+				A6A595C81CA0350100A120C1 /* LoginViewController.xib */,
+				A6A595CB1CA0351600A120C1 /* StatsViewController.swift */,
+				A6A595CC1CA0351600A120C1 /* StatsViewController.xib */,
+				F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */,
+				F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */,
+				F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */,
+				F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */,
+				A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */,
+				A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */,
+				A6A595CF1CA0352D00A120C1 /* StoreViewController.swift */,
+				A6A595D01CA0352D00A120C1 /* StoreViewController.xib */,
+				A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */,
+				A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6A595BE1CA023D500A120C1 /* Build configuration list for PBXNativeTarget "RecyQ" */;
 			buildPhases = (
+				D3B733F402C3A3A55BD87946 /* Check Pods Manifest.lock */,
 				A6A595901CA023D400A120C1 /* Sources */,
 				A6A595911CA023D400A120C1 /* Frameworks */,
 				A6A595921CA023D400A120C1 /* Resources */,
+				0CF824A79106024AF9928AC1 /* Embed Pods Frameworks */,
+				0DE8F1F0CC18B13BBD8ADDE2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -332,6 +375,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CF824A79106024AF9928AC1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0DE8F1F0CC18B13BBD8ADDE2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3B733F402C3A3A55BD87946 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6A595901CA023D400A120C1 /* Sources */ = {
@@ -491,6 +582,7 @@
 		};
 		A6A595BF1CA023D500A120C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B315E3B545646FB0F6110B48 /* Pods-RecyQ.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -509,6 +601,7 @@
 		};
 		A6A595C01CA023D500A120C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 896F76A6A2778310BE75A9FE /* Pods-RecyQ.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

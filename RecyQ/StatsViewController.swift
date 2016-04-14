@@ -183,6 +183,7 @@ class StatsViewController: UIViewController {
         co2ViewController.view.backgroundColor = UIColor.clearColor()
         co2ViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
+     
         self.presentViewController(co2ViewController, animated: true, completion: nil)
     }
     

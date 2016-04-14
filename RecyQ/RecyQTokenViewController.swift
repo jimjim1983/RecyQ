@@ -11,8 +11,6 @@ import UIKit
 class RecyQTokenViewController: UIViewController {
 
     @IBOutlet weak var recyQTokenAmountLabel: UILabel!
-    
-    @IBOutlet weak var shopButton: UIButton!
    
     @IBOutlet weak var xButton: UIButton!
 
@@ -29,7 +27,7 @@ class RecyQTokenViewController: UIViewController {
         recyQTokenView.layer.shadowPath = UIBezierPath(roundedRect: recyQTokenView.bounds, cornerRadius: 33.0).CGPath
         recyQTokenView.backgroundColor = UIColor.whiteColor()
 
-        shopButton.layer.cornerRadius = 10
+//        shopButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
 
@@ -46,8 +44,19 @@ class RecyQTokenViewController: UIViewController {
     
     @IBAction func shopButtonPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        let storeVC = StoreViewController()
-        self.presentViewController(storeVC, animated: true, completion: nil)
+//        let storeVC = StoreViewController()
+//        self.navigationController?.presentViewController(storeVC, animated: true, completion: nil)
+        print(self.tabBarController?.viewControllers)
+        
+//       let storeVC = self.tabBarController!.viewControllers![2]
+//        
+//        navigationController?.pushViewController(storeVC, animated: true)
+        
+        
+//        self.presentViewController(self.tabBarController!, animated: true, completion: nil)
+//
+//        self.parentViewController?.navigationController?.presentViewController(tabBarController!, animated: true, completion: nil)
+//        self.presentViewController(storeVC, animated: true, completion: nil)
 //        self.tabBarController?.selectedIndex = 2;
 //        self.presentViewController(tabBarController?.viewControllers![2] as! UIViewController!, animated: true, completion: nil)
     }

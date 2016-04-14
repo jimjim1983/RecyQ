@@ -14,16 +14,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var tabbarController: UITabBarController?
     var client: MSClient?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let tabbarController = UITabBarController()
+         tabbarController = UITabBarController()
+//        let tabbarController = UITabBarController()
         let firstTab = StatsViewController(nibName: "StatsViewController", bundle:  nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         let secondTab = CommunityViewController(nibName: "CommunityViewController", bundle: nil)
         let controllers = [firstTab,secondTab,thirdTab, fourthTab]
-        tabbarController.viewControllers = controllers
+        tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
         secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
         thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "storeGrey"), tag: 3)
@@ -31,29 +33,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
         
-        self.window?.rootViewController = tabbarController
+//        self.window?.rootViewController = tabbarController
         
-        self.client = MSClient(
-            applicationURLString:"https://testappname.azurewebsites.net/"
-        )
-
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let client = delegate.client!
-        let item = ["voornaam":"jimba"]
-        let itemTable = client.tableWithName("testUserEasyTableName")
+        let loginViewController = LoginViewController()
+        self.window?.rootViewController = loginViewController
         
-        itemTable.insert(item) {
-            (insertedItem, error) in
-            if (error != nil) {
-                print("Error" + error!.description);
-            } else {
-                if let itemString = insertedItem! ["voornaam"] {
-                print("This is \(itemString)")
-                    fourthTab.string = "\(itemString)"
-                    
-                }
-            }
-        }
+//        self.client = MSClient(
+//            applicationURLString:"https://testappname.azurewebsites.net/"
+//        )
+//
+//        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let client = delegate.client!
+//        let item = ["voornaam":"jimba"]
+//        let itemTable = client.tableWithName("testUserEasyTableName")
+//        
+//        itemTable.insert(item) {
+//            (insertedItem, error) in
+//            if (error != nil) {
+//                print("Error" + error!.description);
+//            } else {
+//                if let itemString = insertedItem! ["voornaam"] {
+//                print("This is \(itemString)")
+//                    fourthTab.string = "\(itemString)"
+//                    
+//                }
+//            }
+//        }
         
         return true
 
