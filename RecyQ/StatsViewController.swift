@@ -54,6 +54,14 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("removeBlurView:"), name: "removeBlurView", object: nil)
+        
+        
 //        navigationBar.tintColor = UIColor.greenColor()
 //        if let co2Saved = testUser.co2Saved {
 //        navigationBarTitle.title = "\(co2Saved)"
@@ -174,26 +182,34 @@ class StatsViewController: UIViewController {
     
     
     @IBAction func co2ButtonPressed(sender: UIButton) {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
         view.addSubview(blurEffectView)
         let co2ViewController = CO2ViewController()
         co2ViewController.view.backgroundColor = UIColor.clearColor()
-        co2ViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        
         co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
-     
+        
         self.presentViewController(co2ViewController, animated: true, completion: nil)
+      
     }
     
     @IBAction func recyQButtonPressed(sender: UIButton) {
+         view.addSubview(blurEffectView)
         let recyQTokenViewController = RecyQTokenViewController()
-        recyQTokenViewController .view.backgroundColor = UIColor.clearColor()
-        recyQTokenViewController .modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        recyQTokenViewController.view.backgroundColor = UIColor.clearColor()
+        recyQTokenViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         recyQTokenViewController.recyQTokenAmountLabel.text = self.tokenAmountLabel.text
-        self.presentViewController(recyQTokenViewController , animated: true, completion: nil)
+        self.presentViewController(recyQTokenViewController, animated: true, completion: nil)
     }
     
 
+    func removeBlurView(sender: NSNotification) {
+        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+            for subview in self.view.subviews as [UIView] {
+                if let blurEffectView = subview as? UIVisualEffectView {
+                    blurEffectView.removeFromSuperview()
+                }
+            }
+        }
+    }
 }

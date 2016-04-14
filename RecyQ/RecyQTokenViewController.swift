@@ -30,46 +30,24 @@ class RecyQTokenViewController: UIViewController {
 //        shopButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func xButtonPressed(sender: UIButton) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "removeBlurView", object:  self))
     }
     
     
     @IBAction func shopButtonPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
-//        let storeVC = StoreViewController()
-//        self.navigationController?.presentViewController(storeVC, animated: true, completion: nil)
-        print(self.tabBarController?.viewControllers)
         
-//       let storeVC = self.tabBarController!.viewControllers![2]
-//        
-//        navigationController?.pushViewController(storeVC, animated: true)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = appDelegate.tabbarController
+        appDelegate.tabbarController?.selectedIndex = 2
         
-        
-//        self.presentViewController(self.tabBarController!, animated: true, completion: nil)
-//
-//        self.parentViewController?.navigationController?.presentViewController(tabBarController!, animated: true, completion: nil)
-//        self.presentViewController(storeVC, animated: true, completion: nil)
-//        self.tabBarController?.selectedIndex = 2;
-//        self.presentViewController(tabBarController?.viewControllers![2] as! UIViewController!, animated: true, completion: nil)
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
