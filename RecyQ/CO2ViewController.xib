@@ -82,7 +82,7 @@
                             <rect key="frame" x="102" y="211" width="46" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="X">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="11O-Tf-lMg"/>

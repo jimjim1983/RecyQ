@@ -98,7 +98,7 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <state key="normal" title="X">
-                                        <color key="titleColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="M0b-hb-zye"/>
@@ -115,7 +115,7 @@
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVE-Xi-Yuh">
                                     <rect key="frame" x="76" y="0.0" width="46" height="30"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.002289477508" green="0.73276041660000002" blue="0.0077724803969999997" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="46" id="71t-OC-CQQ"/>
                                         <constraint firstAttribute="height" constant="30" id="SzS-bw-vOe"/>

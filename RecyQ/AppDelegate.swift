@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 
 @UIApplicationMain
@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var tabbarController: UITabBarController?
     var client: MSClient?
+    
+     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          tabbarController = UITabBarController()
@@ -36,7 +38,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window?.rootViewController = tabbarController
         
         let loginViewController = LoginViewController()
-        self.window?.rootViewController = loginViewController
+        
+        ref.observeAuthEventWithBlock { (authData) -> Void in
+            // 2
+            if authData != nil {
+                // 3
+                self.window?.rootViewController = self.tabbarController
+                
+            } else {
+                  self.window?.rootViewController = loginViewController
+            }
+        }
+        
+        
+      
         
 //        self.client = MSClient(
 //            applicationURLString:"https://testappname.azurewebsites.net/"

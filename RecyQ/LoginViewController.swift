@@ -28,10 +28,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(sender: AnyObject) {
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window?.rootViewController = appDelegate.tabbarController
+                
 
         })
+        
+        ref.observeAuthEventWithBlock { (authData) -> Void in
+            // 2
+            if authData != nil {
+                // 3
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.window?.rootViewController = appDelegate.tabbarController
+            }
+        }
 //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //        appDelegate.window?.rootViewController = appDelegate.tabbarController
     }

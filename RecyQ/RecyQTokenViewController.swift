@@ -37,6 +37,9 @@ class RecyQTokenViewController: UIViewController {
         recyQTokenView.backgroundColor = UIColor.whiteColor()
 
         shopButton.layer.cornerRadius = 10
+        shopButton.layer.shadowRadius = 10;
+        shopButton.layer.shadowOpacity = 0.1;
+
        
     }
     
