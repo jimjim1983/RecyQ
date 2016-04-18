@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class StatsViewController: UIViewController {
+    
+    let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    
+    let usersRef = Firebase(url: "https://recyqdb.firebaseio.com/online")
+    
+    var user: User!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -116,6 +123,14 @@ class StatsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+// code to retrieve data from Firebase & then synchronize data to populate the Stats view.
+        
+//        ref.observeEventType(.Value, withBlock: { snapshot in
+//            print(snapshot.value)
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
+        
         blurEffectView.removeFromSuperview()
         
         scrollView.setContentOffset(CGPointMake(0,0), animated: true)
@@ -141,6 +156,22 @@ class StatsViewController: UIViewController {
         
          NSTimer.scheduledTimerWithTimeInterval(1.25, target: self, selector: "slideBiowasteView", userInfo: nil, repeats: false)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+
+//        ref.observeAuthEventWithBlock { authData in
+//            if authData != nil {
+//                self.user = User(authData: authData)
+//                // 1
+//                let currentUserRef = self.usersRef.childByAppendingPath(self.user.uid)
+//                // 2
+//                currentUserRef.setValue(self.user.email)
+//                // 3
+//                currentUserRef.onDisconnectRemoveValue()
+//            }
+//        }
     }
     
     

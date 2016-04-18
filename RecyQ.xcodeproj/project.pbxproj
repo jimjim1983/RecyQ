@@ -159,8 +159,6 @@
 				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
 				F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */,
 				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
-				A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */,
-				A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */,
 				A6A5959D1CA023D400A120C1 /* Main.storyboard */,
 				A6A595A01CA023D400A120C1 /* Assets.xcassets */,
 				A6A595A21CA023D400A120C1 /* LaunchScreen.storyboard */,
@@ -233,6 +231,8 @@
 				A6A595D01CA0352D00A120C1 /* StoreViewController.xib */,
 				A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */,
 				A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */,
+				A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */,
+				A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

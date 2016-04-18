@@ -23,6 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textFieldLoginEmail.delegate = self
         textFieldLoginPassword.delegate = self
         // Do any additional setup after loading the view.
+        // login
+        //hello
+        
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
