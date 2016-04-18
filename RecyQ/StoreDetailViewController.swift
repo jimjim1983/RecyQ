@@ -12,6 +12,7 @@ class StoreDetailViewController: UIViewController {
     
     var storeItem: StoreItem!
     
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var image: UIImageView!
