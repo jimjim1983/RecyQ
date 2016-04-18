@@ -38,16 +38,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Duy-tJ-fxt">
-                    <rect key="frame" x="5" y="22" width="590" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="60" id="3ut-RB-5X9"/>
                         <constraint firstAttribute="height" constant="44" id="pOK-qX-a3f"/>
                     </constraints>
                     <items>
                         <navigationItem title="Title" id="WVz-GG-Pma"/>
                     </items>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="pOK-qX-a3f"/>
+                        </mask>
+                    </variation>
                 </navigationBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBo-mC-i3x">
-                    <rect key="frame" x="0.0" y="66" width="600" height="596"/>
+                    <rect key="frame" x="0.0" y="60" width="600" height="602"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOC-9d-72e">
                             <rect key="frame" x="10" y="109" width="580" height="89"/>
@@ -725,13 +731,20 @@
                 <constraint firstItem="bBo-mC-i3x" firstAttribute="centerX" secondItem="Duy-tJ-fxt" secondAttribute="centerX" id="LgT-mj-F79"/>
                 <constraint firstItem="Duy-tJ-fxt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="MC2-E3-zFG"/>
                 <constraint firstAttribute="bottom" secondItem="bBo-mC-i3x" secondAttribute="bottom" constant="60" id="P2x-Hi-4kp"/>
+                <constraint firstItem="Duy-tJ-fxt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="V5W-KT-cgh"/>
                 <constraint firstItem="bBo-mC-i3x" firstAttribute="top" secondItem="Duy-tJ-fxt" secondAttribute="bottom" id="WHt-tR-yBa"/>
                 <constraint firstItem="bBo-mC-i3x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bpd-di-J1K"/>
                 <constraint firstItem="cu8-Mc-BjP" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="g8B-Pv-BBe"/>
                 <constraint firstItem="Duy-tJ-fxt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hvH-ug-r77"/>
-                <constraint firstItem="Duy-tJ-fxt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="p3L-dA-6WR"/>
+                <constraint firstItem="Duy-tJ-fxt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p3L-dA-6WR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="IB5-DO-Ebu"/>
+                    <exclude reference="MC2-E3-zFG"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="368" y="373.5"/>
         </view>
     </objects>

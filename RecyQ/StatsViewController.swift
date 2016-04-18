@@ -68,6 +68,12 @@ class StatsViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("removeBlurView:"), name: "removeBlurView", object: nil)
         
+        UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
+            
+          
+        
+
+        
         
 //        navigationBar.tintColor = UIColor.greenColor()
 //        if let co2Saved = testUser.co2Saved {

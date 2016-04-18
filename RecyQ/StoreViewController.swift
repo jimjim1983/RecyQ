@@ -19,6 +19,8 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var storeItem3 = StoreItem(storeItemName: "10% korting bij de aanschaf van vintage kleding/schoenen in de RecyQ Store", storeItemDescription: "1 CO2 token geeft recht op 10% korting bij de aanschaf van vintage kleding/schoenen in de RecyQ Store.", storeItemImage: "clothingStore", storeItemPrice: 1)
     var storeItem4 = StoreItem(storeItemName: "Doneer aan het Buurtafvalfonds", storeItemDescription: "Doneer CO2 token aan het Buurtafvalfonds voor ondersteuning van buurtactiviteiten.", storeItemImage: "buurtactiviteitStore", storeItemPrice: 1)
 
+    @IBOutlet weak var numberOfTokensLabel: UILabel!
+    
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -38,6 +40,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        numberOfTokensLabel.text = "4"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
