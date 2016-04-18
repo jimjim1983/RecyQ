@@ -11,16 +11,23 @@ import UIKit
 class RecyQTokenViewController: UIViewController {
 
     @IBOutlet weak var recyQTokenAmountLabel: UILabel!
-    
-    @IBOutlet weak var shopButton: UIButton!
    
     @IBOutlet weak var xButton: UIButton!
 
+    @IBOutlet weak var borderView: UIView!
     
     @IBOutlet weak var recyQTokenView: UIView!
     
+    @IBOutlet weak var shopButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        borderView.layer.cornerRadius = 33;
+        borderView.layer.shadowRadius = 10;
+        borderView.layer.shadowOpacity = 0.2;
+        borderView.layer.shadowOffset = CGSizeMake(1, 1)
+        borderView.layer.shadowPath = UIBezierPath(roundedRect: borderView.bounds, cornerRadius: 33.0).CGPath
         
         recyQTokenView.layer.cornerRadius = 33;
         recyQTokenView.layer.shadowRadius = 10;
@@ -30,37 +37,29 @@ class RecyQTokenViewController: UIViewController {
         recyQTokenView.backgroundColor = UIColor.whiteColor()
 
         shopButton.layer.cornerRadius = 10
-        // Do any additional setup after loading the view.
-    }
+        shopButton.layer.shadowRadius = 10;
+        shopButton.layer.shadowOpacity = 0.1;
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
     @IBAction func xButtonPressed(sender: UIButton) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "removeBlurView", object:  self))
     }
     
     
     @IBAction func shopButtonPressed(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
-        let storeVC = StoreViewController()
-        self.presentViewController(storeVC, animated: true, completion: nil)
-//        self.tabBarController?.selectedIndex = 2;
-//        self.presentViewController(tabBarController?.viewControllers![2] as! UIViewController!, animated: true, completion: nil)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = appDelegate.tabbarController
+        appDelegate.tabbarController?.selectedIndex = 2
+        
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
