@@ -37,7 +37,7 @@ class StoreDetailViewController: UIViewController {
     @IBAction func redeemToken(sender: UIButton) {
         
     let statsViewController = StatsViewController()
-    var startNumberOfTokens = statsViewController.testUser.amountOfTokens
+//    var startNumberOfTokens = statsViewController.testUser.amountOfTokens
     // var subtractor = cost of item
     // var endNumberOfTokens = int
     // let endNumberOfTokens = startNumberOfTokens - subtractor

@@ -9,7 +9,11 @@
 import UIKit
 import Firebase
 
+    var username: String?
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    var users = [User]()
     
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     
@@ -52,15 +56,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: "Sign up for a new RecyQ account.", message: "", preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action: UIAlertAction) -> Void in
-            let emailField = alert.textFields![0]
-            let passwordField = alert.textFields![1]
+            let usernameField = alert.textFields![0]
+            let emailField = alert.textFields![1]
+            let passwordField = alert.textFields![2]
             
             self.ref.createUser(emailField.text, password: passwordField.text) { (error: NSError!) in
-                
+            
                 if error == nil {
                     
+                    let user = User(name: usernameField.text!, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0)
+                    let userRef = self.ref.childByAppendingPath(usernameField.text!.lowercaseString)
+                    userRef.setValue(user.toAnyObject())
+                    username = usernameField.text
+                    let statsVC = StatsViewController()
+//                    username = statsVC.username
+                    print(username)
+//                    print(statsVC.username)
+                    
                     self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
-                        
                     })
                 }
             }
@@ -68,6 +81,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action: UIAlertAction) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler { (textUsername) -> Void in
+            textUsername.placeholder = "Enter your username"
         }
         
         alert.addTextFieldWithConfigurationHandler { (textEmail) -> Void in

@@ -17,6 +17,8 @@ class StatsViewController: UIViewController {
     
     var user: User!
     
+    //var username: String?
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var paperView: UIView!
@@ -56,10 +58,12 @@ class StatsViewController: UIViewController {
     
     var blurEffectView = UIVisualEffectView()
     
-    var testUser = User(username: "Jimsalabim", userID: "A0123131", password: "hallo", amountOfPlastic: 0.4, amountOfPaper: 0.9, amountOfTextile: 1.4, amountOfIron: 32.1, amountOfEWaste: 0.2, amountOfBioWaste: 120.3, amountOfTokens: 4)
+    var testUser = User(name: "Jimsalabim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         self.blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -73,7 +77,12 @@ class StatsViewController: UIViewController {
 //        if let co2Saved = testUser.co2Saved {
 //        navigationBarTitle.title = "\(co2Saved)"
 //        }
-        navigationBarTitle.title = "RecyQ"
+        navigationBarTitle.title = username
+        if let usernameVar = username {
+            navigationBarTitle.title = "\(usernameVar)"
+            print("\(usernameVar)")
+        }
+        
         
 // if you want to make the nav bar title green
 //        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)]
