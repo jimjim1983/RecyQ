@@ -24,6 +24,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     
     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    let clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         
                          user = User(name: usernameField.text!.lowercaseString, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: auth.uid)
                         
-                        let userRef = self.ref.childByAppendingPath(user!.name)
+                        let userRef = self.clientsRef.childByAppendingPath(user!.name)
                         userRef.setValue(user!.toAnyObject())
                         
                         if let newUserName = user!.name {
