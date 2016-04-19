@@ -17,7 +17,7 @@ class StatsViewController: UIViewController {
     
     var user: User!
     
-    //var username: String?
+    var username: String?
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -58,7 +58,7 @@ class StatsViewController: UIViewController {
     
     var blurEffectView = UIVisualEffectView()
     
-    var testUser = User(name: "Jimsalabim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0)
+    var testUser = User(name: "Jimsalabim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: "0")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +137,8 @@ class StatsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+   
         
 // code to retrieve data from Firebase & then synchronize data to populate the Stats view.
         

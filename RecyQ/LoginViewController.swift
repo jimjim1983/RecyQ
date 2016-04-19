@@ -9,11 +9,15 @@
 import UIKit
 import Firebase
 
-    var username: String?
-
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    var username: String?
+    
     var users = [User]()
+    
+    var user: User?
+    
+    var userUID: String?
     
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     
@@ -35,7 +39,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(sender: AnyObject) {
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
-                
+            
+                self.userUID = auth.uid
 
         })
         
@@ -64,17 +69,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
                 if error == nil {
                     
-                    let user = User(name: usernameField.text!, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0)
-                    let userRef = self.ref.childByAppendingPath(usernameField.text!.lowercaseString)
-                    userRef.setValue(user.toAnyObject())
-                    username = usernameField.text
-                    let statsVC = StatsViewController()
-//                    username = statsVC.username
-                    print(username)
-//                    print(statsVC.username)
-                    
                     self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
+                        
+                         self.user = User(name: usernameField.text!.lowercaseString, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: auth.uid)
+                        
+                        let userRef = self.ref.childByAppendingPath(self.user!.name)
+                        userRef.setValue(self.user!.toAnyObject())
+                        
+                        if let newUserName = self.user!.name {
+                            self.username = newUserName
+                            print(self.username)
+                            
+                        }
+                        
+                        self.userUID = auth.uid
+                        print(self.userUID)
+                        print(self.user?.uid)
                     })
+
+                    
+                    print(self.user)
+                    print("hello \(self.user)")
+                    
                 }
             }
 
