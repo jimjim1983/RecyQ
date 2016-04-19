@@ -9,13 +9,13 @@
 import UIKit
 import Firebase
 
+var user: User?
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var username: String?
     
     var users = [User]()
-    
-    var user: User?
     
     var userUID: String?
     
@@ -39,10 +39,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(sender: AnyObject) {
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
-            
-                self.userUID = auth.uid
-
+                
+                self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    let snapshotName = snapshot.key
+                    
+                    let name = snapshot.value.objectForKey("name") as? String
+                    let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
+                    var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
+                    let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
+                    let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
+                    let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
+                    let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
+                    let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
+                    let completed = snapshot.value.objectForKey("completed") as? Bool
+                    let uid = snapshot.value.objectForKey("uid") as? String
+                    
+                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
+                    
+                    print(user)
+                    
+                } )
         })
+        
+       
         
         ref.observeAuthEventWithBlock { (authData) -> Void in
             // 2
@@ -71,12 +91,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
                         
-                         self.user = User(name: usernameField.text!.lowercaseString, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: auth.uid)
+                         user = User(name: usernameField.text!.lowercaseString, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: auth.uid)
                         
-                        let userRef = self.ref.childByAppendingPath(self.user!.name)
-                        userRef.setValue(self.user!.toAnyObject())
+                        let userRef = self.ref.childByAppendingPath(user!.name)
+                        userRef.setValue(user!.toAnyObject())
                         
-                        if let newUserName = self.user!.name {
+                        if let newUserName = user!.name {
                             self.username = newUserName
                             print(self.username)
                             
@@ -84,12 +104,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         
                         self.userUID = auth.uid
                         print(self.userUID)
-                        print(self.user?.uid)
+                        print(user?.uid)
+                        print("WOOHOO \(self.ref.queryEqualToValue(user?.uid))")
                     })
 
                     
-                    print(self.user)
-                    print("hello \(self.user)")
+                    print(user)
+                    print("hello \(user)")
                     
                 }
             }

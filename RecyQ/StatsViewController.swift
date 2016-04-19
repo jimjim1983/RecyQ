@@ -15,7 +15,7 @@ class StatsViewController: UIViewController {
     
     let usersRef = Firebase(url: "https://recyqdb.firebaseio.com/online")
     
-    var user: User!
+//    var user: User!
     
     var username: String?
     
@@ -63,7 +63,53 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref.observeAuthEventWithBlock { authData in
+           if self.ref.authData != nil {
+            
+            self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                
+                let snapshotName = snapshot.key
+                
+                let name = snapshot.value.objectForKey("name") as? String
+                let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
+                var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
+                let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
+                let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
+                let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
+                let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
+                let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
+                let completed = snapshot.value.objectForKey("completed") as? Bool
+                let uid = snapshot.value.objectForKey("uid") as? String
+                
+                user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
+                
+                print(user)
 
+                if let plastic = user!.amountOfPlastic {
+                    self.plasticLabel.text = "\(plastic)"
+                }
+                if let paper = user!.amountOfPaper {
+                    self.paperLabel.text = "\(paper)"
+                }
+                if let textile = user!.amountOfTextile {
+               self.textileLabel.text = "\(textile)"
+                }
+                if let iron = user!.amountOfIron {
+                    self.ironLabel.text = "\(iron)"
+                }
+                if let eWaste = user!.amountOfEWaste {
+                    self.eWasteLabel.text = "\(eWaste)"
+                }
+                if let bioWaste = user!.amountOfBioWaste {
+               self.bioWasteLabel.text = "\(bioWaste)"
+                }
+                
+            
+            
+            
+            })
+            }
+        }
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         self.blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -115,24 +161,24 @@ class StatsViewController: UIViewController {
         tokenAmountLabel.text = "\(Int(tokenAmount))"
         
 //        userIDLabel.text = testUser.userID
-        if let plastic = testUser.amountOfPlastic {
-            plasticLabel.text = "\(plastic)"
-        }
-        if let paper = testUser.amountOfPaper {
-            paperLabel.text = "\(paper)"
-        }
-        if let textile = testUser.amountOfTextile {
-            textileLabel.text = "\(textile)"
-        }
-        if let iron = testUser.amountOfIron {
-            ironLabel.text = "\(iron)"
-        }
-        if let eWaste = testUser.amountOfEWaste {
-            eWasteLabel.text = "\(eWaste)"
-        }
-        if let bioWaste = testUser.amountOfBioWaste {
-            bioWasteLabel.text = "\(bioWaste)"
-        }
+//        if let plastic = user!.amountOfPlastic {
+//            plasticLabel.text = "\(plastic)"
+//        }
+//        if let paper = user!.amountOfPaper {
+//            paperLabel.text = "\(paper)"
+//        }
+//        if let textile = user!.amountOfTextile {
+//            textileLabel.text = "\(textile)"
+//        }
+//        if let iron = user!.amountOfIron {
+//            ironLabel.text = "\(iron)"
+//        }
+//        if let eWaste = user!.amountOfEWaste {
+//            eWasteLabel.text = "\(eWaste)"
+//        }
+//        if let bioWaste = user!.amountOfBioWaste {
+//            bioWasteLabel.text = "\(bioWaste)"
+//        }
 
     }
     
