@@ -8,8 +8,11 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class ProfileViewController: UIViewController, MKMapViewDelegate {
+    
+     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
     
     @IBOutlet weak var naamLabel: UILabel!
     
@@ -24,6 +27,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     var string: String!
     
 
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +56,16 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     
 //When you click on map, open in Maps.
 
+    @IBAction func logoutButtonPressed(sender: UIButton) {
+        
+        ref.unauth()
+        let loginVC = LoginViewController()
+//        self.presentViewController(loginVC, animated: true, completion: nil)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = loginVC
+        
+        
+    }
 
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {

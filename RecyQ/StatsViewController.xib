@@ -44,7 +44,7 @@
                         <constraint firstAttribute="height" constant="44" id="pOK-qX-a3f"/>
                     </constraints>
                     <items>
-                        <navigationItem title="Title" id="WVz-GG-Pma"/>
+                        <navigationItem title="RecyQ" id="WVz-GG-Pma"/>
                     </items>
                     <variation key="default">
                         <mask key="constraints">

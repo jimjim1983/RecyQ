@@ -71,6 +71,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // 3
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.window?.rootViewController = appDelegate.tabbarController
+                appDelegate.tabbarController?.selectedIndex = 0
             }
         }
 //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

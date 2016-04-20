@@ -129,11 +129,11 @@ class StatsViewController: UIViewController {
 //        if let co2Saved = testUser.co2Saved {
 //        navigationBarTitle.title = "\(co2Saved)"
 //        }
-        navigationBarTitle.title = username
-        if let usernameVar = username {
-            navigationBarTitle.title = "\(usernameVar)"
-            print("\(usernameVar)")
-        }
+//        navigationBarTitle.title = username
+//        if let usernameVar = username {
+//            navigationBarTitle.title = "\(usernameVar)"
+//            print("\(usernameVar)")
+//        }
         
         
 // if you want to make the nav bar title green

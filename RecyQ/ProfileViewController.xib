@@ -10,6 +10,7 @@
                 <outlet property="adresLabel" destination="O4f-cN-noZ" id="fdk-mo-Z7g"/>
                 <outlet property="emailLabel" destination="brd-pV-RAk" id="w9q-nD-zub"/>
                 <outlet property="idLabel" destination="LGz-4v-1Mj" id="idq-og-bxD"/>
+                <outlet property="logoutButton" destination="pac-CJ-rRb" id="fSz-gg-3YL"/>
                 <outlet property="mapView" destination="mJZ-xT-QlC" id="CYr-Qu-chj"/>
                 <outlet property="naamLabel" destination="IGP-sQ-TAq" id="Hz3-Ka-e51"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -106,6 +107,17 @@
                         <navigationItem title="Profiel" id="VaU-AU-Xyt"/>
                     </items>
                 </navigationBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pac-CJ-rRb">
+                    <rect key="frame" x="251.5" y="108" width="97" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="97" id="2Hk-Ax-R6J"/>
+                        <constraint firstAttribute="height" constant="30" id="Qd1-3R-KUz"/>
+                    </constraints>
+                    <state key="normal" title="Logout"/>
+                    <connections>
+                        <action selector="logoutButtonPressed:" destination="-1" eventType="touchUpInside" id="dvV-fT-vLT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -124,13 +136,16 @@
                 <constraint firstItem="mJZ-xT-QlC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HQv-By-Y7h"/>
                 <constraint firstItem="IGP-sQ-TAq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="Jhg-g1-dF9"/>
                 <constraint firstItem="brd-pV-RAk" firstAttribute="centerX" secondItem="IGP-sQ-TAq" secondAttribute="centerX" id="KuG-CW-kAN"/>
+                <constraint firstItem="pac-CJ-rRb" firstAttribute="top" secondItem="brd-pV-RAk" secondAttribute="bottom" constant="22" id="NEZ-63-8Eb"/>
                 <constraint firstItem="IGP-sQ-TAq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NVu-dx-4hZ"/>
+                <constraint firstItem="pac-CJ-rRb" firstAttribute="top" secondItem="brd-pV-RAk" secondAttribute="bottom" constant="22" id="OOh-7c-W17"/>
                 <constraint firstItem="O4f-cN-noZ" firstAttribute="trailing" secondItem="LGz-4v-1Mj" secondAttribute="trailing" id="OPK-5G-qgA"/>
                 <constraint firstItem="IGP-sQ-TAq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OhV-Cd-uKJ"/>
                 <constraint firstItem="IGP-sQ-TAq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P6g-3l-kcW"/>
                 <constraint firstItem="O4f-cN-noZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PBK-ws-TFU"/>
                 <constraint firstAttribute="trailing" secondItem="mc1-Sw-xo3" secondAttribute="trailing" id="Pa8-fK-woI"/>
                 <constraint firstAttribute="trailing" secondItem="O4f-cN-noZ" secondAttribute="trailing" id="T4o-is-TwZ"/>
+                <constraint firstItem="pac-CJ-rRb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TXm-WH-g8s"/>
                 <constraint firstItem="mc1-Sw-xo3" firstAttribute="top" secondItem="HoT-ra-ldq" secondAttribute="bottom" id="TZa-BT-RYx"/>
                 <constraint firstItem="IGP-sQ-TAq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="V7X-H4-BlK"/>
                 <constraint firstItem="jn3-3o-GBs" firstAttribute="top" secondItem="mc1-Sw-xo3" secondAttribute="bottom" id="Vuf-dB-fJU"/>
