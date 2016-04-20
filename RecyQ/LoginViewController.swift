@@ -47,6 +47,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
                 
+                if (error != nil) {
+                    // an error occurred while attempting login
+                    if let errorCode = FAuthenticationError(rawValue: error.code) {
+                        switch (errorCode) {
+                        case .UserDoesNotExist:
+                            print("Handle invalid user")
+                        case .InvalidEmail:
+                            print("Handle invalid email")
+                        case .InvalidPassword:
+                            print("Handle invalid password")
+                        default:
+                            print("Handle default situation")
+                        }}}
+
+                        else {
+                            
+                        
                 self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     let snapshotName = snapshot.key
@@ -79,8 +96,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 appDelegate.tabbarController?.selectedIndex = 0
             }
         }
+<<<<<<< HEAD
         }}
+=======
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = appDelegate.tabbarController
+                }})}}
+>>>>>>> a5248b5fc27633dd542ca24eee90b5ecbe50a4ae
     
+        
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Sign up for a new RecyQ account.", message: "", preferredStyle: .Alert)
