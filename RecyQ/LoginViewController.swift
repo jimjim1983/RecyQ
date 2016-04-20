@@ -43,6 +43,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             
         } else {
+            
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
                 
@@ -78,8 +79,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 appDelegate.tabbarController?.selectedIndex = 0
             }
         }
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        appDelegate.window?.rootViewController = appDelegate.tabbarController
         }}
     
     
