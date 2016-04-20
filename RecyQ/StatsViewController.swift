@@ -63,53 +63,6 @@ class StatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ref.observeAuthEventWithBlock { authData in
-           if self.ref.authData != nil {
-            
-            self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
-                
-                let snapshotName = snapshot.key
-                
-                let name = snapshot.value.objectForKey("name") as? String
-                let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
-                var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
-                let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
-                let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
-                let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
-                let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
-                let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
-                let completed = snapshot.value.objectForKey("completed") as? Bool
-                let uid = snapshot.value.objectForKey("uid") as? String
-                
-                user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
-                
-                print(user)
-
-                if let plastic = user!.amountOfPlastic {
-                    self.plasticLabel.text = "\(plastic)"
-                }
-                if let paper = user!.amountOfPaper {
-                    self.paperLabel.text = "\(paper)"
-                }
-                if let textile = user!.amountOfTextile {
-               self.textileLabel.text = "\(textile)"
-                }
-                if let iron = user!.amountOfIron {
-                    self.ironLabel.text = "\(iron)"
-                }
-                if let eWaste = user!.amountOfEWaste {
-                    self.eWasteLabel.text = "\(eWaste)"
-                }
-                if let bioWaste = user!.amountOfBioWaste {
-               self.bioWasteLabel.text = "\(bioWaste)"
-                }
-                
-            
-            
-            
-            })
-            }
-        }
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         self.blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -184,15 +137,56 @@ class StatsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-   
-        
-// code to retrieve data from Firebase & then synchronize data to populate the Stats view.
-        
-//        ref.observeEventType(.Value, withBlock: { snapshot in
-//            print(snapshot.value)
-//            }, withCancelBlock: { error in
-//                print(error.description)
-//        })
+        ref.observeAuthEventWithBlock { authData in
+            if self.ref.authData != nil {
+                
+                self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    let snapshotName = snapshot.key
+                    
+                    let name = snapshot.value.objectForKey("name") as? String
+                    let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
+                    var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
+                    let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
+                    let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
+                    let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
+                    let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
+                    let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
+                    let completed = snapshot.value.objectForKey("completed") as? Bool
+                    let uid = snapshot.value.objectForKey("uid") as? String
+                    
+                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
+                    
+                    print(user)
+                    
+                    if let plastic = user!.amountOfPlastic {
+                        self.plasticLabel.text = "\(plastic)"
+                        print(plastic)
+                    }
+                    if let paper = user!.amountOfPaper {
+                        self.paperLabel.text = "\(paper)"
+                        print(paper)
+                    }
+                    if let textile = user!.amountOfTextile {
+                        self.textileLabel.text = "\(textile)"
+                        print(textile)
+                    }
+                    if let iron = user!.amountOfIron {
+                        self.ironLabel.text = "\(iron)"
+                        print(iron)
+                    }
+                    if let eWaste = user!.amountOfEWaste {
+                        self.eWasteLabel.text = "\(eWaste)"
+                        print(eWaste)
+                    }
+                    if let bioWaste = user!.amountOfBioWaste {
+                        self.bioWasteLabel.text = "\(bioWaste)"
+                        print(bioWaste)
+                    }
+                    
+                })
+            }
+        }
         
         blurEffectView.removeFromSuperview()
         
