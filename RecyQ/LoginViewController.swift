@@ -46,6 +46,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
                 
+                if (error != nil) {
+                    // an error occurred while attempting login
+                    if let errorCode = FAuthenticationError(rawValue: error.code) {
+                        switch (errorCode) {
+                        case .UserDoesNotExist:
+                            print("Handle invalid user")
+                        case .InvalidEmail:
+                            print("Handle invalid email")
+                        case .InvalidPassword:
+                            print("Handle invalid password")
+                        default:
+                            print("Handle default situation")
+                        }}}
+
+                        else {
+                            
+                        
                 self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     let snapshotName = snapshot.key
@@ -64,12 +81,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     print(user)
                     
-                } )
-        })
-        
-       
-        
-        ref.observeAuthEventWithBlock { (authData) -> Void in
+                            })
+                        
+        self.ref.observeAuthEventWithBlock { (authData) -> Void in
             // 2
             if authData != nil {
                 // 3
@@ -80,8 +94,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
 //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //        appDelegate.window?.rootViewController = appDelegate.tabbarController
-        }}
+                }})}}
     
+        
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let alert = UIAlertController(title: "Sign up for a new RecyQ account.", message: "", preferredStyle: .Alert)
