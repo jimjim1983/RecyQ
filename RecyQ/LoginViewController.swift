@@ -38,13 +38,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
+        
+        if textFieldLoginEmail.text == "" || textFieldLoginPassword.text == "" {
+            
+            
+        } else {
         ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
             withCompletionBlock: { (error, auth) in
                 
                 self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
                     let snapshotName = snapshot.key
-                    
                     let name = snapshot.value.objectForKey("name") as? String
                     let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
                     var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
@@ -76,7 +80,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
 //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //        appDelegate.window?.rootViewController = appDelegate.tabbarController
-    }
+        }}
     
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
