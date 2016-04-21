@@ -43,66 +43,59 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             
         } else {
-            
-        ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
-            withCompletionBlock: { (error, auth) in
-                
-                if (error != nil) {
-                    // an error occurred while attempting login
-                    if let errorCode = FAuthenticationError(rawValue: error.code) {
-                        switch (errorCode) {
-                        case .UserDoesNotExist:
-                            print("Handle invalid user")
-                        case .InvalidEmail:
-                            print("Handle invalid email")
-                        case .InvalidPassword:
-                            print("Handle invalid password")
-                        default:
-                            print("Handle default situation")
-                        }}}
-
-                        else {
+            ref.authUser(textFieldLoginEmail.text, password: textFieldLoginPassword.text,
+                         withCompletionBlock: { (error, auth) in
                             
-                        
-                self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
-                    
-                    let snapshotName = snapshot.key
-                    let name = snapshot.value.objectForKey("name") as? String
-                    let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
-                    var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
-                    let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
-                    let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
-                    let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
-                    let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
-                    let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
-                    let completed = snapshot.value.objectForKey("completed") as? Bool
-                    let uid = snapshot.value.objectForKey("uid") as? String
-                    
-                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
-                    
-                    print(user)
-                    
-                } )
-        })
-        
-       
-        
-        ref.observeAuthEventWithBlock { (authData) -> Void in
-            // 2
-            if authData != nil {
-                // 3
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window?.rootViewController = appDelegate.tabbarController
-                appDelegate.tabbarController?.selectedIndex = 0
-            }
-        }
-<<<<<<< HEAD
-        }}
-=======
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        appDelegate.window?.rootViewController = appDelegate.tabbarController
-                }})}}
->>>>>>> a5248b5fc27633dd542ca24eee90b5ecbe50a4ae
+                            if (error != nil) {
+                                // an error occurred while attempting login
+                                if let errorCode = FAuthenticationError(rawValue: error.code) {
+                                    switch (errorCode) {
+                                    case .UserDoesNotExist:
+                                        print("Handle invalid user")
+                                    case .InvalidEmail:
+                                        print("Handle invalid email")
+                                    case .InvalidPassword:
+                                        print("Handle invalid password")
+                                    default:
+                                        print("Handle default situation")
+                                    }}}
+                                
+                            else {
+                                
+                                
+                                self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                                    
+                                    let snapshotName = snapshot.key
+                                    let name = snapshot.value.objectForKey("name") as? String
+                                    let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
+                                    var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
+                                    let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
+                                    let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
+                                    let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
+                                    let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
+                                    let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
+                                    let completed = snapshot.value.objectForKey("completed") as? Bool
+                                    let uid = snapshot.value.objectForKey("uid") as? String
+                                    
+                                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
+                                    
+                                    print(user)
+                                    
+                                })
+                                
+                                self.ref.observeAuthEventWithBlock { (authData) -> Void in
+                                    // 2
+                                    if authData != nil {
+                                        // 3
+                                        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                                        appDelegate.window?.rootViewController = appDelegate.tabbarController
+                                        appDelegate.tabbarController?.selectedIndex = 0
+                                    }
+                                }
+                                //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                                //        appDelegate.window?.rootViewController = appDelegate.tabbarController
+                            }})}}
+
     
         
     
