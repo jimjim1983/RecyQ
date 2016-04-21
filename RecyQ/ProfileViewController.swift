@@ -33,6 +33,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         mapView.delegate = self
         
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
@@ -47,8 +49,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         mapView.addAnnotation(recyQAnnotation)
         
-        print("This is still \(string)")
-        emailLabel.text = string
+        emailLabel.text = user?.name
 
         
         // Do any additional setup after loading the view.
