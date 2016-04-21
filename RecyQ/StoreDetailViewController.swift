@@ -28,6 +28,8 @@ class StoreDetailViewController: UIViewController {
         image.image = storeItem.storeItemImage
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
+        
+        self.navigationItem.title = "Redeem"
     }
     
     func navigateBack() {
