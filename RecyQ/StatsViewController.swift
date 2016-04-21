@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+    var numberOfTokens: Int!
+
 class StatsViewController: UIViewController {
     
     let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients")
@@ -52,16 +54,20 @@ class StatsViewController: UIViewController {
 
     var co2Amount: Double!
     
-    var afvalAmount: Double!
+    var totalWasteAmount: Double!
     
     var tokenAmount: Double!
     
     var blurEffectView = UIVisualEffectView()
     
-    var testUser = User(name: "Jimsalabim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: "0")
+//    var testUser = User(name: "Jimsalabim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: "0", spentCoins: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        numberOfTokens = 0
+//        tokenAmount = 0
+        
 
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
@@ -103,15 +109,7 @@ class StatsViewController: UIViewController {
 //        tokenAmountLabel.text = "\(tokenAmount)"
 //        }
         
-        afvalAmount = testUser.amountOfPlastic! + testUser.amountOfPaper! + testUser.amountOfTextile! + testUser.amountOfIron! + testUser.amountOfEWaste! + testUser.amountOfBioWaste!
-        
-        tokenAmount = round(afvalAmount/35)
-        
-        co2Amount = (round((afvalAmount/35) * 50))
-        
-        co2AmountLabel.text = "\(Int(co2Amount)) kg"
-        
-        tokenAmountLabel.text = "\(Int(tokenAmount))"
+
         
 //        userIDLabel.text = testUser.userID
 //        if let plastic = user!.amountOfPlastic {
@@ -154,8 +152,9 @@ class StatsViewController: UIViewController {
                     let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
                     let completed = snapshot.value.objectForKey("completed") as? Bool
                     let uid = snapshot.value.objectForKey("uid") as? String
+                    let spentCoins = snapshot.value.objectForKey("spentCoins") as? Int
                     
-                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
+                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins:  spentCoins!)
                     
                     print(user)
                     
@@ -184,9 +183,23 @@ class StatsViewController: UIViewController {
                         print(bioWaste)
                     }
                     
+                    self.totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+                    
+                    self.tokenAmount = round(self.totalWasteAmount/35)
+                    
+                    self.co2Amount = (round((self.totalWasteAmount/35) * 50))
+                    
+                    numberOfTokens = (Int(self.tokenAmount))
+                    
+                    self.co2AmountLabel.text = "\(Int(self.co2Amount)) kg"
+                    
+                    self.tokenAmountLabel.text = "\(numberOfTokens)"
+
+                    
                 })
             }
         }
+        
         
         blurEffectView.removeFromSuperview()
         
@@ -213,10 +226,13 @@ class StatsViewController: UIViewController {
         
          NSTimer.scheduledTimerWithTimeInterval(1.25, target: self, selector: "slideBiowasteView", userInfo: nil, repeats: false)
         
+
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         
+
 
 //        ref.observeAuthEventWithBlock { authData in
 //            if authData != nil {
