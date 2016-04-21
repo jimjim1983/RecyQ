@@ -11,7 +11,7 @@ import Firebase
 
 class StatsViewController: UIViewController {
     
-    let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients")
     
     let usersRef = Firebase(url: "https://recyqdb.firebaseio.com/online")
     
