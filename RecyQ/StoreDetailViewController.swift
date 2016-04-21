@@ -12,6 +12,7 @@ class StoreDetailViewController: UIViewController {
     
     var storeItem: StoreItem!
     
+    @IBOutlet weak var price: UILabel!
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -26,6 +27,7 @@ class StoreDetailViewController: UIViewController {
         descriptionLabel.text = storeItem.storeItemDescription
         descriptionLabel.numberOfLines = 0
         image.image = storeItem.storeItemImage
+        price.text = "Cost: \(storeItem.storeItemPrice) tokens"
         
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
@@ -39,7 +41,35 @@ class StoreDetailViewController: UIViewController {
     
     @IBAction func redeemToken(sender: UIButton) {
         
+//        
+//       
+//            
+//            let name = groceryItem.name
+//            ref = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
+//            
+//            let amountOfPlastic = groceryItem.amountOfPlastic + ((plasticTextField.text)! as NSString).doubleValue
+//            ref.childByAppendingPath("amountOfPlastic").setValue(amountOfPlastic)
+//            
+//            let amountOfPaper = groceryItem.amountOfPaper + ((paperTextField.text)! as NSString).doubleValue
+//            ref.childByAppendingPath("amountOfPaper").setValue(amountOfPaper)
+//            
+//            let amountOfTextile = groceryItem.amountOfTextile + ((textileTextField.text)! as NSString).doubleValue
+//            ref.childByAppendingPath("amountOfTextile").setValue(amountOfTextile)
+//            
+//            let amountOfIron = groceryItem.amountOfIron + ((ironTextField.text)! as NSString).doubleValue
+//            ref.childByAppendingPath("amountOfIron").setValue(amountOfIron)
+//            
+//            let amountOfEWaste = groceryItem.amountOfEWaste + ((eWasteTextField.text)! as NSString).doubleValue
+//            ref.childByAppendingPath("amountOfEWaste").setValue(amountOfEWaste)
+//            
+//            let amountOfBioWaste = groceryItem.amountOfBioWaste + ((bioWasteTextField.text)! as NSString).doubleValue
+//            ref.childByAppendingPath("amountOfBioWaste").setValue(amountOfBioWaste)
         
+            self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+        //update spent tokens for user on backend
+        //
         
 //    let statsViewController = StatsViewController()
 //    var startNumberOfTokens = statsViewController.testUser.amountOfTokens

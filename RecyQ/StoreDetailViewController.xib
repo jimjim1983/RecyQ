@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="SQx-DU-RPt" id="pIQ-QI-MVa"/>
                 <outlet property="image" destination="3Iq-z8-kPn" id="9Px-od-tF9"/>
+                <outlet property="price" destination="l7O-V1-fPw" id="Ri1-ee-RnX"/>
                 <outlet property="redeemButton" destination="AOG-g3-GJ6" id="ffv-wZ-3Ff"/>
                 <outlet property="titleLabel" destination="YDy-KF-qIC" id="lA8-NY-lbk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
