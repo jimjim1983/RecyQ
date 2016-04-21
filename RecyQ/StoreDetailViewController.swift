@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class StoreDetailViewController: UIViewController {
     
     var storeItem: StoreItem!
     
+    @IBOutlet weak var price: UILabel!
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -27,7 +29,14 @@ class StoreDetailViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         image.image = storeItem.storeItemImage
         
+        if let tokensPrice = storeItem.storeItemPrice {
+        price.text = "Cost: \(tokensPrice) tokens"
+        }
+        
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
+        
+        self.navigationItem.title = "Redeem"
     }
     
     func navigateBack() {
@@ -36,7 +45,31 @@ class StoreDetailViewController: UIViewController {
     
     @IBAction func redeemToken(sender: UIButton) {
         
-    let statsViewController = StatsViewController()
+        if storeItem.storeItemPrice > numberOfTokens {
+            
+            
+            let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                // ...
+            }
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+
+        } else {
+        
+        if let name = user?.name {
+        
+        let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
+            let newTokensSpentAmount = user!.spentCoins + storeItem.storeItemPrice!
+            ref.childByAppendingPath("spentCoins").setValue(newTokensSpentAmount)
+            }}
+        
+        //update spent tokens for user on backend
+        //
+        
+//    let statsViewController = StatsViewController()
 //    var startNumberOfTokens = statsViewController.testUser.amountOfTokens
     // var subtractor = cost of item
     // var endNumberOfTokens = int
