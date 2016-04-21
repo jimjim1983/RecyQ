@@ -65,10 +65,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 
                                 self.ref.queryOrderedByChild("uid").queryEqualToValue(auth.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
                                     
-                                    let snapshotName = snapshot.key
+                                    //let snapshotName = snapshot.key
                                     let name = snapshot.value.objectForKey("name") as? String
                                     let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
-                                    var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
+                                    let amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
                                     let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
                                     let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
                                     let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double

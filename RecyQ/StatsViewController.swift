@@ -38,6 +38,12 @@ class StatsViewController: UIViewController {
     @IBOutlet var eWasteLabel: UILabel!
     @IBOutlet var bioWasteLabel: UILabel!
     @IBOutlet var navigationBar: UINavigationBar!
+    @IBOutlet var paperImageView: UIImageView!
+    @IBOutlet var plasticImageView: UIImageView!
+    @IBOutlet var textileImageView: UIImageView!
+    @IBOutlet var ironImageView: UIImageView!
+    @IBOutlet var eWasteImageView: UIImageView!
+    @IBOutlet var bioWasteImageView: UIImageView!
 
     //Navbar
     @IBOutlet var navigationBarTitle: UINavigationItem!
@@ -68,7 +74,14 @@ class StatsViewController: UIViewController {
 //        numberOfTokens = 0
 //        tokenAmount = 0
         
-
+        paperImageView.image = UIImage(named: "Cell_Papier")
+        plasticImageView.image = UIImage(named: "Cell Plastic")
+        textileImageView.image = UIImage(named: "Cell Textiel")
+        ironImageView.image = UIImage(named: "Cell Metaal")
+        eWasteImageView.image = UIImage(named: "Cell_ewaste")
+        bioWasteImageView.image = UIImage(named: "Cell_GFT")
+        
+        
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         self.blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -189,7 +202,7 @@ class StatsViewController: UIViewController {
                     
                     self.co2Amount = (round((self.totalWasteAmount/35) * 50))
                     
-                    numberOfTokens = (Int(self.tokenAmount))
+                    numberOfTokens = (Int(self.tokenAmount))  - (user?.spentCoins)!
                     
                     self.co2AmountLabel.text = "\(Int(self.co2Amount)) kg"
                     
