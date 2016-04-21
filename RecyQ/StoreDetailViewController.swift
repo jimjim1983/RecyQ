@@ -27,6 +27,7 @@ class StoreDetailViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         image.image = storeItem.storeItemImage
         
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
         
         self.navigationItem.title = "Redeem"
@@ -38,7 +39,9 @@ class StoreDetailViewController: UIViewController {
     
     @IBAction func redeemToken(sender: UIButton) {
         
-    let statsViewController = StatsViewController()
+        
+        
+//    let statsViewController = StatsViewController()
 //    var startNumberOfTokens = statsViewController.testUser.amountOfTokens
     // var subtractor = cost of item
     // var endNumberOfTokens = int
