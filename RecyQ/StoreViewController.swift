@@ -43,7 +43,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewWillAppear(animated: Bool) {
-        numberOfTokensLabel.text = "numberOfTokens"
+        numberOfTokensLabel.text = "\(numberOfTokens)"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
