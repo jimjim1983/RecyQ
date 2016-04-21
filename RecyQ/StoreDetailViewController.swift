@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StoreDetailViewController: UIViewController {
     
@@ -27,7 +28,10 @@ class StoreDetailViewController: UIViewController {
         descriptionLabel.text = storeItem.storeItemDescription
         descriptionLabel.numberOfLines = 0
         image.image = storeItem.storeItemImage
-        price.text = "Cost: \(storeItem.storeItemPrice) tokens"
+        
+        if let tokensPrice = storeItem.storeItemPrice {
+        price.text = "Cost: \(tokensPrice) tokens"
+        }
         
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
@@ -41,32 +45,26 @@ class StoreDetailViewController: UIViewController {
     
     @IBAction func redeemToken(sender: UIButton) {
         
-//        
-//       
-//            
-//            let name = groceryItem.name
-//            ref = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
-//            
-//            let amountOfPlastic = groceryItem.amountOfPlastic + ((plasticTextField.text)! as NSString).doubleValue
-//            ref.childByAppendingPath("amountOfPlastic").setValue(amountOfPlastic)
-//            
-//            let amountOfPaper = groceryItem.amountOfPaper + ((paperTextField.text)! as NSString).doubleValue
-//            ref.childByAppendingPath("amountOfPaper").setValue(amountOfPaper)
-//            
-//            let amountOfTextile = groceryItem.amountOfTextile + ((textileTextField.text)! as NSString).doubleValue
-//            ref.childByAppendingPath("amountOfTextile").setValue(amountOfTextile)
-//            
-//            let amountOfIron = groceryItem.amountOfIron + ((ironTextField.text)! as NSString).doubleValue
-//            ref.childByAppendingPath("amountOfIron").setValue(amountOfIron)
-//            
-//            let amountOfEWaste = groceryItem.amountOfEWaste + ((eWasteTextField.text)! as NSString).doubleValue
-//            ref.childByAppendingPath("amountOfEWaste").setValue(amountOfEWaste)
-//            
-//            let amountOfBioWaste = groceryItem.amountOfBioWaste + ((bioWasteTextField.text)! as NSString).doubleValue
-//            ref.childByAppendingPath("amountOfBioWaste").setValue(amountOfBioWaste)
+        if storeItem.storeItemPrice > numberOfTokens {
+            
+            
+            let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                // ...
+            }
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+
+        } else {
         
-            self.dismissViewControllerAnimated(true, completion: nil)
+        if let name = user?.name {
         
+        let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
+            let newTokensSpentAmount = user!.spentCoins + storeItem.storeItemPrice!
+            ref.childByAppendingPath("spentCoins").setValue(newTokensSpentAmount)
+            }}
         
         //update spent tokens for user on backend
         //
