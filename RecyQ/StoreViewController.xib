@@ -44,12 +44,15 @@
                         <constraint firstAttribute="width" constant="256" id="S7v-vx-SO5"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRZ-cd-bxq">
-                    <rect key="frame" x="250" y="92" width="100.5" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRZ-cd-bxq">
+                    <rect key="frame" x="241" y="92" width="118" height="20.5"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="118" id="BiM-Gn-ojW"/>
+                        <constraint firstAttribute="height" constant="20.5" id="FPX-hj-dAW"/>
                         <constraint firstAttribute="width" constant="92.5" id="Nqd-zh-ROx"/>
                         <constraint firstAttribute="width" constant="100.5" id="rhi-c6-Zm9"/>
                         <constraint firstAttribute="width" constant="78" id="tVD-ib-4ra"/>
+                        <constraint firstAttribute="width" constant="68" id="ykr-uN-kVB"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,11 +62,12 @@
                             <exclude reference="Nqd-zh-ROx"/>
                             <exclude reference="rhi-c6-Zm9"/>
                             <exclude reference="tVD-ib-4ra"/>
+                            <exclude reference="ykr-uN-kVB"/>
                         </mask>
                     </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-wq-nKj">
-                    <rect key="frame" x="172" y="65.5" width="256" height="73"/>
+                    <rect key="frame" x="172" y="65" width="256" height="73"/>
                 </button>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8t-UF-Cv8">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -80,6 +84,7 @@
                 <constraint firstItem="bRZ-cd-bxq" firstAttribute="centerY" secondItem="Wzb-SQ-Fl3" secondAttribute="centerY" id="5Y9-aM-MdN"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7d2-kI-h0o"/>
                 <constraint firstItem="a8t-UF-Cv8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ago-B1-qML"/>
+                <constraint firstItem="bRZ-cd-bxq" firstAttribute="centerX" secondItem="Wzb-SQ-Fl3" secondAttribute="centerX" id="C6s-v6-xad"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="Wzb-SQ-Fl3" secondAttribute="bottom" constant="5" id="C9Q-tb-Utw"/>
                 <constraint firstItem="a8t-UF-Cv8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FYx-gy-07j"/>
                 <constraint firstItem="Zt7-wq-nKj" firstAttribute="height" secondItem="Wzb-SQ-Fl3" secondAttribute="height" id="FZK-cY-TJN"/>
@@ -123,13 +128,6 @@
             </variation>
             <point key="canvasLocation" x="287" y="170"/>
         </view>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hue-Ma-KxQ">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-            <nil key="highlightedColor"/>
-        </label>
     </objects>
     <resources>
         <image name="recyqTokenCounter" width="84" height="44"/>
