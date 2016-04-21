@@ -76,8 +76,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
                                     let completed = snapshot.value.objectForKey("completed") as? Bool
                                     let uid = snapshot.value.objectForKey("uid") as? String
+                                    let spentCoins = snapshot.value.objectForKey("spentCoins") as? Int
                                     
-                                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!)
+                                    user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins: spentCoins!)
                                     
                                     print(user)
                                     
@@ -113,7 +114,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     self.ref.authUser(emailField.text, password: passwordField.text, withCompletionBlock: { (error, auth) in
                         
-                         user = User(name: usernameField.text!.lowercaseString, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: auth.uid)
+                        user = User(name: usernameField.text!.lowercaseString, addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: auth.uid, spentCoins: 0)
                         
                         let userRef = self.clientsRef.childByAppendingPath(user!.name)
                         userRef.setValue(user!.toAnyObject())
