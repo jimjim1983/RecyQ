@@ -7,10 +7,13 @@
 //
 
 import UIKit
-
+import Firebase
 
 
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients")
 
     var storeItemArray = [StoreItem]()
     
@@ -38,18 +41,29 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let nib = UINib.init(nibName: "StoreTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
-        
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+        ref.observeAuthEventWithBlock { authData in
+            if self.ref.authData != nil {
+                
+                self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                   let newSpentCoinsAmount = snapshot.value.objectForKey("spentCoins") as? Int
+            
+                let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+                
+                let tokenAmount = round(totalWasteAmount/35)
+                
+                numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)!
+                
+                self.numberOfTokensLabel.text = "\(numberOfTokens)"
         
-        let tokenAmount = round(totalWasteAmount/35)
-        numberOfTokens = (Int(tokenAmount))  - (user?.spentCoins)!
-        numberOfTokensLabel.text = "\(numberOfTokens)"
+        
+                })
+            }
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
