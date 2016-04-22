@@ -28,6 +28,7 @@
 		A6AE69111CB50BD200C54E98 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */; };
 		A6AE69121CB50BD200C54E98 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */; };
 		A6AE69131CB50BD200C54E98 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */; };
+		A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC039F1CCA27B8009FAACE /* Coupon.swift */; };
 		A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF691CA15980006F0F4B /* StoreItem.swift */; };
 		A6E1FF6C1CA18ECD006F0F4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF6B1CA18ECD006F0F4B /* User.swift */; };
 		F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */; };
@@ -86,6 +87,7 @@
 		A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
 		A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
+		A6BC039F1CCA27B8009FAACE /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		A6C1F9E91CA42BBF00E7B89B /* RecyQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecyQ-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6E1FF691CA15980006F0F4B /* StoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		A6E1FF6B1CA18ECD006F0F4B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				A6E1FF6B1CA18ECD006F0F4B /* User.swift */,
 				A6E1FF691CA15980006F0F4B /* StoreItem.swift */,
+				A6BC039F1CCA27B8009FAACE /* Coupon.swift */,
 				F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */,
 			);
 			name = Models;
@@ -429,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */,
 				A6A595C91CA0350100A120C1 /* LoginViewController.swift in Sources */,
 				A6AE69101CB50BD200C54E98 /* CommunityTableViewCell.swift in Sources */,
 				A6A595D11CA0352D00A120C1 /* StoreViewController.swift in Sources */,

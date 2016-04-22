@@ -12,6 +12,7 @@ import Firebase
 class StoreDetailViewController: UIViewController {
     
     var storeItem: StoreItem!
+    var coupon: Coupon?
     
     @IBOutlet weak var price: UILabel!
     
@@ -20,6 +21,9 @@ class StoreDetailViewController: UIViewController {
     @IBOutlet var image: UIImageView!
     @IBOutlet var logo: UIImageView!
     @IBOutlet weak var redeemButton: UIButton!
+    
+    let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +71,10 @@ class StoreDetailViewController: UIViewController {
             
             let okayAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                 
-                let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
+                self.createCoupon()
                 
+                let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
+
                 let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
                     // ...
                 }
@@ -119,7 +125,12 @@ class StoreDetailViewController: UIViewController {
     // redeem button restored? or back to store view controller?
     
     }
+    
+    func createCoupon() {
+        coupon = Coupon(uid: (user?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
+        
+        let couponsRef = self.couponsRef.childByAppendingPath((user?.name)! + storeItem.storeItemName! + "\(arc4random_uniform(9999))")
+        couponsRef.setValue(self.coupon!.toAnyObject())
+    }
   
-    
-    
 }
