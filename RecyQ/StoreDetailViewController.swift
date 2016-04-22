@@ -75,7 +75,7 @@ class StoreDetailViewController: UIViewController {
                 
                 let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
 
-                let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                let cancelAction = UIAlertAction(title: "Terug", style: .Cancel) { (action) in
                     // ...
                 }
                 
