@@ -77,7 +77,8 @@ class StoreDetailViewController: UIViewController {
                 
                 let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
                     
-                    // fix this
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                     appDelegate.window?.rootViewController = appDelegate.tabbarController
                     appDelegate.tabbarController?.selectedIndex = 3
