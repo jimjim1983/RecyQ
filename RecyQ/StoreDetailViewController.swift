@@ -50,7 +50,7 @@ class StoreDetailViewController: UIViewController {
             
             let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
                 // ...
             }
             alertController.addAction(cancelAction)
@@ -58,6 +58,40 @@ class StoreDetailViewController: UIViewController {
             self.presentViewController(alertController, animated: true, completion: nil)
 
         } else {
+            
+            let alertControllerAreYouSure = UIAlertController(title: "Weet u het zeker?", message: "Druk op OK om te bevestigen.", preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                // ...
+            }
+            
+            let okayAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                
+                let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                    // ...
+                }
+                
+               
+                
+                let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
+                    
+                    // fix this
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.window?.rootViewController = appDelegate.tabbarController
+                    appDelegate.tabbarController?.selectedIndex = 3
+                }
+                
+                alertGefeliciteerd.addAction(cancelAction)
+                alertGefeliciteerd.addAction(goToProfielView)
+                 self.presentViewController(alertGefeliciteerd, animated: true, completion: nil)
+
+            }
+            alertControllerAreYouSure.addAction(cancelAction)
+            alertControllerAreYouSure.addAction(okayAction)
+            
+            self.presentViewController(alertControllerAreYouSure, animated: true, completion: nil)
         
         if let name = user?.name {
         
@@ -65,6 +99,8 @@ class StoreDetailViewController: UIViewController {
             let newTokensSpentAmount = user!.spentCoins + storeItem.storeItemPrice!
             ref.childByAppendingPath("spentCoins").setValue(newTokensSpentAmount)
             }}
+        
+        
         
         //update spent tokens for user on backend
         //

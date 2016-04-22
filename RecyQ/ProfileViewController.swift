@@ -49,13 +49,17 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         mapView.addAnnotation(recyQAnnotation)
         
-        emailLabel.text = user?.name
+       
 
         
         // Do any additional setup after loading the view.
     }
     
 //When you click on map, open in Maps.
+    
+    override func viewWillAppear(animated: Bool) {
+         emailLabel.text = user?.name
+    }
 
     @IBAction func logoutButtonPressed(sender: UIButton) {
         
