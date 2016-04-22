@@ -14,6 +14,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     var storeItemArray = [StoreItem]()
     
+    
     var storeItem1 = StoreItem(storeItemName: "Upcycling boodschappentas gemaakt van denim", storeItemDescription: "5 RecyQ tokens geven recht op een gratis upcycling boodschappentas gemaakt van denim.", storeItemImage: "upcyclingBagStore", storeItemPrice: 5)
     var storeItem2 = StoreItem(storeItemName: "10% korting bij de aanschaf van een Go-Upcycle", storeItemDescription: "1 RecyQ token geeft eenmalig recht op 10% korting bij de aanschaf van een Go-Upcycle.", storeItemImage: "bicycleStore", storeItemPrice: 1)
     var storeItem3 = StoreItem(storeItemName: "10% korting bij de aanschaf van vintage kleding/schoenen in de RecyQ Store", storeItemDescription: "1 RecyQ token geeft recht op 10% korting bij de aanschaf van vintage kleding/schoenen in de RecyQ Store.", storeItemImage: "clothingStore", storeItemPrice: 1)
@@ -43,6 +44,11 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+        
+        let tokenAmount = round(totalWasteAmount/35)
+        numberOfTokens = (Int(tokenAmount))  - (user?.spentCoins)!
         numberOfTokensLabel.text = "\(numberOfTokens)"
     }
     
