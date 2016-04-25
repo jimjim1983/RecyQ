@@ -19,8 +19,8 @@ class StoreTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        storeItemTitleView.layer.cornerRadius = 10
-        storeItemImageView.layer.cornerRadius = 20
+//        storeItemTitleView.layer.cornerRadius = 10
+//        storeItemImageView.layer.cornerRadius = 20
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -22,7 +22,7 @@ class StoreDetailViewController: UIViewController {
     @IBOutlet var logo: UIImageView!
     @IBOutlet weak var redeemButton: UIButton!
     
-    let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients")
     let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
     
     override func viewDidLoad() {
@@ -55,31 +55,30 @@ class StoreDetailViewController: UIViewController {
             let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
-                // ...
             }
+            
             alertController.addAction(cancelAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
-
+            
         } else {
             
             let alertControllerAreYouSure = UIAlertController(title: "Weet u het zeker?", message: "Druk op OK om te bevestigen.", preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
-                // ...
             }
             
             let okayAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                 
                 self.createCoupon()
                 
+                self.addSpentCoins()
+                
                 let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
-
+                
                 let cancelAction = UIAlertAction(title: "Terug", style: .Cancel) { (action) in
                     // ...
                 }
-                
-               
                 
                 let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
                     
@@ -92,39 +91,42 @@ class StoreDetailViewController: UIViewController {
                 
                 alertGefeliciteerd.addAction(cancelAction)
                 alertGefeliciteerd.addAction(goToProfielView)
-                 self.presentViewController(alertGefeliciteerd, animated: true, completion: nil)
-
+                self.presentViewController(alertGefeliciteerd, animated: true, completion: nil)
+                
             }
             alertControllerAreYouSure.addAction(cancelAction)
             alertControllerAreYouSure.addAction(okayAction)
             
             self.presentViewController(alertControllerAreYouSure, animated: true, completion: nil)
-        
-        if let name = user?.name {
-        
-        let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
-            let newTokensSpentAmount = user!.spentCoins + storeItem.storeItemPrice!
-            ref.childByAppendingPath("spentCoins").setValue(newTokensSpentAmount)
-            }}
-        
-        
-        
-        //update spent tokens for user on backend
-        //
-        
-//    let statsViewController = StatsViewController()
-//    var startNumberOfTokens = statsViewController.testUser.amountOfTokens
-    // var subtractor = cost of item
-    // var endNumberOfTokens = int
-    // let endNumberOfTokens = startNumberOfTokens - subtractor
-    //  statsViewController.testUser.amountOfTokens = endNumberOfTokens
-    // code that goes to backend to show how many tokens were redeemed and for which product - should go to user and general coupon table item
-    // code that goes to new custom pop up view that says token has been successfully redeemed.
-    // option to see coupon in profile view controller
-    // option to dismiss
-    // redeem button restored? or back to store view controller?
-    
+            
+            }
     }
+    
+    func addSpentCoins() {
+        
+        ref.observeAuthEventWithBlock { authData in
+            if self.ref.authData != nil {
+                
+                self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                    
+                    let startingSpentCoinsAmount = snapshot.value.objectForKey("spentCoins") as? Int
+                    
+                   let endingSpentCoinsAmount = startingSpentCoinsAmount! + self.storeItem.storeItemPrice!
+                    
+                    if let name = user?.name {
+                        let clientRef = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
+                        
+                        clientRef.childByAppendingPath("spentCoins").setValue(endingSpentCoinsAmount)
+                        
+                        let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+                        
+                        let tokenAmount = round(totalWasteAmount/35)
+                        
+                        numberOfTokens = (Int(tokenAmount))  - (endingSpentCoinsAmount)
+                    }
+                    
+                })}}}
+    
     
     func createCoupon() {
         coupon = Coupon(uid: (user?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)

@@ -15,10 +15,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
      let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
     
     @IBOutlet weak var naamLabel: UILabel!
-    
-    @IBOutlet weak var adresLabel: UILabel!
- 
-    @IBOutlet weak var idLabel: UILabel!
+
+
     
     @IBOutlet weak var mapView: MKMapView!
     
