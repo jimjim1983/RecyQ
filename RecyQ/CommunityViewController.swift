@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class CommunityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var communityCounterView: UIView!
     @IBOutlet var communityCounterLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet weak var communityCounterImageView: UIImageView!
+  
     
+    @IBOutlet weak var contentView: UIView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -26,13 +27,26 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
     var testUser1 = User(name: "Jim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: "0", spentCoins: 0)
     var testUser2 = User(name: "Alyson", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: "0", spentCoins: 0)
     
-
+    
+    override func viewDidLayoutSubviews()
+    {
+        let scrollViewBounds = scrollView.bounds
+        let containerViewBounds = contentView.bounds
+        
+        var scrollViewInsets = UIEdgeInsetsZero
+        scrollViewInsets.top = scrollViewBounds.size.height/2.0;
+        scrollViewInsets.top -= containerViewBounds.size.height/2.0;
+        
+        scrollViewInsets.bottom = scrollViewBounds.size.height/2.0
+        scrollViewInsets.bottom -= containerViewBounds.size.height/2.0;
+        scrollViewInsets.bottom += 1
+        
+        scrollView.contentInset = scrollViewInsets
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
-        
+                
         userArray = [testUser1,testUser2]
         userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
         
@@ -44,17 +58,36 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
         
         imageView.image = UIImage(named: "buurtactiviteitStore")
         
-        communityCounterImageView.image = UIImage(named: "communityCounter")
+//        communityCounterImageView.image = UIImage(named: "communityCounter")
         
         let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        if let communityMoney = testUser9.amountOfBioWaste {
-//            communityCounterLabel.text = "\(communityMoney)"
-//        }
-//    }
+    override func viewWillAppear(animated: Bool) {
+        
+        let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
+        
+        var eurosCount: Int?
+        
+        couponsRef.queryOrderedByChild("couponName").queryEqualToValue("Doneer aan het Buurtafvalfonds").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+               eurosCount = snapshots.count
+                print(snapshots)
+                print(eurosCount)
+                
+                if let communityEuros = eurosCount {
+                
+                self.communityCounterLabel.text = "\(communityEuros)"
+                } else {
+                    self.communityCounterLabel.text = "0"
+                }
+            }
+        })
+    }
+
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userArray.count
