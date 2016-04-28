@@ -78,6 +78,8 @@ class CommunityViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
+        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
+        
         let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
         
         var eurosCount: Int?
