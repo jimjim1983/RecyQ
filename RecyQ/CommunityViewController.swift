@@ -21,6 +21,13 @@ class CommunityViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var communityFundImageView: UIImageView!
+    
+    @IBOutlet weak var communityCO2BarImageView: UIImageView!
+    
+    
+    @IBOutlet weak var communityRecyclingImageView: UIImageView!
+    
     
     // Test users for the leaderboards
     var userArray = [User]()
@@ -90,6 +97,40 @@ class CommunityViewController: UIViewController {
                 }
             }
         })
+        
+        communityFundImageView.alpha = 0
+        communityCO2BarImageView.alpha = 0
+        communityRecyclingImageView.alpha = 0
+        
+        slideCommunityFundView()
+        
+        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "slideCO2BarView", userInfo: nil, repeats: false)
+        
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "slideCommunityRecyclingView", userInfo: nil, repeats: false)
+        
+    }
+    
+    func slideCommunityFundView() {
+        addSlideAnimation(communityFundImageView)
+    }
+    
+    func slideCO2BarView() {
+        addSlideAnimation(communityCO2BarImageView)
+    }
+    
+    func slideCommunityRecyclingView() {
+        addSlideAnimation(communityRecyclingImageView)
+    }
+    
+    func addSlideAnimation(viewName: UIView) {
+        let animation = CABasicAnimation(keyPath: "transform.translation.x")
+        animation.fromValue = -500
+        animation.toValue = 0
+        animation.duration = 1
+        animation.autoreverses = false
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        viewName.layer.addAnimation(animation, forKey: nil)
+        viewName.alpha = 1
     }
 
 
