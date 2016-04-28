@@ -7,11 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommunityViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="co2TotalLabel" destination="I7r-vJ-JkJ" id="Nhg-QT-t89"/>
                 <outlet property="communityCO2BarImageView" destination="R91-vP-yPv" id="m7X-0u-kbm"/>
                 <outlet property="communityCounterLabel" destination="eC4-gp-XB9" id="gR5-hy-7tV"/>
                 <outlet property="communityFundImageView" destination="Epb-rh-Q5F" id="nzf-sG-niH"/>
                 <outlet property="communityRecyclingImageView" destination="XlO-vl-uSX" id="A5y-Cd-PP7"/>
                 <outlet property="contentView" destination="h1z-ma-kgh" id="AOp-nJ-LS0"/>
+                <outlet property="recyclingTotalLabel" destination="GhB-Xg-9HT" id="vH0-Dl-zuD"/>
                 <outlet property="scrollView" destination="7Fh-BX-5qW" id="ECA-yH-4rU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -165,6 +167,9 @@
                                                 <constraint firstAttribute="width" constant="50" id="uva-8O-5eg"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="Community - Leaderboard"/>
+                                            <connections>
+                                                <action selector="leaderboardButtonPressed:" destination="-1" eventType="touchUpInside" id="eas-Pc-Ao0"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

@@ -38,6 +38,8 @@
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
 		F26B8F501CB72E870066F972 /* RecyQTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */; };
 		F26B8F511CB72E870066F972 /* RecyQTokenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */; };
+		F2A5A8E41CD2CCF3009B2BC6 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A5A8E21CD2CCF3009B2BC6 /* LeaderboardViewController.swift */; };
+		F2A5A8E51CD2CCF3009B2BC6 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A5A8E31CD2CCF3009B2BC6 /* LeaderboardViewController.xib */; };
 		F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
 		F26B8F4E1CB72E870066F972 /* RecyQTokenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQTokenViewController.swift; sourceTree = "<group>"; };
 		F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecyQTokenViewController.xib; sourceTree = "<group>"; };
+		F2A5A8E21CD2CCF3009B2BC6 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		F2A5A8E31CD2CCF3009B2BC6 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
 		F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +232,8 @@
 				F26B8F4F1CB72E870066F972 /* RecyQTokenViewController.xib */,
 				F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */,
 				F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */,
+				F2A5A8E21CD2CCF3009B2BC6 /* LeaderboardViewController.swift */,
+				F2A5A8E31CD2CCF3009B2BC6 /* LeaderboardViewController.xib */,
 				A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */,
 				A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */,
 				A6A595CF1CA0352D00A120C1 /* StoreViewController.swift */,
@@ -347,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A5A8E51CD2CCF3009B2BC6 /* LeaderboardViewController.xib in Resources */,
 				A6A595D21CA0352D00A120C1 /* StoreViewController.xib in Resources */,
 				F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */,
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
@@ -446,6 +453,7 @@
 				F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */,
 				A6A595D91CA0354F00A120C1 /* ProfileViewController.swift in Sources */,
 				F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */,
+				F2A5A8E41CD2CCF3009B2BC6 /* LeaderboardViewController.swift in Sources */,
 				F26B8F501CB72E870066F972 /* RecyQTokenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
