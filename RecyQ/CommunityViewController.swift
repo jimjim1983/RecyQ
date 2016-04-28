@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-class CommunityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommunityViewController: UIViewController {
     
     @IBOutlet var communityCounterLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var tableView: UITableView!
+
+//    @IBOutlet var tableView: UITableView!
     
   
     
@@ -32,16 +32,23 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
     {
         let scrollViewBounds = scrollView.bounds
         let containerViewBounds = contentView.bounds
-        
+//
         var scrollViewInsets = UIEdgeInsetsZero
-        scrollViewInsets.top = scrollViewBounds.size.height/2.0;
-        scrollViewInsets.top -= containerViewBounds.size.height/2.0;
-        
-        scrollViewInsets.bottom = scrollViewBounds.size.height/2.0
-        scrollViewInsets.bottom -= containerViewBounds.size.height/2.0;
+        scrollViewInsets.top = scrollViewBounds.size.height
+        scrollViewInsets.top -= containerViewBounds.size.height
+
+        scrollViewInsets.bottom = scrollViewBounds.size.height
+        scrollViewInsets.bottom -= containerViewBounds.size.height
         scrollViewInsets.bottom += 1
         
-        scrollView.contentInset = scrollViewInsets
+//        scrollView.contentInset = scrollViewInsets
+        
+//        scrollView.contentSize = CGSizeMake(contentView.bounds.width, contentView.bounds.height)
+
+        
+//        scrollView.contentSize = CGSizeMake(320,758)
+        scrollView.contentInset = UIEdgeInsetsMake(0.0,0.0,150.0,0.0)
+        
     }
     
     override func viewDidLoad() {
@@ -50,18 +57,16 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
         userArray = [testUser1,testUser2]
         userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.allowsSelection = false
-        tableView.backgroundColor = UIColor(red: 33/255, green: 210/255, blue: 37/255, alpha: 1.0)
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        imageView.image = UIImage(named: "buurtactiviteitStore")
-        
-//        communityCounterImageView.image = UIImage(named: "communityCounter")
-        
-        let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+//        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.allowsSelection = false
+//        tableView.backgroundColor = UIColor(red: 33/255, green: 210/255, blue: 37/255, alpha: 1.0)
+//        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+//        
+////        communityCounterImageView.image = UIImage(named: "communityCounter")
+//        
+//        let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
+//        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,9 +84,9 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
                 
                 if let communityEuros = eurosCount {
                 
-                self.communityCounterLabel.text = "\(communityEuros)"
+                self.communityCounterLabel.text = "€\(communityEuros)"
                 } else {
-                    self.communityCounterLabel.text = "0"
+                    self.communityCounterLabel.text = "€0"
                 }
             }
         })
@@ -89,26 +94,27 @@ class CommunityViewController: UIViewController, UITableViewDelegate, UITableVie
 
 
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userArray.count
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 22
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CommunityTableViewCell
-        
-        let user = userArray[indexPath.row]
-        cell.nameLabel.text = user.name
-        
-        //change amountOfPlastic to co2 saved calculation
-        if let co2Saved = user.amountOfPlastic {
-            cell.co2SavedLabel.text = "\(co2Saved)"
-        }
-        return cell
-    }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return userArray.count
+//    }
+//    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 22
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CommunityTableViewCell
+//        
+//        let user = userArray[indexPath.row]
+//        cell.nameLabel.text = user.name
+//        
+//        //change amountOfPlastic to co2 saved calculation
+//        if let co2Saved = user.amountOfPlastic {
+//            cell.co2SavedLabel.text = "\(co2Saved)"
+//        }
+//        return cell
+//    }
+
 
     
     
