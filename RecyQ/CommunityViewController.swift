@@ -122,6 +122,23 @@ class CommunityViewController: UIViewController {
         self.presentViewController(leaderboardVC, animated: true, completion: nil)
         
     }
+    
+    @IBAction func partnersButtonPressed(sender: UIButton) {
+        
+        print("community button pressed")
+        
+        let partnersVC = PartnersViewController()
+        
+        self.presentViewController(partnersVC, animated: true, completion: nil)
+    }
+    
+    // having weird issue with partnersButtonPressed not being called, so I created a button outside the scroll view and set it over the heart button in the .xib
  
+    @IBAction func buttonPressed(sender: AnyObject) {
+        
+        let partnersVC = PartnersViewController()
+        
+        self.presentViewController(partnersVC, animated: true, completion: nil)
+    }
     
 }
