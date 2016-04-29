@@ -132,7 +132,7 @@ class StoreDetailViewController: UIViewController {
         let uuid = NSUUID().UUIDString
         coupon = Coupon(uid: (user?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
         
-        let couponsRef = self.couponsRef.childByAppendingPath((user?.name)! + storeItem.storeItemName! + "\(uuid)")
+        let couponsRef = self.couponsRef.childByAppendingPath(uuid)
         couponsRef.setValue(self.coupon!.toAnyObject())
     }
   
