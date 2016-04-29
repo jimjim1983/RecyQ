@@ -29,9 +29,6 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var communityRecyclingImageView: UIImageView!
     
     
-
-    
-    
     override func viewDidLayoutSubviews()
     {
         let scrollViewBounds = scrollView.bounds
@@ -78,6 +75,7 @@ class CommunityViewController: UIViewController {
             }
         })
         
+        setCo2TotalLabel()
         
         communityFundImageView.alpha = 0
         communityCO2BarImageView.alpha = 0
@@ -114,6 +112,61 @@ class CommunityViewController: UIViewController {
         viewName.alpha = 1
     }
     
+    func setCo2TotalLabel() {
+        
+        let clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
+        
+        var arrayOfAfval = [AnyObject]()
+        
+        clientsRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            
+            var amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste")
+            var amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste")
+            var amountOfIron = snapshot.value.objectForKey("amountOfIron")
+            var amountOfPaper = snapshot.value.objectForKey("amountOfPaper")
+            var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic")
+            var amountOfTextile = snapshot.value.objectForKey("amountOfTextile")
+            
+            arrayOfAfval.append(amountOfBioWaste!)
+            arrayOfAfval.append(amountOfEWaste!)
+            arrayOfAfval.append(amountOfIron!)
+            arrayOfAfval.append(amountOfPaper!)
+            arrayOfAfval.append(amountOfPlastic!)
+            arrayOfAfval.append(amountOfTextile!)
+            
+        })
+        
+        print(arrayOfAfval)
+        
+//        var sum = Int()
+//        sum = arrayOfAfval.reduce(0, combine: +)
+//        print(sum)
+        
+        
+//        var eurosCount: Int?
+//        
+//        clientsRef.queryOrderedByChild("couponName").queryEqualToValue("Doneer aan het Buurtafvalfonds").observeEventType(.Value, withBlock: { snapshot in
+//            
+//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+//                eurosCount = snapshots.count
+//                print(snapshots)
+//                print(eurosCount)
+//                
+//                if let communityEuros = eurosCount {
+//                    
+//                    self.communityCounterLabel.text = "€\(communityEuros)"
+//                } else {
+//                    self.communityCounterLabel.text = "€0"
+//                }
+//            }
+//        })
+
+        
+    }
+    
+    func setRecyclingTotalLabel() {
+        
+    }
     
     @IBAction func leaderboardButtonPressed(sender: UIButton) {
         
