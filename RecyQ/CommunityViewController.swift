@@ -28,6 +28,9 @@ class CommunityViewController: UIViewController {
     
     @IBOutlet weak var communityRecyclingImageView: UIImageView!
     
+    var clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
+    
+    var wasteArray = [AnyObject]()
     
     override func viewDidLayoutSubviews()
     {
@@ -75,7 +78,11 @@ class CommunityViewController: UIViewController {
             }
         })
         
-        setCo2TotalLabel()
+        getAmountOfWaste()
+        
+        print(wasteArray)
+        
+//        print("Hello \(setCo2TotalLabel())")
         
         communityFundImageView.alpha = 0
         communityCO2BarImageView.alpha = 0
@@ -112,57 +119,190 @@ class CommunityViewController: UIViewController {
         viewName.alpha = 1
     }
     
-    func setCo2TotalLabel() {
-        
-        let clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
-        
-        var arrayOfAfval = [AnyObject]()
-        
-        clientsRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+    func getAmountOfWaste() {
             
-            var amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste")
-            var amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste")
-            var amountOfIron = snapshot.value.objectForKey("amountOfIron")
-            var amountOfPaper = snapshot.value.objectForKey("amountOfPaper")
-            var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic")
-            var amountOfTextile = snapshot.value.objectForKey("amountOfTextile")
+            // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
+            self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
             
-            arrayOfAfval.append(amountOfBioWaste!)
-            arrayOfAfval.append(amountOfEWaste!)
-            arrayOfAfval.append(amountOfIron!)
-            arrayOfAfval.append(amountOfPaper!)
-            arrayOfAfval.append(amountOfPlastic!)
-            arrayOfAfval.append(amountOfTextile!)
+                
+                if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                    for item in snapshots {
+                        self.wasteArray.append(item)
+//                        self.tableView.reloadData()
+                    }
+               
+                }
+                print(self.wasteArray)
+                    
+                self.getAmountOfEWaste()
+                 
+                print(self.wasteArray)
             
         })
+    }
+// array does not work outside of the block
+//        print(self.wasteArray)
         
-        print(arrayOfAfval)
+
+    
+    func getAmountOfEWaste() {
         
-//        var sum = Int()
-//        sum = arrayOfAfval.reduce(0, combine: +)
-//        print(sum)
-        
-        
-//        var eurosCount: Int?
-//        
-//        clientsRef.queryOrderedByChild("couponName").queryEqualToValue("Doneer aan het Buurtafvalfonds").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                eurosCount = snapshots.count
-//                print(snapshots)
-//                print(eurosCount)
-//                
-//                if let communityEuros = eurosCount {
-//                    
-//                    self.communityCounterLabel.text = "€\(communityEuros)"
-//                } else {
-//                    self.communityCounterLabel.text = "€0"
-//                }
-//            }
-//        })
+        self.clientsRef.queryOrderedByChild("amountOfEWaste").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    self.wasteArray.append(item)
+                    //                        self.tableView.reloadData()
+                }
+                self.getAmountOfIron()
+                print(self.wasteArray)
+                
+                
+            }
+        })
 
         
     }
+    
+    func getAmountOfIron() {
+        
+        self.clientsRef.queryOrderedByChild("amountOfIron").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    self.wasteArray.append(item)
+                    //                        self.tableView.reloadData()
+                }
+                
+                self.getAmountOfPaper()
+                print(self.wasteArray)
+                
+                
+            }
+        })
+        
+    }
+    
+    
+    func getAmountOfPaper() {
+        
+        self.clientsRef.queryOrderedByChild("amountOfPaper").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    self.wasteArray.append(item)
+                    //                        self.tableView.reloadData()
+                }
+                
+                self.getAmountOfPlastic()
+                print(self.wasteArray)
+                
+                
+            }
+        })
+        
+    }
+    
+    
+    func getAmountOfPlastic() {
+        
+        self.clientsRef.queryOrderedByChild("amountOfPlastic").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    self.wasteArray.append(item)
+                    //                        self.tableView.reloadData()
+                }
+                
+                self.getAmountOfTextile()
+                print(self.wasteArray)
+                
+                
+            }
+        })
+        
+    }
+    
+    
+    func getAmountOfTextile() {
+        
+        self.clientsRef.queryOrderedByChild("amountOfTextile").observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    self.wasteArray.append(item)
+                    //                        self.tableView.reloadData()
+                }
+                print(self.wasteArray)
+                
+                for item in self.wasteArray {
+                    
+                    print(item as? [FDataSnapshot])
+                }
+                
+                
+                
+//                for item in self.wasteArray {
+//                    if let kilogramsOfWaste = item.value as? Int {
+//                    
+//                    }
+    //            }
+                
+                
+            }
+        })
+        
+    }
+    
+    
+//    func setCo2TotalLabel() -> Array<AnyObject> {
+//        
+//        let clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
+//        
+//        var arrayOfAfval = [AnyObject]()
+//        
+//        clientsRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+//            
+//            if let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") {
+//                
+//                arrayOfAfval.append(amountOfBioWaste)
+//                
+//            }
+//            if let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") {
+//                
+//                arrayOfAfval.append(amountOfEWaste)
+//                
+//            }
+//            
+//            if let amountOfIron = snapshot.value.objectForKey("amountOfIron") {
+//                
+//                arrayOfAfval.append(amountOfIron)
+//                
+//            }
+//            if let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") {
+//                
+//                arrayOfAfval.append(amountOfPaper)
+//                
+//            }
+//            
+//            if let amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") {
+//                
+//                arrayOfAfval.append(amountOfPlastic)
+//                
+//            }
+//            
+//            if let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") {
+//                
+//                arrayOfAfval.append(amountOfTextile)
+//                
+//            }
+//            
+//        })
+//    
+//        return arrayOfAfval
+//
+//        
+//    }
     
     func setRecyclingTotalLabel() {
         
