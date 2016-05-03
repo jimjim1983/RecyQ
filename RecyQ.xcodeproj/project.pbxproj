@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2CF93BE7D1C94FE708608005 /* Pods_RecyQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966C04DDEEFDCD80B9AF9A52 /* Pods_RecyQ.framework */; };
+		A683EE6C1CD91B5600D6E725 /* CouponsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */; };
+		A683EE6D1CD91B5600D6E725 /* CouponsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A683EE6B1CD91B5600D6E725 /* CouponsTableViewCell.xib */; };
 		A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A595971CA023D400A120C1 /* AppDelegate.swift */; };
 		A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A5959D1CA023D400A120C1 /* Main.storyboard */; };
 		A6A595A11CA023D400A120C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6A595A01CA023D400A120C1 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 /* Begin PBXFileReference section */
 		896F76A6A2778310BE75A9FE /* Pods-RecyQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ.release.xcconfig"; sourceTree = "<group>"; };
 		966C04DDEEFDCD80B9AF9A52 /* Pods_RecyQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponsTableViewCell.swift; sourceTree = "<group>"; };
+		A683EE6B1CD91B5600D6E725 /* CouponsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponsTableViewCell.xib; sourceTree = "<group>"; };
 		A6A595941CA023D400A120C1 /* RecyQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecyQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A595971CA023D400A120C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6A5959E1CA023D400A120C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
 				F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */,
 				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
+				A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */,
+				A683EE6B1CD91B5600D6E725 /* CouponsTableViewCell.xib */,
 				A6A5959D1CA023D400A120C1 /* Main.storyboard */,
 				A6A595A01CA023D400A120C1 /* Assets.xcassets */,
 				A6A595A21CA023D400A120C1 /* LaunchScreen.storyboard */,
@@ -362,6 +368,7 @@
 				F2A5A8E51CD2CCF3009B2BC6 /* LeaderboardViewController.xib in Resources */,
 				A6A595D21CA0352D00A120C1 /* StoreViewController.xib in Resources */,
 				F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */,
+				A683EE6D1CD91B5600D6E725 /* CouponsTableViewCell.xib in Resources */,
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
 				A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
@@ -451,6 +458,7 @@
 				A6A595C91CA0350100A120C1 /* LoginViewController.swift in Sources */,
 				A6AE69101CB50BD200C54E98 /* CommunityTableViewCell.swift in Sources */,
 				A6A595D11CA0352D00A120C1 /* StoreViewController.swift in Sources */,
+				A683EE6C1CD91B5600D6E725 /* CouponsTableViewCell.swift in Sources */,
 				A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */,
 				A6A595CD1CA0351600A120C1 /* StatsViewController.swift in Sources */,
 				A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */,
