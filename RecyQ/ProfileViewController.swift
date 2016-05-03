@@ -10,11 +10,17 @@ import UIKit
 import MapKit
 import Firebase
 
-class ProfileViewController: UIViewController, MKMapViewDelegate {
+class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
-     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    var storeItem: StoreItem!
+    var coupon: Coupon?
+    //var user: User!
+    
+    let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
+    let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
     
     @IBOutlet weak var naamLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
 
 
     
@@ -23,6 +29,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var emailLabel: UILabel!
     
     var string: String!
+    var couponItems = [AnyObject]()
     
 
     @IBOutlet weak var logoutButton: UIButton!
@@ -31,7 +38,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         mapView.delegate = self
         
@@ -47,17 +55,25 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         
         mapView.addAnnotation(recyQAnnotation)
         
-       
-
-        
-        // Do any additional setup after loading the view.
+        let nib = UINib.init(nibName: "CouponsTableViewCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+                 emailLabel.text = user?.name
+        // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
+        self.couponsRef.queryOrderedByChild("uid").queryEqualToValue(user?.uid).observeEventType(.Value, withBlock: { snapshot in
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    self.couponItems.append(item)
+                    self.tableView.reloadData()
+                }
+            }
+        })
     }
     
 //When you click on map, open in Maps.
-    
-    override func viewWillAppear(animated: Bool) {
-         emailLabel.text = user?.name
-    }
 
     @IBAction func logoutButtonPressed(sender: UIButton) {
         
@@ -108,6 +124,18 @@ class ProfileViewController: UIViewController, MKMapViewDelegate {
         location.mapItem().openInMapsWithLaunchOptions(launchOptions)
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CouponsTableViewCell
+        let item = couponItems[indexPath.row]
+        cell.nameLabel.text = item.key
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return couponItems.count
+    }
+
 }
 
 
