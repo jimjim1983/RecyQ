@@ -52,10 +52,40 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     switch (errorCode) {
                                     case .UserDoesNotExist:
                                         print("Handle invalid user")
+                                        
+                                        let alertController = UIAlertController(title: "Onjuiste gebruikersnaam", message: "Probeer het opnieuw.", preferredStyle: .Alert)
+                                        
+                                        let okAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                                        }
+                                        
+                                        alertController.addAction(okAction)
+                                        
+                                        self.presentViewController(alertController, animated: true, completion: nil)
+                                        
                                     case .InvalidEmail:
                                         print("Handle invalid email")
+                                        
+                                        let alertController = UIAlertController(title: "Onjuist e-mailadres", message: "Probeer het opnieuw.", preferredStyle: .Alert)
+                                        
+                                        let okAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                                        }
+                                        
+                                        alertController.addAction(okAction)
+                                        
+                                        self.presentViewController(alertController, animated: true, completion: nil)
+                                        
                                     case .InvalidPassword:
                                         print("Handle invalid password")
+                                        
+                                        let alertController = UIAlertController(title: "Wachtwoord is onjuist", message: "Probeer het opnieuw.", preferredStyle: .Alert)
+                                        
+                                        let okAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                                        }
+                                        
+                                        alertController.addAction(okAction)
+                                        
+                                        self.presentViewController(alertController, animated: true, completion: nil)
+                                        
                                     default:
                                         print("Handle default situation")
                                     }}}
@@ -144,16 +174,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         alert.addTextFieldWithConfigurationHandler { (textUsername) -> Void in
-            textUsername.placeholder = "Enter your username"
+            textUsername.placeholder = "Gebruikersnaam"
         }
         
         alert.addTextFieldWithConfigurationHandler { (textEmail) -> Void in
-            textEmail.placeholder = "Enter your email"
+            textEmail.placeholder = "E-mailadres"
         }
         
         alert.addTextFieldWithConfigurationHandler { (textPassword) -> Void in
             textPassword.secureTextEntry = true
-            textPassword.placeholder = "Enter your password"
+            textPassword.placeholder = "Wachtwoord"
         }
         
         alert.addAction(saveAction)
