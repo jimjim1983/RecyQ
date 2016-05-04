@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Firebase
 
-class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
     var storeItem: StoreItem!
     var coupon: Coupon?
@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     
 
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet var buttonToMaps: UIButton!
     
     
     override func viewDidLoad() {
@@ -72,11 +73,15 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
             }
         })
     }
-    
-//When you click on map, open in Maps.
+
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if item.tag == 1 {
+            self.couponItems.removeAll()
+        }
+    }
+
 
     @IBAction func logoutButtonPressed(sender: UIButton) {
-        
         ref.unauth()
         let loginVC = LoginViewController()
 //        self.presentViewController(loginVC, animated: true, completion: nil)
@@ -130,11 +135,34 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         cell.nameLabel.text = item.key
         
         return cell
-    }
+        }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return couponItems.count
     }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Uw verdiende coupons:"
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = self.couponItems[indexPath.row]
+        let name = item.key
+        let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+        }
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true) {
+        }
+    }
+    
+    @IBAction func openInMaps (sender: UIButton) {
+        if let url = NSURL(string: "https://www.google.nl/maps/place/Wisseloord+182,+1106+MC+Amsterdam-Zuidoost/@52.2973944,4.9853276,17z/data=!3m1!4b1!4m2!3m1!1s0x47c60c8ac7dd7be3:0x3eb79f318071fdae") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+
+    
 
 }
 
