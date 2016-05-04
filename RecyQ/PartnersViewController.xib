@@ -24,36 +24,12 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          COMMUNITY PARTNERS " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjp-6S-DBS">
                     <rect key="frame" x="187" y="16" width="225" height="68"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd8-sT-XQ4">
-                    <rect key="frame" x="56" y="130" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHS-n4-ZVk">
-                    <rect key="frame" x="252" y="130" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGi-RK-aM1">
-                    <rect key="frame" x="424" y="130" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghk-M1-jsr">
-                    <rect key="frame" x="56" y="251" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fH8-dU-H0W">
-                    <rect key="frame" x="252" y="241" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxm-ui-hFL">
-                    <rect key="frame" x="412" y="241" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTO-fV-Z0Q">
-                    <rect key="frame" x="133" y="35" width="46" height="30"/>
+                    <rect key="frame" x="5" y="35" width="46" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="ai0-uc-LEK"/>
                         <constraint firstAttribute="height" constant="30" id="c89-Vo-lT3"/>
@@ -72,29 +48,65 @@
                         <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="ytG-0G-Wbj"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHS-n4-ZVk">
+                    <rect key="frame" x="175" y="270" width="250" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Wyd-gO-msX"/>
+                        <constraint firstAttribute="width" constant="250" id="kLV-ek-MSc"/>
+                        <constraint firstAttribute="width" constant="417" id="lQQ-ax-cU9"/>
+                        <constraint firstAttribute="height" constant="78" id="vrR-Mm-xO5"/>
+                    </constraints>
+                    <state key="normal" title="startupInResidenceButton" image="startupInResidence"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="lQQ-ax-cU9"/>
+                            <exclude reference="vrR-Mm-xO5"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="startupInResidenceButtonPressed:" destination="-1" eventType="touchUpInside" id="r5t-kg-eoe"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecyQ would like to thank our community partners:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnU-Qb-zau">
+                    <rect key="frame" x="176" y="177" width="248" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="B2q-tQ-Nb9"/>
+                        <constraint firstAttribute="width" constant="248" id="gwA-L9-L7g"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="LnU-Qb-zau" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EMj-8g-S0x"/>
                 <constraint firstItem="Fjp-6S-DBS" firstAttribute="centerY" secondItem="hfI-Xw-Nxr" secondAttribute="centerY" id="JEH-fh-UJe"/>
                 <constraint firstItem="LTO-fV-Z0Q" firstAttribute="centerY" secondItem="hfI-Xw-Nxr" secondAttribute="centerY" id="Yb3-P2-ELv"/>
                 <constraint firstItem="Fjp-6S-DBS" firstAttribute="centerX" secondItem="hfI-Xw-Nxr" secondAttribute="centerX" id="bcR-GS-ypg"/>
                 <constraint firstItem="hfI-Xw-Nxr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d9O-R7-WVx"/>
+                <constraint firstItem="zHS-n4-ZVk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e3V-dJ-QO2"/>
                 <constraint firstItem="hfI-Xw-Nxr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="k8d-Gu-i7d"/>
                 <constraint firstItem="LTO-fV-Z0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="luy-8p-FCI"/>
                 <constraint firstItem="Fjp-6S-DBS" firstAttribute="leading" secondItem="LTO-fV-Z0Q" secondAttribute="trailing" constant="8" id="ncb-hR-ozn"/>
+                <constraint firstItem="zHS-n4-ZVk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oOK-9d-X9Z"/>
                 <constraint firstItem="LTO-fV-Z0Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="otl-Ho-X99"/>
+                <constraint firstItem="zHS-n4-ZVk" firstAttribute="top" secondItem="LnU-Qb-zau" secondAttribute="bottom" constant="30" id="s1C-IE-5Wc"/>
                 <constraint firstItem="Fjp-6S-DBS" firstAttribute="width" secondItem="hfI-Xw-Nxr" secondAttribute="width" id="xQN-Gn-fTw"/>
+                <constraint firstItem="LTO-fV-Z0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="yoG-yn-08Z"/>
                 <constraint firstItem="Fjp-6S-DBS" firstAttribute="height" secondItem="hfI-Xw-Nxr" secondAttribute="height" id="z18-Da-e0O"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="luy-8p-FCI"/>
                     <exclude reference="otl-Ho-X99"/>
+                    <exclude reference="ncb-hR-ozn"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
         <image name="Community -BAR - partners" width="285" height="50"/>
+        <image name="startupInResidence" width="363" height="78"/>
     </resources>
 </document>
