@@ -131,9 +131,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
-        let alert = UIAlertController(title: "Sign up for a new RecyQ account.", message: "", preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Maak een nieuwe RecyQ account.", message: "", preferredStyle: .Alert)
         
-        let saveAction = UIAlertAction(title: "Save", style: .Default) { (action: UIAlertAction) -> Void in
+        let saveAction = UIAlertAction(title: "Opslaan", style: .Default) { (action: UIAlertAction) -> Void in
             let usernameField = alert.textFields![0]
             let emailField = alert.textFields![1]
             let passwordField = alert.textFields![2]
@@ -170,7 +170,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action: UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "Annuleer", style: .Default) { (action: UIAlertAction) -> Void in
         }
         
         alert.addTextFieldWithConfigurationHandler { (textUsername) -> Void in
