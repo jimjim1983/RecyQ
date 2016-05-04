@@ -157,7 +157,7 @@ class StatsViewController: UIViewController {
                     
                     let name = snapshot.value.objectForKey("name") as? String
                     let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
-                    var amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
+                    let amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
                     let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
                     let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
                     let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double

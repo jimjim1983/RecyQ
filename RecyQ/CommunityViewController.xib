@@ -83,7 +83,7 @@
                                         <constraint firstAttribute="width" constant="301" id="wZP-fA-5X3"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7r-vJ-JkJ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7r-vJ-JkJ">
                                     <rect key="frame" x="79" y="152" width="257" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="129" id="4Li-nx-065"/>
@@ -93,7 +93,7 @@
                                         <constraint firstAttribute="width" constant="257" id="uXY-JD-ErC"/>
                                         <constraint firstAttribute="height" constant="35" id="yjJ-aJ-hfZ"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                     <variation key="default">
@@ -122,7 +122,7 @@
                                         <constraint firstAttribute="height" constant="54" id="SL3-k0-LWC"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recycling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhB-Xg-9HT">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recycling" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhB-Xg-9HT">
                                     <rect key="frame" x="79" y="265" width="257" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="Agb-cM-6l8"/>
@@ -130,7 +130,7 @@
                                         <constraint firstAttribute="width" constant="144" id="jLs-Fy-AwL"/>
                                         <constraint firstAttribute="height" constant="35" id="zno-K5-HCL"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                     <variation key="default">
