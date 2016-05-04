@@ -10,9 +10,13 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +26,9 @@ class InfoViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func xButtonPressed(sender: UIButton) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
 
 }

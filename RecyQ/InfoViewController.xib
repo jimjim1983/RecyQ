@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="scrollView" destination="WD8-ZN-CzI" id="tfm-Vu-j0p"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +15,95 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD8-ZN-CzI">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dc4-fa-C04" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GW-yX-hjd">
+                                    <rect key="frame" x="17" y="25" width="46" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="DOO-mw-7T0"/>
+                                        <constraint firstAttribute="width" constant="46" id="kXq-af-kj6"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                    <state key="normal" title="X"/>
+                                    <connections>
+                                        <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="lsT-kJ-QJB"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vG-r5-cIG">
+                                    <rect key="frame" x="279" y="159" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wat gaan we doen?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-1N-uf3">
+                                    <rect key="frame" x="212" y="29" width="163" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="reduceReuseRecycle" translatesAutoresizingMaskIntoConstraints="NO" id="oQD-jM-RDB">
+                                    <rect key="frame" x="222" y="206" width="175" height="75"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="175" id="ATq-tl-2BR"/>
+                                        <constraint firstAttribute="height" constant="75" id="KpY-zV-m1V"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="oQD-jM-RDB" firstAttribute="centerX" secondItem="Dc4-fa-C04" secondAttribute="centerX" id="FE9-f6-Ehl"/>
+                                <constraint firstItem="9GW-yX-hjd" firstAttribute="leading" secondItem="Dc4-fa-C04" secondAttribute="leading" constant="17" id="afb-Fy-ZPT"/>
+                                <constraint firstItem="9GW-yX-hjd" firstAttribute="top" secondItem="Dc4-fa-C04" secondAttribute="top" constant="25" id="rgG-18-KWw"/>
+                                <constraint firstItem="oQD-jM-RDB" firstAttribute="top" secondItem="9GW-yX-hjd" secondAttribute="top" id="zV1-vr-U5H"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="zV1-vr-U5H"/>
+                                </mask>
+                            </variation>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="top" secondItem="WD8-ZN-CzI" secondAttribute="top" id="7OW-TO-1SA"/>
+                        <constraint firstAttribute="trailing" secondItem="Dc4-fa-C04" secondAttribute="trailing" id="8G3-k0-v7x"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="centerX" secondItem="WD8-ZN-CzI" secondAttribute="centerX" id="BkK-60-NiX"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="centerX" secondItem="WD8-ZN-CzI" secondAttribute="centerX" id="PDp-Nf-hSL"/>
+                        <constraint firstAttribute="trailing" secondItem="Dc4-fa-C04" secondAttribute="trailing" id="R0g-1F-W7D"/>
+                        <constraint firstAttribute="bottom" secondItem="Dc4-fa-C04" secondAttribute="bottom" id="T1O-lN-jJc"/>
+                        <constraint firstAttribute="bottom" secondItem="Dc4-fa-C04" secondAttribute="bottom" id="WJs-Jb-2HH"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="top" secondItem="WD8-ZN-CzI" secondAttribute="top" id="azJ-xD-2Mb"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="leading" secondItem="WD8-ZN-CzI" secondAttribute="leading" id="hc4-vo-jzT"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="width" secondItem="WD8-ZN-CzI" secondAttribute="width" id="mef-l9-lIK"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="centerY" secondItem="WD8-ZN-CzI" secondAttribute="centerY" id="rkL-1U-WPp"/>
+                        <constraint firstItem="Dc4-fa-C04" firstAttribute="leading" secondItem="WD8-ZN-CzI" secondAttribute="leading" id="vKy-SE-cO3"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="7OW-TO-1SA"/>
+                            <exclude reference="BkK-60-NiX"/>
+                            <exclude reference="PDp-Nf-hSL"/>
+                            <exclude reference="R0g-1F-W7D"/>
+                            <exclude reference="T1O-lN-jJc"/>
+                            <exclude reference="hc4-vo-jzT"/>
+                        </mask>
+                    </variation>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="WD8-ZN-CzI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5L1-YY-dpn"/>
+                <constraint firstAttribute="bottom" secondItem="WD8-ZN-CzI" secondAttribute="bottom" id="JDy-G9-gGb"/>
+                <constraint firstItem="WD8-ZN-CzI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="erE-uz-kkT"/>
+                <constraint firstAttribute="trailing" secondItem="WD8-ZN-CzI" secondAttribute="trailing" id="wvt-C4-23H"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="reduceReuseRecycle" width="315" height="160"/>
+    </resources>
 </document>

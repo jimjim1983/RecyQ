@@ -35,6 +35,8 @@
 		A6E1FF6C1CA18ECD006F0F4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF6B1CA18ECD006F0F4B /* User.swift */; };
 		F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */; };
 		F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */; };
+		F21919F81CDA43E9000E5372 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21919F61CDA43E8000E5372 /* InfoViewController.swift */; };
+		F21919F91CDA43E9000E5372 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F21919F71CDA43E8000E5372 /* InfoViewController.xib */; };
 		F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */; };
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
@@ -102,6 +104,8 @@
 		B315E3B545646FB0F6110B48 /* Pods-RecyQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQ.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ.debug.xcconfig"; sourceTree = "<group>"; };
 		F20D2C2C1CB729E900BE28BE /* CO2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CO2ViewController.swift; sourceTree = "<group>"; };
 		F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CO2ViewController.xib; sourceTree = "<group>"; };
+		F21919F61CDA43E8000E5372 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		F21919F71CDA43E8000E5372 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				F2A5A8E71CD2D3CE009B2BC6 /* PartnersViewController.xib */,
 				A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */,
 				A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */,
+				F21919F61CDA43E8000E5372 /* InfoViewController.swift */,
+				F21919F71CDA43E8000E5372 /* InfoViewController.xib */,
 				A6A595CF1CA0352D00A120C1 /* StoreViewController.swift */,
 				A6A595D01CA0352D00A120C1 /* StoreViewController.xib */,
 				A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */,
@@ -368,6 +374,7 @@
 				F2A5A8E51CD2CCF3009B2BC6 /* LeaderboardViewController.xib in Resources */,
 				A6A595D21CA0352D00A120C1 /* StoreViewController.xib in Resources */,
 				F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */,
+				F21919F91CDA43E9000E5372 /* InfoViewController.xib in Resources */,
 				A683EE6D1CD91B5600D6E725 /* CouponsTableViewCell.xib in Resources */,
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
 				A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */,
@@ -471,6 +478,7 @@
 				F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */,
 				F2A5A8E41CD2CCF3009B2BC6 /* LeaderboardViewController.swift in Sources */,
 				F26B8F501CB72E870066F972 /* RecyQTokenViewController.swift in Sources */,
+				F21919F81CDA43E9000E5372 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
