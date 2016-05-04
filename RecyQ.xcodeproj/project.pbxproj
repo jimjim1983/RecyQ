@@ -25,11 +25,11 @@
 		A6A595D51CA0354100A120C1 /* StoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */; };
 		A6A595D61CA0354100A120C1 /* StoreDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */; };
 		A6A595D91CA0354F00A120C1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */; };
-		A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */; };
 		A6AE69101CB50BD200C54E98 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */; };
 		A6AE69111CB50BD200C54E98 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */; };
 		A6AE69121CB50BD200C54E98 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */; };
 		A6AE69131CB50BD200C54E98 /* CommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */; };
+		A6B101391CDA4EB200A29BE3 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B101381CDA4EB200A29BE3 /* ProfileViewController.xib */; };
 		A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BC039F1CCA27B8009FAACE /* Coupon.swift */; };
 		A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF691CA15980006F0F4B /* StoreItem.swift */; };
 		A6E1FF6C1CA18ECD006F0F4B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E1FF6B1CA18ECD006F0F4B /* User.swift */; };
@@ -92,11 +92,11 @@
 		A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDetailViewController.swift; sourceTree = "<group>"; };
 		A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreDetailViewController.xib; sourceTree = "<group>"; };
 		A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
 		A6AE690E1CB50BD200C54E98 /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		A6AE690F1CB50BD200C54E98 /* CommunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityViewController.xib; sourceTree = "<group>"; };
+		A6B101381CDA4EB200A29BE3 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		A6BC039F1CCA27B8009FAACE /* Coupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		A6C1F9E91CA42BBF00E7B89B /* RecyQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecyQ-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6E1FF691CA15980006F0F4B /* StoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 				A6A595D31CA0354100A120C1 /* StoreDetailViewController.swift */,
 				A6A595D41CA0354100A120C1 /* StoreDetailViewController.xib */,
 				A6A595D71CA0354F00A120C1 /* ProfileViewController.swift */,
-				A6A595D81CA0354F00A120C1 /* ProfileViewController.xib */,
+				A6B101381CDA4EB200A29BE3 /* ProfileViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -377,12 +377,12 @@
 				F21919F91CDA43E9000E5372 /* InfoViewController.xib in Resources */,
 				A683EE6D1CD91B5600D6E725 /* CouponsTableViewCell.xib in Resources */,
 				A6A595CA1CA0350100A120C1 /* LoginViewController.xib in Resources */,
-				A6A595DA1CA0354F00A120C1 /* ProfileViewController.xib in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
 				F2A5A8E91CD2D3CE009B2BC6 /* PartnersViewController.xib in Resources */,
 				A6AE69131CB50BD200C54E98 /* CommunityViewController.xib in Resources */,
 				A6A595CE1CA0351600A120C1 /* StatsViewController.xib in Resources */,
 				A6A595A11CA023D400A120C1 /* Assets.xcassets in Resources */,
+				A6B101391CDA4EB200A29BE3 /* ProfileViewController.xib in Resources */,
 				A6A595D61CA0354100A120C1 /* StoreDetailViewController.xib in Resources */,
 				A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */,
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
