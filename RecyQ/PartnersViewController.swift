@@ -21,5 +21,13 @@ class PartnersViewController: UIViewController {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    @IBAction func startupInResidenceButtonPressed(sender: UIButton) {
+        
+        if let url = NSURL(string: "http://www.startupinresidence.com/") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
 
 }

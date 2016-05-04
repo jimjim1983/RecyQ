@@ -32,6 +32,8 @@ class CommunityViewController: UIViewController {
     
     var wasteArray = [Double]()
     
+    
+    
     override func viewDidLayoutSubviews()
     {
         let scrollViewBounds = scrollView.bounds
@@ -51,6 +53,8 @@ class CommunityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //right now I only call getAmountOfWaste in the viewDidLoad instead of viewWillAppear because code will duplicate data every time in viewWillAppear unless you set the array to empty first in getAmountOfWaste
         
         getAmountOfWaste()
         
@@ -127,7 +131,6 @@ class CommunityViewController: UIViewController {
                 
                 if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                     for item in snapshots {
-                        print("IS THIS WORKING YET \(item.value)")
                         let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
                         let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
                         let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
@@ -140,18 +143,15 @@ class CommunityViewController: UIViewController {
                         self.wasteArray.append(amountOfIron!)
                         self.wasteArray.append(amountOfPaper!)
                         self.wasteArray.append(amountOfTextile!)
-//                        self.tableView.reloadData()
                     }
                
                 }
-                print(self.wasteArray)
+                
                 var total = Double()
                 
                 for i in self.wasteArray {
                     total = total + i
                 }
-                
-                print("THIS IS THE TOTAL OF WASTE KILOGRAMS: \(total)")
                 
                 self.recyclingTotalLabel.text = "\(round(total)) kg"
                 
@@ -162,175 +162,8 @@ class CommunityViewController: UIViewController {
             
         })
     }
-// array does not work outside of the block
-//        print(self.wasteArray)
-        
-
-//    
-//    func getAmountOfEWaste() {
-//        
-//        self.clientsRef.queryOrderedByChild("amountOfEWaste").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                for item in snapshots {
-//                    self.wasteArray.append(item)
-//                    //                        self.tableView.reloadData()
-//                }
-//                self.getAmountOfIron()
-//                print(self.wasteArray)
-//                
-//                
-//            }
-//        })
-//
-//        
-//    }
-//    
-//    func getAmountOfIron() {
-//        
-//        self.clientsRef.queryOrderedByChild("amountOfIron").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                for item in snapshots {
-//                    self.wasteArray.append(item)
-//                    //                        self.tableView.reloadData()
-//                }
-//                
-//                self.getAmountOfPaper()
-//                print(self.wasteArray)
-//                
-//                
-//            }
-//        })
-//        
-//    }
-//    
-//    
-//    func getAmountOfPaper() {
-//        
-//        self.clientsRef.queryOrderedByChild("amountOfPaper").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                for item in snapshots {
-////                    print(item.value)
-//                    self.wasteArray.append(item)
-//                    //                        self.tableView.reloadData()
-//                }
-//                
-//                self.getAmountOfPlastic()
-//                print(self.wasteArray)
-//                
-//                
-//            }
-//        })
-//        
-//    }
-//    
-//    
-//    func getAmountOfPlastic() {
-//        
-//        self.clientsRef.queryOrderedByChild("amountOfPlastic").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                for item in snapshots {
-//                    self.wasteArray.append(item)
-//                    //                        self.tableView.reloadData()
-//                }
-//                
-//                self.getAmountOfTextile()
-//                print(self.wasteArray)
-//                
-//                
-//            }
-//        })
-//        
-//    }
-//    
-//    
-//    func getAmountOfTextile() {
-//        
-//        self.clientsRef.queryOrderedByChild("amountOfTextile").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                for item in snapshots {
-//                    self.wasteArray.append(item)
-//                    //                        self.tableView.reloadData()
-//                }
-//                print(self.wasteArray)
-//                
-//                for item in self.wasteArray {
-//                    
-//                    print(item as? [FDataSnapshot])
-//                }
-//                
-//                
-//                
-////                for item in self.wasteArray {
-////                    if let kilogramsOfWaste = item.value as? Int {
-////                    
-////                    }
-//    //            }
-//                
-//                
-//            }
-//        })
-//        
-//    }
     
-    
-//    func setCo2TotalLabel() -> Array<AnyObject> {
-//        
-//        let clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
-//        
-//        var arrayOfAfval = [AnyObject]()
-//        
-//        clientsRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-//            
-//            if let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") {
-//                
-//                arrayOfAfval.append(amountOfBioWaste)
-//                
-//            }
-//            if let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") {
-//                
-//                arrayOfAfval.append(amountOfEWaste)
-//                
-//            }
-//            
-//            if let amountOfIron = snapshot.value.objectForKey("amountOfIron") {
-//                
-//                arrayOfAfval.append(amountOfIron)
-//                
-//            }
-//            if let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") {
-//                
-//                arrayOfAfval.append(amountOfPaper)
-//                
-//            }
-//            
-//            if let amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") {
-//                
-//                arrayOfAfval.append(amountOfPlastic)
-//                
-//            }
-//            
-//            if let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") {
-//                
-//                arrayOfAfval.append(amountOfTextile)
-//                
-//            }
-//            
-//        })
-//    
-//        return arrayOfAfval
-//
-//        
-//    }
-    
-    func setRecyclingTotalLabel() {
-        
-    }
-    
+  
     @IBAction func leaderboardButtonPressed(sender: UIButton) {
         
         let leaderboardVC = LeaderboardViewController()
