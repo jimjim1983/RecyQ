@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
+    
+    var wasteDictionary = [String: Double]()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -21,6 +25,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getAmountOfWaste()
         
         userArray = [testUser1,testUser2]
         userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
@@ -34,12 +40,41 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                 let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
                 self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
 
-
-        // Do any additional setup after loading the view.
     }
     
+    func getAmountOfWaste() {
+        
+        self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
+            
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                for item in snapshots {
+                    let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
+                    let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
+                    let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
+                    let amountOfIron = item.value.objectForKey("amountOfIron") as? Double
+                    let amountOfPaper = item.value.objectForKey("amountOfPaper") as? Double
+                    let amountOfTextile = item.value.objectForKey("amountOfTextile") as? Double
+                    
+                    let wasteAmount = amountOfPlastic! + amountOfBioWaste! + amountOfEWaste! + amountOfIron! + amountOfPaper! + amountOfTextile!
+                    
+                    if let username = item.value.objectForKey("name") as? String {
+                    
+                        self.wasteDictionary["\(username)"] = wasteAmount
+                    }
+                }
+                
+            }
+            
+            print(self.wasteDictionary)
+            
+        })
+    }
+    
+
+    
         func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return userArray.count
+            return self.wasteDictionary.count
         }
     
         func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -48,14 +83,26 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CommunityTableViewCell
+            
+            let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sort {$0.1 < $1.1})
+            
+//            for (k, v) in sortedArrayOfWasteDictionaries {
+//                cell.nameLabel.text = k
+//                cell.co2SavedLabel.text = "\(v)"
+//            }
+            
+            let leaderboardArray = sortedArrayOfWasteDictionaries[indexPath.row]
+            
+            cell.nameLabel.text = leaderboardArray.0
+            cell.co2SavedLabel.text = "\(leaderboardArray.1)"
     
-            let user = userArray[indexPath.row]
-            cell.nameLabel.text = user.name
+//            let user = userArray[indexPath.row]
+//            cell.nameLabel.text = user.name
     
             //change amountOfPlastic to co2 saved calculation
-            if let co2Saved = user.amountOfPlastic {
-                cell.co2SavedLabel.text = "\(co2Saved)"
-            }
+//            if let co2Saved = user.amountOfPlastic {
+//                cell.co2SavedLabel.text = "\(co2Saved)"
+//            }
             return cell
         }
     
