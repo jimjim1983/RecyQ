@@ -22,49 +22,73 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dc4-fa-C04" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GW-yX-hjd">
-                                    <rect key="frame" x="17" y="25" width="46" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="DOO-mw-7T0"/>
-                                        <constraint firstAttribute="width" constant="46" id="kXq-af-kj6"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                    <state key="normal" title="X"/>
-                                    <connections>
-                                        <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="lsT-kJ-QJB"/>
-                                    </connections>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wat gaan we doen?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPd-1N-uf3">
-                                    <rect key="frame" x="218" y="29" width="163" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="163" id="HVX-ZZ-aw3"/>
-                                        <constraint firstAttribute="height" constant="21" id="P81-QY-Vcc"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reduceReuseRecycle" translatesAutoresizingMaskIntoConstraints="NO" id="oQD-jM-RDB">
-                                    <rect key="frame" x="212.5" y="206" width="175" height="75"/>
+                                    <rect key="frame" x="212" y="76" width="175" height="75"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="175" id="ATq-tl-2BR"/>
                                         <constraint firstAttribute="height" constant="75" id="KpY-zV-m1V"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="gGf-pI-Erz"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="ihd-OQ-81Q"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="gGf-pI-Erz"/>
+                                            <exclude reference="ihd-OQ-81Q"/>
+                                        </mask>
+                                    </variation>
+                                </imageView>
+                                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8G-Hk-E9b">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="66" id="n0P-wy-sHd"/>
+                                    </constraints>
+                                    <items>
+                                        <navigationItem title="Wat gaan we doen?" id="a1d-JL-tHo">
+                                            <barButtonItem key="leftBarButtonItem" title="Terug" id="neD-wn-vfN">
+                                                <connections>
+                                                    <action selector="terugButtonPressed:" destination="-1" id="V2u-Jg-msX"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-bI-DDK">
+                                    <rect key="frame" x="10" y="161" width="580" height="532"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <mutableString key="text">
+RecyQ laat afval circuleren met als doel het percentage gescheiden afval te vergroten. RecyQ maakt afvalscheiding voor burgers en bedrijven logischer en begrijpelijker, zodat zij gemotiveerder zijn hieraan mee te werken. Door te experimenteren en te onderzoeken wat bewoners en bedrijven motiveert, verkrijgen wij inzichten in hoe we afvalscheiding kunnen stimuleren. 
+
+​Door gebruik te maken van de laatste digitale technologie, upcycling innovaties en samen te werken met scholen en partijen in de afvalketen veranderen wij de perceptie omtrent afval en creëren we impact op sociaal, milieu en economisch gebied.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecyQ logo" translatesAutoresizingMaskIntoConstraints="NO" id="R6e-c9-fXD">
+                                    <rect key="frame" x="240" y="532" width="120" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="TQT-LT-UMi"/>
+                                        <constraint firstAttribute="height" constant="60" id="n6v-8J-4M7"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="gPd-1N-uf3" firstAttribute="top" secondItem="Dc4-fa-C04" secondAttribute="top" constant="29" id="1RH-9y-9xj"/>
+                                <constraint firstAttribute="trailing" secondItem="E8G-Hk-E9b" secondAttribute="trailing" id="0ce-uD-uP9"/>
+                                <constraint firstItem="oQD-jM-RDB" firstAttribute="centerX" secondItem="Dc4-fa-C04" secondAttribute="centerX" id="CVq-6t-Ekj"/>
                                 <constraint firstItem="oQD-jM-RDB" firstAttribute="centerX" secondItem="Dc4-fa-C04" secondAttribute="centerX" id="FE9-f6-Ehl"/>
-                                <constraint firstItem="gPd-1N-uf3" firstAttribute="centerX" secondItem="Dc4-fa-C04" secondAttribute="centerX" id="VEP-iv-bMa"/>
-                                <constraint firstItem="9GW-yX-hjd" firstAttribute="leading" secondItem="Dc4-fa-C04" secondAttribute="leading" constant="17" id="afb-Fy-ZPT"/>
-                                <constraint firstItem="oQD-jM-RDB" firstAttribute="top" secondItem="gPd-1N-uf3" secondAttribute="bottom" constant="156" id="pkx-kR-E8Y"/>
-                                <constraint firstItem="9GW-yX-hjd" firstAttribute="top" secondItem="Dc4-fa-C04" secondAttribute="top" constant="25" id="rgG-18-KWw"/>
-                                <constraint firstItem="oQD-jM-RDB" firstAttribute="top" secondItem="9GW-yX-hjd" secondAttribute="top" id="zV1-vr-U5H"/>
+                                <constraint firstAttribute="bottom" secondItem="Vsq-bI-DDK" secondAttribute="bottom" constant="-93" id="IhH-i5-K8f"/>
+                                <constraint firstItem="E8G-Hk-E9b" firstAttribute="top" secondItem="Dc4-fa-C04" secondAttribute="top" id="JXJ-Ty-v1g"/>
+                                <constraint firstItem="E8G-Hk-E9b" firstAttribute="leading" secondItem="Dc4-fa-C04" secondAttribute="leading" id="K9Z-Qd-KFG"/>
+                                <constraint firstAttribute="bottom" secondItem="R6e-c9-fXD" secondAttribute="bottom" constant="8" id="LMf-jW-ecM"/>
+                                <constraint firstItem="R6e-c9-fXD" firstAttribute="centerX" secondItem="Dc4-fa-C04" secondAttribute="centerX" id="Loo-cv-zcf"/>
+                                <constraint firstItem="Vsq-bI-DDK" firstAttribute="leading" secondItem="Dc4-fa-C04" secondAttribute="leading" constant="10" id="NuA-7B-F6e"/>
+                                <constraint firstItem="Vsq-bI-DDK" firstAttribute="centerX" secondItem="Dc4-fa-C04" secondAttribute="centerX" id="dwv-RX-guo"/>
+                                <constraint firstItem="oQD-jM-RDB" firstAttribute="top" secondItem="E8G-Hk-E9b" secondAttribute="bottom" constant="10" id="fOq-6F-Rqp"/>
+                                <constraint firstItem="Vsq-bI-DDK" firstAttribute="top" secondItem="oQD-jM-RDB" secondAttribute="bottom" constant="10" id="s4l-gw-gQA"/>
+                                <constraint firstAttribute="trailing" secondItem="Vsq-bI-DDK" secondAttribute="trailing" constant="10" id="zLD-ir-UCR"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="zV1-vr-U5H"/>
+                                    <exclude reference="FE9-f6-Ehl"/>
                                 </mask>
                             </variation>
                         </view>
@@ -105,6 +129,7 @@
         </view>
     </objects>
     <resources>
+        <image name="RecyQ logo" width="1599" height="899"/>
         <image name="reduceReuseRecycle" width="315" height="160"/>
     </resources>
 </document>

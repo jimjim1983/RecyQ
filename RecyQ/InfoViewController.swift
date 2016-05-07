@@ -25,10 +25,9 @@ class InfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func xButtonPressed(sender: UIButton) {
-        
+    @IBAction func terugButtonPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
 
 }

@@ -36,7 +36,7 @@
                         <constraint firstAttribute="height" constant="60" id="i6O-5g-qkQ"/>
                     </constraints>
                     <items>
-                        <navigationItem title="RecyQ Leaderboard" id="b70-84-Es2">
+                        <navigationItem title="Leaderboard" id="b70-84-Es2">
                             <barButtonItem key="leftBarButtonItem" title="Terug" id="A9g-4m-rpc">
                                 <connections>
                                     <action selector="terugButtonPressed:" destination="-1" id="gmc-Ax-Ghe"/>

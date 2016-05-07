@@ -34,7 +34,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                 tableView.dataSource = self
                 tableView.delegate = self
                 tableView.allowsSelection = false
-                tableView.backgroundColor = UIColor(red: 33/255, green: 210/255, blue: 37/255, alpha: 1.0)
+//                tableView.backgroundColor = UIColor(red: 33/255, green: 210/255, blue: 37/255, alpha: 1.0)
                 tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
                 let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
@@ -78,13 +78,13 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         }
     
         func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-            return 22
+            return 60
         }
     
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CommunityTableViewCell
             
-            let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sort {$0.1 < $1.1})
+            let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sort {$1.1 < $0.1})
             
 //            for (k, v) in sortedArrayOfWasteDictionaries {
 //                cell.nameLabel.text = k
@@ -94,7 +94,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
             let leaderboardArray = sortedArrayOfWasteDictionaries[indexPath.row]
             
             cell.nameLabel.text = leaderboardArray.0
-            cell.co2SavedLabel.text = "\(leaderboardArray.1)"
+            cell.co2SavedLabel.text = "\(leaderboardArray.1) kg"
     
 //            let user = userArray[indexPath.row]
 //            cell.nameLabel.text = user.name
