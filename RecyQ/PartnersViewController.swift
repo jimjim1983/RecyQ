@@ -16,12 +16,10 @@ class PartnersViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-   
-    @IBAction func xButtonPressed(sender: UIButton) {
-        
+    @IBAction func terugButtonPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+   
     
     @IBAction func startupInResidenceButtonPressed(sender: UIButton) {
         
