@@ -106,10 +106,12 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
             return cell
         }
     
-    @IBAction func xButtonPressed(sender: UIButton) {
+    @IBAction func terugButtonPressed(sender: UIBarButtonItem) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+
 
 
 }

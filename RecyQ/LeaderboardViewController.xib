@@ -17,33 +17,54 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tRp-DZ-Uhh">
-                    <rect key="frame" x="180" y="236" width="240" height="128"/>
+                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="Iuw-ac-RHv"/>
                         <constraint firstAttribute="width" constant="240" id="mv0-0H-eyM"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Iuw-ac-RHv"/>
+                            <exclude reference="mv0-0H-eyM"/>
+                        </mask>
+                    </variation>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xph-ol-vtN">
-                    <rect key="frame" x="15" y="25" width="46" height="30"/>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-hB-SGl">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="46" id="Y3i-SQ-rQH"/>
-                        <constraint firstAttribute="height" constant="30" id="l4P-BR-80C"/>
+                        <constraint firstAttribute="height" constant="60" id="i6O-5g-qkQ"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <state key="normal" title="X"/>
-                    <connections>
-                        <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="AGw-gA-Ify"/>
-                    </connections>
-                </button>
+                    <items>
+                        <navigationItem title="RecyQ Leaderboard" id="b70-84-Es2">
+                            <barButtonItem key="leftBarButtonItem" title="Terug" id="A9g-4m-rpc">
+                                <connections>
+                                    <action selector="terugButtonPressed:" destination="-1" id="gmc-Ax-Ghe"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="tRp-DZ-Uhh" firstAttribute="top" secondItem="Lge-hB-SGl" secondAttribute="bottom" id="0DB-sy-8cJ"/>
                 <constraint firstItem="tRp-DZ-Uhh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6lq-vc-3KU"/>
+                <constraint firstItem="Lge-hB-SGl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Z9-9x-i17"/>
                 <constraint firstItem="tRp-DZ-Uhh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="8mN-cn-pbb"/>
-                <constraint firstItem="Xph-ol-vtN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="QDl-rV-Ppq"/>
-                <constraint firstItem="Xph-ol-vtN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="fjH-pS-jRJ"/>
+                <constraint firstItem="Lge-hB-SGl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="D4p-oD-JK3"/>
+                <constraint firstAttribute="trailing" secondItem="tRp-DZ-Uhh" secondAttribute="trailing" id="QWt-BP-uI2"/>
+                <constraint firstItem="tRp-DZ-Uhh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eaq-Ag-Bf0"/>
+                <constraint firstAttribute="bottom" secondItem="tRp-DZ-Uhh" secondAttribute="bottom" id="gNs-vt-znO"/>
+                <constraint firstAttribute="trailing" secondItem="Lge-hB-SGl" secondAttribute="trailing" id="rC2-OF-ih2"/>
+                <constraint firstItem="Lge-hB-SGl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vUS-P1-U7N"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="6lq-vc-3KU"/>
+                    <exclude reference="8mN-cn-pbb"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
