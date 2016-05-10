@@ -37,6 +37,19 @@ class StatsViewController: UIViewController {
     @IBOutlet var ironLabel: UILabel!
     @IBOutlet var eWasteLabel: UILabel!
     @IBOutlet var bioWasteLabel: UILabel!
+    @IBOutlet var paperco2Label: UILabel!
+    @IBOutlet var plasticco2Label: UILabel!
+    @IBOutlet var textileco2Label: UILabel!
+    @IBOutlet var ironco2Label: UILabel!
+    @IBOutlet var ewasteco2Label: UILabel!
+    @IBOutlet var biowasteco2Label: UILabel!
+
+    
+    
+    
+    
+    
+    
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var paperImageView: UIImageView!
     @IBOutlet var plasticImageView: UIImageView!
@@ -195,6 +208,20 @@ class StatsViewController: UIViewController {
                         self.bioWasteLabel.text = "\(bioWaste)"
                         print(bioWaste)
                     }
+                    //co2 labels
+                    let paperCarbonSaved = (round((user!.amountOfPaper/35) * 50))
+                    self.paperco2Label.text = "\(paperCarbonSaved)"
+                    let plasticCarbonSaved = (round((user!.amountOfPlastic/35) * 50))
+                    self.plasticco2Label.text = "\(plasticCarbonSaved)"
+                    let textileCarbonSaved = (round((user!.amountOfTextile/35) * 50))
+                    self.textileco2Label.text = "\(textileCarbonSaved)"
+                    let ironCarbonSaved = (round((user!.amountOfIron/35) * 50))
+                    self.ironco2Label.text = "\(ironCarbonSaved)"
+                    let eWasteCarbonSaved = (round((user!.amountOfEWaste/35) * 50))
+                    self.ewasteco2Label.text = "\(eWasteCarbonSaved)"
+                    let biowasteCarbonSaved = (round((user!.amountOfBioWaste/35) * 50))
+                    self.biowasteco2Label.text = "\(biowasteCarbonSaved)"
+
                     
                     self.totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
                     
