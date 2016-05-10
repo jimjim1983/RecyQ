@@ -78,12 +78,14 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-ll-1JJ">
-                            <rect key="frame" x="102" y="211" width="46" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <state key="normal" title="X">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-ll-1JJ">
+                            <rect key="frame" x="96.5" y="211" width="57" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Jfx-Bl-XSt"/>
+                                <constraint firstAttribute="width" constant="57" id="tiX-aX-AdL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Terug"/>
                             <connections>
                                 <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="11O-Tf-lMg"/>
                             </connections>
@@ -93,8 +95,10 @@
                     <constraints>
                         <constraint firstItem="doG-E0-lyM" firstAttribute="top" secondItem="quT-BJ-wtd" secondAttribute="top" constant="26" id="AWc-jY-FqU"/>
                         <constraint firstItem="Ij2-ld-lk9" firstAttribute="top" secondItem="SFr-bz-ddx" secondAttribute="bottom" constant="1" id="JlF-en-5fO"/>
+                        <constraint firstItem="9p6-ll-1JJ" firstAttribute="top" secondItem="X5z-jf-074" secondAttribute="bottom" constant="7.5" id="Jyn-0G-JGg"/>
                         <constraint firstAttribute="trailing" secondItem="X5z-jf-074" secondAttribute="trailing" id="Ls2-SH-ZjL"/>
                         <constraint firstItem="doG-E0-lyM" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="Nyj-2p-qEj"/>
+                        <constraint firstItem="9p6-ll-1JJ" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="RKP-2n-1fN"/>
                         <constraint firstItem="SFr-bz-ddx" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="UKq-mj-BgE"/>
                         <constraint firstItem="siY-Nv-ORm" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="ctW-6e-qUg"/>
                         <constraint firstAttribute="trailing" secondItem="Ij2-ld-lk9" secondAttribute="trailing" id="hq3-Rc-s9h"/>
