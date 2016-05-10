@@ -61,6 +61,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.couponItems.removeAll()
                  emailLabel.text = user?.name
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrderedByChild("uid").queryEqualToValue(user?.uid).observeEventType(.Value, withBlock: { snapshot in
