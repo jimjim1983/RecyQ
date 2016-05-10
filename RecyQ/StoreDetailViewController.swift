@@ -27,14 +27,20 @@ class StoreDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        redeemButton.layer.cornerRadius = 10
       
         titleLabel.text = storeItem.storeItemName
         descriptionLabel.text = storeItem.storeItemDescription
-        descriptionLabel.numberOfLines = 0
+//        descriptionLabel.numberOfLines = 0
         image.image = storeItem.storeItemImage
         
         if let tokensPrice = storeItem.storeItemPrice {
+            if tokensPrice > 1 {
         price.text = "Cost: \(tokensPrice) tokens"
+            } else {
+                price.text = "Cost: \(tokensPrice) token"
+            }
         }
         
         
