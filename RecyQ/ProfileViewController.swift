@@ -176,9 +176,6 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
 
     }
-
-    
-
 }
 
 

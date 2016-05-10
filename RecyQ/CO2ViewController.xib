@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CO2ViewController" customModule="RecyQ" customModuleProvider="target">
@@ -37,20 +37,20 @@
                                 <constraint firstAttribute="width" constant="84" id="Urm-9p-Zbr"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your CO2 counter." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doG-E0-lyM">
-                            <rect key="frame" x="25" y="26" width="201" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dit is jouw CO2 teller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doG-E0-lyM">
+                            <rect key="frame" x="25" y="26" width="201" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="201" id="Dyg-Gs-Rnc"/>
-                                <constraint firstAttribute="height" constant="17" id="KxU-VC-za8"/>
+                                <constraint firstAttribute="height" constant="21" id="KxU-VC-za8"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By recycling, you have currently saved:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFr-bz-ddx">
-                            <rect key="frame" x="35" y="96" width="180" height="57"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door te recyclen heb je bespaard:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFr-bz-ddx">
+                            <rect key="frame" x="8" y="96" width="234" height="57"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="180" id="JBN-xz-1u2"/>
+                                <constraint firstAttribute="width" constant="234" id="JBN-xz-1u2"/>
                                 <constraint firstAttribute="height" constant="57" id="zP4-gb-507"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -72,8 +72,8 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of carbon dioxide emissions." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5z-jf-074">
-                            <rect key="frame" x="0.0" y="183" width="250" height="20.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aan kooldioxide uitstoot." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5z-jf-074">
+                            <rect key="frame" x="0.0" y="183" width="250" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                         <constraint firstItem="SFr-bz-ddx" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="UKq-mj-BgE"/>
                         <constraint firstItem="siY-Nv-ORm" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="ctW-6e-qUg"/>
                         <constraint firstAttribute="trailing" secondItem="Ij2-ld-lk9" secondAttribute="trailing" id="hq3-Rc-s9h"/>
-                        <constraint firstItem="siY-Nv-ORm" firstAttribute="top" secondItem="doG-E0-lyM" secondAttribute="bottom" constant="8" id="n53-6j-axS"/>
+                        <constraint firstItem="siY-Nv-ORm" firstAttribute="top" secondItem="doG-E0-lyM" secondAttribute="bottom" constant="4" id="n53-6j-axS"/>
                         <constraint firstAttribute="height" constant="250" id="sq8-nm-ujP"/>
                         <constraint firstItem="X5z-jf-074" firstAttribute="leading" secondItem="quT-BJ-wtd" secondAttribute="leading" id="ttD-MN-hhn"/>
                         <constraint firstItem="SFr-bz-ddx" firstAttribute="top" secondItem="siY-Nv-ORm" secondAttribute="bottom" constant="1" id="uId-Dr-sHb"/>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecyQTokenViewController" customModule="RecyQ" customModuleProvider="target">
@@ -38,8 +38,8 @@
                                 <constraint firstAttribute="width" constant="84" id="zzh-Fd-XJm"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your RecyQ token counter." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUc-Q6-ekR">
-                            <rect key="frame" x="25" y="8" width="201" height="41"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hier staan je RecyQ tokens." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUc-Q6-ekR">
+                            <rect key="frame" x="9" y="8" width="234" height="41"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="41" id="4jJ-mv-CQq"/>
                                 <constraint firstAttribute="height" constant="17" id="SO3-Cv-825"/>
@@ -56,10 +56,10 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By recycling, you have currently earned:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NB-Tf-bIj">
-                            <rect key="frame" x="35" y="102" width="180" height="57"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door te recyclen heb je verdiend:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NB-Tf-bIj">
+                            <rect key="frame" x="8" y="102" width="235" height="57"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="180" id="c6a-on-yAl"/>
+                                <constraint firstAttribute="width" constant="235" id="c6a-on-yAl"/>
                                 <constraint firstAttribute="height" constant="57" id="s52-Oy-WJF"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
