@@ -152,6 +152,9 @@
                                                 <constraint firstAttribute="width" constant="50" id="fti-iR-i11"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="Community - Plans"/>
+                                            <connections>
+                                                <action selector="infoButtonPressed:" destination="-1" eventType="touchUpInside" id="ati-Zl-ttm"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u5h-zf-4Fg">
                                             <rect key="frame" x="50" y="0.0" width="100" height="50"/>

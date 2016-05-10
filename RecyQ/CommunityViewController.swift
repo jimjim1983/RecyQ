@@ -172,6 +172,14 @@ class CommunityViewController: UIViewController {
         
     }
     
+    
+    @IBAction func infoButtonPressed(sender: UIButton) {
+        
+        let infoVC = InfoViewController()
+        self.presentViewController(infoVC, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func partnersButtonPressed(sender: UIButton) {
         
         print("community button pressed")

@@ -15,39 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Community -BAR - partners" translatesAutoresizingMaskIntoConstraints="NO" id="hfI-Xw-Nxr">
-                    <rect key="frame" x="187" y="16" width="225" height="68"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="68" id="WV4-O7-QPD"/>
-                        <constraint firstAttribute="width" constant="225" id="bIB-ht-U7c"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          COMMUNITY PARTNERS " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjp-6S-DBS">
-                    <rect key="frame" x="187" y="16" width="225" height="68"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTO-fV-Z0Q">
-                    <rect key="frame" x="5" y="35" width="46" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="ai0-uc-LEK"/>
-                        <constraint firstAttribute="height" constant="30" id="c89-Vo-lT3"/>
-                        <constraint firstAttribute="width" constant="46" id="jL9-jS-QF1"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="q8U-oi-z02"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="X"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="ai0-uc-LEK"/>
-                            <exclude reference="q8U-oi-z02"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="ytG-0G-Wbj"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHS-n4-ZVk">
                     <rect key="frame" x="175" y="270" width="250" height="60"/>
                     <constraints>
@@ -67,40 +34,73 @@
                         <action selector="startupInResidenceButtonPressed:" destination="-1" eventType="touchUpInside" id="r5t-kg-eoe"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecyQ would like to thank our community partners:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnU-Qb-zau">
-                    <rect key="frame" x="176" y="177" width="248" height="63"/>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbj-dK-PUj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Ljg-Hv-9fx"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Community Partners" id="uL4-Gk-3n3">
+                            <barButtonItem key="leftBarButtonItem" title="Terug" id="hNG-si-gYJ">
+                                <connections>
+                                    <action selector="terugButtonPressed:" destination="-1" id="abu-lF-lRP"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Community -BAR - partners" translatesAutoresizingMaskIntoConstraints="NO" id="Kfr-ZW-hOJ">
+                    <rect key="frame" x="178" y="151" width="244" height="68"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="EfW-MP-800"/>
+                        <constraint firstAttribute="width" constant="244" id="SLh-AK-q7P"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMMUNITY PARTNERS:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0E-Sp-9Vv">
+                    <rect key="frame" x="201.5" y="174" width="197" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="4ul-aP-XYI"/>
+                        <constraint firstAttribute="width" constant="197" id="E4G-SG-0pC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecyQ would like to thank our " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnU-Qb-zau">
+                    <rect key="frame" x="176" y="118" width="248" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="B2q-tQ-Nb9"/>
                         <constraint firstAttribute="width" constant="248" id="gwA-L9-L7g"/>
+                        <constraint firstAttribute="height" constant="25" id="izc-CF-MCR"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="B2q-tQ-Nb9"/>
+                        </mask>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="l0E-Sp-9Vv" firstAttribute="centerY" secondItem="Kfr-ZW-hOJ" secondAttribute="centerY" id="1sv-KP-Mgk"/>
+                <constraint firstItem="cbj-dK-PUj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4vO-5g-zik"/>
+                <constraint firstAttribute="trailing" secondItem="cbj-dK-PUj" secondAttribute="trailing" id="7cP-Cc-k8U"/>
                 <constraint firstItem="LnU-Qb-zau" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EMj-8g-S0x"/>
-                <constraint firstItem="Fjp-6S-DBS" firstAttribute="centerY" secondItem="hfI-Xw-Nxr" secondAttribute="centerY" id="JEH-fh-UJe"/>
-                <constraint firstItem="LTO-fV-Z0Q" firstAttribute="centerY" secondItem="hfI-Xw-Nxr" secondAttribute="centerY" id="Yb3-P2-ELv"/>
-                <constraint firstItem="Fjp-6S-DBS" firstAttribute="centerX" secondItem="hfI-Xw-Nxr" secondAttribute="centerX" id="bcR-GS-ypg"/>
-                <constraint firstItem="hfI-Xw-Nxr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d9O-R7-WVx"/>
+                <constraint firstItem="Kfr-ZW-hOJ" firstAttribute="top" secondItem="LnU-Qb-zau" secondAttribute="bottom" constant="8" id="OvZ-5V-WcI"/>
+                <constraint firstItem="cbj-dK-PUj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rse-5R-58G"/>
+                <constraint firstItem="l0E-Sp-9Vv" firstAttribute="centerX" secondItem="Kfr-ZW-hOJ" secondAttribute="centerX" id="Wdl-lQ-Skb"/>
                 <constraint firstItem="zHS-n4-ZVk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="e3V-dJ-QO2"/>
-                <constraint firstItem="hfI-Xw-Nxr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="k8d-Gu-i7d"/>
-                <constraint firstItem="LTO-fV-Z0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="luy-8p-FCI"/>
-                <constraint firstItem="Fjp-6S-DBS" firstAttribute="leading" secondItem="LTO-fV-Z0Q" secondAttribute="trailing" constant="8" id="ncb-hR-ozn"/>
+                <constraint firstItem="Kfr-ZW-hOJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hWQ-xm-pPw"/>
                 <constraint firstItem="zHS-n4-ZVk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="oOK-9d-X9Z"/>
-                <constraint firstItem="LTO-fV-Z0Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="otl-Ho-X99"/>
                 <constraint firstItem="zHS-n4-ZVk" firstAttribute="top" secondItem="LnU-Qb-zau" secondAttribute="bottom" constant="30" id="s1C-IE-5Wc"/>
-                <constraint firstItem="Fjp-6S-DBS" firstAttribute="width" secondItem="hfI-Xw-Nxr" secondAttribute="width" id="xQN-Gn-fTw"/>
-                <constraint firstItem="LTO-fV-Z0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="yoG-yn-08Z"/>
-                <constraint firstItem="Fjp-6S-DBS" firstAttribute="height" secondItem="hfI-Xw-Nxr" secondAttribute="height" id="z18-Da-e0O"/>
+                <constraint firstItem="zHS-n4-ZVk" firstAttribute="top" secondItem="Kfr-ZW-hOJ" secondAttribute="bottom" constant="51" id="wil-SQ-zAg"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="luy-8p-FCI"/>
-                    <exclude reference="otl-Ho-X99"/>
-                    <exclude reference="ncb-hR-ozn"/>
+                    <exclude reference="s1C-IE-5Wc"/>
                 </mask>
             </variation>
         </view>
