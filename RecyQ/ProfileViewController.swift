@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     @IBOutlet weak var naamLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var naamInputLabel: UILabel!
+    @IBOutlet var userInfoView: UIView!
 
 
 
@@ -45,6 +46,8 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         tableView.delegate = self
         
         mapView.delegate = self
+        
+        userInfoView.layer.cornerRadius = 10.0
         
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
         
