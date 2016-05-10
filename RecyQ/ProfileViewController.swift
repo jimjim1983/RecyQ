@@ -158,9 +158,23 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     @IBAction func openInMaps (sender: UIButton) {
-        if let url = NSURL(string: "https://www.google.nl/maps/place/Wisseloord+182,+1106+MC+Amsterdam-Zuidoost/@52.2973944,4.9853276,17z/data=!3m1!4b1!4m2!3m1!1s0x47c60c8ac7dd7be3:0x3eb79f318071fdae") {
-            UIApplication.sharedApplication().openURL(url)
+        
+        let alertController = UIAlertController(title: "Google Maps openen", message: "voor een routebeschrijving", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            if let url = NSURL(string: "https://www.google.nl/maps/place/Wisseloord+182,+1106+MC+Amsterdam-Zuidoost/@52.2973944,4.9853276,17z/data=!3m1!4b1!4m2!3m1!1s0x47c60c8ac7dd7be3:0x3eb79f318071fdae") {
+                UIApplication.sharedApplication().openURL(url)
+            }
         }
+        let cancelAction = UIAlertAction(title: "Annuleer", style: .Default) { (action) in
+
+            }
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+
+        self.presentViewController(alertController, animated: true) {
+        }
+        
+
     }
 
     
