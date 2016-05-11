@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import Firebase
 
-    var couponItems = [AnyObject]()
+    var couponItems = [FDataSnapshot]()
 
 class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
@@ -30,12 +30,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     
     var string: String!
 
-    
-
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet var buttonToMaps: UIButton!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,21 +62,18 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         //couponItems.removeAll(keepCapacity: true)
         naamInputLabel.text = user?.name
         emailLabel.text = user?.addedByUser
+        
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrderedByChild("uid").queryEqualToValue(user?.uid).observeEventType(.Value, withBlock: { snapshot in
 
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                for item in snapshots {
-                    
-                    couponItems.append(item)
+            if let itemsFromSnapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+           
+                    couponItems = itemsFromSnapshots
                     self.tableView.reloadData()
-                }
             }
         })
     }
     
-
-
 //    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
 //        if item.tag == 1 {
 //            self.couponItems.removeAll()
@@ -192,12 +186,12 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         return 30
     }
     
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
-    {
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont(name: "Futura", size: 15)!
         header.textLabel?.textColor = UIColor.blackColor()
     }
+
 }
 
 
