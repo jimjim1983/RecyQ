@@ -25,7 +25,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asg-3S-iAE">
-                    <rect key="frame" x="0.0" y="143" width="600" height="405"/>
+                    <rect key="frame" x="0.0" y="169" width="600" height="379"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="600" id="7Ru-7u-p3a"/>
@@ -38,27 +38,39 @@
                     </variation>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recyqTokenCounter" translatesAutoresizingMaskIntoConstraints="NO" id="Wzb-SQ-Fl3">
-                    <rect key="frame" x="172" y="65" width="256" height="73"/>
+                    <rect key="frame" x="196" y="65" width="207" height="54"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="73" id="JI8-3x-nSm"/>
                         <constraint firstAttribute="width" constant="256" id="S7v-vx-SO5"/>
+                        <constraint firstAttribute="height" constant="54" id="W3t-su-4F5"/>
+                        <constraint firstAttribute="width" constant="207" id="swG-xE-XME"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="JI8-3x-nSm"/>
+                            <exclude reference="S7v-vx-SO5"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRZ-cd-bxq">
-                    <rect key="frame" x="241" y="92" width="118" height="20.5"/>
+                    <rect key="frame" x="250.5" y="82" width="98" height="20.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="118" id="BiM-Gn-ojW"/>
                         <constraint firstAttribute="height" constant="20.5" id="FPX-hj-dAW"/>
                         <constraint firstAttribute="width" constant="92.5" id="Nqd-zh-ROx"/>
+                        <constraint firstAttribute="width" constant="98" id="QCe-OM-Ejr"/>
+                        <constraint firstAttribute="height" constant="20.5" id="fSF-Tc-Ye8"/>
                         <constraint firstAttribute="width" constant="100.5" id="rhi-c6-Zm9"/>
                         <constraint firstAttribute="width" constant="78" id="tVD-ib-4ra"/>
                         <constraint firstAttribute="width" constant="68" id="ykr-uN-kVB"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="BiM-Gn-ojW"/>
+                            <exclude reference="FPX-hj-dAW"/>
                             <exclude reference="Nqd-zh-ROx"/>
                             <exclude reference="rhi-c6-Zm9"/>
                             <exclude reference="tVD-ib-4ra"/>
@@ -67,7 +79,7 @@
                     </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-wq-nKj">
-                    <rect key="frame" x="172" y="65" width="256" height="73"/>
+                    <rect key="frame" x="196" y="65" width="207" height="54"/>
                 </button>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8t-UF-Cv8">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -78,6 +90,16 @@
                         <navigationItem title="RecyQ Shop" id="vEV-wW-Ytl"/>
                     </items>
                 </navigationBar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wissel hier je recyq tokens in." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-U4-5He">
+                    <rect key="frame" x="137" y="127" width="325" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="325" id="C00-qj-oem"/>
+                        <constraint firstAttribute="height" constant="24" id="o7t-uJ-Bpn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -86,15 +108,18 @@
                 <constraint firstItem="a8t-UF-Cv8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ago-B1-qML"/>
                 <constraint firstItem="bRZ-cd-bxq" firstAttribute="centerX" secondItem="Wzb-SQ-Fl3" secondAttribute="centerX" id="C6s-v6-xad"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="Wzb-SQ-Fl3" secondAttribute="bottom" constant="5" id="C9Q-tb-Utw"/>
+                <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="SGv-U4-5He" secondAttribute="bottom" constant="18" id="Djw-hg-SGv"/>
                 <constraint firstItem="a8t-UF-Cv8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FYx-gy-07j"/>
                 <constraint firstItem="Zt7-wq-nKj" firstAttribute="height" secondItem="Wzb-SQ-Fl3" secondAttribute="height" id="FZK-cY-TJN"/>
                 <constraint firstItem="Zt7-wq-nKj" firstAttribute="width" secondItem="Wzb-SQ-Fl3" secondAttribute="width" id="HkR-mu-T9a"/>
                 <constraint firstItem="Zt7-wq-nKj" firstAttribute="centerX" secondItem="Wzb-SQ-Fl3" secondAttribute="centerX" id="IB6-wb-NXp"/>
+                <constraint firstItem="SGv-U4-5He" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ivd-7F-Ks7"/>
                 <constraint firstAttribute="bottom" secondItem="asg-3S-iAE" secondAttribute="bottom" constant="52" id="JHl-QL-Ns1"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kf4-ek-OJC"/>
-                <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="Wzb-SQ-Fl3" secondAttribute="bottom" constant="5" id="MhA-5p-gvo"/>
+                <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="Wzb-SQ-Fl3" secondAttribute="bottom" constant="50" id="MhA-5p-gvo"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RAC-gz-bM1"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="SAx-77-via"/>
+                <constraint firstItem="SGv-U4-5He" firstAttribute="top" secondItem="Zt7-wq-nKj" secondAttribute="bottom" constant="8" id="UQ0-7x-MXm"/>
                 <constraint firstItem="bRZ-cd-bxq" firstAttribute="height" secondItem="Wzb-SQ-Fl3" secondAttribute="height" id="Vjz-MC-MCD"/>
                 <constraint firstItem="bRZ-cd-bxq" firstAttribute="width" secondItem="Wzb-SQ-Fl3" secondAttribute="height" multiplier="100:73" id="Yw5-Oh-Skd"/>
                 <constraint firstItem="Zt7-wq-nKj" firstAttribute="centerY" secondItem="Wzb-SQ-Fl3" secondAttribute="centerY" id="d4B-5u-Krd"/>
@@ -114,6 +139,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="C9Q-tb-Utw"/>
+                    <exclude reference="MhA-5p-gvo"/>
                     <exclude reference="RAC-gz-bM1"/>
                     <exclude reference="SAx-77-via"/>
                     <exclude reference="ram-J7-xbb"/>
@@ -130,6 +156,6 @@
         </view>
     </objects>
     <resources>
-        <image name="recyqTokenCounter" width="84" height="44"/>
+        <image name="recyqTokenCounter" width="100" height="50"/>
     </resources>
 </document>
