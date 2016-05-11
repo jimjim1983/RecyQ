@@ -49,12 +49,16 @@ class StoreDetailViewController: UIViewController {
         self.navigationItem.title = "Redeem"
     }
     
+    override func viewWillAppear(animated: Bool) {
+        couponItems.removeAll()
+    }
+    
     func navigateBack() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func redeemToken(sender: UIButton) {
-        
+        //couponItems.removeAll()
         if storeItem.storeItemPrice > numberOfTokens {
             
             
@@ -87,7 +91,7 @@ class StoreDetailViewController: UIViewController {
                 }
                 
                 let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
-                    
+                            
                     self.dismissViewControllerAnimated(true, completion: nil)
                     
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

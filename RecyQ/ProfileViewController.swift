@@ -10,9 +10,11 @@ import UIKit
 import MapKit
 import Firebase
 
+    var couponItems = [AnyObject]()
+
 class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
-    var storeItem: StoreItem!
+    //var storeItem: StoreItem!
     var coupon: Coupon?
     //var user: User!
     
@@ -23,16 +25,11 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     @IBOutlet var tableView: UITableView!
     @IBOutlet var naamInputLabel: UILabel!
     @IBOutlet var userInfoView: UIView!
-
-
-
-    
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var emailLabel: UILabel!
     
     var string: String!
-    var couponItems = [AnyObject]()
+
     
 
     @IBOutlet weak var logoutButton: UIButton!
@@ -44,9 +41,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         tableView.dataSource = self
         tableView.delegate = self
-        
         mapView.delegate = self
-        
         userInfoView.layer.cornerRadius = 10.0
         
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
@@ -67,26 +62,29 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.couponItems.removeAll()
-                 naamInputLabel.text = user?.name
+        //couponItems.removeAll(keepCapacity: true)
+        naamInputLabel.text = user?.name
         emailLabel.text = user?.addedByUser
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrderedByChild("uid").queryEqualToValue(user?.uid).observeEventType(.Value, withBlock: { snapshot in
-            
+
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 for item in snapshots {
-                    self.couponItems.append(item)
+                    
+                    couponItems.append(item)
                     self.tableView.reloadData()
                 }
             }
         })
     }
+    
 
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        if item.tag == 1 {
-            self.couponItems.removeAll()
-        }
-    }
+
+//    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+//        if item.tag == 1 {
+//            self.couponItems.removeAll()
+//        }
+//    }
 
 
     @IBAction func logoutButtonPressed(sender: UIButton) {
@@ -137,6 +135,10 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         location.mapItem().openInMapsWithLaunchOptions(launchOptions)
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return couponItems.count
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CouponsTableViewCell
         let item = couponItems[indexPath.row]
@@ -145,16 +147,14 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         return cell
         }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return couponItems.count
-    }
+
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Uw verdiende coupons:"
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.couponItems[indexPath.row]
+        let item = couponItems[indexPath.row]
         let name = item.key
         let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
@@ -185,18 +185,18 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
+        return 20
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 20
+        return 30
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Futura", size: 18)!
-        header.textLabel?.textColor = UIColor.grayColor()
+        header.textLabel?.font = UIFont(name: "Futura", size: 15)!
+        header.textLabel?.textColor = UIColor.blackColor()
     }
 }
 
