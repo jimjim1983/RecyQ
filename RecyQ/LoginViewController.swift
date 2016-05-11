@@ -23,6 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
     let clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
 
@@ -31,6 +33,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         textFieldLoginEmail.delegate = self
         textFieldLoginPassword.delegate = self
+        
+        loginButton.layer.cornerRadius = 5
+        
         // Do any additional setup after loading the view.
         // login
         //hello
@@ -197,5 +202,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    @IBAction func wachtwoordVergetenButtonPressed(sender: UIButton) {
+        
+        
+    }
+    
 
 }
