@@ -195,7 +195,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Futura", size: 12)!
+        header.textLabel?.font = UIFont(name: "Futura", size: 18)!
         header.textLabel?.textColor = UIColor.grayColor()
     }
 }
