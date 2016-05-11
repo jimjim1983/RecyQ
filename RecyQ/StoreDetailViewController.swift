@@ -37,16 +37,16 @@ class StoreDetailViewController: UIViewController {
         
         if let tokensPrice = storeItem.storeItemPrice {
             if tokensPrice > 1 {
-        price.text = "Cost: \(tokensPrice) tokens"
+        price.text = "Prijs: \(tokensPrice) tokens"
             } else {
-                price.text = "Cost: \(tokensPrice) token"
+                price.text = "Prijs: \(tokensPrice) token"
             }
         }
         
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
         
-        self.navigationItem.title = "Redeem"
+        self.navigationItem.title = "Wissel in"
     }
     
     override func viewWillAppear(animated: Bool) {

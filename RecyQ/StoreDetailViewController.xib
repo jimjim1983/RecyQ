@@ -61,7 +61,7 @@
                         <constraint firstAttribute="height" constant="30" id="mp8-Kt-kIA"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="Redeem">
+                    <state key="normal" title="OK">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <variation key="default">
