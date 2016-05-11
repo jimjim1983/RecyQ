@@ -191,8 +191,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             textPassword.placeholder = "Wachtwoord"
         }
         
-        alert.addAction(saveAction)
         alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        
         
         presentViewController(alert, animated: true, completion: nil)
     
@@ -205,6 +206,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func wachtwoordVergetenButtonPressed(sender: UIButton) {
         
+        let alert = UIAlertController(title: "Wachtwoord vergeten?", message: "Voer uw e-mailadres in. U ontvangt hierop een nieuw wachtwoord", preferredStyle: .Alert)
+        
+        alert.addTextFieldWithConfigurationHandler { (textEmail) -> Void in
+            textEmail.placeholder = "Voer uw e-mailadres in"
+        }
+        
+        let resetPasswordAction = UIAlertAction(title: "Reset wachtwoord", style: .Default) { (action: UIAlertAction) -> Void in
+            
+            let usernameField = alert.textFields![0]
+            
+            self.ref.resetPasswordForUser("\(usernameField.text)", withCompletionBlock: { error in
+                if error != nil {
+                    // There was an error processing the request
+                } else {
+                    // Password reset sent successfully
+                }
+            })
+            
+        }
+        
+            let cancelAction = UIAlertAction(title: "Annuleer", style: .Default) { (action: UIAlertAction) -> Void in
+            }
+        
+        alert.addAction(resetPasswordAction)
+        
+        alert.addAction(cancelAction)
+       
+        presentViewController(alert, animated: true, completion: nil)
         
     }
     
