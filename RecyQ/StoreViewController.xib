@@ -90,7 +90,7 @@
                         <navigationItem title="RecyQ Shop" id="vEV-wW-Ytl"/>
                     </items>
                 </navigationBar>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wissel hier je recyq tokens in." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-U4-5He">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wissel hier je RecyQ tokens in." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-U4-5He">
                     <rect key="frame" x="137" y="127" width="325" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="325" id="C00-qj-oem"/>
