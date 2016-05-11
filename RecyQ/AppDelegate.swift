@@ -25,13 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
+        //change font for the navbar titles
         let attrs = [
             //NSForegroundColorAttributeName : UIColor.darkGreenColor(),
-            NSFontAttributeName : UIFont(name: "Futura", size: 24)!
+            NSFontAttributeName : UIFont(name: "Futura", size: 20)!
         ]
         
         UINavigationBar.appearance().titleTextAttributes = attrs
-        
+        //////
         
          tabbarController = UITabBarController()
 //        let tabbarController = UITabBarController()
