@@ -216,10 +216,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             let usernameField = alert.textFields![0]
             
-            self.ref.resetPasswordForUser("\(usernameField.text)", withCompletionBlock: { error in
+            self.ref.resetPasswordForUser(usernameField.text, withCompletionBlock: { error in
                 if error != nil {
-                    // There was an error processing the request
+                    
+                    let errorAlert = UIAlertController(title: "Oeps!", message: "U heeft geen geldig e-mailadres ingevuld. Probeer het nogmaals.", preferredStyle: .Alert)
+                    
+                    let terugAction = UIAlertAction(title: "Terug", style: .Default) { (action: UIAlertAction) -> Void in
+                    }
+                    
+                    errorAlert.addAction(terugAction)
+                    self.presentViewController(errorAlert, animated: true, completion: nil)
+                    
+                  print("There was an error processing the request")
                 } else {
+                    print("password reset sent")
+                    
+                    let successAlert = UIAlertController(title: "Wachtwoord verstuurd!", message: "U ontvangt een nieuw wachtwoord op het door u opgegeven e-mailadres.", preferredStyle: .Alert)
+                    
+                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    }
+                    
+                    successAlert.addAction(okayAction)
+                    self.presentViewController(successAlert, animated: true, completion: nil)
+                    
                     // Password reset sent successfully
                 }
             })
