@@ -63,6 +63,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         let nib = UINib.init(nibName: "CouponsTableViewCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -181,6 +182,21 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         }
         
 
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Futura", size: 12)!
+        header.textLabel?.textColor = UIColor.grayColor()
     }
 }
 

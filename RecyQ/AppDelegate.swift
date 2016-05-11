@@ -21,7 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
      let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
     
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let attrs = [
+            //NSForegroundColorAttributeName : UIColor.darkGreenColor(),
+            NSFontAttributeName : UIFont(name: "Futura", size: 24)!
+        ]
+        
+        UINavigationBar.appearance().titleTextAttributes = attrs
+        
+        
          tabbarController = UITabBarController()
 //        let tabbarController = UITabBarController()
         let firstTab = StatsViewController(nibName: "StatsViewController", bundle:  nil)
@@ -50,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                   self.window?.rootViewController = loginViewController
             }
+            
+
         }
         
         
