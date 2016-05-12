@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -847,6 +847,12 @@
                                         </mask>
                                     </variation>
                                 </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0O5-vA-Rm9" userLabel="New CO2 Amount Label">
+                                    <rect key="frame" x="269" y="34" width="42" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-Oc-1LF" userLabel="CO2 Amount Label">
                                     <rect key="frame" x="-98" y="-12" width="400" height="100"/>
                                     <constraints>
@@ -1005,13 +1011,6 @@
                                     <exclude reference="Gno-Ru-PKj"/>
                                     <exclude reference="MqH-8N-spj"/>
                                     <exclude reference="qE4-mG-CTC"/>
-                                    <exclude reference="1wT-im-fSG"/>
-                                    <exclude reference="TWI-Xa-JK7"/>
-                                    <exclude reference="TmR-ws-N17"/>
-                                    <exclude reference="VTo-4q-z1a"/>
-                                    <exclude reference="hJu-LX-1Gs"/>
-                                    <exclude reference="jxK-CU-R6b"/>
-                                    <exclude reference="oEC-XA-8Og"/>
                                     <exclude reference="7ZR-7Y-WFx"/>
                                     <exclude reference="84E-Ky-Zyi"/>
                                     <exclude reference="8SJ-kZ-mMd"/>
@@ -1042,6 +1041,13 @@
                                     <exclude reference="E1O-HK-QwP"/>
                                     <exclude reference="HIt-Jw-XCk"/>
                                     <exclude reference="p9z-v0-ZPq"/>
+                                    <exclude reference="1wT-im-fSG"/>
+                                    <exclude reference="TWI-Xa-JK7"/>
+                                    <exclude reference="TmR-ws-N17"/>
+                                    <exclude reference="VTo-4q-z1a"/>
+                                    <exclude reference="hJu-LX-1Gs"/>
+                                    <exclude reference="jxK-CU-R6b"/>
+                                    <exclude reference="oEC-XA-8Og"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular">
@@ -1058,6 +1064,11 @@
                                     <include reference="OzP-N1-nfP"/>
                                     <include reference="WhO-z1-Jp4"/>
                                     <include reference="ZG9-Kk-gT3"/>
+                                    <exclude reference="7ZR-7Y-WFx"/>
+                                    <include reference="9u8-dC-VIp"/>
+                                    <include reference="P0Q-Yd-dEl"/>
+                                    <include reference="RBc-p3-3B6"/>
+                                    <include reference="ylM-eV-eRs"/>
                                     <include reference="1wT-im-fSG"/>
                                     <exclude reference="TWI-Xa-JK7"/>
                                     <exclude reference="TmR-ws-N17"/>
@@ -1065,11 +1076,6 @@
                                     <include reference="hJu-LX-1Gs"/>
                                     <include reference="jxK-CU-R6b"/>
                                     <exclude reference="oEC-XA-8Og"/>
-                                    <exclude reference="7ZR-7Y-WFx"/>
-                                    <include reference="9u8-dC-VIp"/>
-                                    <include reference="P0Q-Yd-dEl"/>
-                                    <include reference="RBc-p3-3B6"/>
-                                    <include reference="ylM-eV-eRs"/>
                                 </mask>
                             </variation>
                         </view>
