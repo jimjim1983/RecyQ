@@ -101,7 +101,7 @@ class StatsViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("removeBlurView:"), name: "removeBlurView", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: "removeBlurView", object: nil)
         
         UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
             
@@ -166,7 +166,7 @@ class StatsViewController: UIViewController {
                 
                 self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
                     
-                    let snapshotName = snapshot.key
+                    //let snapshotName = snapshot.key
                     
                     let name = snapshot.value.objectForKey("name") as? String
                     let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
@@ -256,15 +256,15 @@ class StatsViewController: UIViewController {
         
         slidePaperView()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "slidePlasticView", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(StatsViewController.slidePlasticView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "slideTextileView", userInfo: nil, repeats: false)
+         NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(StatsViewController.slideTextileView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "slideIjzerView", userInfo: nil, repeats: false)
+         NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: #selector(StatsViewController.slideIjzerView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "slideEwasteView", userInfo: nil, repeats: false)
+         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(StatsViewController.slideEwasteView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(1.25, target: self, selector: "slideBiowasteView", userInfo: nil, repeats: false)
+         NSTimer.scheduledTimerWithTimeInterval(1.25, target: self, selector: #selector(StatsViewController.slideBiowasteView), userInfo: nil, repeats: false)
         
 
         

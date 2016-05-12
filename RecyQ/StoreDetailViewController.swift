@@ -44,7 +44,7 @@ class StoreDetailViewController: UIViewController {
         }
         
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateBack")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(StoreDetailViewController.navigateBack))
         
         self.navigationItem.title = "Wissel in"
     }
