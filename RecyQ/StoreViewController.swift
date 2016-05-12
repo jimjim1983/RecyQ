@@ -101,11 +101,5 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.presentViewController(navigationController, animated: true, completion: nil)
         }
     }
-    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        dispatch_async(dispatch_get_main_queue(), {
-//            self.performSegueWithIdentifier("homeToDetail", sender:self)
-//        })
-//    }
 
 }
