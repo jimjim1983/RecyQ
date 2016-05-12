@@ -96,7 +96,10 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let storeItem = storeItemArray[indexPath.row]
         storeDetailVC.storeItem = storeItem
         let navigationController = UINavigationController(rootViewController: storeDetailVC)
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
         self.presentViewController(navigationController, animated: true, completion: nil)
+        }
     }
     
 //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
