@@ -30,10 +30,10 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     @IBOutlet weak var emailLabel: UILabel!
     
     var string: String!
-
+    
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet var buttonToMaps: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location, imageName: "customPinImage.png")
         
         let span = MKCoordinateSpanMake(0.002, 0.002)
-
+        
         let region = MKCoordinateRegionMake(location, span)
         
         mapView.setRegion(region, animated: true)
@@ -66,25 +66,25 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrderedByChild("uid").queryEqualToValue(user?.uid).observeEventType(.Value, withBlock: { snapshot in
-
+            
             if let itemsFromSnapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-           
-                    self.couponItems = itemsFromSnapshots
-                    self.tableView.reloadData()
+                
+                self.couponItems = itemsFromSnapshots
+                self.tableView.reloadData()
             }
         })
     }
-
+    
     @IBAction func logoutButtonPressed(sender: UIButton) {
         ref.unauth()
         let loginVC = LoginViewController()
-//        self.presentViewController(loginVC, animated: true, completion: nil)
+        //        self.presentViewController(loginVC, animated: true, completion: nil)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = loginVC
         
         
     }
-
+    
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -133,9 +133,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         cell.nameLabel.text = item.key
         
         return cell
-        }
+    }
     
-
+    
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Uw verdiende coupons:"
@@ -144,11 +144,22 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let item = couponItems[indexPath.row]
         let name = item.key
-        let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
-        }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true) {
+        
+        if item.key .containsString("Doneer") {
+            let alertController = UIAlertController(title: "Bedankt voor je donatie", message: "Hou de Community pagina in de gaten om te zien wat er georganiseerd wordt", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true) {
+            }
+            
+        } else {
+            let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true) {
+            }
         }
     }
     
@@ -161,15 +172,15 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
             }
         }
         let cancelAction = UIAlertAction(title: "Annuleer", style: .Default) { (action) in
-
-            }
+            
+        }
         alertController.addAction(cancelAction)
         alertController.addAction(OKAction)
-
+        
         self.presentViewController(alertController, animated: true) {
         }
         
-
+        
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -185,7 +196,7 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         header.textLabel?.font = UIFont(name: "Futura", size: 15)!
         header.textLabel?.textColor = UIColor.blackColor()
     }
-
+    
 }
 
 

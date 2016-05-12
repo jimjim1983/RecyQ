@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoViewController" customModule="RecyQ" customModuleProvider="target">
@@ -55,10 +55,7 @@
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-bI-DDK">
                                     <rect key="frame" x="10" y="161" width="580" height="532"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <mutableString key="text">
-RecyQ laat afval circuleren met als doel het percentage gescheiden afval te vergroten. RecyQ maakt afvalscheiding voor burgers en bedrijven logischer en begrijpelijker, zodat zij gemotiveerder zijn hieraan mee te werken. Door te experimenteren en te onderzoeken wat bewoners en bedrijven motiveert, verkrijgen wij inzichten in hoe we afvalscheiding kunnen stimuleren. 
-
-​Door gebruik te maken van de laatste digitale technologie, upcycling innovaties en samen te werken met scholen en partijen in de afvalketen veranderen wij de perceptie omtrent afval en creëren we impact op sociaal, milieu en economisch gebied.</mutableString>
+                                    <string key="text">Met alle donaties die aan het buurtafvalfonds gedaan worden worden regelmatig leuke evenementen georganiseerd voor de buurt. Hou deze pagina in de gate om op de hoogte gehouden te worden.</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
