@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import Firebase
 
-    var couponItems = [FDataSnapshot]()
+
 
 class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
     //var storeItem: StoreItem!
     var coupon: Coupon?
+    var couponItems = [FDataSnapshot]()
     //var user: User!
     
     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
@@ -68,18 +69,11 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
 
             if let itemsFromSnapshots = snapshot.children.allObjects as? [FDataSnapshot] {
            
-                    couponItems = itemsFromSnapshots
+                    self.couponItems = itemsFromSnapshots
                     self.tableView.reloadData()
             }
         })
     }
-    
-//    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-//        if item.tag == 1 {
-//            self.couponItems.removeAll()
-//        }
-//    }
-
 
     @IBAction func logoutButtonPressed(sender: UIButton) {
         ref.unauth()
