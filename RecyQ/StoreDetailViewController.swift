@@ -54,59 +54,104 @@ class StoreDetailViewController: UIViewController {
     }
     
     @IBAction func redeemToken(sender: UIButton) {
-        //couponItems.removeAll()
-        if storeItem.storeItemPrice > numberOfTokens {
             
-            
-            let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
-            
-            let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+            do {
+                reachability = try Reachability.reachabilityForInternetConnection()
+            } catch {
+                print("Unable to create Reachability")
+                return
             }
             
-            alertController.addAction(cancelAction)
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
-            
-        } else {
-            
-            let alertControllerAreYouSure = UIAlertController(title: "Weet u het zeker?", message: "Druk op OK om te bevestigen.", preferredStyle: .Alert)
-            
-            let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
-            }
-            
-            let okayAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                
-                self.createCoupon()
-                
-                self.addSpentCoins()
-                
-                let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
-                
-                let cancelAction = UIAlertAction(title: "Terug", style: .Cancel) { (action) in
-                    // ...
-                }
-                
-                let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
-                            
-                    self.dismissViewControllerAnimated(true, completion: nil)
+            reachability!.whenReachable = { reachability in
+                // this is called on a background thread, but UI updates must
+                // be on the main thread, like this:
+                dispatch_async(dispatch_get_main_queue()) {
                     
-                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = appDelegate.tabbarController
-                    appDelegate.tabbarController?.selectedIndex = 3
+                    if self.storeItem.storeItemPrice > numberOfTokens {
+                        
+                        
+                        let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
+                        
+                        let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                        }
+                        
+                        alertController.addAction(cancelAction)
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                        
+                    } else {
+                        
+                        let alertControllerAreYouSure = UIAlertController(title: "Weet u het zeker?", message: "Druk op OK om te bevestigen.", preferredStyle: .Alert)
+                        
+                        let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                        }
+                        
+                        let okayAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                            
+                            self.createCoupon()
+                            
+                            self.addSpentCoins()
+                            
+                            let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
+                            
+                            let cancelAction = UIAlertAction(title: "Terug", style: .Cancel) { (action) in
+                                // ...
+                            }
+                            
+                            let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
+                                
+                                self.dismissViewControllerAnimated(true, completion: nil)
+                                
+                                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                                appDelegate.window?.rootViewController = appDelegate.tabbarController
+                                appDelegate.tabbarController?.selectedIndex = 3
+                            }
+                            
+                            alertGefeliciteerd.addAction(cancelAction)
+                            alertGefeliciteerd.addAction(goToProfielView)
+                            self.presentViewController(alertGefeliciteerd, animated: true, completion: nil)
+                            
+                        }
+                        alertControllerAreYouSure.addAction(cancelAction)
+                        alertControllerAreYouSure.addAction(okayAction)
+                        
+                        self.presentViewController(alertControllerAreYouSure, animated: true, completion: nil)
+                        
+                    }
+
+//                    if reachability.isReachableViaWiFi() {
+//                        print("Reachable via WiFi")
+//                    } else {
+//                        print("Reachable via Cellular")
+//                    }
                 }
-                
-                alertGefeliciteerd.addAction(cancelAction)
-                alertGefeliciteerd.addAction(goToProfielView)
-                self.presentViewController(alertGefeliciteerd, animated: true, completion: nil)
-                
             }
-            alertControllerAreYouSure.addAction(cancelAction)
-            alertControllerAreYouSure.addAction(okayAction)
             
-            self.presentViewController(alertControllerAreYouSure, animated: true, completion: nil)
-            
+            reachability!.whenUnreachable = { reachability in
+                // this is called on a background thread, but UI updates must
+                // be on the main thread, like this:
+                dispatch_async(dispatch_get_main_queue()) {
+                    print("Not reachable")
+                    
+                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
+                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    }
+                    alert.addAction(okayAction)
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }
             }
-    }
+            
+            do {
+                try reachability!.startNotifier()
+            } catch {
+                print("Unable to start notifier")
+            }
+        
+
+
+        //couponItems.removeAll()
+           }
     
     func addSpentCoins() {
         

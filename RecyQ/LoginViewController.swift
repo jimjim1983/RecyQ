@@ -11,6 +11,8 @@ import Firebase
 
 var user: User?
 
+var reachability: Reachability?
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var username: String?
@@ -41,6 +43,51 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //hello
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        do {
+            reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+        
+        reachability!.whenReachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                if reachability.isReachableViaWiFi() {
+                    print("Reachable via WiFi")
+                } else {
+                    print("Reachable via Cellular")
+                }
+            }
+        }
+        
+        reachability!.whenUnreachable = { reachability in
+            // this is called on a background thread, but UI updates must
+            // be on the main thread, like this:
+            dispatch_async(dispatch_get_main_queue()) {
+                print("Not reachable")
+                
+                let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
+                            let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                            }
+                            alert.addAction(okayAction)
+                            self.presentViewController(alert, animated: true, completion: nil)
+
+            }
+        }
+        
+        do {
+            try reachability!.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+        
+    }
+    
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
         
@@ -93,6 +140,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                         
                                     default:
                                         print("Handle default situation")
+                                        let alertController = UIAlertController(title: "Oeps!", message: "Something went wrong. Please check your internet connection & try again.", preferredStyle: .Alert)
+                                        
+                                        let okAction = UIAlertAction(title: "Ok", style: .Cancel) { (action) in
+                                        }
+                                        alertController.addAction(okAction)
+                                        
+                                        self.presentViewController(alertController, animated: true, completion: nil)
                                     }}}
                                 
                             else {

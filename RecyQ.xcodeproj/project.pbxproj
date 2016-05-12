@@ -37,6 +37,7 @@
 		F20D2C2F1CB729E900BE28BE /* CO2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */; };
 		F21919F81CDA43E9000E5372 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21919F61CDA43E8000E5372 /* InfoViewController.swift */; };
 		F21919F91CDA43E9000E5372 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F21919F71CDA43E8000E5372 /* InfoViewController.xib */; };
+		F23D34C51CE521E5007C8046 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D34C41CE521E5007C8046 /* Reachability.swift */; };
 		F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */; };
 		F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */; };
 		F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */; };
@@ -106,6 +107,7 @@
 		F20D2C2D1CB729E900BE28BE /* CO2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CO2ViewController.xib; sourceTree = "<group>"; };
 		F21919F61CDA43E8000E5372 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		F21919F71CDA43E8000E5372 /* InfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		F23D34C41CE521E5007C8046 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQAnnotation.swift; sourceTree = "<group>"; };
@@ -173,12 +175,8 @@
 				A6A595971CA023D400A120C1 /* AppDelegate.swift */,
 				F23AFA6B1CBBDE5B007B0F51 /* Models */,
 				F23AFA6C1CBBDE8D007B0F51 /* View Controllers */,
-				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
-				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
-				F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */,
-				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
-				A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */,
-				A683EE6B1CD91B5600D6E725 /* CouponsTableViewCell.xib */,
+				F23D34C71CE5274C007C8046 /* Table View Cells */,
+				F23D34C61CE5273E007C8046 /* Libraries */,
 				A6A5959D1CA023D400A120C1 /* Main.storyboard */,
 				A6A595A01CA023D400A120C1 /* Assets.xcassets */,
 				A6A595A21CA023D400A120C1 /* LaunchScreen.storyboard */,
@@ -262,6 +260,27 @@
 				A6B101381CDA4EB200A29BE3 /* ProfileViewController.xib */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		F23D34C61CE5273E007C8046 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F23D34C41CE521E5007C8046 /* Reachability.swift */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		F23D34C71CE5274C007C8046 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
+				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
+				F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */,
+				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
+				A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */,
+				A683EE6B1CD91B5600D6E725 /* CouponsTableViewCell.xib */,
+			);
+			name = "Table View Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +497,7 @@
 				F20D2C2E1CB729E900BE28BE /* CO2ViewController.swift in Sources */,
 				F2A5A8E41CD2CCF3009B2BC6 /* LeaderboardViewController.swift in Sources */,
 				F26B8F501CB72E870066F972 /* RecyQTokenViewController.swift in Sources */,
+				F23D34C51CE521E5007C8046 /* Reachability.swift in Sources */,
 				F21919F81CDA43E9000E5372 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
