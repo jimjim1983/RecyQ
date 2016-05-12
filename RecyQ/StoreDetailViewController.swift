@@ -49,10 +49,6 @@ class StoreDetailViewController: UIViewController {
         self.navigationItem.title = "Wissel in"
     }
     
-    override func viewWillAppear(animated: Bool) {
-        couponItems.removeAll()
-    }
-    
     func navigateBack() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
