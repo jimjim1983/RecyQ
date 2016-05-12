@@ -94,9 +94,9 @@ class CommunityViewController: UIViewController {
         
         slideCommunityFundView()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: "slideCO2BarView", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(CommunityViewController.slideCO2BarView), userInfo: nil, repeats: false)
         
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "slideCommunityRecyclingView", userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(CommunityViewController.slideCommunityRecyclingView), userInfo: nil, repeats: false)
         
     }
     
