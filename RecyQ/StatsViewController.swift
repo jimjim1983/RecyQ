@@ -60,13 +60,13 @@ class StatsViewController: UIViewController {
 
     //Navbar
     @IBOutlet var navigationBarTitle: UINavigationItem!
-
-    @IBOutlet var tokenAmountLabel: UILabel!
+    
+    
+    @IBOutlet weak var tokenAmountLabel: UILabel!
 
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet weak var co2AmountLabel: UILabel!
-    
     
     @IBOutlet weak var co2Button: UIButton!
     @IBOutlet weak var recyQTokenButton: UIButton!
