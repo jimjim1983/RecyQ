@@ -15,6 +15,8 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     var wasteDictionary = [String: Double]()
     
+    var snapshotArray = [FDataSnapshot]()
+    
     @IBOutlet weak var tableView: UITableView!
 
     
@@ -26,7 +28,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAmountOfWaste()
+//         getAmountOfWaste()
         
         userArray = [testUser1,testUser2]
         userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
@@ -42,13 +44,18 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
     }
     
-    func getAmountOfWaste() {
+    override func viewWillAppear(animated: Bool) {
+//       getAmountOfWaste()
         
         self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
             
             
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                for item in snapshots {
+                
+                self.snapshotArray = snapshots
+                
+                for item in self.snapshotArray {
+                    
                     let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
                     let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
                     let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
@@ -59,18 +66,55 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                     let wasteAmount = amountOfPlastic! + amountOfBioWaste! + amountOfEWaste! + amountOfIron! + amountOfPaper! + amountOfTextile!
                     
                     if let username = item.value.objectForKey("name") as? String {
-                    
+                        
                         self.wasteDictionary["\(username)"] = wasteAmount
                     }
                 }
+                
+                self.tableView.reloadData()
                 
             }
             
             print(self.wasteDictionary)
             
         })
+
+        
     }
     
+//    func getAmountOfWaste() {
+//        
+//        self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
+//            
+//            
+//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+//                
+//                self.snapshotArray = snapshots
+//                
+//                for item in self.snapshotArray {
+//                    
+//                    let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
+//                    let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
+//                    let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
+//                    let amountOfIron = item.value.objectForKey("amountOfIron") as? Double
+//                    let amountOfPaper = item.value.objectForKey("amountOfPaper") as? Double
+//                    let amountOfTextile = item.value.objectForKey("amountOfTextile") as? Double
+//                    
+//                    let wasteAmount = amountOfPlastic! + amountOfBioWaste! + amountOfEWaste! + amountOfIron! + amountOfPaper! + amountOfTextile!
+//                    
+//                    if let username = item.value.objectForKey("name") as? String {
+//                    
+//                        self.wasteDictionary["\(username)"] = wasteAmount
+//                    }
+//                }
+//                
+//            }
+//            
+//            print(self.wasteDictionary)
+//            
+//        })
+//    }
+//    
 
     
         func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
