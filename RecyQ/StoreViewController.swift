@@ -27,6 +27,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
@@ -97,5 +98,11 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let navigationController = UINavigationController(rootViewController: storeDetailVC)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        dispatch_async(dispatch_get_main_queue(), {
+//            self.performSegueWithIdentifier("homeToDetail", sender:self)
+//        })
+//    }
 
 }
