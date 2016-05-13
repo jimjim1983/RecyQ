@@ -190,9 +190,15 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         if item.key .containsString("Doneer") {
             let alertController = UIAlertController(title: "Bedankt voor je donatie", message: "Hou de Community pagina in de gaten om te zien wat er georganiseerd wordt", preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            let OKAction = UIAlertAction(title: "Coupon verwijderen uit lijst?", style: .Default) { (action) in
+                
+                let redeemedCouponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons/\(name)")
+                redeemedCouponsRef.removeValue()
+            }
+            let cancelAction = UIAlertAction(title: "Terug", style: .Default) { (action) in
             }
             alertController.addAction(OKAction)
+            alertController.addAction(cancelAction)
             self.presentViewController(alertController, animated: true) {
             }
             
