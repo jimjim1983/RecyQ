@@ -17,7 +17,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     var storeItemArray = [StoreItem]()
     
-    var storeItem4 = StoreItem(storeItemName: "Upcycling boodschappentas gemaakt van denim", storeItemDescription: "Wissel je tokens in voor deze leuke upcycling boodschappentas gemaakt van denim.", storeItemImage: "upcyclingBagStore", storeItemPrice: 5)
+    var storeItem4 = StoreItem(storeItemName: "Upcycling boodschappentas gemaakt van denim", storeItemDescription: "Wissel je tokens in voor deze leuke upcycling boodschappentas gemaakt van denim.", storeItemImage: "denim-bag", storeItemPrice: 5)
     var storeItem1 = StoreItem(storeItemName: "10% korting bij de aanschaf van een Go-Upcycle", storeItemDescription: "Krijg 10% korting bij de aanschaf van een Go-Upcycle.", storeItemImage: "bicycleStore", storeItemPrice: 1)
     var storeItem3 = StoreItem(storeItemName: "10% korting op vintage kleding of schoenen", storeItemDescription: "Krijg 10% korting bij de aanschaf van vintage kleding of schoenen in de RecyQ Store.", storeItemImage: "clothingStore", storeItemPrice: 1)
     var storeItem2 = StoreItem(storeItemName: "Doneer aan het Buurtafvalfonds", storeItemDescription: "Doneer RecyQ token aan het Buurtafvalfonds voor ondersteuning van buurtactiviteiten.", storeItemImage: "buurtactiviteitStore", storeItemPrice: 1)
