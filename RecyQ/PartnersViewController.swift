@@ -73,4 +73,10 @@ class PartnersViewController: UIViewController {
         }
     }
 
+    @IBAction func amsterdamLovesBikesButtonPressed(sender: UIButton) {
+        
+        if let url = NSURL(string: "https://www.amsterdam.nl/parkeren-verkeer/fiets/fietsdepot/") {
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
 }
