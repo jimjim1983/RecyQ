@@ -67,7 +67,11 @@ class StoreDetailViewController: UIViewController {
                 // be on the main thread, like this:
                 dispatch_async(dispatch_get_main_queue()) {
                     
-                    if self.storeItem.storeItemPrice > numberOfTokens {
+                    // added || numberOfTokens <= 0 because sometimes info on backend isn't updated in time to prevent a negative balance. TODO: Find another fix for this.
+                    
+                    // follow-up: I think the issue is actually the numberOfTokens that we use for calculation here is a global variable from the StatsVC. Thus that's the reason why this number isn't getting updated properly and sometimes leads to a negative balance? Still need to think this through a bit more and troubleshoot.
+                    
+                    if self.storeItem.storeItemPrice > numberOfTokens || numberOfTokens <= 0 {
                         
                         
                         let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)

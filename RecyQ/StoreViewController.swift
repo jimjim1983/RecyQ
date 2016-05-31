@@ -100,7 +100,15 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)!
                 
-                self.numberOfTokensLabel.text = "\(numberOfTokens)"
+                // this weird piece of code is here as a failsafe because sometimes I think the numberOfTokens amount isn't updated in time enough from data on the backend to prevent a negative token balance. TODO: Find another fix for this.
+                    
+                    if numberOfTokens <= 0 {
+                        self.numberOfTokensLabel.text = "0"
+                    } else {
+                        self.numberOfTokensLabel.text = "\(numberOfTokens)"
+                    }
+                
+//                self.numberOfTokensLabel.text = "\(numberOfTokens)"
         
         
                 })

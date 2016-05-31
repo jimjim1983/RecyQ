@@ -275,8 +275,14 @@ class StatsViewController: UIViewController {
                     
                     self.co2AmountLabel.text = "\(Int(self.co2Amount)) kg"
                     
+                    
+                    // this weird piece of code is here as a failsafe because sometimes I think the numberOfTokens amount isn't updated in time enough from data on the backend to prevent a negative token balance. TODO: Find another fix for this.
+                    
+                    if numberOfTokens <= 0 {
+                        self.tokenAmountLabel.text = "0"
+                    } else {
                     self.tokenAmountLabel.text = "\(numberOfTokens)"
-
+                    }
                     
                 })
             }

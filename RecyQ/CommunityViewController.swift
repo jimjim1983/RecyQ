@@ -171,7 +171,6 @@ class CommunityViewController: UIViewController {
             // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
             self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
             
-                
                 if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                     for item in snapshots {
                         let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
@@ -201,7 +200,6 @@ class CommunityViewController: UIViewController {
                 let co2Amount = (round((total/35) * 50))
                 
                 self.co2TotalLabel.text = "\(co2Amount) kg"
-                
             
         })
     }
