@@ -651,7 +651,7 @@
 				);
 				INFOPLIST_FILE = RecyQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Jimsalabim.RecyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.recycle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RecyQ/RecyQ-Bridging-Header.h";
@@ -673,7 +673,7 @@
 				);
 				INFOPLIST_FILE = RecyQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Jimsalabim.RecyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.recycle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RecyQ/RecyQ-Bridging-Header.h";
