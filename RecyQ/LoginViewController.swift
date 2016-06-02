@@ -36,6 +36,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textFieldLoginEmail.delegate = self
         textFieldLoginPassword.delegate = self
         
+        //Hide keyboard #1
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        
         loginButton.layer.cornerRadius = 5
         
         // Do any additional setup after loading the view.
@@ -256,6 +260,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    //Hide keyboard #2
+    func keyboardWillHide(sender: NSNotification) {
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        self.view.frame.origin.y += keyboardSize.height
+    }
+    
+    //Hide keyboard #3
+    func keyboardWillShow(sender: NSNotification) {
+        let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        
+        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+        
+        if keyboardSize.height == offset.height {
+            if self.view.frame.origin.y == 0 {
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                    self.view.frame.origin.y -= keyboardSize.height
+                })
+            }
+        } else {
+            UIView.animateWithDuration(0.1, animations: { () -> Void in
+                self.view.frame.origin.y += keyboardSize.height - offset.height
+            })
+        }
+        print(self.view.frame.origin.y)
     }
     
     @IBAction func wachtwoordVergetenButtonPressed(sender: UIButton) {
