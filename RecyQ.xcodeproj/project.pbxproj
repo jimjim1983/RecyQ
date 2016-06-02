@@ -47,7 +47,6 @@
 		F2A5A8E51CD2CCF3009B2BC6 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A5A8E31CD2CCF3009B2BC6 /* LeaderboardViewController.xib */; };
 		F2A5A8E81CD2D3CE009B2BC6 /* PartnersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A5A8E61CD2D3CE009B2BC6 /* PartnersViewController.swift */; };
 		F2A5A8E91CD2D3CE009B2BC6 /* PartnersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2A5A8E71CD2D3CE009B2BC6 /* PartnersViewController.xib */; };
-		F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +116,6 @@
 		F2A5A8E31CD2CCF3009B2BC6 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
 		F2A5A8E61CD2D3CE009B2BC6 /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartnersViewController.swift; sourceTree = "<group>"; };
 		F2A5A8E71CD2D3CE009B2BC6 /* PartnersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnersViewController.xib; sourceTree = "<group>"; };
-		F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FA16AC1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework in Frameworks */,
 				2CF93BE7D1C94FE708608005 /* Pods_RecyQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				966C04DDEEFDCD80B9AF9A52 /* Pods_RecyQ.framework */,
-				F2FA16AB1CA54AFA00B7B506 /* MicrosoftAzureMobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

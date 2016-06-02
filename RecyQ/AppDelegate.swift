@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var tabbarController: UITabBarController?
-    var client: MSClient?
+    //var client: MSClient?
 
     
      let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
