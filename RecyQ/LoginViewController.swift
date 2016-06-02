@@ -48,6 +48,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //hide keyboard #2
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         
         do {
@@ -262,14 +268,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    //Hide keyboard #2
+    //Hide keyboard #3
     func keyboardWillHide(sender: NSNotification) {
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         self.view.frame.origin.y += keyboardSize.height
     }
     
-    //Hide keyboard #3
+    //Hide keyboard #4
     func keyboardWillShow(sender: NSNotification) {
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         
