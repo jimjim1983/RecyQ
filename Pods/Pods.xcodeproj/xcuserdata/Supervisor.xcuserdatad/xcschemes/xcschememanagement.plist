@@ -6,28 +6,43 @@
 	<dict>
 		<key>Firebase.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-RecyQ.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RecyQTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RecyQUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>022A4F67C5F0F4B6AAE1F543F8CF9444</key>
+		<key>4982F3084B981C1E6DCF8B3A064BA2DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>351193FCBBC6E87E2637B917A729B1AE</key>
+		<key>6148BE341A4A1391CC3E23713BF876AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B7AC9326D819482593FE118E915409D7</key>
+		<key>8051B56CF6F483AC6211E5FF17E549F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84D3E9F8FDCBE5E2D5F27C69821090EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

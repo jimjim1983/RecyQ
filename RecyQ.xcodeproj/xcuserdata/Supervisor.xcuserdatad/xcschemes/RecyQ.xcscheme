@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7AC9326D819482593FE118E915409D7"
-               BuildableName = "Firebase.framework"
-               BlueprintName = "Firebase"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "A6A595931CA023D400A120C1"
+               BuildableName = "RecyQ.app"
+               BlueprintName = "RecyQ"
+               ReferencedContainer = "container:RecyQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A6A595A91CA023D500A120C1"
+               BuildableName = "RecyQTests.xctest"
+               BlueprintName = "RecyQTests"
+               ReferencedContainer = "container:RecyQ.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A6A595B41CA023D500A120C1"
+               BuildableName = "RecyQUITests.xctest"
+               BlueprintName = "RecyQUITests"
+               ReferencedContainer = "container:RecyQ.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A6A595931CA023D400A120C1"
+            BuildableName = "RecyQ.app"
+            BlueprintName = "RecyQ"
+            ReferencedContainer = "container:RecyQ.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7AC9326D819482593FE118E915409D7"
-            BuildableName = "Firebase.framework"
-            BlueprintName = "Firebase"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "A6A595931CA023D400A120C1"
+            BuildableName = "RecyQ.app"
+            BlueprintName = "RecyQ"
+            ReferencedContainer = "container:RecyQ.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7AC9326D819482593FE118E915409D7"
-            BuildableName = "Firebase.framework"
-            BlueprintName = "Firebase"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "A6A595931CA023D400A120C1"
+            BuildableName = "RecyQ.app"
+            BlueprintName = "RecyQ"
+            ReferencedContainer = "container:RecyQ.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

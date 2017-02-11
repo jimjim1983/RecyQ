@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "351193FCBBC6E87E2637B917A729B1AE"
-               BuildableName = "Pods_RecyQ.framework"
-               BlueprintName = "Pods-RecyQ"
+               BlueprintIdentifier = "4982F3084B981C1E6DCF8B3A064BA2DB"
+               BuildableName = "Firebase.framework"
+               BlueprintName = "Firebase"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "351193FCBBC6E87E2637B917A729B1AE"
-            BuildableName = "Pods_RecyQ.framework"
-            BlueprintName = "Pods-RecyQ"
+            BlueprintIdentifier = "4982F3084B981C1E6DCF8B3A064BA2DB"
+            BuildableName = "Firebase.framework"
+            BlueprintName = "Firebase"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "351193FCBBC6E87E2637B917A729B1AE"
-            BuildableName = "Pods_RecyQ.framework"
-            BlueprintName = "Pods-RecyQ"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
