@@ -10,7 +10,7 @@
 //
 //
 //class User {
-//    
+//
 ////    var username : String?
 ////    var userID : String?
 ////    var password : String?
@@ -22,7 +22,7 @@
 ////    var amountOfBioWaste: Double?
 ////    var amountOfTokens: Int?
 ////    var co2Saved: Double?
-////    
+////
 ////    init(username: String, userID: String, password: String, amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfIron: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfTokens: Int) {
 ////        self.username = username
 ////        self.userID = userID
@@ -37,7 +37,7 @@
 ////        self.co2Saved = amountOfPaper*1.42857143 + amountOfPlastic*1.42857143 + amountOfEWaste*1.42857143 + amountOfBioWaste*1.42857143 + amountOfIron*1.42857143 + amountOfTextile*1.42857143
 ////    }
 //
-//    
+//
 //}
 
 import Foundation
@@ -78,21 +78,22 @@ struct User {
     
     init(snapshot: FDataSnapshot) {
         key = snapshot.key
-        name = snapshot.value["name"] as? String
-        addedByUser = snapshot.value["addedByUser"] as? String
-        completed = snapshot.value["completed"] as? Bool
+        let snapshotValue = snapshot.value as? NSDictionary
+        name = snapshotValue?["name"] as? String
+        addedByUser = snapshotValue?["addedByUser"] as? String
+        completed = snapshotValue?["completed"] as? Bool
         ref = snapshot.ref
-        amountOfPlastic = snapshot.value["amountOfPlastic"] as? Double
-        amountOfPaper = snapshot.value["amountOfPaper"] as? Double
-        amountOfTextile = snapshot.value["amountOfTextile"] as? Double
-        amountOfEWaste = snapshot.value["amountOfEWaste"] as? Double
-        amountOfBioWaste = snapshot.value["amountOfBioWaste"] as? Double
-        amountOfIron = snapshot.value["amountOfIron"] as? Double
-        uid = snapshot.value["uid"] as? String
-        spentCoins = snapshot.value["uid"] as? Int
+        amountOfPlastic = snapshotValue?["amountOfPlastic"] as? Double
+        amountOfPaper = snapshotValue?["amountOfPaper"] as? Double
+        amountOfTextile = snapshotValue?["amountOfTextile"] as? Double
+        amountOfEWaste = snapshotValue?["amountOfEWaste"] as? Double
+        amountOfBioWaste = snapshotValue?["amountOfBioWaste"] as? Double
+        amountOfIron = snapshotValue?["amountOfIron"] as? Double
+        uid = snapshotValue?["uid"] as? String
+        spentCoins = snapshotValue?["uid"] as? Int
     }
     
-    func toAnyObject() -> AnyObject {
+    func toAnyObject() -> [String: Any] {
         return [
             "name": name,
             "addedByUser": addedByUser,

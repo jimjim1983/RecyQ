@@ -8,6 +8,30 @@
 
 import UIKit
 import Firebase
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class StoreDetailViewController: UIViewController {
     
@@ -44,28 +68,23 @@ class StoreDetailViewController: UIViewController {
         }
         
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(StoreDetailViewController.navigateBack))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.plain, target: self, action: #selector(StoreDetailViewController.navigateBack))
         
         self.navigationItem.title = "Wissel in"
     }
     
     func navigateBack() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func redeemToken(sender: UIButton) {
+    @IBAction func redeemToken(_ sender: UIButton) {
             
-            do {
-                reachability = try Reachability.reachabilityForInternetConnection()
-            } catch {
-                print("Unable to create Reachability")
-                return
-            }
+       reachability = Reachability.init()
             
             reachability!.whenReachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     
                     // added || numberOfTokens <= 0 because sometimes info on backend isn't updated in time to prevent a negative balance. TODO: Find another fix for this.
                     
@@ -74,52 +93,52 @@ class StoreDetailViewController: UIViewController {
                     if self.storeItem.storeItemPrice > numberOfTokens || numberOfTokens <= 0 {
                         
                         
-                        let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .Alert)
+                        let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .alert)
                         
-                        let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                        let cancelAction = UIAlertAction(title: "Annuleer", style: .cancel) { (action) in
                         }
                         
                         alertController.addAction(cancelAction)
                         
-                        self.presentViewController(alertController, animated: true, completion: nil)
+                        self.present(alertController, animated: true, completion: nil)
                         
                     } else {
                         
-                        let alertControllerAreYouSure = UIAlertController(title: "Weet u het zeker?", message: "Druk op OK om te bevestigen.", preferredStyle: .Alert)
+                        let alertControllerAreYouSure = UIAlertController(title: "Weet u het zeker?", message: "Druk op OK om te bevestigen.", preferredStyle: .alert)
                         
-                        let cancelAction = UIAlertAction(title: "Annuleer", style: .Cancel) { (action) in
+                        let cancelAction = UIAlertAction(title: "Annuleer", style: .cancel) { (action) in
                         }
                         
-                        let okayAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                        let okayAction = UIAlertAction(title: "OK", style: .default) { (action) in
                             
                             self.createCoupon()
                             
                             self.addSpentCoins()
                             
-                            let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .Alert)
+                            let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .alert)
                             
-                            let cancelAction = UIAlertAction(title: "Terug", style: .Cancel) { (action) in
+                            let cancelAction = UIAlertAction(title: "Terug", style: .cancel) { (action) in
                                 // ...
                             }
                             
-                            let goToProfielView = UIAlertAction(title: "Profiel", style: .Default) { (action) in
+                            let goToProfielView = UIAlertAction(title: "Profiel", style: .default) { (action) in
                                 
-                                self.dismissViewControllerAnimated(true, completion: nil)
+                                self.dismiss(animated: true, completion: nil)
                                 
-                                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
                                 appDelegate.window?.rootViewController = appDelegate.tabbarController
                                 appDelegate.tabbarController?.selectedIndex = 3
                             }
                             
                             alertGefeliciteerd.addAction(cancelAction)
                             alertGefeliciteerd.addAction(goToProfielView)
-                            self.presentViewController(alertGefeliciteerd, animated: true, completion: nil)
+                            self.present(alertGefeliciteerd, animated: true, completion: nil)
                             
                         }
                         alertControllerAreYouSure.addAction(cancelAction)
                         alertControllerAreYouSure.addAction(okayAction)
                         
-                        self.presentViewController(alertControllerAreYouSure, animated: true, completion: nil)
+                        self.present(alertControllerAreYouSure, animated: true, completion: nil)
                         
                     }
 
@@ -134,14 +153,14 @@ class StoreDetailViewController: UIViewController {
             reachability!.whenUnreachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     print("Not reachable")
                     
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
                     }
                     alert.addAction(okayAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                 }
             }
@@ -159,19 +178,19 @@ class StoreDetailViewController: UIViewController {
     
     func addSpentCoins() {
         
-        ref.observeAuthEventWithBlock { authData in
-            if self.ref.authData != nil {
+        ref?.observeAuthEvent { authData in
+            if self.ref?.authData != nil {
                 
-                self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
                     
-                    let startingSpentCoinsAmount = snapshot.value.objectForKey("spentCoins") as? Int
+                    let startingSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
                     
                    let endingSpentCoinsAmount = startingSpentCoinsAmount! + self.storeItem.storeItemPrice!
                     
                     if let name = user?.name {
                         let clientRef = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
                         
-                        clientRef.childByAppendingPath("spentCoins").setValue(endingSpentCoinsAmount)
+                        clientRef?.child(byAppendingPath: "spentCoins").setValue(endingSpentCoinsAmount)
                         
                         let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
                         
@@ -185,12 +204,12 @@ class StoreDetailViewController: UIViewController {
     
     func createCoupon() {
         
-        let uuid = NSUUID().UUIDString
+        let uuid = UUID().uuidString
         
         coupon = Coupon(uid: (user?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
         
-        let couponsRef = self.couponsRef.childByAppendingPath(storeItem.storeItemName! + uuid)
-        couponsRef.setValue(self.coupon!.toAnyObject())
+        let couponsRef = self.couponsRef?.child(byAppendingPath: storeItem.storeItemName! + uuid)
+        couponsRef?.setValue(self.coupon!.toAnyObject())
     }
   
 }

@@ -39,7 +39,7 @@ class CommunityViewController: UIViewController {
         let scrollViewBounds = scrollView.bounds
         let containerViewBounds = contentView.bounds
         
-        var scrollViewInsets = UIEdgeInsetsZero
+        var scrollViewInsets = UIEdgeInsets.zero
         scrollViewInsets.top = scrollViewBounds.size.height
         scrollViewInsets.top -= containerViewBounds.size.height
 
@@ -60,20 +60,15 @@ class CommunityViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
             
-            do {
-                reachability = try Reachability.reachabilityForInternetConnection()
-            } catch {
-                print("Unable to create Reachability")
-                return
-            }
+         reachability = Reachability.init()
             
             reachability!.whenReachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
-                    if reachability.isReachableViaWiFi() {
+                DispatchQueue.main.async {
+                    if reachability.isReachableViaWiFi {
                         print("Reachable via WiFi")
                     } else {
                         print("Reachable via Cellular")
@@ -84,14 +79,14 @@ class CommunityViewController: UIViewController {
             reachability!.whenUnreachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     print("Not reachable")
                     
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
                     }
                     alert.addAction(okayAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                 }
             }
@@ -105,15 +100,15 @@ class CommunityViewController: UIViewController {
         
 
         
-        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         
         let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
         
         var eurosCount: Int?
         
-        couponsRef.queryOrderedByChild("couponName").queryEqualToValue("Doneer aan het Buurtafvalfonds").observeEventType(.Value, withBlock: { snapshot in
+        couponsRef?.queryOrdered(byChild: "couponName").queryEqual(toValue: "Doneer aan het Buurtafvalfonds").observe(.value, with: { snapshot in
             
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
                eurosCount = snapshots.count
                 print(snapshots)
                 print(eurosCount)
@@ -137,9 +132,9 @@ class CommunityViewController: UIViewController {
         
         slideCommunityFundView()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(CommunityViewController.slideCO2BarView), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(CommunityViewController.slideCO2BarView), userInfo: nil, repeats: false)
         
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(CommunityViewController.slideCommunityRecyclingView), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(CommunityViewController.slideCommunityRecyclingView), userInfo: nil, repeats: false)
         
     }
     
@@ -155,30 +150,30 @@ class CommunityViewController: UIViewController {
         addSlideAnimation(communityRecyclingImageView)
     }
     
-    func addSlideAnimation(viewName: UIView) {
+    func addSlideAnimation(_ viewName: UIView) {
         let animation = CABasicAnimation(keyPath: "transform.translation.x")
         animation.fromValue = -500
         animation.toValue = 0
         animation.duration = 1
         animation.autoreverses = false
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        viewName.layer.addAnimation(animation, forKey: nil)
+        viewName.layer.add(animation, forKey: nil)
         viewName.alpha = 1
     }
     
     func getAmountOfWaste() {
             
             // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
-            self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
+            self.clientsRef?.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
-                if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
                     for item in snapshots {
-                        let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
-                        let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
-                        let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
-                        let amountOfIron = item.value.objectForKey("amountOfIron") as? Double
-                        let amountOfPaper = item.value.objectForKey("amountOfPaper") as? Double
-                        let amountOfTextile = item.value.objectForKey("amountOfTextile") as? Double
+                        let amountOfPlastic = (item.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
+                        let amountOfBioWaste = (item.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
+                        let amountOfEWaste = (item.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
+                        let amountOfIron = (item.value as AnyObject).object(forKey: "amountOfIron") as? Double
+                        let amountOfPaper = (item.value as AnyObject).object(forKey: "amountOfPaper") as? Double
+                        let amountOfTextile = (item.value as AnyObject).object(forKey: "amountOfTextile") as? Double
                         self.wasteArray.append(amountOfPlastic!)
                         self.wasteArray.append(amountOfBioWaste!)
                         self.wasteArray.append(amountOfEWaste!)
@@ -205,38 +200,38 @@ class CommunityViewController: UIViewController {
     }
     
   
-    @IBAction func leaderboardButtonPressed(sender: UIButton) {
+    @IBAction func leaderboardButtonPressed(_ sender: UIButton) {
         
         let leaderboardVC = LeaderboardViewController()
         
-        self.presentViewController(leaderboardVC, animated: true, completion: nil)
+        self.present(leaderboardVC, animated: true, completion: nil)
         
     }
     
     
-    @IBAction func infoButtonPressed(sender: UIButton) {
+    @IBAction func infoButtonPressed(_ sender: UIButton) {
         
         let infoVC = InfoViewController()
-        self.presentViewController(infoVC, animated: true, completion: nil)
+        self.present(infoVC, animated: true, completion: nil)
     }
     
     
-    @IBAction func partnersButtonPressed(sender: UIButton) {
+    @IBAction func partnersButtonPressed(_ sender: UIButton) {
         
         print("community button pressed")
         
         let partnersVC = PartnersViewController()
         
-        self.presentViewController(partnersVC, animated: true, completion: nil)
+        self.present(partnersVC, animated: true, completion: nil)
     }
     
     // having weird issue with partnersButtonPressed not being called, so I created a button outside the scroll view and set it over the heart button in the .xib
  
-    @IBAction func buttonPressed(sender: AnyObject) {
+    @IBAction func buttonPressed(_ sender: AnyObject) {
         
         let partnersVC = PartnersViewController()
         
-        self.presentViewController(partnersVC, animated: true, completion: nil)
+        self.present(partnersVC, animated: true, completion: nil)
     }
     
 }

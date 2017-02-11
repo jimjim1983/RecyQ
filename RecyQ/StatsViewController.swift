@@ -96,14 +96,14 @@ class StatsViewController: UIViewController {
         
         
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         self.blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: "removeBlurView", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
         
-        UINavigationBar.appearance().backgroundColor = UIColor.whiteColor()
+        UINavigationBar.appearance().backgroundColor = UIColor.white
             
           
         
@@ -159,20 +159,15 @@ class StatsViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
             
-            do {
-                reachability = try Reachability.reachabilityForInternetConnection()
-            } catch {
-                print("Unable to create Reachability")
-                return
-            }
+          reachability = Reachability.init()
             
             reachability!.whenReachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
-                    if reachability.isReachableViaWiFi() {
+                DispatchQueue.main.async {
+                    if reachability.isReachableViaWiFi {
                         print("Reachable via WiFi")
                     } else {
                         print("Reachable via Cellular")
@@ -183,14 +178,14 @@ class StatsViewController: UIViewController {
             reachability!.whenUnreachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     print("Not reachable")
                     
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
                     }
                     alert.addAction(okayAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                 }
             }
@@ -203,24 +198,24 @@ class StatsViewController: UIViewController {
             
         
         
-        ref.observeAuthEventWithBlock { authData in
-            if self.ref.authData != nil {
+        ref?.observeAuthEvent { authData in
+            if self.ref?.authData != nil {
                 
-                self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
                     
                     //let snapshotName = snapshot.key
                     
-                    let name = snapshot.value.objectForKey("name") as? String
-                    let addedByUser = snapshot.value.objectForKey("addedByUser") as? String
-                    let amountOfPlastic = snapshot.value.objectForKey("amountOfPlastic") as? Double
-                    let amountOfBioWaste = snapshot.value.objectForKey("amountOfBioWaste") as? Double
-                    let amountOfEWaste = snapshot.value.objectForKey("amountOfEWaste") as? Double
-                    let amountOfIron = snapshot.value.objectForKey("amountOfIron") as? Double
-                    let amountOfPaper = snapshot.value.objectForKey("amountOfPaper") as? Double
-                    let amountOfTextile = snapshot.value.objectForKey("amountOfTextile") as? Double
-                    let completed = snapshot.value.objectForKey("completed") as? Bool
-                    let uid = snapshot.value.objectForKey("uid") as? String
-                    let spentCoins = snapshot.value.objectForKey("spentCoins") as? Int
+                    let name = (snapshot?.value as AnyObject).object(forKey: "name") as? String
+                    let addedByUser = (snapshot?.value as AnyObject).object(forKey: "addedByUser") as? String
+                    let amountOfPlastic = (snapshot?.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
+                    let amountOfBioWaste = (snapshot?.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
+                    let amountOfEWaste = (snapshot?.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
+                    let amountOfIron = (snapshot?.value as AnyObject).object(forKey: "amountOfIron") as? Double
+                    let amountOfPaper = (snapshot?.value as AnyObject).object(forKey: "amountOfPaper") as? Double
+                    let amountOfTextile = (snapshot?.value as AnyObject).object(forKey: "amountOfTextile") as? Double
+                    let completed = (snapshot?.value as AnyObject).object(forKey: "completed") as? Bool
+                    let uid = (snapshot?.value as AnyObject).object(forKey: "uid") as? String
+                    let spentCoins = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
                     
                     user = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins:  spentCoins!)
                     
@@ -291,7 +286,7 @@ class StatsViewController: UIViewController {
         
         blurEffectView.removeFromSuperview()
         
-        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         
         activityIndicator.startAnimating()
         
@@ -304,21 +299,21 @@ class StatsViewController: UIViewController {
         
         slidePaperView()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: #selector(StatsViewController.slidePlasticView), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(StatsViewController.slidePlasticView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(StatsViewController.slideTextileView), userInfo: nil, repeats: false)
+         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(StatsViewController.slideTextileView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: #selector(StatsViewController.slideIjzerView), userInfo: nil, repeats: false)
+         Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(StatsViewController.slideIjzerView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(StatsViewController.slideEwasteView), userInfo: nil, repeats: false)
+         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(StatsViewController.slideEwasteView), userInfo: nil, repeats: false)
         
-         NSTimer.scheduledTimerWithTimeInterval(1.25, target: self, selector: #selector(StatsViewController.slideBiowasteView), userInfo: nil, repeats: false)
+         Timer.scheduledTimer(timeInterval: 1.25, target: self, selector: #selector(StatsViewController.slideBiowasteView), userInfo: nil, repeats: false)
         
 
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
 
 
@@ -361,42 +356,42 @@ class StatsViewController: UIViewController {
         addSlideAnimation(biowasteView)
     }
     
-    func addSlideAnimation(viewName: UIView) {
+    func addSlideAnimation(_ viewName: UIView) {
         let animation = CABasicAnimation(keyPath: "transform.translation.x")
         animation.fromValue = -500
         animation.toValue = 0
         animation.duration = 1
         animation.autoreverses = false
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        viewName.layer.addAnimation(animation, forKey: nil)
+        viewName.layer.add(animation, forKey: nil)
         viewName.alpha = 1
     }
     
     
-    @IBAction func co2ButtonPressed(sender: UIButton) {
+    @IBAction func co2ButtonPressed(_ sender: UIButton) {
         
         view.addSubview(blurEffectView)
         let co2ViewController = CO2ViewController()
-        co2ViewController.view.backgroundColor = UIColor.clearColor()
+        co2ViewController.view.backgroundColor = UIColor.clear
         
         co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
         
-        self.presentViewController(co2ViewController, animated: true, completion: nil)
+        self.present(co2ViewController, animated: true, completion: nil)
       
     }
     
-    @IBAction func recyQButtonPressed(sender: UIButton) {
+    @IBAction func recyQButtonPressed(_ sender: UIButton) {
          view.addSubview(blurEffectView)
         let recyQTokenViewController = RecyQTokenViewController()
-        recyQTokenViewController.view.backgroundColor = UIColor.clearColor()
-        recyQTokenViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        recyQTokenViewController.view.backgroundColor = UIColor.clear
+        recyQTokenViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         recyQTokenViewController.recyQTokenAmountLabel.text = self.tokenAmountLabel.text
-        self.presentViewController(recyQTokenViewController, animated: true, completion: nil)
+        self.present(recyQTokenViewController, animated: true, completion: nil)
     }
     
 
-    func removeBlurView(sender: NSNotification) {
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+    func removeBlurView(_ sender: Notification) {
+        DispatchQueue.main.async { [unowned self] in
             for subview in self.view.subviews as [UIView] {
                 if let blurEffectView = subview as? UIVisualEffectView {
                     blurEffectView.removeFromSuperview()

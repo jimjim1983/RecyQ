@@ -28,7 +28,7 @@ class RecyQAnnotation: NSObject, MKAnnotation {
     
     func mapItem() -> MKMapItem {
         
-        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: subtitle as! AnyObject as? [String : AnyObject])
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: subtitle as AnyObject as? [String : AnyObject])
         
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title

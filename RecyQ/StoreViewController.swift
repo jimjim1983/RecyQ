@@ -35,27 +35,22 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = true
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         let nib = UINib.init(nibName: "StoreTableViewCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+        self.tableView.register(nib, forCellReuseIdentifier: "cell")
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
             
-            do {
-                reachability = try Reachability.reachabilityForInternetConnection()
-            } catch {
-                print("Unable to create Reachability")
-                return
-            }
+         reachability = Reachability.init()
             
             reachability!.whenReachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
-                    if reachability.isReachableViaWiFi() {
+                DispatchQueue.main.async {
+                    if reachability.isReachableViaWiFi {
                         print("Reachable via WiFi")
                     } else {
                         print("Reachable via Cellular")
@@ -66,14 +61,14 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
             reachability!.whenUnreachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     print("Not reachable")
                     
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
                     }
                     alert.addAction(okayAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                 }
             }
@@ -87,12 +82,12 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
 
         
-        ref.observeAuthEventWithBlock { authData in
-            if self.ref.authData != nil {
+        ref?.observeAuthEvent { authData in
+            if self.ref?.authData != nil {
                 
-                self.ref.queryOrderedByChild("uid").queryEqualToValue(self.ref.authData.uid).observeEventType(.ChildAdded, withBlock: { snapshot in
+                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
                     
-                   let newSpentCoinsAmount = snapshot.value.objectForKey("spentCoins") as? Int
+                   let newSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
             
                 let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
                 
@@ -116,20 +111,20 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return storeItemArray.count
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 307
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StoreTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! StoreTableViewCell
         
         let storeItem = storeItemArray[indexPath.row]
         
-        cell.selectionStyle = UITableViewCellSelectionStyle.Default
+        cell.selectionStyle = UITableViewCellSelectionStyle.default
         cell.title.text = storeItem.storeItemName
         //cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
@@ -142,14 +137,14 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storeDetailVC = StoreDetailViewController()
         let storeItem = storeItemArray[indexPath.row]
         storeDetailVC.storeItem = storeItem
         let navigationController = UINavigationController(rootViewController: storeDetailVC)
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-        self.presentViewController(navigationController, animated: true, completion: nil)
+        DispatchQueue.main.async { () -> Void in
+        self.present(navigationController, animated: true, completion: nil)
         }
     }
 

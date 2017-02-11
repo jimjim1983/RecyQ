@@ -16,20 +16,15 @@ class PartnersViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        do {
-            reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
-        }
+       reachability = Reachability.init()
         
         reachability!.whenReachable = { reachability in
             // this is called on a background thread, but UI updates must
             // be on the main thread, like this:
-            dispatch_async(dispatch_get_main_queue()) {
-                if reachability.isReachableViaWiFi() {
+            DispatchQueue.main.async {
+                if reachability.isReachableViaWiFi {
                     print("Reachable via WiFi")
                 } else {
                     print("Reachable via Cellular")
@@ -40,14 +35,14 @@ class PartnersViewController: UIViewController {
         reachability!.whenUnreachable = { reachability in
             // this is called on a background thread, but UI updates must
             // be on the main thread, like this:
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 print("Not reachable")
                 
-                let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
-                let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
+                let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
                 }
                 alert.addAction(okayAction)
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
                 
             }
         }
@@ -61,22 +56,22 @@ class PartnersViewController: UIViewController {
     }
 
 
-    @IBAction func terugButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
    
     
-    @IBAction func startupInResidenceButtonPressed(sender: UIButton) {
+    @IBAction func startupInResidenceButtonPressed(_ sender: UIButton) {
         
-        if let url = NSURL(string: "http://www.startupinresidence.com/") {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string: "http://www.startupinresidence.com/") {
+            UIApplication.shared.openURL(url)
         }
     }
 
-    @IBAction func amsterdamLovesBikesButtonPressed(sender: UIButton) {
+    @IBAction func amsterdamLovesBikesButtonPressed(_ sender: UIButton) {
         
-        if let url = NSURL(string: "https://www.amsterdam.nl/parkeren-verkeer/fiets/fietsdepot/") {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string: "https://www.amsterdam.nl/parkeren-verkeer/fiets/fietsdepot/") {
+            UIApplication.shared.openURL(url)
         }
     }
 }

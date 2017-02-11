@@ -16,7 +16,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.setContentOffset(CGPointMake(0,0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         // Do any additional setup after loading the view.
     }
 
@@ -25,8 +25,8 @@ class InfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func terugButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 

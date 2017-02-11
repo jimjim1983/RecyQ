@@ -31,35 +31,29 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 //         getAmountOfWaste()
         
         userArray = [testUser1,testUser2]
-        userArray.sortInPlace({$1.amountOfPlastic < $0.amountOfPlastic})
+        userArray.sort(by: {$1.amountOfPlastic < $0.amountOfPlastic})
         
                 tableView.dataSource = self
                 tableView.delegate = self
                 tableView.allowsSelection = false
 //                tableView.backgroundColor = UIColor(red: 33/255, green: 210/255, blue: 37/255, alpha: 1.0)
-                tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+                tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
                 let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
-                self.tableView.registerNib(nib, forCellReuseIdentifier: "cell")
+                self.tableView.register(nib, forCellReuseIdentifier: "cell")
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
        getAmountOfWaste()
         
-            
-            do {
-                reachability = try Reachability.reachabilityForInternetConnection()
-            } catch {
-                print("Unable to create Reachability")
-                return
-            }
+        reachability = Reachability.init()
             
             reachability!.whenReachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
-                    if reachability.isReachableViaWiFi() {
+                DispatchQueue.main.async {
+                    if reachability.isReachableViaWiFi {
                         print("Reachable via WiFi")
                     } else {
                         print("Reachable via Cellular")
@@ -70,14 +64,14 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
             reachability!.whenUnreachable = { reachability in
                 // this is called on a background thread, but UI updates must
                 // be on the main thread, like this:
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     print("Not reachable")
                     
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .Alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .Default) { (action: UIAlertAction) -> Void in
+                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
                     }
                     alert.addAction(okayAction)
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                     
                 }
             }
@@ -128,25 +122,25 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     func getAmountOfWaste() {
         
-        self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
+        self.clientsRef?.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
             
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
                 
                 self.snapshotArray = snapshots
                 
                 for item in self.snapshotArray {
                     
-                    let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
-                    let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
-                    let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
-                    let amountOfIron = item.value.objectForKey("amountOfIron") as? Double
-                    let amountOfPaper = item.value.objectForKey("amountOfPaper") as? Double
-                    let amountOfTextile = item.value.objectForKey("amountOfTextile") as? Double
+                    let amountOfPlastic = (item.value as AnyObject).object(forKey: "amountOfPlastic") as! Double
+                    let amountOfBioWaste = (item.value as AnyObject).object(forKey: "amountOfBioWaste") as! Double
+                    let amountOfEWaste = (item.value as AnyObject).object(forKey: "amountOfEWaste") as! Double
+                    let amountOfIron = (item.value as AnyObject).object(forKey: "amountOfIron") as! Double
+                    let amountOfPaper = (item.value as AnyObject).object(forKey: "amountOfPaper") as! Double
+                    let amountOfTextile = (item.value as AnyObject).object(forKey: "amountOfTextile") as! Double
                     
-                    let wasteAmount = amountOfPlastic! + amountOfBioWaste! + amountOfEWaste! + amountOfIron! + amountOfPaper! + amountOfTextile!
+                    let wasteAmount = (amountOfPlastic + amountOfBioWaste + amountOfEWaste + amountOfIron + amountOfPaper + amountOfTextile)
                     
-                    if let username = item.value.objectForKey("name") as? String {
+                    if let username = (item.value as AnyObject).object(forKey: "name") as? String {
                     
                         self.wasteDictionary["\(username)"] = wasteAmount
                     }
@@ -161,18 +155,18 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
 
     
-        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return self.wasteDictionary.count
         }
     
-        func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 60
         }
     
-        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CommunityTableViewCell
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityTableViewCell
             
-            let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sort {$1.1 < $0.1})
+            let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sorted {$1.1 < $0.1})
             
 //            for (k, v) in sortedArrayOfWasteDictionaries {
 //                cell.nameLabel.text = k
@@ -194,9 +188,9 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
             return cell
         }
     
-    @IBAction func terugButtonPressed(sender: UIBarButtonItem) {
+    @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
 

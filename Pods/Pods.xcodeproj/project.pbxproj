@@ -7,107 +7,198 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		012A7E018F3D34F159894EBD7EACACF9 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DAF734CAAF2F494DE720B2386CFFF /* Empty.m */; };
-		05F1ADCD7D1B27CFA9A6211A48729534 /* Pods-RecyQ-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E90588092D17718FBA3F58FA2C0CDF /* Pods-RecyQ-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		191DE2EB9A35585AE0A88BA9F833A1F4 /* FTransactionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A06FFED058218134C702A407304A9F /* FTransactionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1C04A7CD5B70C4561F6D98C882731C65 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6204446BD9150A17B12E81B4A6F9CA8 /* Security.framework */; };
-		1C3EF85CD30E6FF2E51471BD5B3CEB29 /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 99994D7C8CADD905BE2B9BBD61C5DAD8 /* Firebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D925BB011B04DDED982C7946571A67A /* FAuthType.h in Headers */ = {isa = PBXBuildFile; fileRef = 891B0E2082543D26FADFA72F524E77AF /* FAuthType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D9D7FF5237C8CC91EF58DC45AC274FB /* Firebase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0143DCE5A276FD546BC307BA6384A /* Firebase-dummy.m */; };
-		239B10F388840841389B7F09648735B1 /* FEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = 817BCDAD66E1493A462C3D125BB8A039 /* FEventType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2F1496011DBBB75777645194AAAFE92D /* FirebaseApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CAA7C78DB3882A984A96D28F8AA2D41 /* FirebaseApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3CFA43A3BA625DE641366AF6D4741E92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C49D928448B31FB9A7D5AE5C8D6C4E /* Foundation.framework */; };
-		4B0EFAAA29109D9A705A27EFFA10FAE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C49D928448B31FB9A7D5AE5C8D6C4E /* Foundation.framework */; };
-		4D75CF0089B20355B17A851513C4A002 /* FQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E2AC3209047C6550E8D065954966F5 /* FQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		60F9139BDD38565B78214C4FC5F5729D /* Firebase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A35E3E3F0CCA6B0B0A5E20810C135EA2 /* Firebase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6646DA26298257396C7FFE141BB84CC3 /* FirebaseServerValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 55000294CC62B92A597CC865BC53ECFC /* FirebaseServerValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C23FCF31260D47CEC1494A292DAA1A1E /* FAuthData.h in Headers */ = {isa = PBXBuildFile; fileRef = CDBB06694A091085C1CDD755EBC4B578 /* FAuthData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3141F439A528B188A4A4FE8371D133A /* Pods-RecyQ-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE24FEAE76AAE2266D395DD265C2C970 /* Pods-RecyQ-dummy.m */; };
-		DB05A9DD8244D10C28B6915C514AE15F /* FMutableData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E547A224BA2BD4DB4A5DB059D7F5898 /* FMutableData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1A883FEBDEED9B85D90D6BE2080F218 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6166BE40C18BC6BF0EED92CAB212EC33 /* SystemConfiguration.framework */; };
-		E3FBB5B462A14E8ACC9B340227DE4BE1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F85758B54CB0D843A3E97DFFB2F21F /* CFNetwork.framework */; };
-		E60FA42EEC3ECC48701DB55986D25D69 /* FConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9726FDC67EF47C28FEC9A974D42B81B4 /* FConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E8B534D15D2B25919ACD898217266891 /* FDataSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 85FE7BFEAA7B743553B973A7168CDD98 /* FDataSnapshot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13B83DF3D9989FE03F3FAB64BF181362 /* FAuthData.h in Headers */ = {isa = PBXBuildFile; fileRef = CDBB06694A091085C1CDD755EBC4B578 /* FAuthData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D399CBCF1D8A1858CCDA41C511C9E6E /* Pods-RecyQUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C7D04F9F13686D898479287A71745E /* Pods-RecyQUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F76C929CAA552AF214731DB36B1FE76 /* FEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = 817BCDAD66E1493A462C3D125BB8A039 /* FEventType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2309B1323CCEC3280680D8EE84CBCE06 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B5A23D1A2B4634D39A8F393987D506 /* Security.framework */; };
+		265E2BE76510082A3A6B994EB2DF5B86 /* Pods-RecyQ-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4565DF5520073309926F256B2EFD4939 /* Pods-RecyQ-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33848D1B8657D4E3E2368C75F7868CA6 /* Pods-RecyQTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6FA219640EF4ACD04458FC959DB22 /* Pods-RecyQTests-dummy.m */; };
+		3F1757A87A5498610178F1E5B8280E06 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D866629C28D3787530664E228FD5285 /* SystemConfiguration.framework */; };
+		4457CFD94E417CB3222AFC7C7503DDFE /* FConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9726FDC67EF47C28FEC9A974D42B81B4 /* FConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57485B04B1340C40EA5F9BB7F3CC39E0 /* Firebase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A35E3E3F0CCA6B0B0A5E20810C135EA2 /* Firebase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6205E2DBFCDCCCF6FED9B22520C3F4D4 /* FQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = A2E2AC3209047C6550E8D065954966F5 /* FQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7393FD094020CA884166C8DDB3966B1F /* Pods-RecyQUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B920C2F0B03D82C42DEDE3909BBA7461 /* Pods-RecyQUITests-dummy.m */; };
+		748AB9F6D583F5231CF430D7F4854720 /* Pods-RecyQTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F0CF23BFF70DC03725E1A79D125CF7A6 /* Pods-RecyQTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B133538B9E119EEE29E0CCC61B00274 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9134719B98519CD8B38AA03C5D9B4F /* CFNetwork.framework */; };
+		7D83927FDBC3C3A77C3B6FFA7B022608 /* FirebaseServerValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 55000294CC62B92A597CC865BC53ECFC /* FirebaseServerValue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		949073721B6E7A0C56641B34547C70AD /* FirebaseApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CAA7C78DB3882A984A96D28F8AA2D41 /* FirebaseApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9DEDDAFFA8C19F3119BC32C87C056D4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E755A4A248AC6EBE6F067F197786EDED /* Foundation.framework */; };
+		ABEEC5F9F7BF3E97A75B718CC501DDB4 /* FTransactionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = B9A06FFED058218134C702A407304A9F /* FTransactionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE7D3CB975FCD34E51F59C73968B6413 /* Firebase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C0143DCE5A276FD546BC307BA6384A /* Firebase-dummy.m */; };
+		B92B2980516D9ABD72624E9EC7BEA670 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E755A4A248AC6EBE6F067F197786EDED /* Foundation.framework */; };
+		BD8FFA446B9BDFBA8D4CCF845997DECA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E755A4A248AC6EBE6F067F197786EDED /* Foundation.framework */; };
+		CBB64B9E937D48C2C569840C6888BB72 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DAF734CAAF2F494DE720B2386CFFF /* Empty.m */; };
+		DFB970306E4C422AE3B27ABDDDE728F5 /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 99994D7C8CADD905BE2B9BBD61C5DAD8 /* Firebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3B05F0A65E5E5E8AD2557C5118E489D /* FAuthType.h in Headers */ = {isa = PBXBuildFile; fileRef = 891B0E2082543D26FADFA72F524E77AF /* FAuthType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE8E9FEB2C8BE59608C1B538C2B888EF /* FMutableData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E547A224BA2BD4DB4A5DB059D7F5898 /* FMutableData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0EB7B1DA57A187F97D48926538A7F53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E755A4A248AC6EBE6F067F197786EDED /* Foundation.framework */; };
+		F199A6912008F503591CEA01C7564945 /* FDataSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 85FE7BFEAA7B743553B973A7168CDD98 /* FDataSnapshot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F914290CE006127D98253754BACD4C9B /* Pods-RecyQ-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7206EA6B1755527E22F487151DC112 /* Pods-RecyQ-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BABB30FB0CA594F9F87E828B6AD152E9 /* PBXContainerItemProxy */ = {
+		C1B1ABBB3922B97C9AD6A8020D3BD807 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B7AC9326D819482593FE118E915409D7;
+			remoteGlobalIDString = 4982F3084B981C1E6DCF8B3A064BA2DB;
 			remoteInfo = Firebase;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02C7D04F9F13686D898479287A71745E /* Pods-RecyQUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RecyQUITests-umbrella.h"; sourceTree = "<group>"; };
+		03781FFA09FCBBF6086F841C0FA05102 /* Pods-RecyQUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQUITests-resources.sh"; sourceTree = "<group>"; };
 		104481390B1098325AD2AFB70FC78878 /* Firebase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Firebase-prefix.pch"; sourceTree = "<group>"; };
+		15E790C8471F4B8F83BB56DBA3C38C98 /* Pods_RecyQUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B346E7AF70A01756AB2888F8576675 /* Pods-RecyQTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQTests-frameworks.sh"; sourceTree = "<group>"; };
+		195141E8300CD3606FD445FB66E49F5F /* Pods-RecyQUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyQUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		19BDE06E00DA5BE9EAE030AD0094EC00 /* Pods_RecyQTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D866629C28D3787530664E228FD5285 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		224368C5EEC49D4D956B5B95BB215BFB /* libFirebaseStatic.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libFirebaseStatic.a; sourceTree = "<group>"; };
-		2605590F0E93EED20B70E341500D4F13 /* Pods_RecyQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2903819BF63AFCFA22F386815803F076 /* Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29B93F40040D185C38C2C9401555F20F /* Pods-RecyQUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2B8A3E65C83920B32957385975BA6419 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F247D132744DFE3EB5E0ACFC28CCDD8 /* Pods-RecyQTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQTests.release.xcconfig"; sourceTree = "<group>"; };
+		34E3B06821D8E779DAF6D5947081194C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CD06934D28AC2779CABE66DCBAA2D2 /* Pods-RecyQUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyQUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		38CDFA5305C4649B49461726C29BA95F /* Pods-RecyQ-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyQ-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3C7CA58E3DA234AA2574549CD49238A7 /* Firebase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Firebase.modulemap; sourceTree = "<group>"; };
-		48E90588092D17718FBA3F58FA2C0CDF /* Pods-RecyQ-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RecyQ-umbrella.h"; sourceTree = "<group>"; };
-		49381B8A97061CFFC7104BD552DFC701 /* Pods-RecyQ-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQ-frameworks.sh"; sourceTree = "<group>"; };
+		3C8869270640E48D48B089BD3C3DA03F /* Pods-RecyQ.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RecyQ.modulemap"; sourceTree = "<group>"; };
+		4565DF5520073309926F256B2EFD4939 /* Pods-RecyQ-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RecyQ-umbrella.h"; sourceTree = "<group>"; };
+		51BA2C0752B0956D5F44EADCE4C67E49 /* Pods-RecyQ-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyQ-acknowledgements.plist"; sourceTree = "<group>"; };
+		53A7AD35A7EFE0CB9E2A0E0FFF1E9E4F /* Pods-RecyQTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyQTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		55000294CC62B92A597CC865BC53ECFC /* FirebaseServerValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FirebaseServerValue.h; sourceTree = "<group>"; };
-		60F85758B54CB0D843A3E97DFFB2F21F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		6166BE40C18BC6BF0EED92CAB212EC33 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
-		6D931395AF7663D754F0046A30B8FE44 /* Pods-RecyQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQ.release.xcconfig"; sourceTree = "<group>"; };
-		767442042B9300FEF435F5E389764DCA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77C49D928448B31FB9A7D5AE5C8D6C4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		567CD8DE32178F38C9FF0F0E14F026A4 /* Pods-RecyQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQ.debug.xcconfig"; sourceTree = "<group>"; };
+		615738383FB0E73923225575360DE5A4 /* Pods-RecyQUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQUITests-frameworks.sh"; sourceTree = "<group>"; };
+		67D520366EA1A47831E8621074EC98B8 /* Pods-RecyQUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RecyQUITests.modulemap"; sourceTree = "<group>"; };
+		7A9134719B98519CD8B38AA03C5D9B4F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		7C609032874E93D297DDA94A673E61E6 /* Firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E547A224BA2BD4DB4A5DB059D7F5898 /* FMutableData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FMutableData.h; sourceTree = "<group>"; };
 		817BCDAD66E1493A462C3D125BB8A039 /* FEventType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FEventType.h; sourceTree = "<group>"; };
 		85FE7BFEAA7B743553B973A7168CDD98 /* FDataSnapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FDataSnapshot.h; sourceTree = "<group>"; };
-		8677DFBF29490A4F7CDEA9AE8F37BD04 /* Pods-RecyQ-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyQ-acknowledgements.markdown"; sourceTree = "<group>"; };
 		891B0E2082543D26FADFA72F524E77AF /* FAuthType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAuthType.h; sourceTree = "<group>"; };
 		8CAA7C78DB3882A984A96D28F8AA2D41 /* FirebaseApp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FirebaseApp.h; sourceTree = "<group>"; };
-		8D2DA37387B43AC2AE45ADC1B8230035 /* Pods-RecyQ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQ.debug.xcconfig"; sourceTree = "<group>"; };
 		91C0143DCE5A276FD546BC307BA6384A /* Firebase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Firebase-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9726FDC67EF47C28FEC9A974D42B81B4 /* FConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FConfig.h; sourceTree = "<group>"; };
 		99994D7C8CADD905BE2B9BBD61C5DAD8 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
-		9EA45BD6E4E8D5CE06EF6DCFB2DA1B23 /* Pods-RecyQ-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RecyQ-acknowledgements.plist"; sourceTree = "<group>"; };
 		A2E2AC3209047C6550E8D065954966F5 /* FQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FQuery.h; sourceTree = "<group>"; };
+		A30EE34D36E912D0BE700DAF0475D704 /* Pods-RecyQTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RecyQTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A35E3E3F0CCA6B0B0A5E20810C135EA2 /* Firebase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Firebase-umbrella.h"; sourceTree = "<group>"; };
-		B23D75C8E62A8301E773C8F688C9F157 /* Pods-RecyQ.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RecyQ.modulemap"; sourceTree = "<group>"; };
+		A434793AE503145CDB002A0E057C1056 /* Pods-RecyQTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RecyQTests.modulemap"; sourceTree = "<group>"; };
+		A8C3C18C77B757FBA8EB9EF29F44FA24 /* Pods-RecyQTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2B5A23D1A2B4634D39A8F393987D506 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		B8A3E022EEBF7EE421677F959588CBDA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B920C2F0B03D82C42DEDE3909BBA7461 /* Pods-RecyQUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyQUITests-dummy.m"; sourceTree = "<group>"; };
 		B9A06FFED058218134C702A407304A9F /* FTransactionResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FTransactionResult.h; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C30DAF734CAAF2F494DE720B2386CFFF /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Empty.m; sourceTree = "<group>"; };
-		C6204446BD9150A17B12E81B4A6F9CA8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		CDBB06694A091085C1CDD755EBC4B578 /* FAuthData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FAuthData.h; sourceTree = "<group>"; };
-		D42FD2B006A88848BC32DE65A71DD667 /* Pods-RecyQ-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQ-resources.sh"; sourceTree = "<group>"; };
+		D162946F093186BA07F414AFEFC2F7E6 /* Pods-RecyQUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D1C6FA219640EF4ACD04458FC959DB22 /* Pods-RecyQTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyQTests-dummy.m"; sourceTree = "<group>"; };
+		D21ADCA5B5EB5AAA990612AEF0D7B58D /* Pods-RecyQ-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQ-frameworks.sh"; sourceTree = "<group>"; };
+		D794288359D298861686CF3C2B8A6EAD /* Pods-RecyQ-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQ-resources.sh"; sourceTree = "<group>"; };
+		D9D512BF6E6FCB9AC5C37757634AC20C /* Pods_RecyQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Firebase.xcconfig; sourceTree = "<group>"; };
-		FE24FEAE76AAE2266D395DD265C2C970 /* Pods-RecyQ-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyQ-dummy.m"; sourceTree = "<group>"; };
+		E755A4A248AC6EBE6F067F197786EDED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		EC3C1E7254D9E086F63B1EBDC47A73E9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0CE9C881D525349891ED3E909B5EBA0 /* Pods-RecyQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RecyQ.release.xcconfig"; sourceTree = "<group>"; };
+		F0CF23BFF70DC03725E1A79D125CF7A6 /* Pods-RecyQTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RecyQTests-umbrella.h"; sourceTree = "<group>"; };
+		F1E609AFEEF8A3B504B4B919A84C0F78 /* Pods-RecyQTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RecyQTests-resources.sh"; sourceTree = "<group>"; };
+		FA7206EA6B1755527E22F487151DC112 /* Pods-RecyQ-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RecyQ-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		494686027EABC0DF42C1960409C68A59 /* Frameworks */ = {
+		258DDBFE33373820C9697417BCF069AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFA43A3BA625DE641366AF6D4741E92 /* Foundation.framework in Frameworks */,
+				9DEDDAFFA8C19F3119BC32C87C056D4C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7E10F383DCD59079712A57B50DCF88E /* Frameworks */ = {
+		35131FB0F5B9E2FE99C4C5A6FCF1A92B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3FBB5B462A14E8ACC9B340227DE4BE1 /* CFNetwork.framework in Frameworks */,
-				4B0EFAAA29109D9A705A27EFFA10FAE2 /* Foundation.framework in Frameworks */,
-				1C04A7CD5B70C4561F6D98C882731C65 /* Security.framework in Frameworks */,
-				E1A883FEBDEED9B85D90D6BE2080F218 /* SystemConfiguration.framework in Frameworks */,
+				7B133538B9E119EEE29E0CCC61B00274 /* CFNetwork.framework in Frameworks */,
+				F0EB7B1DA57A187F97D48926538A7F53 /* Foundation.framework in Frameworks */,
+				2309B1323CCEC3280680D8EE84CBCE06 /* Security.framework in Frameworks */,
+				3F1757A87A5498610178F1E5B8280E06 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BC69E1D7B66E6C5FA3DB858CADAF2CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B92B2980516D9ABD72624E9EC7BEA670 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8DF13251E8BE15BEEDFEE5B3915DF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD8FFA446B9BDFBA8D4CCF845997DECA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06A83AB138A264F3BDDB2BF56228A119 /* Pods-RecyQTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC3C1E7254D9E086F63B1EBDC47A73E9 /* Info.plist */,
+				A434793AE503145CDB002A0E057C1056 /* Pods-RecyQTests.modulemap */,
+				A30EE34D36E912D0BE700DAF0475D704 /* Pods-RecyQTests-acknowledgements.markdown */,
+				53A7AD35A7EFE0CB9E2A0E0FFF1E9E4F /* Pods-RecyQTests-acknowledgements.plist */,
+				D1C6FA219640EF4ACD04458FC959DB22 /* Pods-RecyQTests-dummy.m */,
+				16B346E7AF70A01756AB2888F8576675 /* Pods-RecyQTests-frameworks.sh */,
+				F1E609AFEEF8A3B504B4B919A84C0F78 /* Pods-RecyQTests-resources.sh */,
+				F0CF23BFF70DC03725E1A79D125CF7A6 /* Pods-RecyQTests-umbrella.h */,
+				A8C3C18C77B757FBA8EB9EF29F44FA24 /* Pods-RecyQTests.debug.xcconfig */,
+				2F247D132744DFE3EB5E0ACFC28CCDD8 /* Pods-RecyQTests.release.xcconfig */,
+			);
+			name = "Pods-RecyQTests";
+			path = "Target Support Files/Pods-RecyQTests";
+			sourceTree = "<group>";
+		};
 		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				843A690C4A272ACCFA5202DC4499C74E /* iOS */,
+				4539A9D3D2B08D1D7A27574664C2714E /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4539A9D3D2B08D1D7A27574664C2714E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7A9134719B98519CD8B38AA03C5D9B4F /* CFNetwork.framework */,
+				E755A4A248AC6EBE6F067F197786EDED /* Foundation.framework */,
+				B2B5A23D1A2B4634D39A8F393987D506 /* Security.framework */,
+				1D866629C28D3787530664E228FD5285 /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		479641E761DAB6AD88BB1C176E1AB742 /* Pods-RecyQ */ = {
+			isa = PBXGroup;
+			children = (
+				2B8A3E65C83920B32957385975BA6419 /* Info.plist */,
+				3C8869270640E48D48B089BD3C3DA03F /* Pods-RecyQ.modulemap */,
+				38CDFA5305C4649B49461726C29BA95F /* Pods-RecyQ-acknowledgements.markdown */,
+				51BA2C0752B0956D5F44EADCE4C67E49 /* Pods-RecyQ-acknowledgements.plist */,
+				FA7206EA6B1755527E22F487151DC112 /* Pods-RecyQ-dummy.m */,
+				D21ADCA5B5EB5AAA990612AEF0D7B58D /* Pods-RecyQ-frameworks.sh */,
+				D794288359D298861686CF3C2B8A6EAD /* Pods-RecyQ-resources.sh */,
+				4565DF5520073309926F256B2EFD4939 /* Pods-RecyQ-umbrella.h */,
+				567CD8DE32178F38C9FF0F0E14F026A4 /* Pods-RecyQ.debug.xcconfig */,
+				F0CE9C881D525349891ED3E909B5EBA0 /* Pods-RecyQ.release.xcconfig */,
+			);
+			name = "Pods-RecyQ";
+			path = "Target Support Files/Pods-RecyQ";
 			sourceTree = "<group>";
 		};
 		5883428897D1426E6EB96D7E36556192 /* Frameworks */ = {
@@ -118,34 +209,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6682810D5DF1141E4FBE64FCF1C2BE6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C609032874E93D297DDA94A673E61E6 /* Firebase.framework */,
+				D9D512BF6E6FCB9AC5C37757634AC20C /* Pods_RecyQ.framework */,
+				19BDE06E00DA5BE9EAE030AD0094EC00 /* Pods_RecyQTests.framework */,
+				15E790C8471F4B8F83BB56DBA3C38C98 /* Pods_RecyQUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7074F369C2D23B2BA48F9CA887167D03 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				479641E761DAB6AD88BB1C176E1AB742 /* Pods-RecyQ */,
+				06A83AB138A264F3BDDB2BF56228A119 /* Pods-RecyQTests */,
+				CEBA6D5B96021D5E78DA3BD1C98CE6F3 /* Pods-RecyQUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
 				F56CE447D2542B744EB0DA47C71E6EDD /* Pods */,
-				C811934A7D3EC199F1C5D6D496B72A09 /* Products */,
-				B6A1AEDE3B3A3AE294F71A94CDC9C459 /* Targets Support Files */,
+				6682810D5DF1141E4FBE64FCF1C2BE6B /* Products */,
+				7074F369C2D23B2BA48F9CA887167D03 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		843A690C4A272ACCFA5202DC4499C74E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				60F85758B54CB0D843A3E97DFFB2F21F /* CFNetwork.framework */,
-				77C49D928448B31FB9A7D5AE5C8D6C4E /* Foundation.framework */,
-				C6204446BD9150A17B12E81B4A6F9CA8 /* Security.framework */,
-				6166BE40C18BC6BF0EED92CAB212EC33 /* SystemConfiguration.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		B6A1AEDE3B3A3AE294F71A94CDC9C459 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D266D7DE211B392797534C202B78D171 /* Pods-RecyQ */,
-			);
-			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		B870B24C59D78DF34E50CD8E9DB3800F /* Firebase */ = {
@@ -169,31 +262,22 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
-		C811934A7D3EC199F1C5D6D496B72A09 /* Products */ = {
+		CEBA6D5B96021D5E78DA3BD1C98CE6F3 /* Pods-RecyQUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2903819BF63AFCFA22F386815803F076 /* Firebase.framework */,
-				2605590F0E93EED20B70E341500D4F13 /* Pods_RecyQ.framework */,
+				34E3B06821D8E779DAF6D5947081194C /* Info.plist */,
+				67D520366EA1A47831E8621074EC98B8 /* Pods-RecyQUITests.modulemap */,
+				195141E8300CD3606FD445FB66E49F5F /* Pods-RecyQUITests-acknowledgements.markdown */,
+				37CD06934D28AC2779CABE66DCBAA2D2 /* Pods-RecyQUITests-acknowledgements.plist */,
+				B920C2F0B03D82C42DEDE3909BBA7461 /* Pods-RecyQUITests-dummy.m */,
+				615738383FB0E73923225575360DE5A4 /* Pods-RecyQUITests-frameworks.sh */,
+				03781FFA09FCBBF6086F841C0FA05102 /* Pods-RecyQUITests-resources.sh */,
+				02C7D04F9F13686D898479287A71745E /* Pods-RecyQUITests-umbrella.h */,
+				D162946F093186BA07F414AFEFC2F7E6 /* Pods-RecyQUITests.debug.xcconfig */,
+				29B93F40040D185C38C2C9401555F20F /* Pods-RecyQUITests.release.xcconfig */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D266D7DE211B392797534C202B78D171 /* Pods-RecyQ */ = {
-			isa = PBXGroup;
-			children = (
-				767442042B9300FEF435F5E389764DCA /* Info.plist */,
-				B23D75C8E62A8301E773C8F688C9F157 /* Pods-RecyQ.modulemap */,
-				8677DFBF29490A4F7CDEA9AE8F37BD04 /* Pods-RecyQ-acknowledgements.markdown */,
-				9EA45BD6E4E8D5CE06EF6DCFB2DA1B23 /* Pods-RecyQ-acknowledgements.plist */,
-				FE24FEAE76AAE2266D395DD265C2C970 /* Pods-RecyQ-dummy.m */,
-				49381B8A97061CFFC7104BD552DFC701 /* Pods-RecyQ-frameworks.sh */,
-				D42FD2B006A88848BC32DE65A71DD667 /* Pods-RecyQ-resources.sh */,
-				48E90588092D17718FBA3F58FA2C0CDF /* Pods-RecyQ-umbrella.h */,
-				8D2DA37387B43AC2AE45ADC1B8230035 /* Pods-RecyQ.debug.xcconfig */,
-				6D931395AF7663D754F0046A30B8FE44 /* Pods-RecyQ.release.xcconfig */,
-			);
-			name = "Pods-RecyQ";
-			path = "Target Support Files/Pods-RecyQ";
+			name = "Pods-RecyQUITests";
+			path = "Target Support Files/Pods-RecyQUITests";
 			sourceTree = "<group>";
 		};
 		F56CE447D2542B744EB0DA47C71E6EDD /* Pods */ = {
@@ -221,61 +305,59 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2FDCAAB615C287D16BF7F1F2AA978246 /* Headers */ = {
+		047F4AB479B72C59EF04F849A65BFA4A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23FCF31260D47CEC1494A292DAA1A1E /* FAuthData.h in Headers */,
-				1D925BB011B04DDED982C7946571A67A /* FAuthType.h in Headers */,
-				E60FA42EEC3ECC48701DB55986D25D69 /* FConfig.h in Headers */,
-				E8B534D15D2B25919ACD898217266891 /* FDataSnapshot.h in Headers */,
-				239B10F388840841389B7F09648735B1 /* FEventType.h in Headers */,
-				60F9139BDD38565B78214C4FC5F5729D /* Firebase-umbrella.h in Headers */,
-				1C3EF85CD30E6FF2E51471BD5B3CEB29 /* Firebase.h in Headers */,
-				2F1496011DBBB75777645194AAAFE92D /* FirebaseApp.h in Headers */,
-				6646DA26298257396C7FFE141BB84CC3 /* FirebaseServerValue.h in Headers */,
-				DB05A9DD8244D10C28B6915C514AE15F /* FMutableData.h in Headers */,
-				4D75CF0089B20355B17A851513C4A002 /* FQuery.h in Headers */,
-				191DE2EB9A35585AE0A88BA9F833A1F4 /* FTransactionResult.h in Headers */,
+				13B83DF3D9989FE03F3FAB64BF181362 /* FAuthData.h in Headers */,
+				E3B05F0A65E5E5E8AD2557C5118E489D /* FAuthType.h in Headers */,
+				4457CFD94E417CB3222AFC7C7503DDFE /* FConfig.h in Headers */,
+				F199A6912008F503591CEA01C7564945 /* FDataSnapshot.h in Headers */,
+				1F76C929CAA552AF214731DB36B1FE76 /* FEventType.h in Headers */,
+				57485B04B1340C40EA5F9BB7F3CC39E0 /* Firebase-umbrella.h in Headers */,
+				DFB970306E4C422AE3B27ABDDDE728F5 /* Firebase.h in Headers */,
+				949073721B6E7A0C56641B34547C70AD /* FirebaseApp.h in Headers */,
+				7D83927FDBC3C3A77C3B6FFA7B022608 /* FirebaseServerValue.h in Headers */,
+				EE8E9FEB2C8BE59608C1B538C2B888EF /* FMutableData.h in Headers */,
+				6205E2DBFCDCCCF6FED9B22520C3F4D4 /* FQuery.h in Headers */,
+				ABEEC5F9F7BF3E97A75B718CC501DDB4 /* FTransactionResult.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9EEBA55A38186876B878A248C467D861 /* Headers */ = {
+		11FD285D209799F77562CDEBCE3488FA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05F1ADCD7D1B27CFA9A6211A48729534 /* Pods-RecyQ-umbrella.h in Headers */,
+				748AB9F6D583F5231CF430D7F4854720 /* Pods-RecyQTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44B3FCE44C00A0254984B126462964CC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265E2BE76510082A3A6B994EB2DF5B86 /* Pods-RecyQ-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C34FAD72530339DAA9FB238E0E4142B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D399CBCF1D8A1858CCDA41C511C9E6E /* Pods-RecyQUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		351193FCBBC6E87E2637B917A729B1AE /* Pods-RecyQ */ = {
+		4982F3084B981C1E6DCF8B3A064BA2DB /* Firebase */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 709C2A4B6FB1779B08B79DE5A31973D9 /* Build configuration list for PBXNativeTarget "Pods-RecyQ" */;
+			buildConfigurationList = 18150B8AD4D5227FFC01504D8B030C7F /* Build configuration list for PBXNativeTarget "Firebase" */;
 			buildPhases = (
-				FED4B8B0BBAE2E379C02F4F2324379F8 /* Sources */,
-				494686027EABC0DF42C1960409C68A59 /* Frameworks */,
-				9EEBA55A38186876B878A248C467D861 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EEBDAF3139C21974282908CB3B1986F7 /* PBXTargetDependency */,
-			);
-			name = "Pods-RecyQ";
-			productName = "Pods-RecyQ";
-			productReference = 2605590F0E93EED20B70E341500D4F13 /* Pods_RecyQ.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B7AC9326D819482593FE118E915409D7 /* Firebase */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 49B346C14D532324DCD14D0FA1347BC6 /* Build configuration list for PBXNativeTarget "Firebase" */;
-			buildPhases = (
-				46E052D320E3B778B76D8393E0BAFE0F /* Sources */,
-				A7E10F383DCD59079712A57B50DCF88E /* Frameworks */,
-				2FDCAAB615C287D16BF7F1F2AA978246 /* Headers */,
+				0280FDD6FDB0D3BA4C5D37C031481561 /* Sources */,
+				35131FB0F5B9E2FE99C4C5A6FCF1A92B /* Frameworks */,
+				047F4AB479B72C59EF04F849A65BFA4A /* Headers */,
 			);
 			buildRules = (
 			);
@@ -283,7 +365,59 @@
 			);
 			name = Firebase;
 			productName = Firebase;
-			productReference = 2903819BF63AFCFA22F386815803F076 /* Firebase.framework */;
+			productReference = 7C609032874E93D297DDA94A673E61E6 /* Firebase.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6148BE341A4A1391CC3E23713BF876AC /* Pods-RecyQ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD35ACA565163C0BE90AA8E212A9D146 /* Build configuration list for PBXNativeTarget "Pods-RecyQ" */;
+			buildPhases = (
+				5464BA440BECA436A9BE0149F9EF9241 /* Sources */,
+				ED8DF13251E8BE15BEEDFEE5B3915DF0 /* Frameworks */,
+				44B3FCE44C00A0254984B126462964CC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFFA3643F9168523BE5B54AA77D77EB0 /* PBXTargetDependency */,
+			);
+			name = "Pods-RecyQ";
+			productName = "Pods-RecyQ";
+			productReference = D9D512BF6E6FCB9AC5C37757634AC20C /* Pods_RecyQ.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8051B56CF6F483AC6211E5FF17E549F9 /* Pods-RecyQTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB3A174B299BA26D36116B32C32EAF5B /* Build configuration list for PBXNativeTarget "Pods-RecyQTests" */;
+			buildPhases = (
+				6736C8DCE1D98FD6E28F9A96F818966E /* Sources */,
+				5BC69E1D7B66E6C5FA3DB858CADAF2CA /* Frameworks */,
+				11FD285D209799F77562CDEBCE3488FA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-RecyQTests";
+			productName = "Pods-RecyQTests";
+			productReference = 19BDE06E00DA5BE9EAE030AD0094EC00 /* Pods_RecyQTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		84D3E9F8FDCBE5E2D5F27C69821090EE /* Pods-RecyQUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A79E141EFBD4BA99BC9143CA08BADDB8 /* Build configuration list for PBXNativeTarget "Pods-RecyQUITests" */;
+			buildPhases = (
+				4ED7E8D0DEC9F5F042663480B10980FE /* Sources */,
+				258DDBFE33373820C9697417BCF069AA /* Frameworks */,
+				8C34FAD72530339DAA9FB238E0E4142B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-RecyQUITests";
+			productName = "Pods-RecyQUITests";
+			productReference = 15E790C8471F4B8F83BB56DBA3C38C98 /* Pods_RecyQUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -292,8 +426,22 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					4982F3084B981C1E6DCF8B3A064BA2DB = {
+						LastSwiftMigration = 0820;
+					};
+					6148BE341A4A1391CC3E23713BF876AC = {
+						LastSwiftMigration = 0820;
+					};
+					8051B56CF6F483AC6211E5FF17E549F9 = {
+						LastSwiftMigration = 0820;
+					};
+					84D3E9F8FDCBE5E2D5F27C69821090EE = {
+						LastSwiftMigration = 0820;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -303,80 +451,169 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = C811934A7D3EC199F1C5D6D496B72A09 /* Products */;
+			productRefGroup = 6682810D5DF1141E4FBE64FCF1C2BE6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B7AC9326D819482593FE118E915409D7 /* Firebase */,
-				351193FCBBC6E87E2637B917A729B1AE /* Pods-RecyQ */,
+				4982F3084B981C1E6DCF8B3A064BA2DB /* Firebase */,
+				6148BE341A4A1391CC3E23713BF876AC /* Pods-RecyQ */,
+				8051B56CF6F483AC6211E5FF17E549F9 /* Pods-RecyQTests */,
+				84D3E9F8FDCBE5E2D5F27C69821090EE /* Pods-RecyQUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		46E052D320E3B778B76D8393E0BAFE0F /* Sources */ = {
+		0280FDD6FDB0D3BA4C5D37C031481561 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				012A7E018F3D34F159894EBD7EACACF9 /* Empty.m in Sources */,
-				1D9D7FF5237C8CC91EF58DC45AC274FB /* Firebase-dummy.m in Sources */,
+				CBB64B9E937D48C2C569840C6888BB72 /* Empty.m in Sources */,
+				AE7D3CB975FCD34E51F59C73968B6413 /* Firebase-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FED4B8B0BBAE2E379C02F4F2324379F8 /* Sources */ = {
+		4ED7E8D0DEC9F5F042663480B10980FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3141F439A528B188A4A4FE8371D133A /* Pods-RecyQ-dummy.m in Sources */,
+				7393FD094020CA884166C8DDB3966B1F /* Pods-RecyQUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5464BA440BECA436A9BE0149F9EF9241 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F914290CE006127D98253754BACD4C9B /* Pods-RecyQ-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6736C8DCE1D98FD6E28F9A96F818966E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33848D1B8657D4E3E2368C75F7868CA6 /* Pods-RecyQTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EEBDAF3139C21974282908CB3B1986F7 /* PBXTargetDependency */ = {
+		EFFA3643F9168523BE5B54AA77D77EB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Firebase;
-			target = B7AC9326D819482593FE118E915409D7 /* Firebase */;
-			targetProxy = BABB30FB0CA594F9F87E828B6AD152E9 /* PBXContainerItemProxy */;
+			target = 4982F3084B981C1E6DCF8B3A064BA2DB /* Firebase */;
+			targetProxy = C1B1ABBB3922B97C9AD6A8020D3BD807 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3E7AACEA20CE6C140FA352BAAD19C253 /* Release */ = {
+		0DD084E4005D8392CE7183210708C02C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D931395AF7663D754F0046A30B8FE44 /* Pods-RecyQ.release.xcconfig */;
+			baseConfigurationReference = E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-RecyQ/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Firebase/Firebase-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Firebase/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RecyQ/Pods-RecyQ.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_RecyQ;
+				PRODUCT_NAME = Firebase;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */ = {
+		10520EB5159531820AE1E352DFD03FCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Firebase/Firebase-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Firebase/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Firebase;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		156AA6FB39DD09C4B7E61797839F4129 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D162946F093186BA07F414AFEFC2F7E6 /* Pods-RecyQUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RecyQUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RecyQUITests/Pods-RecyQUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RecyQUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -390,11 +627,14 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -407,42 +647,125 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		628C2422DA58797615468EA5084795F2 /* Debug */ = {
+		71BE84228677A0DDAA913CD12277C873 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */;
+			baseConfigurationReference = 567CD8DE32178F38C9FF0F0E14F026A4 /* Pods-RecyQ.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Firebase/Firebase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Firebase/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RecyQ/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RecyQ/Pods-RecyQ.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Firebase;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RecyQ;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		74857149DC1E0D599B8A01A78349A926 /* Release */ = {
+		82F1BC079D9E2CBFFBBD5DC902D80FE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0CE9C881D525349891ED3E909B5EBA0 /* Pods-RecyQ.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RecyQ/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RecyQ/Pods-RecyQ.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RecyQ;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		859CC09891E203FC7383D10F19659080 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F247D132744DFE3EB5E0ACFC28CCDD8 /* Pods-RecyQTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RecyQTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RecyQTests/Pods-RecyQTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RecyQTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -456,10 +779,14 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -467,63 +794,79 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		777B34CFC8852E2CC50517ADBDE51299 /* Debug */ = {
+		CEB513B436C334D1AB31C8745F8AFB19 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D2DA37387B43AC2AE45ADC1B8230035 /* Pods-RecyQ.debug.xcconfig */;
+			baseConfigurationReference = A8C3C18C77B757FBA8EB9EF29F44FA24 /* Pods-RecyQTests.debug.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-RecyQ/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RecyQTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-RecyQ/Pods-RecyQ.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-RecyQTests/Pods-RecyQTests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_RecyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RecyQTests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		832A35C4D4E6795C70EA25ED98E0183E /* Release */ = {
+		F60097D3584DECA8FE75A5A0626586B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6BB016D3ABEBF694D68538838DE8DA0 /* Firebase.xcconfig */;
+			baseConfigurationReference = 29B93F40040D185C38C2C9401555F20F /* Pods-RecyQUITests.release.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Firebase/Firebase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Firebase/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-RecyQUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Firebase/Firebase.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-RecyQUITests/Pods-RecyQUITests.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Firebase;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_RecyQUITests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -533,29 +876,47 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		18150B8AD4D5227FFC01504D8B030C7F /* Build configuration list for PBXNativeTarget "Firebase" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10520EB5159531820AE1E352DFD03FCB /* Debug */,
+				0DD084E4005D8392CE7183210708C02C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5CE5176205D06FF3FFE3DDDA9291E44B /* Debug */,
-				74857149DC1E0D599B8A01A78349A926 /* Release */,
+				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
+				B7324857C38B065FEB1EEE3105C2367A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49B346C14D532324DCD14D0FA1347BC6 /* Build configuration list for PBXNativeTarget "Firebase" */ = {
+		A79E141EFBD4BA99BC9143CA08BADDB8 /* Build configuration list for PBXNativeTarget "Pods-RecyQUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				628C2422DA58797615468EA5084795F2 /* Debug */,
-				832A35C4D4E6795C70EA25ED98E0183E /* Release */,
+				156AA6FB39DD09C4B7E61797839F4129 /* Debug */,
+				F60097D3584DECA8FE75A5A0626586B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		709C2A4B6FB1779B08B79DE5A31973D9 /* Build configuration list for PBXNativeTarget "Pods-RecyQ" */ = {
+		AB3A174B299BA26D36116B32C32EAF5B /* Build configuration list for PBXNativeTarget "Pods-RecyQTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				777B34CFC8852E2CC50517ADBDE51299 /* Debug */,
-				3E7AACEA20CE6C140FA352BAAD19C253 /* Release */,
+				CEB513B436C334D1AB31C8745F8AFB19 /* Debug */,
+				859CC09891E203FC7383D10F19659080 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD35ACA565163C0BE90AA8E212A9D146 /* Build configuration list for PBXNativeTarget "Pods-RecyQ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71BE84228677A0DDAA913CD12277C873 /* Debug */,
+				82F1BC079D9E2CBFFBBD5DC902D80FE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

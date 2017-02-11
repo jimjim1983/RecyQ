@@ -23,15 +23,16 @@ struct Coupon {
     
     init(snapshot: FDataSnapshot) {
         /*key = snapshot.key*/
-        couponName = snapshot.value["couponName"] as? String
-        couponValue = snapshot.value["couponValue"] as? Int
-        uid = snapshot.value["uid"] as? String
-        redemeed = snapshot.value["redeemed"] as? Bool
+        let snapshotValue = snapshot.value as? NSDictionary
+        couponName = snapshotValue?["couponName"] as? String
+        couponValue = snapshotValue?["couponValue"] as? Int
+        uid = snapshotValue?["uid"] as? String
+        redemeed = snapshotValue?["redeemed"] as? Bool
         //ref = snapshot.ref
         
     }
     
-    func toAnyObject() -> AnyObject {
+    func toAnyObject() -> [String: Any] {
         return [
             "couponName": couponName,
             "couponValue": couponValue,
