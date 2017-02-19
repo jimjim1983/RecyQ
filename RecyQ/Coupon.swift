@@ -21,7 +21,7 @@ struct Coupon {
         //self.ref = nil
     }
     
-    init(snapshot: FDataSnapshot) {
+    init(snapshot: FIRDataSnapshot) {
         /*key = snapshot.key*/
         let snapshotValue = snapshot.value as? NSDictionary
         couponName = snapshotValue?["couponName"] as? String
@@ -30,7 +30,7 @@ struct Coupon {
         redemeed = snapshotValue?["redeemed"] as? Bool
         //ref = snapshot.ref
         
-    }
+    }                
     
     func toAnyObject() -> [String: Any] {
         return [

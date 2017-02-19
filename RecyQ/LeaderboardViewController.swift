@@ -11,11 +11,12 @@ import Firebase
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
+    var clientsRef = FIRDatabase.database().reference(withPath: "clients")
+    //var clientsRef = FIRDatabase.database().reference().cl
     
     var wasteDictionary = [String: Double]()
     
-    var snapshotArray = [FDataSnapshot]()
+    var snapshotArray = [FIRDataSnapshot]()
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -122,10 +123,10 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     func getAmountOfWaste() {
         
-        self.clientsRef?.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
+        self.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
             
-            if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 self.snapshotArray = snapshots
                 

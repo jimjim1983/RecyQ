@@ -8,19 +8,19 @@
 
 import UIKit
 import MapKit
+import FBSDKLoginKit
 import Firebase
-
-
+import FirebaseAuth
 
 class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
     
     //var storeItem: StoreItem!
     var coupon: Coupon?
-    var couponItems = [FDataSnapshot]()
+    var couponItems = [FIRDataSnapshot]()
     //var user: User!
     
-    let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
-    let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
+    let ref = FIRDatabase.database().reference()
+    let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     
     @IBOutlet weak var naamLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -99,13 +99,13 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
 
         //couponItems.removeAll(keepCapacity: true)
-        naamInputLabel.text = user?.name
-        emailLabel.text = user?.addedByUser
+        naamInputLabel.text = currentUser?.name
+        emailLabel.text = currentUser?.addedByUser
         
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
-        self.couponsRef?.queryOrdered(byChild: "uid").queryEqual(toValue: user?.uid).observe(.value, with: { snapshot in
+        self.couponsRef.queryOrdered(byChild: "uid").queryEqual(toValue: currentUser?.uid).observe(.value, with: { snapshot in
             
-            if let itemsFromSnapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
+            if let itemsFromSnapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 self.couponItems = itemsFromSnapshots
                 self.tableView.reloadData()
@@ -114,7 +114,24 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
-        ref?.unauth()
+        
+        // Check if the user is logged in via facebook
+        if FBSDKAccessToken.current() != nil {
+            
+            // Log out from facebook
+            FBSDKLoginManager().logOut()
+            print("User has logged out from facebook")
+        }
+        
+        // Log out from firebase
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            return
+        }
+        
         let loginVC = LoginViewController()
         //        self.presentViewController(loginVC, animated: true, completion: nil)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

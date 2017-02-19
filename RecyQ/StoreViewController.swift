@@ -13,8 +13,8 @@ import Firebase
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients")
-
+    let ref = FIRDatabase.database().reference()
+    
     var storeItemArray = [StoreItem]()
     
     var storeItem4 = StoreItem(storeItemName: "Upcycling boodschappentas gemaakt van denim", storeItemDescription: "Wissel je tokens in voor deze leuke upcycling boodschappentas gemaakt van denim.", storeItemImage: "denim-bag", storeItemPrice: 5)
@@ -82,33 +82,33 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
 
         
-        ref?.observeAuthEvent { authData in
-            if self.ref?.authData != nil {
-                
-                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
-                    
-                   let newSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
-            
-                let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
-                
-                let tokenAmount = round(totalWasteAmount/35)
-                
-                numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)!
-                
-                // this weird piece of code is here as a failsafe because sometimes I think the numberOfTokens amount isn't updated in time enough from data on the backend to prevent a negative token balance. TODO: Find another fix for this.
-                    
-                    if numberOfTokens <= 0 {
-                        self.numberOfTokensLabel.text = "0"
-                    } else {
-                        self.numberOfTokensLabel.text = "\(numberOfTokens)"
-                    }
-                
-//                self.numberOfTokensLabel.text = "\(numberOfTokens)"
-        
-        
-                })
-            }
-        }
+//        ref.observeAuthEvent { authData in
+//            if self.ref?.authData != nil {
+//                
+//                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
+//                    
+//                   let newSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
+//            
+//                let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+//                
+//                let tokenAmount = round(totalWasteAmount/35)
+//                
+//                numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)!
+//                
+//                // this weird piece of code is here as a failsafe because sometimes I think the numberOfTokens amount isn't updated in time enough from data on the backend to prevent a negative token balance. TODO: Find another fix for this.
+//                    
+//                    if numberOfTokens <= 0 {
+//                        self.numberOfTokensLabel.text = "0"
+//                    } else {
+//                        self.numberOfTokensLabel.text = "\(numberOfTokens)"
+//                    }
+//                
+////                self.numberOfTokensLabel.text = "\(numberOfTokens)"
+//        
+//        
+//                })
+//            }
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

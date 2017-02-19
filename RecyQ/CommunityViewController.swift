@@ -28,7 +28,7 @@ class CommunityViewController: UIViewController {
     
     @IBOutlet weak var communityRecyclingImageView: UIImageView!
     
-    var clientsRef = Firebase(url: "https://recyqdb.firebaseio.com/clients")
+    var clientsRef = FIRDatabase.database().reference(withPath: "clients")
     
     var wasteArray = [Double]()
     
@@ -102,13 +102,13 @@ class CommunityViewController: UIViewController {
         
         scrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         
-        let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
+        let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
         
         var eurosCount: Int?
         
-        couponsRef?.queryOrdered(byChild: "couponName").queryEqual(toValue: "Doneer aan het Buurtafvalfonds").observe(.value, with: { snapshot in
+        couponsRef.queryOrdered(byChild: "couponName").queryEqual(toValue: "Doneer aan het Buurtafvalfonds").observe(.value, with: { snapshot in
             
-            if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                eurosCount = snapshots.count
                 print(snapshots)
                 print(eurosCount)
@@ -164,9 +164,9 @@ class CommunityViewController: UIViewController {
     func getAmountOfWaste() {
             
             // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
-            self.clientsRef?.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
+            self.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
-                if let snapshots = snapshot?.children.allObjects as? [FDataSnapshot] {
+                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for item in snapshots {
                         let amountOfPlastic = (item.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
                         let amountOfBioWaste = (item.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double

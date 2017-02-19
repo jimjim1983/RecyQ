@@ -48,7 +48,7 @@ struct User {
     let key: String!
     let name: String!
     let addedByUser: String!
-    let ref: Firebase?
+    let ref: FIRDatabaseReference?
     var completed: Bool!
     let amountOfPlastic: Double!
     var amountOfPaper: Double!
@@ -76,7 +76,7 @@ struct User {
         self.spentCoins = spentCoins
     }
     
-    init(snapshot: FDataSnapshot) {
+    init(snapshot: FIRDataSnapshot) {
         key = snapshot.key
         let snapshotValue = snapshot.value as? NSDictionary
         name = snapshotValue?["name"] as? String

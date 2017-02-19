@@ -8,8 +8,8 @@
 
 import UIKit
 import Firebase
-
-
+import FirebaseAuth
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,12 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //var client: MSClient?
 
     
-     let ref = Firebase(url: "https://recyqdb.firebaseio.com/")
-    
-    
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        FIRApp.configure()
         
         //change font for the navbar titles
         let attrs = [
@@ -54,47 +51,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let loginViewController = LoginViewController()
         
-        ref?.observeAuthEvent { (authData) -> Void in
-            // 2
-            if authData != nil {
-                // 3
+//        ref?.observeAuthEvent { (authData) -> Void in
+//            // 2
+//            if authData != nil {
+//                // 3
+//                self.window?.rootViewController = self.tabbarController
+//                
+//            } else {
+//                  self.window?.rootViewController = loginViewController
+//            }
+//            
+//
+//        }
+        
+        FIRAuth.auth()!.addStateDidChangeListener() { (auth, user) in
+            if user != nil {
                 self.window?.rootViewController = self.tabbarController
-                
             } else {
-                  self.window?.rootViewController = loginViewController
+                self.window?.rootViewController = loginViewController
             }
-            
-
         }
         
-        
-      
-        
-//        self.client = MSClient(
-//            applicationURLString:"https://testappname.azurewebsites.net/"
-//        )
-//
-//        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let client = delegate.client!
-//        let item = ["voornaam":"jimba"]
-//        let itemTable = client.tableWithName("testUserEasyTableName")
-//        
-//        itemTable.insert(item) {
-//            (insertedItem, error) in
-//            if (error != nil) {
-//                print("Error" + error!.description);
-//            } else {
-//                if let itemString = insertedItem! ["voornaam"] {
-//                print("This is \(itemString)")
-//                    fourthTab.string = "\(itemString)"
-//                    
-//                }
-//            }
-//        }
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
 
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handeled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return handeled
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

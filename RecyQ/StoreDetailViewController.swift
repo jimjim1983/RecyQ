@@ -46,8 +46,8 @@ class StoreDetailViewController: UIViewController {
     @IBOutlet var logo: UIImageView!
     @IBOutlet weak var redeemButton: UIButton!
     
-    let ref = Firebase(url: "https://recyqdb.firebaseio.com/clients")
-    let couponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons")
+    let ref = FIRDatabase.database().reference(withPath: "clients")
+    let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +113,7 @@ class StoreDetailViewController: UIViewController {
                             
                             self.createCoupon()
                             
-                            self.addSpentCoins()
+                           // self.addSpentCoins()
                             
                             let alertGefeliciteerd = UIAlertController(title: "Gefeliciteerd!", message: "Uw aankoop is geslaagd. Ga naar de profiel pagina om uw coupons te bekijken.", preferredStyle: .alert)
                             
@@ -175,41 +175,42 @@ class StoreDetailViewController: UIViewController {
 
         //couponItems.removeAll()
            }
-    
-    func addSpentCoins() {
-        
-        ref?.observeAuthEvent { authData in
-            if self.ref?.authData != nil {
-                
-                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
-                    
-                    let startingSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
-                    
-                   let endingSpentCoinsAmount = startingSpentCoinsAmount! + self.storeItem.storeItemPrice!
-                    
-                    if let name = user?.name {
-                        let clientRef = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
-                        
-                        clientRef?.child(byAppendingPath: "spentCoins").setValue(endingSpentCoinsAmount)
-                        
-                        let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
-                        
-                        let tokenAmount = round(totalWasteAmount/35)
-                        
-                        numberOfTokens = (Int(tokenAmount))  - (endingSpentCoinsAmount)
-                    }
-                    
-                })}}}
+//    
+//    func addSpentCoins() {
+//
+//        
+//        ref.observeAuthEvent { authData in
+//            if self.ref?.authData != nil {
+//                
+//                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
+//                    
+//                    let startingSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
+//                    
+//                   let endingSpentCoinsAmount = startingSpentCoinsAmount! + self.storeItem.storeItemPrice!
+//                    
+//                    if let name = user?.name {
+//                        let clientRef = Firebase(url: "https://recyqdb.firebaseio.com/clients/\(name)")
+//                        
+//                        clientRef?.child(byAppendingPath: "spentCoins").setValue(endingSpentCoinsAmount)
+//                        
+//                        let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
+//                        
+//                        let tokenAmount = round(totalWasteAmount/35)
+//                        
+//                        numberOfTokens = (Int(tokenAmount))  - (endingSpentCoinsAmount)
+//                    }
+//                    
+//                })}}}
     
     
     func createCoupon() {
         
         let uuid = UUID().uuidString
         
-        coupon = Coupon(uid: (user?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
+        coupon = Coupon(uid: (currentUser?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
         
-        let couponsRef = self.couponsRef?.child(byAppendingPath: storeItem.storeItemName! + uuid)
-        couponsRef?.setValue(self.coupon!.toAnyObject())
+        let couponsRef = self.couponsRef.child(byAppendingPath: storeItem.storeItemName! + uuid)
+        couponsRef.setValue(self.coupon!.toAnyObject())
     }
   
 }
