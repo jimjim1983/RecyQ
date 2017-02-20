@@ -47,23 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
         
-//        self.window?.rootViewController = tabbarController
         
         let loginViewController = LoginViewController()
-        
-//        ref?.observeAuthEvent { (authData) -> Void in
-//            // 2
-//            if authData != nil {
-//                // 3
-//                self.window?.rootViewController = self.tabbarController
-//                
-//            } else {
-//                  self.window?.rootViewController = loginViewController
-//            }
-//            
-//
-//        }
-        
+                
         FIRAuth.auth()!.addStateDidChangeListener() { (auth, user) in
             if user != nil {
                 self.window?.rootViewController = self.tabbarController

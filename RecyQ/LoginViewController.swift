@@ -536,6 +536,13 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         }
     
         print("Successfully logged in to facebook \(result)")
+        FIRAuth.auth()!.addStateDidChangeListener({ (auth, user) in
+            if let user = user {
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = appDelegate.tabbarController
+                appDelegate.tabbarController?.selectedIndex = 0
+            }
+        })
         self.addFacebookUserToFireBase()
     }
     
