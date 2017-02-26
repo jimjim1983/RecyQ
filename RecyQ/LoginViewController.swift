@@ -13,26 +13,29 @@ import FBSDKLoginKit
 
 var currentUser: User?
 
+// We need to remove this global variable after the coupons code is updated.
 var reachability: Reachability?
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: - OUtlets
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    var username: String?
-    var users = [User]()
-    var userUID: String?
-        
+//    var username: String?
+//    var users = [User]()
+//    var userUID: String?
+    
+    // MARK: - View life cycles.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
-        addKeyboardNotificationObserver()
+        self.setupViews()
+        self.addKeyboardNotificationObserver()
         
-        textFieldLoginEmail.delegate = self
-        textFieldLoginPassword.delegate = self
+        self.textFieldLoginEmail.delegate = self
+        self.textFieldLoginPassword.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,26 +44,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        removeKeyboardNotificationObserver()
+        self.removeKeyboardNotificationObserver()
     }
     
-    func setupViews() {
-        loginButton.layer.cornerRadius = 5
+    private func setupViews() {
+        self.loginButton.layer.cornerRadius = 5
         
         // Facebook log in button.
         let faceBookLogInButton = FBSDKLoginButton()
         faceBookLogInButton.delegate = self
         faceBookLogInButton.readPermissions = ["email", "public_profile"]
         faceBookLogInButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
-        view.addSubview(faceBookLogInButton)
+        self.view.addSubview(faceBookLogInButton)
     }
     
-    func addKeyboardNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    // MARK: - Keyboard methods
+    private func addKeyboardNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func removeKeyboardNotificationObserver() {
+    private func removeKeyboardNotificationObserver() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
@@ -93,106 +97,77 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print(self.view.frame.origin.y)
     }
     
+    // MARK: - TextField delegate methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: - IBActions
     @IBAction func loginButtonPressed(_ sender: AnyObject) {
         
-        if textFieldLoginEmail.text == "" || textFieldLoginPassword.text == "" {
+        if self.textFieldLoginEmail.text == "" || self.textFieldLoginPassword.text == "" {
             self.showAlertWith(title: "Oeps", message: "Vul je e-mailadres en wachtwoord in.")
             
         } else {
-            FirebaseHelper.logUserInWith(email: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!, viewController: self)
+            FirebaseHelper.logUserInWith(email: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!, sender: self)
         }
     }
     
     @IBAction func signUpButtonPressed(_ sender: AnyObject) {
+      self.showSignUpAlert()
+    }
+    
+    @IBAction func wachtwoordVergetenButtonPressed(_ sender: Any) {
+        self.showWachtwoordVergetenAlert()
+    }
+    
+    //MARK: - Alerts
+    private func showSignUpAlert() {
+        
         let alert = UIAlertController(title: "Maak een nieuwe RecyQ account.", message: "", preferredStyle: .alert)
         
+        alert.addTextField { (textUsername) -> Void in
+            textUsername.placeholder = "Gebruikersnaam"
+        }
+        alert.addTextField { (textEmail) -> Void in
+            textEmail.placeholder = "E-mailadres"
+            textEmail.keyboardType = .emailAddress
+        }
+        alert.addTextField { (textPassword) -> Void in
+            textPassword.placeholder = "Wachtwoord"
+            textPassword.isSecureTextEntry = true
+        }
         let saveAction = UIAlertAction(title: "Opslaan", style: .default) { (action: UIAlertAction) -> Void in
             let usernameField = alert.textFields![0]
             let emailField = alert.textFields![1]
             let passwordField = alert.textFields![2]
             
-            if let email = emailField.text, let password = passwordField.text {
-                
-                FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
-                    
-                    if error != nil {
-                        print("Error signing user in: \(error?.localizedDescription)")
-                        return
-                    }
-                    else {
-                        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-                            
-                            if error != nil {
-                                print("Error signing user in: \(error?.localizedDescription)")
-                                return
-                            }
-                            else {
-                                 currentUser = User(name: usernameField.text!.lowercased(), addedByUser: emailField.text!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: (user?.uid)!, spentCoins: 0)
-                                
-                                let userRef = FirebaseHelper.References.clientsRef.child(byAppendingPath: (currentUser?.name)!)
-                                userRef.setValue(currentUser?.toAnyObject())
-                                
-                                if let newUserName = currentUser?.name {
-                                    self.username = newUserName
-                                    print(self.username as Any)
-                                    
-                                }
-                                self.userUID = user?.uid
-                                print(self.userUID)
-                                print(user?.uid)
-                                print("WOOHOO \(FirebaseHelper.References.ref.queryEqual(toValue: user?.uid))")
-                            }
-                        })
-                    }
-                })
+            if let userName = usernameField.text, let email = emailField.text, let password = passwordField.text {
+                FirebaseHelper.signUpUserWith(userName: userName, email: email, password: password, sender: self)
             }
         }
-        
         let cancelAction = UIAlertAction(title: "Annuleer", style: .default) { (action: UIAlertAction) -> Void in
         }
-        
-        alert.addTextField { (textUsername) -> Void in
-            textUsername.placeholder = "Gebruikersnaam"
-        }
-        
-        alert.addTextField { (textEmail) -> Void in
-            textEmail.placeholder = "E-mailadres"
-        }
-        
-        alert.addTextField { (textPassword) -> Void in
-            textPassword.isSecureTextEntry = true
-            textPassword.placeholder = "Wachtwoord"
-        }
-        
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
         
         present(alert, animated: true, completion: nil)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @IBAction func wachtwoordVergetenButtonPressed(_ sender: Any) {
-        
+    private func showWachtwoordVergetenAlert() {
         let alert = UIAlertController(title: "Wachtwoord vergeten?", message: "Voer uw e-mailadres in. U ontvangt hierop een nieuw wachtwoord", preferredStyle: .alert)
         
         alert.addTextField { (textEmail) -> Void in
             textEmail.placeholder = "Voer uw e-mailadres in"
+            textEmail.keyboardType = .emailAddress
         }
-        
         let resetPasswordAction = UIAlertAction(title: "Reset wachtwoord", style: .default) { (action: UIAlertAction) -> Void in
-            
             let userEmailField = alert.textFields![0]
-            
-            FirebaseHelper.sendRequestForPasswordResetWith(email: userEmailField.text!, viewController: self)
+            FirebaseHelper.sendRequestForPasswordResetWith(email: userEmailField.text!, sender: self)
         }
-        
         let cancelAction = UIAlertAction(title: "Annuleer", style: .default) { (action: UIAlertAction) -> Void in
         }
-        
         alert.addAction(resetPasswordAction)
         alert.addAction(cancelAction)
         
@@ -214,12 +189,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         }
     
         print("Successfully logged in to facebook \(result)")
-        FIRAuth.auth()!.addStateDidChangeListener({ (auth, user) in
-            if user != nil {
-                Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
-                Constants.appDelegate.tabbarController?.selectedIndex = 0
-            }
-        })
+        FirebaseHelper.authenticateUser()
         self.addFacebookUserToFireBase()
     }
     
@@ -236,10 +206,10 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
             if error != nil {
-                print("Something went wrong with FB user login:", error)
+                print("Something went wrong with FB user login: \(error)")
             }
             else {
-                print("FB user logged in suceccfully:", user)
+                print("FB user logged in suceccfully: \(user)")
                 
                 if let fbCurrentUser = user {
                     currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, addedByUser: (fbCurrentUser.email)!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: (user?.uid)!, spentCoins: 0)
@@ -247,23 +217,14 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
                     userRef.setValue(currentUser?.toAnyObject())
                     
-                    if let newUserName = currentUser?.name {
-                        self.username = newUserName
-                        print(self.username as Any)
-                    }
-                    self.userUID = currentUser?.uid
+//                    if let newUserName = currentUser?.name {
+//                        self.username = newUserName
+//                        print(self.username as Any)
+//                    }
+//                    self.userUID = currentUser?.uid
                 }
             }
         })
     }
 }
 
-extension UIViewController {
-    func showAlertWith(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
-        }
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-}

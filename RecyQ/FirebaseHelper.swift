@@ -11,22 +11,64 @@ import Firebase
 import FirebaseAuth
 
 struct FirebaseHelper {
+    
+    // MARK: - Firebase references
     struct References {
         static let ref = FIRDatabase.database().reference()
         static let clientsRef = FIRDatabase.database().reference(withPath: "clients")
     }
     
-    static func logUserInWith(email: String, password: String, viewController: UIViewController) {
+    // MARK: - Sign up user through Firebase
+    static func signUpUserWith(userName: String, email: String, password: String, sender: UIViewController) {
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+            
+            if error != nil {
+                if let errorCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
+                    showAlertForSpecific(errorCode: errorCode, sender: sender)
+                }
+                print("Error signing new user in: \(error?.localizedDescription)")
+                return
+            }
+            else {
+                FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+                    
+                    if error != nil {
+                        if let errorCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
+                            showAlertForSpecific(errorCode: errorCode, sender: sender)
+                        }
+                        print("Error logging user in: \(error?.localizedDescription)")
+                        return
+                    }
+                    else {
+                        currentUser = User(name: userName.lowercased(), addedByUser: email, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: (user?.uid)!, spentCoins: 0)
+                        
+                        let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
+                        userRef.setValue(currentUser?.toAnyObject())
+                        
+//                        if let newUserName = currentUser?.name {
+//                            self.username = newUserName
+//                            print(self.username as Any)
+//                            
+//                        }
+//                        self.userUID = user?.uid
+//                        print("User id is: \(self.userUID)")
+//                        print(user?.uid)
+//                        print("WOOHOO \(FirebaseHelper.References.ref.queryEqual(toValue: user?.uid))")
+                    }
+                })
+            }
+        })
+    }
+    
+    //MARK: - Log user in through Firebase
+    static func logUserInWith(email: String, password: String, sender: UIViewController) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             
             if error != nil {
-                // an error occurred while attempting login
-                
                 if let errorCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
-                    
-                    showAlertForSpecific(errorCode: errorCode, viewController: viewController)
-                    
+                    showAlertForSpecific(errorCode: errorCode, sender: sender)
                 }
+                return
             }
             else {
                 if let user = user {
@@ -37,53 +79,59 @@ struct FirebaseHelper {
         })
     }
     
-    static func sendRequestForPasswordResetWith(email: String, viewController: UIViewController) {
+    //MARK: - Send password reset request to Firebase
+    static func sendRequestForPasswordResetWith(email: String, sender: UIViewController) {
         
         FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: { (error) in
             if error != nil {
-                
-                viewController.showAlertWith(title: "Oeps!", message: "U heeft geen geldig e-mailadres ingevuld. Probeer het nogmaals.")
+                sender.showAlertWith(title: "Oeps!", message: "U heeft geen geldig e-mailadres ingevuld. Probeer het nogmaals.")
                 print("There was an error processing the reset password request")
             }
             else {
                 
-                viewController.showAlertWith(title: "Wachtwoord verstuurd!", message: "U ontvangt een nieuw wachtwoord op het door u opgegeven e-mailadres.")
+                sender.showAlertWith(title: "Wachtwoord verstuurd!", message: "U ontvangt een nieuw wachtwoord op het door u opgegeven e-mailadres.")
                 print("password reset sent")
             }
         })
     }
     
+    //MARK: - Authenticate FirebaseUser
     static func authenticateUser() {
         FIRAuth.auth()!.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
                 Constants.appDelegate.tabbarController?.selectedIndex = 0
             }
+            else {
+                print("Could not authenticate user")
+            }
         })
     }
     
-    private static func showAlertForSpecific(errorCode: FIRAuthErrorCode, viewController: UIViewController) {
+    //MARK: - Alerts for errorhandeling
+    private static func showAlertForSpecific(errorCode: FIRAuthErrorCode, sender: UIViewController) {
         
         switch (errorCode) {
             
         case .errorCodeUserNotFound:
             print("Handle invalid user")
-            viewController.showAlertWith(title: "Onjuiste gebruikersnaam", message: "Probeer het opnieuw.")
+            sender.showAlertWith(title: "Onjuiste gebruikersnaam", message: "Probeer het opnieuw.")
             
         case .errorCodeInvalidEmail:
             print("Handle invalid email")
-            viewController.showAlertWith(title: "Onjuist e-mailadres", message: "Probeer het opnieuw.")
+            sender.showAlertWith(title: "Onjuist e-mailadres", message: "Probeer het opnieuw.")
             
         case .errorCodeWrongPassword:
             print("Handle invalid password")
-            viewController.showAlertWith(title: "Wachtwoord is onjuist", message: "Probeer het opnieuw.")
+            sender.showAlertWith(title: "Wachtwoord is onjuist", message: "Probeer het opnieuw.")
             
         default:
             print("Handle default situation")
-            viewController.showAlertWith(title: "Oeps!", message: "Something went wrong. Please check your internet connection & try again.")
+            sender.showAlertWith(title: "Oeps!", message: "Something went wrong. Please check your internet connection & try again.")
         }
     }
     
+    //MARK: - Query the Firebase database
     private static func queryOrderedBy(child: String, value: String) {
         
         References.ref.queryOrdered(byChild: child).queryEqual(toValue: value).observe(.childAdded, with: { snapshot in
@@ -102,7 +150,7 @@ struct FirebaseHelper {
             
             currentUser = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins: spentCoins!)
             
-            print(currentUser)
+            print("Current user is: \(currentUser)")
         })
     }
 }
