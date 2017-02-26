@@ -40,52 +40,16 @@ class CO2ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-     reachability = Reachability.init()
-        
-        reachability!.whenReachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            DispatchQueue.main.async {
-                if reachability.isReachableViaWiFi {
-                    print("Reachable via WiFi")
-                } else {
-                    print("Reachable via Cellular")
-                }
-            }
-        }
-        
-        reachability!.whenUnreachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            DispatchQueue.main.async {
-                print("Not reachable")
-                
-                let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
-                let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
-                }
-                alert.addAction(okayAction)
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-        }
-        
-        do {
-            try reachability!.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
-        
+        // Check if there's an internet connection
+        ReachabilityHelper.checkReachability(viewController: self)
     }
 
 
     @IBAction func xButtonPressed(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
-        
+    
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
-        
-
+    
     }
-
-
 }

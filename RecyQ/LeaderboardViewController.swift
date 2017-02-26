@@ -11,9 +11,6 @@ import Firebase
 
 class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var clientsRef = FIRDatabase.database().reference(withPath: "clients")
-    //var clientsRef = FIRDatabase.database().reference().cl
-    
     var wasteDictionary = [String: Double]()
     
     var snapshotArray = [FIRDataSnapshot]()
@@ -28,16 +25,13 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//         getAmountOfWaste()
-        
+                
         userArray = [testUser1,testUser2]
         userArray.sort(by: {$1.amountOfPlastic < $0.amountOfPlastic})
         
                 tableView.dataSource = self
                 tableView.delegate = self
                 tableView.allowsSelection = false
-//                tableView.backgroundColor = UIColor(red: 33/255, green: 210/255, blue: 37/255, alpha: 1.0)
                 tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
                 let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
@@ -46,85 +40,16 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       getAmountOfWaste()
+       
+        // Check if there's an internet connection
+        ReachabilityHelper.checkReachability(viewController: self)
         
-        reachability = Reachability.init()
-            
-            reachability!.whenReachable = { reachability in
-                // this is called on a background thread, but UI updates must
-                // be on the main thread, like this:
-                DispatchQueue.main.async {
-                    if reachability.isReachableViaWiFi {
-                        print("Reachable via WiFi")
-                    } else {
-                        print("Reachable via Cellular")
-                    }
-                }
-            }
-            
-            reachability!.whenUnreachable = { reachability in
-                // this is called on a background thread, but UI updates must
-                // be on the main thread, like this:
-                DispatchQueue.main.async {
-                    print("Not reachable")
-                    
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
-                    }
-                    alert.addAction(okayAction)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
-            }
-            
-            do {
-                try reachability!.startNotifier()
-            } catch {
-                print("Unable to start notifier")
-            }
-            
-        
-
-//
-//        self.clientsRef.queryOrderedByChild("amountOfBioWaste").observeEventType(.Value, withBlock: { snapshot in
-//            
-//            
-//            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-//                
-//                self.snapshotArray = snapshots
-//                
-//                for item in self.snapshotArray {
-//                    
-//                    let amountOfPlastic = item.value.objectForKey("amountOfPlastic") as? Double
-//                    let amountOfBioWaste = item.value.objectForKey("amountOfBioWaste") as? Double
-//                    let amountOfEWaste = item.value.objectForKey("amountOfEWaste") as? Double
-//                    let amountOfIron = item.value.objectForKey("amountOfIron") as? Double
-//                    let amountOfPaper = item.value.objectForKey("amountOfPaper") as? Double
-//                    let amountOfTextile = item.value.objectForKey("amountOfTextile") as? Double
-//                    
-//                    let wasteAmount = amountOfPlastic! + amountOfBioWaste! + amountOfEWaste! + amountOfIron! + amountOfPaper! + amountOfTextile!
-//                    
-//                    if let username = item.value.objectForKey("name") as? String {
-//                        
-//                        self.wasteDictionary["\(username)"] = wasteAmount
-//                    }
-//                }
-//                
-//                self.tableView.reloadData()
-//                
-//            }
-//            
-//            print(self.wasteDictionary)
-//            
-//        })
-
-        
+        getAmountOfWaste()
     }
     
     func getAmountOfWaste() {
         
-        self.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
-            
+       FirebaseHelper.References.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
