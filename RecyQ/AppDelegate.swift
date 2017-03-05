@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //change font for the navbar titles
         let attrs = [
-            //NSForegroundColorAttributeName : UIColor.darkGreenColor(),
-            NSFontAttributeName : UIFont(name: "Futura", size: 20)!
+            NSForegroundColorAttributeName : UIColor.gray,
+            NSFontAttributeName : UIFont(name: "VolvoBroad", size: 28)!
         ]
         
         UINavigationBar.appearance().titleTextAttributes = attrs
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
          tabbarController = UITabBarController()
 //        let tabbarController = UITabBarController()
-        let firstTab = StatsViewController(nibName: "StatsViewController", bundle:  nil)
+        let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         let secondTab = CommunityViewController(nibName: "CommunityViewController", bundle: nil)

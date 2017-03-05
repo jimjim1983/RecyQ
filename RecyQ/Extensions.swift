@@ -18,3 +18,11 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+// Ads aborder to a view.
+extension UIView {
+    func addBorderwith(width: CGFloat, color: UIColor) {
+        self.layer.borderWidth = width
+        self.layer.borderColor = color.cgColor
+    }
+}

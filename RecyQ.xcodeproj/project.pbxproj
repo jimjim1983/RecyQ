@@ -11,6 +11,12 @@
 		2B4C17B61E5C5C2C00F34CC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C17B51E5C5C2C00F34CC2 /* Constants.swift */; };
 		2B4C17B81E5CAB4600F34CC2 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C17B71E5CAB4600F34CC2 /* FirebaseHelper.swift */; };
 		2B9060FB1E63526A0007BEB4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9060FA1E63526A0007BEB4 /* Extensions.swift */; };
+		2BC69AE01E6C87EA007D7291 /* NewStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */; };
+		2BC69AE11E6C87EA007D7291 /* NewStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */; };
+		2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC69AE21E6C880D007D7291 /* StatsCell.swift */; };
+		2BC69AE51E6C880D007D7291 /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69AE31E6C880D007D7291 /* StatsCell.xib */; };
+		2BC69AE91E6C8B92007D7291 /* PTMono.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69AE71E6C88A2007D7291 /* PTMono.ttc */; };
+		2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69AE81E6C88A2007D7291 /* VolvoBroad.ttf */; };
 		2BF803431E4F91AA005F67BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8032D1E4F91AA005F67BA /* LoginViewController.swift */; };
 		2BF803441E4F91AA005F67BA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */; };
 		2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */; };
@@ -81,6 +87,12 @@
 		2B4C17B71E5CAB4600F34CC2 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
 		2B8795C51E5886D800681937 /* RecyQ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecyQ.entitlements; sourceTree = "<group>"; };
 		2B9060FA1E63526A0007BEB4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStatsViewController.swift; sourceTree = "<group>"; };
+		2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewStatsViewController.xib; sourceTree = "<group>"; };
+		2BC69AE21E6C880D007D7291 /* StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
+		2BC69AE31E6C880D007D7291 /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsCell.xib; sourceTree = "<group>"; };
+		2BC69AE71E6C88A2007D7291 /* PTMono.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTMono.ttc; sourceTree = "<group>"; };
+		2BC69AE81E6C88A2007D7291 /* VolvoBroad.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VolvoBroad.ttf; sourceTree = "<group>"; };
 		2BF8032D1E4F91AA005F67BA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +188,15 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		2BC69AE61E6C8883007D7291 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2BC69AE71E6C88A2007D7291 /* PTMono.ttc */,
+				2BC69AE81E6C88A2007D7291 /* VolvoBroad.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2BF803591E4F91BA005F67BA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +204,8 @@
 				2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */,
 				2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */,
 				2BF803301E4F91AA005F67BA /* StatsViewController.xib */,
+				2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */,
+				2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */,
 				2BF803311E4F91AA005F67BA /* RecyQTokenViewController.swift */,
 				2BF803321E4F91AA005F67BA /* RecyQTokenViewController.xib */,
 				2BF803331E4F91AA005F67BA /* CO2ViewController.swift */,
@@ -250,6 +273,7 @@
 				F23AFA6B1CBBDE5B007B0F51 /* Models */,
 				F23D34C71CE5274C007C8046 /* Table View Cells */,
 				F23D34C61CE5273E007C8046 /* Libraries */,
+				2BC69AE61E6C8883007D7291 /* Resources */,
 				A6A5959D1CA023D400A120C1 /* Main.storyboard */,
 				A6A595A01CA023D400A120C1 /* Assets.xcassets */,
 				A6A595A21CA023D400A120C1 /* LaunchScreen.storyboard */,
@@ -300,6 +324,8 @@
 		F23D34C71CE5274C007C8046 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2BC69AE21E6C880D007D7291 /* StatsCell.swift */,
+				2BC69AE31E6C880D007D7291 /* StatsCell.xib */,
 				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
 				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
 				F2510BAC1CA0450D008894CE /* StoreTableViewCell.swift */,
@@ -443,6 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC69AE11E6C87EA007D7291 /* NewStatsViewController.xib in Resources */,
+				2BC69AE51E6C880D007D7291 /* StatsCell.xib in Resources */,
 				A683EE6D1CD91B5600D6E725 /* CouponsTableViewCell.xib in Resources */,
 				2BF803791E53646D005F67BA /* GoogleService-Info.plist in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
@@ -453,9 +481,11 @@
 				2BF8034A1E4F91AA005F67BA /* CO2ViewController.xib in Resources */,
 				2BF803481E4F91AA005F67BA /* RecyQTokenViewController.xib in Resources */,
 				A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */,
+				2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */,
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
 				2BF803441E4F91AA005F67BA /* LoginViewController.xib in Resources */,
 				2BF8034E1E4F91AA005F67BA /* PartnersViewController.xib in Resources */,
+				2BC69AE91E6C8B92007D7291 /* PTMono.ttc in Resources */,
 				2BF803461E4F91AA005F67BA /* StatsViewController.xib in Resources */,
 				2BF803561E4F91AA005F67BA /* StoreDetailViewController.xib in Resources */,
 				2BF803521E4F91AA005F67BA /* InfoViewController.xib in Resources */,
@@ -624,11 +654,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF8034B1E4F91AA005F67BA /* LeaderboardViewController.swift in Sources */,
+				2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */,
 				2B4C17B61E5C5C2C00F34CC2 /* Constants.swift in Sources */,
 				A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */,
 				2BF803571E4F91AA005F67BA /* ProfileViewController.swift in Sources */,
 				2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */,
 				A6AE69101CB50BD200C54E98 /* CommunityTableViewCell.swift in Sources */,
+				2BC69AE01E6C87EA007D7291 /* NewStatsViewController.swift in Sources */,
 				A683EE6C1CD91B5600D6E725 /* CouponsTableViewCell.swift in Sources */,
 				A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */,
 				2BF8034D1E4F91AA005F67BA /* PartnersViewController.swift in Sources */,
