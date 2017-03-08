@@ -12,28 +12,16 @@ import Firebase
 class CommunityViewController: UIViewController {
     
     @IBOutlet var communityCounterLabel: UILabel!
-    
     @IBOutlet weak var co2TotalLabel: UILabel!
-  
     @IBOutlet weak var recyclingTotalLabel: UILabel!
-    
     @IBOutlet weak var contentView: UIView!
-    
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var communityFundImageView: UIImageView!
-    
     @IBOutlet weak var communityCO2BarImageView: UIImageView!
-    
-    
     @IBOutlet weak var communityRecyclingImageView: UIImageView!
     
-    var clientsRef = FIRDatabase.database().reference(withPath: "clients")
-    
     var wasteArray = [Double]()
-    
-    
-    
+
     override func viewDidLayoutSubviews()
     {
         let scrollViewBounds = scrollView.bounds
@@ -48,7 +36,6 @@ class CommunityViewController: UIViewController {
         scrollViewInsets.bottom += 1
 
         scrollView.contentInset = UIEdgeInsetsMake(0.0,0.0,150.0,0.0)
-        
     }
     
     override func viewDidLoad() {
@@ -62,42 +49,8 @@ class CommunityViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
             
-         reachability = Reachability.init()
-            
-            reachability!.whenReachable = { reachability in
-                // this is called on a background thread, but UI updates must
-                // be on the main thread, like this:
-                DispatchQueue.main.async {
-                    if reachability.isReachableViaWiFi {
-                        print("Reachable via WiFi")
-                    } else {
-                        print("Reachable via Cellular")
-                    }
-                }
-            }
-            
-            reachability!.whenUnreachable = { reachability in
-                // this is called on a background thread, but UI updates must
-                // be on the main thread, like this:
-                DispatchQueue.main.async {
-                    print("Not reachable")
-                    
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
-                    }
-                    alert.addAction(okayAction)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
-            }
-            
-            do {
-                try reachability!.startNotifier()
-            } catch {
-                print("Unable to start notifier")
-            }
-            
-        
+        // Check if there's an internet connection
+        ReachabilityHelper.checkReachability(viewController: self)        
 
         
         scrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
@@ -164,7 +117,7 @@ class CommunityViewController: UIViewController {
     func getAmountOfWaste() {
             
             // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
-            self.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
+            FirebaseHelper.References.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for item in snapshots {

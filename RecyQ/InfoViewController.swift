@@ -10,7 +10,6 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {

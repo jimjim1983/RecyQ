@@ -12,14 +12,13 @@ import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
 
-class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
+class ProfileViewController: UIViewController, UITabBarDelegate {
     
     //var storeItem: StoreItem!
     var coupon: Coupon?
     var couponItems = [FIRDataSnapshot]()
     //var user: User!
     
-    let ref = FIRDatabase.database().reference()
     let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     
     @IBOutlet weak var naamLabel: UILabel!
@@ -61,43 +60,9 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
     
     override func viewWillAppear(_ animated: Bool) {
             
-        reachability = Reachability.init()
-            
-            reachability!.whenReachable = { reachability in
-                // this is called on a background thread, but UI updates must
-                // be on the main thread, like this:
-                DispatchQueue.main.async {
-                    if reachability.isReachableViaWiFi {
-                        print("Reachable via WiFi")
-                    } else {
-                        print("Reachable via Cellular")
-                    }
-                }
-            }
-            
-            reachability!.whenUnreachable = { reachability in
-                // this is called on a background thread, but UI updates must
-                // be on the main thread, like this:
-                DispatchQueue.main.async {
-                    print("Not reachable")
-                    
-                    let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
-                    }
-                    alert.addAction(okayAction)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
-            }
-            
-            do {
-                try reachability!.startNotifier()
-            } catch {
-                print("Unable to start notifier")
-            }
-            
+        // Check if there's an internet connection
+        ReachabilityHelper.checkReachability(viewController: self)
         
-
         //couponItems.removeAll(keepCapacity: true)
         naamInputLabel.text = currentUser?.name
         emailLabel.text = currentUser?.addedByUser
@@ -134,12 +99,104 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         let loginVC = LoginViewController()
         //        self.presentViewController(loginVC, animated: true, completion: nil)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = loginVC
-        
-        
+        Constants.appDelegate.window?.rootViewController = loginVC
     }
     
+    @IBAction func openInMaps (_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: "Google Maps openen", message: "voor een routebeschrijving", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            if let url = URL(string: "https://www.google.nl/maps/place/Wisseloord+182,+1106+MC+Amsterdam-Zuidoost/@52.2973944,4.9853276,17z/data=!3m1!4b1!4m2!3m1!1s0x47c60c8ac7dd7be3:0x3eb79f318071fdae") {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Annuleer", style: .default) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true) {
+        }
+    }
+}
+
+// MARK: Tableview datasource methods
+extension ProfileViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return couponItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CouponsTableViewCell
+        let item = couponItems[indexPath.row]
+        cell.nameLabel.text = item.key
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Uw verdiende coupons:"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = couponItems[indexPath.row]
+        let name = item.key
+        
+        if item.key .contains("Doneer") {
+            let alertController = UIAlertController(title: "Bedankt voor je donatie", message: "Hou de Community pagina in de gaten om te zien wat er georganiseerd wordt", preferredStyle: .alert)
+            //            let OKAction = UIAlertAction(title: "Coupon verwijderen uit lijst?", style: .Default) { (action) in
+            //
+            //                let redeemedCouponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons/\(name)")
+            //                redeemedCouponsRef.removeValue()
+            //            }
+            let cancelAction = UIAlertAction(title: "Terug", style: .default) { (action) in
+            }
+            //            alertController.addAction(OKAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true) {
+            }
+            
+        } else {
+            let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) {
+            }
+        }
+    }
+}
+
+// MARK: Tableview delegate methods.
+extension ProfileViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Futura", size: 15)!
+        header.textLabel?.textColor = UIColor.black
+    }
+    
+}
+
+// MARK: Mapview delegate
+
+extension ProfileViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! RecyQAnnotation
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+        // can also set this to driving instructions mode, if preferred. i love walking with garbage though.
+        location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -169,96 +226,6 @@ class ProfileViewController: UIViewController, MKMapViewDelegate, UITableViewDel
         
         return annotationView
     }
-    
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let location = view.annotation as! RecyQAnnotation
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
-        // can also set this to driving instructions mode, if preferred. i love walking with garbage though.
-        location.mapItem().openInMaps(launchOptions: launchOptions)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return couponItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CouponsTableViewCell
-        let item = couponItems[indexPath.row]
-        cell.nameLabel.text = item.key
-        
-        return cell
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Uw verdiende coupons:"
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = couponItems[indexPath.row]
-        let name = item.key
-        
-        if item.key .contains("Doneer") {
-            let alertController = UIAlertController(title: "Bedankt voor je donatie", message: "Hou de Community pagina in de gaten om te zien wat er georganiseerd wordt", preferredStyle: .alert)
-//            let OKAction = UIAlertAction(title: "Coupon verwijderen uit lijst?", style: .Default) { (action) in
-//                
-//                let redeemedCouponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons/\(name)")
-//                redeemedCouponsRef.removeValue()
-//            }
-            let cancelAction = UIAlertAction(title: "Terug", style: .default) { (action) in
-            }
-//            alertController.addAction(OKAction)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true) {
-            }
-            
-        } else {
-            let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-            }
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true) {
-            }
-        }
-    }
-    
-    @IBAction func openInMaps (_ sender: UIButton) {
-        
-        let alertController = UIAlertController(title: "Google Maps openen", message: "voor een routebeschrijving", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-            if let url = URL(string: "https://www.google.nl/maps/place/Wisseloord+182,+1106+MC+Amsterdam-Zuidoost/@52.2973944,4.9853276,17z/data=!3m1!4b1!4m2!3m1!1s0x47c60c8ac7dd7be3:0x3eb79f318071fdae") {
-                UIApplication.shared.openURL(url)
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Annuleer", style: .default) { (action) in
-            
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true) {
-        }
-        
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Futura", size: 15)!
-        header.textLabel?.textColor = UIColor.black
-    }
-    
 }
-
 
 

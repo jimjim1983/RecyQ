@@ -11,13 +11,9 @@ import UIKit
 class RecyQTokenViewController: UIViewController {
 
     @IBOutlet weak var recyQTokenAmountLabel: UILabel!
-   
     @IBOutlet weak var xButton: UIButton!
-
     @IBOutlet weak var borderView: UIView!
-    
     @IBOutlet weak var recyQTokenView: UIView!
-    
     @IBOutlet weak var shopButton: UIButton!
     
     override func viewDidLoad() {
@@ -39,49 +35,13 @@ class RecyQTokenViewController: UIViewController {
         shopButton.layer.cornerRadius = 10
         shopButton.layer.shadowRadius = 10;
         shopButton.layer.shadowOpacity = 0.1;
-
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-            reachability = Reachability.init()
-       
-        reachability!.whenReachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            DispatchQueue.main.async {
-                if reachability.isReachableViaWiFi {
-                    print("Reachable via WiFi")
-                } else {
-                    print("Reachable via Cellular")
-                }
-            }
-        }
-        
-        reachability!.whenUnreachable = { reachability in
-            // this is called on a background thread, but UI updates must
-            // be on the main thread, like this:
-            DispatchQueue.main.async {
-                print("Not reachable")
-                
-                let alert = UIAlertController(title: "Oeps!", message: "Please connect to the internet to use the RecyQ app.", preferredStyle: .alert)
-                let okayAction = UIAlertAction(title: "Ok", style: .default) { (action: UIAlertAction) -> Void in
-                }
-                alert.addAction(okayAction)
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-        }
-        
-        do {
-            try reachability!.startNotifier()
-        } catch {
-            print("Unable to start notifier")
-        }
-        
+        // Check if there's an internet connection
+        ReachabilityHelper.checkReachability(viewController: self)
     }
-
     
     @IBAction func xButtonPressed(_ sender: UIButton) {
         
@@ -89,17 +49,10 @@ class RecyQTokenViewController: UIViewController {
          NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
     }
     
-    
     @IBAction func shopButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = appDelegate.tabbarController
-        appDelegate.tabbarController?.selectedIndex = 2
-        
+        Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
+        Constants.appDelegate.tabbarController?.selectedIndex = 2
     }
-
-
- 
-
 }

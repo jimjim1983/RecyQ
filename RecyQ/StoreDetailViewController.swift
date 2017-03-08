@@ -32,7 +32,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-
 class StoreDetailViewController: UIViewController {
     
     var storeItem: StoreItem!
@@ -92,7 +91,6 @@ class StoreDetailViewController: UIViewController {
                     
                     if self.storeItem.storeItemPrice > numberOfTokens || numberOfTokens <= 0 {
                         
-                        
                         let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .alert)
                         
                         let cancelAction = UIAlertAction(title: "Annuleer", style: .cancel) { (action) in
@@ -125,15 +123,12 @@ class StoreDetailViewController: UIViewController {
                                 
                                 self.dismiss(animated: true, completion: nil)
                                 
-                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                appDelegate.window?.rootViewController = appDelegate.tabbarController
-                                appDelegate.tabbarController?.selectedIndex = 3
+                                Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
+                                Constants.appDelegate.tabbarController?.selectedIndex = 3
                             }
-                            
                             alertGefeliciteerd.addAction(cancelAction)
                             alertGefeliciteerd.addAction(goToProfielView)
                             self.present(alertGefeliciteerd, animated: true, completion: nil)
-                            
                         }
                         alertControllerAreYouSure.addAction(cancelAction)
                         alertControllerAreYouSure.addAction(okayAction)
