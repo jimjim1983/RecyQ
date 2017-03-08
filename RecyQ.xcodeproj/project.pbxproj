@@ -487,11 +487,11 @@
 				2BF8034A1E4F91AA005F67BA /* CO2ViewController.xib in Resources */,
 				2BF803481E4F91AA005F67BA /* RecyQTokenViewController.xib in Resources */,
 				A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */,
-<<<<<<< HEAD
+
 				A66778131E5C58E500B7B829 /* TutorialViewController.xib in Resources */,
-=======
+
 				2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */,
->>>>>>> 7b27a8ce6a72a19c9aa761a1665bb4e603804816
+
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
 				2BF803441E4F91AA005F67BA /* LoginViewController.xib in Resources */,
 				2BF8034E1E4F91AA005F67BA /* PartnersViewController.xib in Resources */,
@@ -664,12 +664,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF8034B1E4F91AA005F67BA /* LeaderboardViewController.swift in Sources */,
-<<<<<<< HEAD
+
 				A66778121E5C58E500B7B829 /* TutorialViewController.swift in Sources */,
-=======
+
 				2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */,
 				2B4C17B61E5C5C2C00F34CC2 /* Constants.swift in Sources */,
->>>>>>> 7b27a8ce6a72a19c9aa761a1665bb4e603804816
+
 				A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */,
 				2BF803571E4F91AA005F67BA /* ProfileViewController.swift in Sources */,
 				2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */,
