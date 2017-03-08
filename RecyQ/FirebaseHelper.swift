@@ -72,8 +72,9 @@ struct FirebaseHelper {
             }
             else {
                 if let user = user {
-                    queryOrderedBy(child: "uid", value: user.uid)
-                    authenticateUser()
+                    queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
+                        authenticateUser()
+                    })
                 }
             }
         })
@@ -132,23 +133,27 @@ struct FirebaseHelper {
     }
     
     //MARK: - Query the Firebase database
-    private static func queryOrderedBy(child: String, value: String) {
+    static func queryOrderedBy(child: String, value: String, completionHandler: @escaping (User) -> ()) {
         
-        References.ref.queryOrdered(byChild: child).queryEqual(toValue: value).observe(.childAdded, with: { snapshot in
+        References.clientsRef.queryOrdered(byChild: child).queryEqual(toValue: value).observe(.childAdded, with: { snapshot in
             //let snapshotName = snapshot.key
-            let name = (snapshot.value as AnyObject).object(forKey: "name") as? String
-            let addedByUser = (snapshot.value as AnyObject).object(forKey: "addedByUser") as? String
-            let amountOfPlastic = (snapshot.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
-            let amountOfBioWaste = (snapshot.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
-            let amountOfEWaste = (snapshot.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
-            let amountOfIron = (snapshot.value as AnyObject).object(forKey: "amountOfIron") as? Double
-            let amountOfPaper = (snapshot.value as AnyObject).object(forKey: "amountOfPaper") as? Double
-            let amountOfTextile = (snapshot.value as AnyObject).object(forKey: "amountOfTextile") as? Double
-            let completed = (snapshot.value as AnyObject).object(forKey: "completed") as? Bool
-            let uid = (snapshot.value as AnyObject).object(forKey: "uid") as? String
-            let spentCoins = (snapshot.value as AnyObject).object(forKey: "spentCoins") as? Int
+//            let name = (snapshot.value as AnyObject).object(forKey: "name") as? String
+//            let addedByUser = (snapshot.value as AnyObject).object(forKey: "addedByUser") as? String
+//            let amountOfPlastic = (snapshot.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
+//            let amountOfBioWaste = (snapshot.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
+//            let amountOfEWaste = (snapshot.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
+//            let amountOfIron = (snapshot.value as AnyObject).object(forKey: "amountOfIron") as? Double
+//            let amountOfPaper = (snapshot.value as AnyObject).object(forKey: "amountOfPaper") as? Double
+//            let amountOfTextile = (snapshot.value as AnyObject).object(forKey: "amountOfTextile") as? Double
+//            let completed = (snapshot.value as AnyObject).object(forKey: "completed") as? Bool
+//            let uid = (snapshot.value as AnyObject).object(forKey: "uid") as? String
+//            let spentCoins = (snapshot.value as AnyObject).object(forKey: "spentCoins") as? Int
             
-            currentUser = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins: spentCoins!)
+            currentUser = User(snapshot: snapshot)
+            if currentUser != nil {
+            completionHandler(currentUser!)
+            }
+//            currentUser = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins: spentCoins!)
             
             print("Current user is: \(currentUser)")
         })
