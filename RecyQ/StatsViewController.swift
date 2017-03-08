@@ -455,12 +455,16 @@ class StatsViewController: UIViewController {
     @IBAction func co2ButtonPressed(_ sender: UIButton) {
         
         view.addSubview(blurEffectView)
-        let co2ViewController = CO2ViewController()
-        co2ViewController.view.backgroundColor = UIColor.clear
-        
-        co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
-        
-        self.present(co2ViewController, animated: true, completion: nil)
+//        let co2ViewController = CO2ViewController()
+//        co2ViewController.view.backgroundColor = UIColor.clear
+//        
+//        co2ViewController.co2AmountLabel.text = self.co2AmountLabel.text
+//        
+//        self.present(co2ViewController, animated: true, completion: nil)
+       
+        let tutorialViewController = TutorialViewController()
+        tutorialViewController.view.backgroundColor = UIColor.clear
+        self.present(tutorialViewController, animated: true, completion: nil)
       
     }
     
