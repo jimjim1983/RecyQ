@@ -20,7 +20,6 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         
         self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         
-        self.tutorialScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         let scrollViewWidth: CGFloat = self.tutorialScrollView.frame.width
         let scrollViewHeight: CGFloat = self.tutorialScrollView.frame.height
         
@@ -48,7 +47,7 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         self.tutorialScrollView.addSubview(imgTwo)
         self.tutorialScrollView.addSubview(imgThree)
         
-        self.tutorialScrollView.contentSize = CGSize(width: self.tutorialScrollView.frame.width * 4, height: self.tutorialScrollView.frame.height)
+        self.tutorialScrollView.contentSize = CGSize(width: self.tutorialScrollView.frame.width * 3, height: self.tutorialScrollView.frame.height)
         self.tutorialScrollView.delegate = self
         self.pageControl.currentPage = 0
         
@@ -72,12 +71,13 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
             textView.text = "En dit is pagina 2. Leuk he?"
         } else if Int(currentPage) == 2 {
             textView.text = "Whollah, pagina 3!"
+            UIView.animate(withDuration: 1.0, animations: { () -> Void in
+                self.startButton.alpha = 1.0
+            })
         } else {
             textView.text = "Blijf gebruik maken van RecyQ"
-            UIView.animate(withDuration: 1.0, animations: { () -> Void in
-            self.startButton.alpha = 1.0
-        })
+            
+        }
     }
-    }
-
+    
 }
