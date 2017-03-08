@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialViewController" customModule="RecyQ" customModuleProvider="target">
+            <connections>
+                <outlet property="pageControl" destination="3FU-iC-ZfE" id="vTi-8G-hvR"/>
+                <outlet property="startButton" destination="NjF-4H-5Et" id="uJ5-rh-PbL"/>
+                <outlet property="textView" destination="UvQ-AG-9co" id="VRF-CY-94Q"/>
+                <outlet property="tutorialScrollView" destination="RTN-Eb-iOy" id="6Mz-zh-JBJ"/>
+                <outlet property="tutorialView" destination="RTN-Eb-iOy" id="KbQ-0q-6oe"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTN-Eb-iOy">
+                    <rect key="frame" x="16" y="54" width="343" height="476"/>
+                </scrollView>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjF-4H-5Et">
+                    <rect key="frame" x="68" y="538" width="239" height="45"/>
+                    <color key="backgroundColor" red="0.043137254899999998" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Start">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="3FU-iC-ZfE">
+                    <rect key="frame" x="154" y="421" width="67" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="67" id="E7k-O9-DQp"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.043137254899999998" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UvQ-AG-9co">
+                    <rect key="frame" x="68" y="284" width="239" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="UvQ-AG-9co" secondAttribute="height" multiplier="239:128" id="2hJ-Sa-cAN"/>
+                    </constraints>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Amsterdam Loves Bikes" translatesAutoresizingMaskIntoConstraints="NO" id="34F-tr-cpw">
+                    <rect key="frame" x="68" y="194" width="239" height="66"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="239" id="hmO-ro-D0A"/>
+                        <constraint firstAttribute="height" constant="66" id="qZX-jR-go3"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RecyQ logo" translatesAutoresizingMaskIntoConstraints="NO" id="r37-RJ-hej">
+                    <rect key="frame" x="133" y="64" width="109" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="109" id="HXV-Vj-YQI"/>
+                        <constraint firstAttribute="height" constant="100" id="tm0-jr-1rS"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NjF-4H-5Et" firstAttribute="top" secondItem="RTN-Eb-iOy" secondAttribute="bottom" constant="8" symbolic="YES" id="1kk-tM-N3R"/>
+                <constraint firstItem="NjF-4H-5Et" firstAttribute="top" secondItem="3FU-iC-ZfE" secondAttribute="bottom" constant="80" id="2IH-YP-Q8B"/>
+                <constraint firstItem="3FU-iC-ZfE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2lN-wL-HCj"/>
+                <constraint firstAttribute="trailing" secondItem="NjF-4H-5Et" secondAttribute="trailing" constant="68" id="CAa-Ro-BQg"/>
+                <constraint firstItem="3FU-iC-ZfE" firstAttribute="top" secondItem="UvQ-AG-9co" secondAttribute="bottom" constant="9" id="CUJ-VT-Wg6"/>
+                <constraint firstItem="RTN-Eb-iOy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="54" id="FfV-vb-Tmh"/>
+                <constraint firstItem="r37-RJ-hej" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="FzK-iS-OR4"/>
+                <constraint firstAttribute="bottom" secondItem="NjF-4H-5Et" secondAttribute="bottom" constant="84" id="G0u-PV-WAt"/>
+                <constraint firstItem="RTN-Eb-iOy" firstAttribute="centerX" secondItem="r37-RJ-hej" secondAttribute="centerX" id="acc-Cr-P1L"/>
+                <constraint firstItem="RTN-Eb-iOy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="c3M-Oz-CeC"/>
+                <constraint firstItem="NjF-4H-5Et" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="g8h-6A-t1G"/>
+                <constraint firstItem="NjF-4H-5Et" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="68" id="qY4-Fv-dXY"/>
+                <constraint firstItem="34F-tr-cpw" firstAttribute="top" secondItem="r37-RJ-hej" secondAttribute="bottom" constant="30" id="qhp-6e-nDx"/>
+                <constraint firstItem="r37-RJ-hej" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uC4-WI-W9j"/>
+                <constraint firstItem="3FU-iC-ZfE" firstAttribute="width" secondItem="NjF-4H-5Et" secondAttribute="height" multiplier="67:45" id="vFI-RF-h6N"/>
+                <constraint firstItem="34F-tr-cpw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wOE-bB-d8K"/>
+                <constraint firstItem="UvQ-AG-9co" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wuB-z3-Drs"/>
+                <constraint firstItem="UvQ-AG-9co" firstAttribute="top" secondItem="34F-tr-cpw" secondAttribute="bottom" constant="24" id="xWu-pu-sge"/>
+                <constraint firstAttribute="bottom" secondItem="UvQ-AG-9co" secondAttribute="bottom" constant="255" id="xzf-zC-oQn"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Amsterdam Loves Bikes" width="510" height="273"/>
+        <image name="RecyQ logo" width="1599" height="899"/>
+    </resources>
+</document>
