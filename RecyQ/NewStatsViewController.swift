@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class NewStatsViewController: UIViewController {
     
@@ -18,6 +19,9 @@ class NewStatsViewController: UIViewController {
     
     let statsCellWidth: CGFloat! = nil
     let statsCellHeight: CGFloat! = nil
+    
+    var wasteAmounts = [Double]()
+    var co2Amounts = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +40,27 @@ class NewStatsViewController: UIViewController {
         self.kiloGramView.addBorderwith(width: 1, color: .black)
         self.tokenView.addBorderwith(width: 1, color: .black)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
+                    self.wasteAmounts.removeAll()
+                    
+                    self.wasteAmounts.append(user.amountOfTextile)
+                    self.wasteAmounts.append(user.amountOfPaper)
+                    self.wasteAmounts.append(user.amountOfPlastic)
+                    self.wasteAmounts.append(user.amountOfBioWaste)
+                    self.wasteAmounts.append(user.amountOfEWaste)
+                    self.wasteAmounts.append(user.amountOfIron)
+
+                    self.co2Amounts = self.wasteAmounts.map { round((round($0) / 35) * 50) }
+                    self.statsCollectionView.reloadData()
+                })
+            }
+        }
+    }
 }
 
 extension NewStatsViewController: UICollectionViewDataSource {
@@ -48,8 +73,14 @@ extension NewStatsViewController: UICollectionViewDataSource {
         
         cell.backgroundColor = StatsCell.bacKGroundColors[indexPath.row]
         cell.wasteTypeLabel.text = StatsCell.wasteTypes[indexPath.row]
-        cell.wasteAmount = " 00000.0 KG"
-        cell.co2Amount = " 12345.0 KG"
+        if !self.wasteAmounts.isEmpty {
+            cell.wasteAmount = "\(self.wasteAmounts[indexPath.row]) KG"
+            cell.co2Amount = "\(self.co2Amounts[indexPath.row]) KG"
+        }
+        else {
+            cell.wasteAmount = "00000.0 KG"
+            cell.co2Amount = "00000.0 KG"
+        }
         return cell
     }
 }

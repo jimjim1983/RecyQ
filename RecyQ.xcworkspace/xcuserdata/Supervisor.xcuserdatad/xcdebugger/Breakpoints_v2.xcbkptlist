@@ -2,4 +2,182 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/FirebaseHelper.swift"
+            timestampString = "510587783.462467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "queryOrderedBy(child:value:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/FirebaseHelper.swift"
+            timestampString = "510587783.462467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "queryOrderedBy(child:value:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RecyQ.FirebaseHelper.queryOrderedBy (child : Swift.String, value : Swift.String, completionHandler : (RecyQ.User) -&gt; ()) -&gt; ()"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
+                  timestampString = "510593475.664595"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RecyQ.FirebaseHelper.(queryOrderedBy (child : Swift.String, value : Swift.String, completionHandler : (RecyQ.User) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
+                  timestampString = "510593475.667601"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/NewStatsViewController.swift"
+            timestampString = "510593172.806287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/NewStatsViewController.swift"
+            timestampString = "510593172.806287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecyQ.NewStatsViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
+                  timestampString = "510593475.681248"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecyQ.NewStatsViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
+                  timestampString = "510593475.684179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/NewStatsViewController.swift"
+            timestampString = "510593172.806287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecyQ.NewStatsViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
+                  timestampString = "510593475.69158"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecyQ.NewStatsViewController.(viewWillAppear (Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
+                  timestampString = "510593475.694403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
