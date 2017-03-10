@@ -307,9 +307,12 @@ class StatsViewController: UIViewController {
             print("NOT the first launch")
         } else {
             print("This is the first launch")
+            view.addSubview(blurEffectView)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             UserDefaults.standard.synchronize()
             let tutorialVC = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
+            tutorialVC.view.backgroundColor = UIColor.clear
+            tutorialVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.present(tutorialVC, animated: true, completion: nil)
         }
     }
