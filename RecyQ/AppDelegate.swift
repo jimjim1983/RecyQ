@@ -60,6 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        //let userDefaults = UserDefaults.standard
+        
         return true
 
     }

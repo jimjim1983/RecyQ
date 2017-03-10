@@ -79,5 +79,13 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
             
         }
     }
+
+    @IBAction func startButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
+    }
+    
+
+    
     
 }

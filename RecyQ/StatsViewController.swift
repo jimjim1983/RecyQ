@@ -70,6 +70,8 @@ class StatsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         paperImageView.image = UIImage(named: "Cell_Papier")
         plasticImageView.image = UIImage(named: "Cell Plastic")
@@ -99,7 +101,7 @@ class StatsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            
+        
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
         
@@ -219,10 +221,11 @@ class StatsViewController: UIViewController {
         
          Timer.scheduledTimer(timeInterval: 1.25, target: self, selector: #selector(StatsViewController.slideBiowasteView), userInfo: nil, repeats: false)
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        checkIfFirstLaunch()
     }
     
     
@@ -295,6 +298,19 @@ class StatsViewController: UIViewController {
                     blurEffectView.removeFromSuperview()
                 }
             }
+        }
+    }
+    
+    func checkIfFirstLaunch() {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore {
+            print("NOT the first launch")
+        } else {
+            print("This is the first launch")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.synchronize()
+            let tutorialVC = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
+            self.present(tutorialVC, animated: true, completion: nil)
         }
     }
 }
