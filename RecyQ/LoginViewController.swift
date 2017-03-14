@@ -22,10 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    
-//    var username: String?
-//    var users = [User]()
-//    var userUID: String?
+
     
     // MARK: - View life cycles.
     override func viewDidLoad() {
@@ -54,7 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let faceBookLogInButton = FBSDKLoginButton()
         faceBookLogInButton.delegate = self
         faceBookLogInButton.readPermissions = ["email", "public_profile"]
-        faceBookLogInButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
+        faceBookLogInButton.frame = CGRect(x: 16, y: 20, width: (UIScreen.main.bounds.width - 32), height: 44)
         self.view.addSubview(faceBookLogInButton)
     }
     
