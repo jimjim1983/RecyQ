@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-        let secondTab = CommunityViewController(nibName: "CommunityViewController", bundle: nil)
+        let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
         let controllers = [firstTab,secondTab,thirdTab, fourthTab]
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)

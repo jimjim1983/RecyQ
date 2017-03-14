@@ -31,14 +31,7 @@ class NewStatsViewController: UIViewController {
         self.statsCollectionView.dataSource = self
         self.statsCollectionView.delegate = self
 
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "recyq_logo_s_RGB")
-        imageView.image = image
-        self.navigationBar.topItem?.titleView = imageView
-        
-        self.kiloGramView.addBorderWith(width: 1, color: .black)
-        self.tokenView.addBorderWith(width: 1, color: .black)
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +53,17 @@ class NewStatsViewController: UIViewController {
                 })
             }
         }
+    }
+    
+    fileprivate func setupViews() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "recyq_logo_s_RGB")
+        imageView.image = image
+        self.navigationBar.topItem?.titleView = imageView
+        
+        self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
+        self.tokenView.addBorderWith(width: 1, color: .darkGray)
     }
 }
 

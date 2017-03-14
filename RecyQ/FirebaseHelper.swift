@@ -16,6 +16,7 @@ struct FirebaseHelper {
     struct References {
         static let ref = FIRDatabase.database().reference()
         static let clientsRef = FIRDatabase.database().reference(withPath: "clients")
+        static let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     }
     
     // MARK: - Sign up user through Firebase

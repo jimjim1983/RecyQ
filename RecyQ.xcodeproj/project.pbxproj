@@ -12,6 +12,8 @@
 		2B4C17B81E5CAB4600F34CC2 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C17B71E5CAB4600F34CC2 /* FirebaseHelper.swift */; };
 		2B4F0FA21E73E44600B16B09 /* NavBarLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F0FA11E73E44600B16B09 /* NavBarLogoImageView.swift */; };
 		2B9060FB1E63526A0007BEB4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9060FA1E63526A0007BEB4 /* Extensions.swift */; };
+		2BAEEBF61E77D12D008AB044 /* NewCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEEBF41E77D12D008AB044 /* NewCommunityViewController.swift */; };
+		2BAEEBF71E77D12D008AB044 /* NewCommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BAEEBF51E77D12D008AB044 /* NewCommunityViewController.xib */; };
 		2BC69AE01E6C87EA007D7291 /* NewStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */; };
 		2BC69AE11E6C87EA007D7291 /* NewStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */; };
 		2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC69AE21E6C880D007D7291 /* StatsCell.swift */; };
@@ -91,6 +93,8 @@
 		2B4F0FA11E73E44600B16B09 /* NavBarLogoImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarLogoImageView.swift; sourceTree = "<group>"; };
 		2B8795C51E5886D800681937 /* RecyQ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecyQ.entitlements; sourceTree = "<group>"; };
 		2B9060FA1E63526A0007BEB4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2BAEEBF41E77D12D008AB044 /* NewCommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommunityViewController.swift; sourceTree = "<group>"; };
+		2BAEEBF51E77D12D008AB044 /* NewCommunityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCommunityViewController.xib; sourceTree = "<group>"; };
 		2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStatsViewController.swift; sourceTree = "<group>"; };
 		2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewStatsViewController.xib; sourceTree = "<group>"; };
 		2BC69AE21E6C880D007D7291 /* StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
@@ -194,6 +198,17 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		2BAEEBF81E77D153008AB044 /* New ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */,
+				2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */,
+				2BAEEBF41E77D12D008AB044 /* NewCommunityViewController.swift */,
+				2BAEEBF51E77D12D008AB044 /* NewCommunityViewController.xib */,
+			);
+			name = "New ViewControllers";
+			sourceTree = "<group>";
+		};
 		2BC69AE61E6C8883007D7291 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,8 +225,7 @@
 				2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */,
 				2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */,
 				2BF803301E4F91AA005F67BA /* StatsViewController.xib */,
-				2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */,
-				2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */,
+				2BAEEBF81E77D153008AB044 /* New ViewControllers */,
 				2BF803311E4F91AA005F67BA /* RecyQTokenViewController.swift */,
 				2BF803321E4F91AA005F67BA /* RecyQTokenViewController.xib */,
 				2BF803331E4F91AA005F67BA /* CO2ViewController.swift */,
@@ -332,8 +346,8 @@
 		F23D34C71CE5274C007C8046 /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2BC69AE21E6C880D007D7291 /* StatsCell.swift */,
 				2B4F0FA11E73E44600B16B09 /* NavBarLogoImageView.swift */,
+				2BC69AE21E6C880D007D7291 /* StatsCell.swift */,
 				2BC69AE31E6C880D007D7291 /* StatsCell.xib */,
 				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
 				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
@@ -483,6 +497,7 @@
 				A683EE6D1CD91B5600D6E725 /* CouponsTableViewCell.xib in Resources */,
 				2BF803791E53646D005F67BA /* GoogleService-Info.plist in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
+				2BAEEBF71E77D12D008AB044 /* NewCommunityViewController.xib in Resources */,
 				2BF803501E4F91AA005F67BA /* CommunityViewController.xib in Resources */,
 				2BF803541E4F91AA005F67BA /* StoreViewController.xib in Resources */,
 				2BF8034C1E4F91AA005F67BA /* LeaderboardViewController.xib in Resources */,
@@ -680,6 +695,7 @@
 				A6E1FF6A1CA15980006F0F4B /* StoreItem.swift in Sources */,
 				2BF803511E4F91AA005F67BA /* InfoViewController.swift in Sources */,
 				A6E1FF6C1CA18ECD006F0F4B /* User.swift in Sources */,
+				2BAEEBF61E77D12D008AB044 /* NewCommunityViewController.swift in Sources */,
 				F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */,
 				F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */,
 				2BF803471E4F91AA005F67BA /* RecyQTokenViewController.swift in Sources */,
@@ -851,7 +867,6 @@
 				LD_NO_PIE = NO;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
-				"OTHER_SWIFT_FLAGS[arch=*]" = "-Xfrontend -warn-long-function-bodies=50";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.recycle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -879,6 +894,7 @@
 				LD_NO_PIE = NO;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = nl.theappacademy.recycle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

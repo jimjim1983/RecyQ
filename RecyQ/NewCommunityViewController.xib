@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PTMono.ttc">
+            <string>PTMono-Regular</string>
+        </array>
+        <array key="VolvoBroad.ttf">
+            <string>VolvoBroad</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewCommunityViewController" customModule="RecyQ" customModuleProvider="target">
+            <connections>
+                <outlet property="co2TotalLabel" destination="B2U-nK-qFF" id="6M8-Nq-yY9"/>
+                <outlet property="communityPartnersButton" destination="vfH-9n-KZa" id="QmR-2c-X9r"/>
+                <outlet property="recycledTotalLabel" destination="ImJ-nP-kVX" id="eic-87-4Gc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="watGaanWeDoenButton" destination="Lgc-4W-aaf" id="NIw-hq-xUe"/>
+                <outlet property="wieStaatErBovenaanButton" destination="3Sa-P7-1n2" id="6eP-0w-ylI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kiT-a8-eQB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="QBQ-bd-TgR"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Community" id="YE3-h4-AZG"/>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpV-NM-cag">
+                    <rect key="frame" x="195" y="119" width="164" height="112"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Totaal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-QC-ibC">
+                            <rect key="frame" x="51.5" y="8" width="61.5" height="20"/>
+                            <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="780.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ImJ-nP-kVX">
+                            <rect key="frame" x="0.0" y="34" width="118" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="e6X-wr-kHP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="51"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gerecycled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzP-AL-nBE">
+                            <rect key="frame" x="31.5" y="82" width="102.5" height="21"/>
+                            <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="KG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-ea-lTP">
+                            <rect key="frame" x="92" y="31" width="26" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="IuK-fO-IwF"/>
+                                <constraint firstAttribute="width" constant="26" id="fxO-8a-hHx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="23"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99215686270000003" green="0.85490196080000003" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="112" id="2tK-Zi-pjS"/>
+                        <constraint firstAttribute="bottom" secondItem="xzP-AL-nBE" secondAttribute="bottom" constant="9" id="7pm-k1-Jnm"/>
+                        <constraint firstItem="xzP-AL-nBE" firstAttribute="centerX" secondItem="hpV-NM-cag" secondAttribute="centerX" id="Ecs-5H-AMU"/>
+                        <constraint firstItem="xzP-AL-nBE" firstAttribute="top" secondItem="UoY-ea-lTP" secondAttribute="bottom" constant="29.5" id="JR2-P7-dsG"/>
+                        <constraint firstAttribute="trailing" secondItem="UoY-ea-lTP" secondAttribute="trailing" constant="20" id="M9P-Jh-Xim"/>
+                        <constraint firstItem="3cq-QC-ibC" firstAttribute="centerX" secondItem="hpV-NM-cag" secondAttribute="centerX" id="Nzd-W4-chK"/>
+                        <constraint firstItem="ImJ-nP-kVX" firstAttribute="top" secondItem="3cq-QC-ibC" secondAttribute="bottom" constant="6" id="eNe-SQ-HNJ"/>
+                        <constraint firstItem="UoY-ea-lTP" firstAttribute="leading" secondItem="ImJ-nP-kVX" secondAttribute="trailing" id="mLa-iL-G1E"/>
+                        <constraint firstItem="UoY-ea-lTP" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="top" constant="31" id="mNQ-W2-zB6"/>
+                        <constraint firstItem="ImJ-nP-kVX" firstAttribute="leading" secondItem="hpV-NM-cag" secondAttribute="leading" id="msP-6V-l6z"/>
+                        <constraint firstItem="xzP-AL-nBE" firstAttribute="top" secondItem="ImJ-nP-kVX" secondAttribute="bottom" constant="8" id="vYA-UF-qQA"/>
+                        <constraint firstItem="3cq-QC-ibC" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="top" constant="8" id="zRZ-VV-rcg"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bER-DK-3G6">
+                    <rect key="frame" x="56" y="246" width="263" height="139"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="125" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-f4-X2y">
+                            <rect key="frame" x="0.0" y="56" width="96" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="51"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ziet eruit als" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFU-It-7rG">
+                            <rect key="frame" x="0.0" y="30" width="263" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cola" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57q-1e-G1C">
+                            <rect key="frame" x="137" y="56" width="126" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="51"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="m3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1z-zr-vcX">
+                            <rect key="frame" x="98" y="59" width="26" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="23"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.3294117647" green="0.78039215689999997" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="0.082352941176470587" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="139" id="Ios-eu-WnY"/>
+                        <constraint firstAttribute="width" constant="263" id="qYc-BS-tKn"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndq-Hi-yR6">
+                    <rect key="frame" x="16" y="84" width="164" height="182"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Totaal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkO-av-5Zu">
+                            <rect key="frame" x="48" y="28" width="68" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="620.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-nK-qFF">
+                            <rect key="frame" x="0.0" y="57" width="116" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="51"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="co2 bespaard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9Y-Lm-Eae">
+                            <rect key="frame" x="0.0" y="120" width="164" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUZ-xc-S4E">
+                            <rect key="frame" x="118" y="62" width="26" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="23"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.16862745100000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="164" id="2cA-Jc-1Kj"/>
+                        <constraint firstAttribute="height" constant="182" id="6eh-8q-19C"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TpU-ks-rwf">
+                    <rect key="frame" x="77.5" y="415" width="220" height="132"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-4W-aaf">
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="220" id="e3C-Jk-cEA"/>
+                                <constraint firstAttribute="height" constant="44" id="ndb-H6-XfD"/>
+                            </constraints>
+                            <state key="normal" title="Wat gaan we doen?">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="watGaanWeDoenButtonTapped:" destination="-1" eventType="touchUpInside" id="JHK-RW-csj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sa-P7-1n2">
+                            <rect key="frame" x="0.0" y="44" width="220" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="7Pk-jw-O8g"/>
+                                <constraint firstAttribute="width" constant="220" id="zzb-NN-VTz"/>
+                            </constraints>
+                            <state key="normal" title="Wie staat er bovenaan?">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="wieStaatErBovenaanButtonTapped:" destination="-1" eventType="touchUpInside" id="69O-Da-aHv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-9n-KZa">
+                            <rect key="frame" x="0.0" y="88" width="220" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="220" id="EIj-l7-SqK"/>
+                                <constraint firstAttribute="height" constant="44" id="Shl-1w-1AY"/>
+                            </constraints>
+                            <state key="normal" title="Community partners">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="communityPartnersButtonTapped:" destination="-1" eventType="touchUpInside" id="bjS-O7-hVx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="132" id="MeL-DL-7XD"/>
+                        <constraint firstAttribute="width" constant="220" id="YiR-hE-IkM"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kiT-a8-eQB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="12g-F8-dCx"/>
+                <constraint firstItem="Ndq-Hi-yR6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="8hi-gw-fhX"/>
+                <constraint firstItem="bER-DK-3G6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dsu-ee-USg"/>
+                <constraint firstItem="TpU-ks-rwf" firstAttribute="top" secondItem="bER-DK-3G6" secondAttribute="bottom" constant="30" id="T0I-b1-wxx"/>
+                <constraint firstItem="hpV-NM-cag" firstAttribute="top" secondItem="kiT-a8-eQB" secondAttribute="bottom" constant="59" id="aXY-tN-3TU"/>
+                <constraint firstItem="kiT-a8-eQB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jZm-VW-H6S"/>
+                <constraint firstItem="Ndq-Hi-yR6" firstAttribute="top" secondItem="kiT-a8-eQB" secondAttribute="bottom" constant="24" id="jpr-bD-60p"/>
+                <constraint firstItem="TpU-ks-rwf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rzG-rp-f0r"/>
+                <constraint firstItem="bER-DK-3G6" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="bottom" constant="15" id="s9G-ht-6Aj"/>
+                <constraint firstItem="hpV-NM-cag" firstAttribute="leading" secondItem="Ndq-Hi-yR6" secondAttribute="trailing" constant="15" id="uoR-YK-w2V"/>
+                <constraint firstAttribute="trailing" secondItem="hpV-NM-cag" secondAttribute="trailing" constant="16" id="wig-M3-7Dg"/>
+                <constraint firstAttribute="trailing" secondItem="kiT-a8-eQB" secondAttribute="trailing" id="xMM-oh-adL"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+</document>
