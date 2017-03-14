@@ -111,6 +111,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             FirebaseHelper.logUserInWith(email: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!, sender: self)
+            self.textFieldLoginEmail.text = ""
+            self.textFieldLoginPassword.text = ""
         }
     }
     
@@ -189,7 +191,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         }
     
         print("Successfully logged in to facebook \(result)")
-        FirebaseHelper.authenticateUser()
+        FirebaseHelper.observeAuthentication()
         self.addFacebookUserToFireBase()
     }
     

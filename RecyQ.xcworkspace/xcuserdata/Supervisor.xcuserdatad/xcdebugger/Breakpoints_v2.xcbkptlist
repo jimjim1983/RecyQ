@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/FirebaseHelper.swift"
-            timestampString = "510587783.462467"
+            timestampString = "510948431.186889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "queryOrderedBy(child:value:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,45 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/FirebaseHelper.swift"
-            timestampString = "510587783.462467"
+            timestampString = "510948431.186889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "queryOrderedBy(child:value:completionHandler:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RecyQ.FirebaseHelper.queryOrderedBy (child : Swift.String, value : Swift.String, completionHandler : (RecyQ.User) -&gt; ()) -&gt; ()"
-                  moduleName = "RecyQ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
-                  timestampString = "510593475.664595"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RecyQ.FirebaseHelper.(queryOrderedBy (child : Swift.String, value : Swift.String, completionHandler : (RecyQ.User) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "RecyQ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
-                  timestampString = "510593475.667601"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "152"
-                  endingLineNumber = "152"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/NewStatsViewController.swift"
-            timestampString = "510593172.806287"
+            timestampString = "510948847.203853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -90,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/NewStatsViewController.swift"
-            timestampString = "510593172.806287"
+            timestampString = "510948847.203853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -106,7 +74,7 @@
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
-                  timestampString = "510593475.681248"
+                  timestampString = "510909392.917149"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -121,7 +89,7 @@
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
-                  timestampString = "510593475.684179"
+                  timestampString = "510909392.920394"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -138,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/NewStatsViewController.swift"
-            timestampString = "510593172.806287"
+            timestampString = "510948847.203853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -154,7 +122,7 @@
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
-                  timestampString = "510593475.69158"
+                  timestampString = "510909392.927651"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -169,12 +137,60 @@
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/NewStatsViewController.swift"
-                  timestampString = "510593475.694403"
+                  timestampString = "510909392.930737"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
                   endingLineNumber = "47"
                   offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/FirebaseHelper.swift"
+            timestampString = "510908654.807006"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "observeAuthentication()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RecyQ.FirebaseHelper.authenticateUser () -&gt; ()"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
+                  timestampString = "510909392.93826"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RecyQ.FirebaseHelper.(authenticateUser () -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
+                  timestampString = "510909392.941246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "19">
                </Location>
             </Locations>
          </BreakpointContent>

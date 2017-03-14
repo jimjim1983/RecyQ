@@ -115,7 +115,6 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
         }
     
     @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
-        
         self.dismiss(animated: true, completion: nil)
     }
     

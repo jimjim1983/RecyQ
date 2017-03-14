@@ -98,7 +98,6 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         }
         
         let loginVC = LoginViewController()
-        //        self.presentViewController(loginVC, animated: true, completion: nil)
         Constants.appDelegate.window?.rootViewController = loginVC
     }
     

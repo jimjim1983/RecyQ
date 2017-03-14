@@ -40,7 +40,7 @@ class CommunityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         //right now I only call getAmountOfWaste in the viewDidLoad instead of viewWillAppear because code will duplicate data every time in viewWillAppear unless you set the array to empty first in getAmountOfWaste
         
         getAmountOfWaste()

@@ -73,7 +73,7 @@ struct FirebaseHelper {
             else {
                 if let user = user {
                     queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
-                        authenticateUser()
+                        observeAuthentication()
                     })
                 }
             }
@@ -97,14 +97,15 @@ struct FirebaseHelper {
     }
     
     //MARK: - Authenticate FirebaseUser
-    static func authenticateUser() {
+    static func observeAuthentication() {
         FIRAuth.auth()!.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
                 Constants.appDelegate.tabbarController?.selectedIndex = 0
             }
             else {
-                print("Could not authenticate user")
+                let loginViewController = LoginViewController()
+                Constants.appDelegate.window?.rootViewController = loginViewController
             }
         })
     }

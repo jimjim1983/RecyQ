@@ -22,19 +22,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FIRApp.configure()
+        setupNavigationBar()
+        setupTabBarController()
+        FirebaseHelper.observeAuthentication()
         
-        //change font for the navbar titles
+//        let loginViewController = LoginViewController()
+//                
+//        FIRAuth.auth()!.addStateDidChangeListener() { (auth, user) in
+//            if user != nil {
+//                self.window?.rootViewController = self.tabbarController
+//            } else {
+//                self.window?.rootViewController = loginViewController
+//            }
+//        }
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //let userDefaults = UserDefaults.standard
+        
+        return true
+
+    }
+    
+    fileprivate func setupNavigationBar() {
+        //change font and font color for the navbar titles
         let attrs = [
             NSForegroundColorAttributeName : UIColor.gray,
             NSFontAttributeName : UIFont(name: "VolvoBroad", size: 28)!
         ]
-        
         UINavigationBar.appearance().titleTextAttributes = attrs
-        //////
+    }
+    
+    fileprivate func setupTabBarController() {
+        self.tabbarController = UITabBarController()
         
-         tabbarController = UITabBarController()
-//        let tabbarController = UITabBarController()
-        let firstTab = StatsViewController(nibName: "StatsViewController", bundle:  nil)
+        let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         let secondTab = CommunityViewController(nibName: "CommunityViewController", bundle: nil)
@@ -46,24 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fourthTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profileGrey"), tag: 4)
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
-        
-        
-        let loginViewController = LoginViewController()
-                
-        FIRAuth.auth()!.addStateDidChangeListener() { (auth, user) in
-            if user != nil {
-                self.window?.rootViewController = self.tabbarController
-            } else {
-                self.window?.rootViewController = loginViewController
-            }
-        }
-        
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        //let userDefaults = UserDefaults.standard
-        
-        return true
-
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

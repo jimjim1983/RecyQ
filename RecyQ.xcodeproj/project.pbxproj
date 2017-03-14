@@ -10,6 +10,7 @@
 		2B33B0251E5DB798001524EF /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B33B0241E5DB798001524EF /* ReachabilityHelper.swift */; };
 		2B4C17B61E5C5C2C00F34CC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C17B51E5C5C2C00F34CC2 /* Constants.swift */; };
 		2B4C17B81E5CAB4600F34CC2 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C17B71E5CAB4600F34CC2 /* FirebaseHelper.swift */; };
+		2B4F0FA21E73E44600B16B09 /* NavBarLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F0FA11E73E44600B16B09 /* NavBarLogoImageView.swift */; };
 		2B9060FB1E63526A0007BEB4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9060FA1E63526A0007BEB4 /* Extensions.swift */; };
 		2BC69AE01E6C87EA007D7291 /* NewStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */; };
 		2BC69AE11E6C87EA007D7291 /* NewStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */; };
@@ -87,6 +88,7 @@
 		2B33B0241E5DB798001524EF /* ReachabilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
 		2B4C17B51E5C5C2C00F34CC2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B4C17B71E5CAB4600F34CC2 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		2B4F0FA11E73E44600B16B09 /* NavBarLogoImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarLogoImageView.swift; sourceTree = "<group>"; };
 		2B8795C51E5886D800681937 /* RecyQ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RecyQ.entitlements; sourceTree = "<group>"; };
 		2B9060FA1E63526A0007BEB4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewStatsViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				2BC69AE21E6C880D007D7291 /* StatsCell.swift */,
+				2B4F0FA11E73E44600B16B09 /* NavBarLogoImageView.swift */,
 				2BC69AE31E6C880D007D7291 /* StatsCell.xib */,
 				A6AE690C1CB50BD200C54E98 /* CommunityTableViewCell.swift */,
 				A6AE690D1CB50BD200C54E98 /* CommunityTableViewCell.xib */,
@@ -487,11 +490,8 @@
 				2BF8034A1E4F91AA005F67BA /* CO2ViewController.xib in Resources */,
 				2BF803481E4F91AA005F67BA /* RecyQTokenViewController.xib in Resources */,
 				A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */,
-
 				A66778131E5C58E500B7B829 /* TutorialViewController.xib in Resources */,
-
 				2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */,
-
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
 				2BF803441E4F91AA005F67BA /* LoginViewController.xib in Resources */,
 				2BF8034E1E4F91AA005F67BA /* PartnersViewController.xib in Resources */,
@@ -664,13 +664,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF8034B1E4F91AA005F67BA /* LeaderboardViewController.swift in Sources */,
-
 				A66778121E5C58E500B7B829 /* TutorialViewController.swift in Sources */,
-
 				2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */,
 				2B4C17B61E5C5C2C00F34CC2 /* Constants.swift in Sources */,
-
 				A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */,
+				2B4F0FA21E73E44600B16B09 /* NavBarLogoImageView.swift in Sources */,
 				2BF803571E4F91AA005F67BA /* ProfileViewController.swift in Sources */,
 				2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */,
 				A6AE69101CB50BD200C54E98 /* CommunityTableViewCell.swift in Sources */,
