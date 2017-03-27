@@ -40,7 +40,7 @@ class CommunityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         //right now I only call getAmountOfWaste in the viewDidLoad instead of viewWillAppear because code will duplicate data every time in viewWillAppear unless you set the array to empty first in getAmountOfWaste
         
         getAmountOfWaste()
@@ -148,7 +148,6 @@ class CommunityViewController: UIViewController {
                 let co2Amount = (round((total/35) * 50))
                 
                 self.co2TotalLabel.text = "\(co2Amount) kg"
-            
         })
     }
     
@@ -156,7 +155,6 @@ class CommunityViewController: UIViewController {
     @IBAction func leaderboardButtonPressed(_ sender: UIButton) {
         
         let leaderboardVC = LeaderboardViewController()
-        
         self.present(leaderboardVC, animated: true, completion: nil)
         
     }
@@ -174,7 +172,6 @@ class CommunityViewController: UIViewController {
         print("community button pressed")
         
         let partnersVC = PartnersViewController()
-        
         self.present(partnersVC, animated: true, completion: nil)
     }
     

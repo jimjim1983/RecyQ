@@ -48,8 +48,6 @@ class CO2ViewController: UIViewController {
     @IBAction func xButtonPressed(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
-    
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
-    
     }
 }
