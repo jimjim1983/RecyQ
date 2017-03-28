@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,9 +42,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epu-Ht-Rds" userLabel="Buttons view">
                     <rect key="frame" x="0.0" y="60" width="375" height="120"/>
                     <subviews>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNY-cc-rkh">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNY-cc-rkh">
                             <rect key="frame" x="17" y="8" width="164" height="100"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="KILOGRAM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeM-Me-D3q">
                                     <rect key="frame" x="13" y="35" width="138" height="31"/>
@@ -69,11 +68,17 @@
                                 </label>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="XJQ-Gc-8uR"/>
+                                <constraint firstAttribute="width" constant="164" id="bqr-H2-XJN"/>
+                            </constraints>
                         </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FTd-Mn-ijc">
+                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FTd-Mn-ijc">
                             <rect key="frame" x="194" y="8" width="164" height="100"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="kGi-7B-8HY"/>
+                            </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOKENS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLo-YH-6YA">
                             <rect key="frame" x="204" y="43" width="138" height="31"/>
@@ -99,7 +104,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="HNY-cc-rkh" firstAttribute="top" secondItem="epu-Ht-Rds" secondAttribute="top" constant="8" id="2O0-TP-VUu"/>
+                        <constraint firstAttribute="bottom" secondItem="HNY-cc-rkh" secondAttribute="bottom" constant="12" id="Axz-Ev-ecN"/>
+                        <constraint firstItem="FTd-Mn-ijc" firstAttribute="top" secondItem="epu-Ht-Rds" secondAttribute="top" constant="8" id="QqW-Qh-HEq"/>
+                        <constraint firstItem="HNY-cc-rkh" firstAttribute="leading" secondItem="epu-Ht-Rds" secondAttribute="leading" constant="17" id="brZ-uc-0HZ"/>
+                        <constraint firstItem="FTd-Mn-ijc" firstAttribute="leading" secondItem="HNY-cc-rkh" secondAttribute="trailing" constant="12" id="gZU-R0-ddR"/>
+                        <constraint firstAttribute="trailing" secondItem="FTd-Mn-ijc" secondAttribute="trailing" constant="17" id="oOc-62-eg6"/>
                         <constraint firstAttribute="height" constant="120" id="wNG-Hq-53z"/>
+                        <constraint firstAttribute="bottom" secondItem="FTd-Mn-ijc" secondAttribute="bottom" constant="12" id="yPQ-lg-yOl"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Mzi-nx-ahP">

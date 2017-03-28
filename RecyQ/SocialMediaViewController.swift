@@ -19,7 +19,7 @@ class SocialMediaViewController: UIViewController {
         super.viewDidLoad()
 
         
-        webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.bol.com")!))
+        webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.nu.nl")!))
         // Do any additional setup after loading the view.
     }
 
@@ -30,7 +30,7 @@ class SocialMediaViewController: UIViewController {
         case 1: textLabel.text = "Youtube"
             webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.apple.com")!));
         case 2: textLabel.text = "Facebook"
-            webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.nasa.com")!));
+            webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.facebook.com")!));
         default: break
         }
     }

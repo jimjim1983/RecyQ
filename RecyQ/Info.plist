@@ -78,5 +78,10 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We use your FB profile picture as your profile picture in the app.</string>
+	<key>App transport security settings</key>
+	<dict>
+		<key>AllowArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
