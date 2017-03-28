@@ -25,30 +25,27 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         userArray = [testUser1,testUser2]
         userArray.sort(by: {$1.amountOfPlastic < $0.amountOfPlastic})
         
-                tableView.dataSource = self
-                tableView.delegate = self
-                tableView.allowsSelection = false
-                tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsSelection = false
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
-                let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
-                self.tableView.register(nib, forCellReuseIdentifier: "cell")
-
+        let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
        
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
-        
         getAmountOfWaste()
     }
     
     func getAmountOfWaste() {
-        
        FirebaseHelper.References.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -73,13 +70,9 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                 }
                 self.tableView.reloadData()
             }
-            
             print(self.wasteDictionary)
-            
         })
     }
-    
-
     
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return self.wasteDictionary.count

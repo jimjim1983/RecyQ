@@ -11,13 +11,9 @@ import UIKit
 class CO2ViewController: UIViewController {
     
     @IBOutlet weak var co2AmountLabel: UILabel!
-    
     @IBOutlet weak var co2View: UIView!
-
     @IBOutlet weak var xButton: UIButton!
-    
     @IBOutlet weak var borderView: UIView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +35,12 @@ class CO2ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
     }
 
 
     @IBAction func xButtonPressed(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
     }
