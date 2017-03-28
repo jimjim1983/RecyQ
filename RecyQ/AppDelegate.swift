@@ -44,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func setupTabBarController() {
         self.tabbarController = UITabBarController()
         
-        let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
+//        let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
+        let firstTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle:  nil)
+
         let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
