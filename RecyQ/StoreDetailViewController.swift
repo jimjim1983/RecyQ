@@ -42,7 +42,6 @@ class StoreDetailViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var image: UIImageView!
-    @IBOutlet var logo: UIImageView!
     @IBOutlet weak var redeemButton: UIButton!
     
     let ref = FIRDatabase.database().reference(withPath: "clients")
@@ -136,12 +135,6 @@ class StoreDetailViewController: UIViewController {
                         self.present(alertControllerAreYouSure, animated: true, completion: nil)
                         
                     }
-
-//                    if reachability.isReachableViaWiFi() {
-//                        print("Reachable via WiFi")
-//                    } else {
-//                        print("Reachable via Cellular")
-//                    }
                 }
             }
             
@@ -204,7 +197,7 @@ class StoreDetailViewController: UIViewController {
         
         coupon = Coupon(uid: (currentUser?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
         
-        let couponsRef = self.couponsRef.child(byAppendingPath: storeItem.storeItemName! + uuid)
+        let couponsRef = self.couponsRef.child(storeItem.storeItemName! + uuid)
         couponsRef.setValue(self.coupon!.toAnyObject())
     }
   

@@ -15,14 +15,16 @@ class NewStatsViewController: UIViewController {
     @IBOutlet var naviagtionItem: UINavigationItem!
     @IBOutlet var kiloGramView: UIView!
     @IBOutlet var tokenView: UIView!
+    @IBOutlet var tokenArrowsLabel: UILabel!
     @IBOutlet var statsCollectionView: UICollectionView!
     
-    let statsCell = UINib.init(nibName: "StatsCell", bundle: nil)
-    let statsCellWidth: CGFloat! = nil
-    let statsCellHeight: CGFloat! = nil
-    
-    var wasteAmounts = [Double]()
-    var co2Amounts = [Double]()
+    fileprivate let statsCell = UINib.init(nibName: "StatsCell", bundle: nil)
+    fileprivate let statsCellWidth: CGFloat! = nil
+    fileprivate let statsCellHeight: CGFloat! = nil
+    fileprivate var tokenArrowsString = String()
+    fileprivate var coloredString = NSMutableAttributedString()
+    fileprivate var wasteAmounts = [Double]()
+    fileprivate var co2Amounts = [Double]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,12 @@ class NewStatsViewController: UIViewController {
         
         self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
         self.tokenView.addBorderWith(width: 1, color: .darkGray)
+        
+        // Colors the range of arrows in the label
+        self.tokenArrowsString = self.tokenArrowsLabel.text!
+        self.coloredString = NSMutableAttributedString(string: self.tokenArrowsString, attributes: [NSForegroundColorAttributeName: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1)])
+        self.coloredString.addAttribute(NSForegroundColorAttributeName, value: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), range: NSRange(location: 1, length: 5))
+//        self.tokenArrowsLabel.text = ""
     }
 }
 

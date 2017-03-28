@@ -221,11 +221,11 @@
 		2BF803591E4F91BA005F67BA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2BAEEBF81E77D153008AB044 /* New ViewControllers */,
 				2BF8032D1E4F91AA005F67BA /* LoginViewController.swift */,
 				2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */,
 				2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */,
 				2BF803301E4F91AA005F67BA /* StatsViewController.xib */,
-				2BAEEBF81E77D153008AB044 /* New ViewControllers */,
 				2BF803311E4F91AA005F67BA /* RecyQTokenViewController.swift */,
 				2BF803321E4F91AA005F67BA /* RecyQTokenViewController.xib */,
 				2BF803331E4F91AA005F67BA /* CO2ViewController.swift */,

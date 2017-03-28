@@ -38,13 +38,11 @@ class RecyQTokenViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
     }
     
     @IBAction func xButtonPressed(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
          NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
     }

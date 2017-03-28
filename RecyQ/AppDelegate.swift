@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var tabbarController: UITabBarController?
-    //var client: MSClient?
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,16 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBar()
         setupTabBarController()
         FirebaseHelper.observeAuthentication()
-        
-//        let loginViewController = LoginViewController()
-//                
-//        FIRAuth.auth()!.addStateDidChangeListener() { (auth, user) in
-//            if user != nil {
-//                self.window?.rootViewController = self.tabbarController
-//            } else {
-//                self.window?.rootViewController = loginViewController
-//            }
-//        }
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -57,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.tabbarController = UITabBarController()
         
         let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
+        let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-        let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
-        let controllers = [firstTab,secondTab,thirdTab, fourthTab]
+        let controllers = [firstTab, secondTab, thirdTab, fourthTab]
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
         secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
