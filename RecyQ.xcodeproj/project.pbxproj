@@ -45,6 +45,8 @@
 		2BF803791E53646D005F67BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BF803781E53646D005F67BA /* GoogleService-Info.plist */; };
 		329B0060BCAC0E1462BE16BC /* Pods_RecyQTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F188368708ACACBA27794E /* Pods_RecyQTests.framework */; };
 		44F48B4D22AFBAC446146A70 /* Pods_RecyQUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35399C4795AEF0F51359899F /* Pods_RecyQUITests.framework */; };
+		A63B04201E782528006A7529 /* SocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B041E1E782528006A7529 /* SocialMediaViewController.swift */; };
+		A63B04211E782528006A7529 /* SocialMediaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63B041F1E782528006A7529 /* SocialMediaViewController.xib */; };
 		A66778121E5C58E500B7B829 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66778101E5C58E500B7B829 /* TutorialViewController.swift */; };
 		A66778131E5C58E500B7B829 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66778111E5C58E500B7B829 /* TutorialViewController.xib */; };
 		A683EE6C1CD91B5600D6E725 /* CouponsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */; };
@@ -129,6 +131,8 @@
 		5ACD1C2B68795C3FD1FEC637 /* Pods-RecyQUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQUITests/Pods-RecyQUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		802B308428765DEF1C80C6B8 /* Pods-RecyQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ.release.xcconfig"; sourceTree = "<group>"; };
 		A5F188368708ACACBA27794E /* Pods_RecyQTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A63B041E1E782528006A7529 /* SocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaViewController.swift; sourceTree = "<group>"; };
+		A63B041F1E782528006A7529 /* SocialMediaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialMediaViewController.xib; sourceTree = "<group>"; };
 		A66778101E5C58E500B7B829 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		A66778111E5C58E500B7B829 /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouponsTableViewCell.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				2BF803401E4F91AA005F67BA /* StoreDetailViewController.xib */,
 				2BF803411E4F91AA005F67BA /* ProfileViewController.swift */,
 				2BF803421E4F91AA005F67BA /* ProfileViewController.xib */,
+				A63B041E1E782528006A7529 /* SocialMediaViewController.swift */,
+				A63B041F1E782528006A7529 /* SocialMediaViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */,
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
 				2BF803441E4F91AA005F67BA /* LoginViewController.xib in Resources */,
+				A63B04211E782528006A7529 /* SocialMediaViewController.xib in Resources */,
 				2BF8034E1E4F91AA005F67BA /* PartnersViewController.xib in Resources */,
 				2BC69AE91E6C8B92007D7291 /* PTMono.ttc in Resources */,
 				2BF803461E4F91AA005F67BA /* StatsViewController.xib in Resources */,
@@ -687,6 +694,7 @@
 				2BF803571E4F91AA005F67BA /* ProfileViewController.swift in Sources */,
 				2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */,
 				A6AE69101CB50BD200C54E98 /* CommunityTableViewCell.swift in Sources */,
+				A63B04201E782528006A7529 /* SocialMediaViewController.swift in Sources */,
 				2BC69AE01E6C87EA007D7291 /* NewStatsViewController.swift in Sources */,
 				A683EE6C1CD91B5600D6E725 /* CouponsTableViewCell.swift in Sources */,
 				A6A595981CA023D400A120C1 /* AppDelegate.swift in Sources */,
