@@ -11,26 +11,25 @@ import UIKit
 class SocialMediaViewController: UIViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var webViewInstagram: UIWebView!
-    
+    //@IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.nu.nl")!))
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.green], for: UIControlState.selected)
+        webView.loadRequest(URLRequest(url: URL(string: "http://www.instagram.com")!))
         // Do any additional setup after loading the view.
     }
 
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0: textLabel.text = "Instagram"
-            webViewInstagram.loadRequest(URLRequest(url: URL(string: "http://www.nu.nl")!));
-        case 1: textLabel.text = "Youtube"
-            webViewInstagram.loadRequest(URLRequest(url: URL(string: "https://www.apple.com")!));
-        case 2: textLabel.text = "Facebook"
-            webViewInstagram.loadRequest(URLRequest(url: URL(string: "http://www.facebook.com")!));
+        case 0: //textLabel.text = "Instagram"
+            webView.loadRequest(URLRequest(url: URL(string: "http://www.instagram.com")!));
+        case 1: //textLabel.text = "Youtube"
+            webView.loadRequest(URLRequest(url: URL(string: "https://www.youtube.com/channel/UChP2c-VMkBxykwp8CFQuZDQ")!));
+        case 2: //textLabel.text = "Facebook"
+            webView.loadRequest(URLRequest(url: URL(string: "https://www.facebook.com/RecyQ-381878658877532/")!));
         default: break
         }
     }

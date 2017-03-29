@@ -44,18 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func setupTabBarController() {
         self.tabbarController = UITabBarController()
         
-//        let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
-        let firstTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle:  nil)
+        let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
+//        let firstTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle:  nil)
 
         let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
-        let controllers = [firstTab, secondTab, thirdTab, fourthTab]
+        let fifthTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle: nil)
+        let controllers = [firstTab, secondTab, thirdTab, fourthTab, fifthTab]
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
         secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
         thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "storeGrey"), tag: 3)
         fourthTab.tabBarItem = UITabBarItem(title: "Profiel", image: UIImage(named: "profileGrey"), tag: 4)
+        fifthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "communityGrey"), tag: 5)
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
     }
