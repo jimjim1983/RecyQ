@@ -12,9 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SocialMediaViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
                 <outlet property="segmentedControl" destination="h7y-vK-zqG" id="8O6-Pl-ljh"/>
-                <outlet property="textLabel" destination="4Pw-2M-hnb" id="e6y-qB-P0S"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webViewInstagram" destination="mx4-CW-TBw" id="Hlo-IO-ODz"/>
+                <outlet property="webView" destination="aTR-iF-lM8" id="xgI-79-ZjY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h7y-vK-zqG">
-                    <rect key="frame" x="27" y="52" width="320" height="29"/>
+                    <rect key="frame" x="27" y="66" width="320" height="29"/>
                     <segments>
                         <segment title="Instagram"/>
                         <segment title="Youtube"/>
@@ -33,29 +32,32 @@
                         <action selector="indexChanged:" destination="-1" eventType="valueChanged" id="sSq-65-fEJ"/>
                     </connections>
                 </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pw-2M-hnb">
-                    <rect key="frame" x="27" y="88" width="320" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mx4-CW-TBw">
-                    <rect key="frame" x="16" y="117" width="343" height="534"/>
+                <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JWk-7p-WBB">
+                    <rect key="frame" x="0.0" y="-16" width="375" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Xq5-B7-7Et"/>
+                    </constraints>
+                    <items>
+                        <navigationItem title="Social Media" id="5iS-rX-Km4"/>
+                    </items>
+                </navigationBar>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTR-iF-lM8">
+                    <rect key="frame" x="0.0" y="102" width="375" height="545"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </webView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="h7y-vK-zqG" firstAttribute="trailing" secondItem="4Pw-2M-hnb" secondAttribute="trailing" id="7qz-c7-PiI"/>
-                <constraint firstItem="mx4-CW-TBw" firstAttribute="top" secondItem="4Pw-2M-hnb" secondAttribute="bottom" constant="8" id="A4Q-T8-C5G"/>
-                <constraint firstItem="h7y-vK-zqG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="EdF-NM-lNM"/>
-                <constraint firstItem="4Pw-2M-hnb" firstAttribute="top" secondItem="h7y-vK-zqG" secondAttribute="bottom" constant="8" symbolic="YES" id="GSy-y8-2Kc"/>
-                <constraint firstItem="h7y-vK-zqG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wml-io-31z"/>
-                <constraint firstAttribute="trailing" secondItem="mx4-CW-TBw" secondAttribute="trailing" constant="16" id="ayp-tr-uFe"/>
-                <constraint firstItem="h7y-vK-zqG" firstAttribute="leading" secondItem="4Pw-2M-hnb" secondAttribute="leading" id="gYr-Yv-U03"/>
-                <constraint firstItem="h7y-vK-zqG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="52" id="hRK-xc-TkV"/>
-                <constraint firstAttribute="bottom" secondItem="mx4-CW-TBw" secondAttribute="bottom" constant="16" id="kcU-rZ-6pY"/>
-                <constraint firstItem="mx4-CW-TBw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="zMd-uQ-uTK"/>
+                <constraint firstAttribute="trailing" secondItem="JWk-7p-WBB" secondAttribute="trailing" id="6YZ-6e-XqN"/>
+                <constraint firstItem="aTR-iF-lM8" firstAttribute="trailing" secondItem="JWk-7p-WBB" secondAttribute="trailing" id="7mT-fk-3lW"/>
+                <constraint firstItem="aTR-iF-lM8" firstAttribute="leading" secondItem="JWk-7p-WBB" secondAttribute="leading" id="L3U-Eh-7ey"/>
+                <constraint firstItem="h7y-vK-zqG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="LBZ-0y-c5z"/>
+                <constraint firstItem="h7y-vK-zqG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LUA-uE-O3g"/>
+                <constraint firstItem="JWk-7p-WBB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Qm3-UV-dd8"/>
+                <constraint firstAttribute="bottom" secondItem="aTR-iF-lM8" secondAttribute="bottom" constant="20" id="X54-VN-z65"/>
+                <constraint firstItem="JWk-7p-WBB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZSN-65-5YE"/>
+                <constraint firstItem="aTR-iF-lM8" firstAttribute="top" secondItem="h7y-vK-zqG" secondAttribute="bottom" constant="8" symbolic="YES" id="fuc-7R-zzU"/>
+                <constraint firstItem="h7y-vK-zqG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="sRG-4v-Icr"/>
             </constraints>
             <point key="canvasLocation" x="32.5" y="106.5"/>
         </view>
