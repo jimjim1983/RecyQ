@@ -50,12 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
 //        let firstTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle:  nil)
-
+let navController = UINavigationController(rootViewController: firstTab)
         let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         let fifthTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle: nil)
-        let controllers = [firstTab, secondTab, thirdTab, fourthTab, fifthTab]
+        let controllers = [navController, secondTab, thirdTab, fourthTab, fifthTab]
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
         secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)

@@ -60,7 +60,7 @@
                                 <constraint firstAttribute="height" constant="30" id="j7V-ne-fJj"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
-                            <state key="normal" title="Sign up">
+                            <state key="normal" title="Registreer">
                                 <color key="titleColor" red="0.002289477508" green="0.73276041660000002" blue="0.0077724803969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>

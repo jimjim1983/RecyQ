@@ -120,7 +120,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpButtonPressed(_ sender: AnyObject) {
-      self.showSignUpAlert()
+      //self.showSignUpAlert()
+        let signUpVC = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: signUpVC)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func wachtwoordVergetenButtonPressed(_ sender: Any) {
