@@ -26,6 +26,20 @@ class NewStatsViewController: UIViewController {
     fileprivate var wasteAmounts = [Double]()
     fileprivate var co2Amounts = [Double]()
     
+    fileprivate let navBarLogoImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "recyq_logo_s_RGB")
+        imageView.image = image
+        return imageView
+    }()
+    
+    fileprivate let profileBarButton: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profileGrey"), style: .plain, target: self, action: #selector(showProfile))
+        barButtonItem.tintColor = .lightGray
+        return barButtonItem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +48,7 @@ class NewStatsViewController: UIViewController {
         self.statsCollectionView.delegate = self
 
         setupViews()
+        scheduleLocalNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,11 +73,8 @@ class NewStatsViewController: UIViewController {
     }
     
     fileprivate func setupViews() {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "recyq_logo_s_RGB")
-        imageView.image = image
-        self.navigationBar.topItem?.titleView = imageView
+        self.navigationController?.navigationBar.topItem?.titleView = self.navBarLogoImageView
+        self.navigationItem.setRightBarButton(self.profileBarButton, animated: true)
         
         self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
         self.tokenView.addBorderWith(width: 1, color: .darkGray)
@@ -72,6 +84,21 @@ class NewStatsViewController: UIViewController {
         self.coloredString = NSMutableAttributedString(string: self.tokenArrowsString, attributes: [NSForegroundColorAttributeName: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1)])
         self.coloredString.addAttribute(NSForegroundColorAttributeName, value: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), range: NSRange(location: 1, length: 5))
 //        self.tokenArrowsLabel.text = ""
+    }
+    
+    func showProfile() {
+        let profileVC = ProfileViewController()
+        self.navigationController?.pushViewController(profileVC, animated: true)
+        
+    }
+    
+    private func scheduleLocalNotification() {
+        let localNotification = UILocalNotification()
+        localNotification.alertBody = "Time to recycle some waste"
+        localNotification.alertAction = "Open"
+        localNotification.fireDate = Date(timeIntervalSinceNow: 60)
+        
+        UIApplication.shared.scheduleLocalNotification(localNotification)
     }
 }
 

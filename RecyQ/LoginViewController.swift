@@ -45,13 +45,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupViews() {
-        self.loginButton.layer.cornerRadius = 5
+        self.textFieldLoginEmail.addBorderWith(width: 1, color: .lightGray)
+        self.textFieldLoginPassword.addBorderWith(width: 1, color: .lightGray)
+        self.loginButton.addBorderWith(width: 1, color: .darkGray)
         
         // Facebook log in button.
         let faceBookLogInButton = FBSDKLoginButton()
         faceBookLogInButton.delegate = self
         faceBookLogInButton.readPermissions = ["email", "public_profile"]
-        faceBookLogInButton.frame = CGRect(x: 16, y: 20, width: (UIScreen.main.bounds.width - 32), height: 44)
+        faceBookLogInButton.frame = CGRect(x: 16, y: 30, width: (UIScreen.main.bounds.width - 32), height: 30)
         self.view.addSubview(faceBookLogInButton)
     }
     
@@ -101,6 +103,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - IBActions
+    @IBAction func hideKeyBoardwhenViewIsTapped(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     @IBAction func loginButtonPressed(_ sender: AnyObject) {
         
         if self.textFieldLoginEmail.text == "" || self.textFieldLoginPassword.text == "" {
@@ -114,7 +120,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpButtonPressed(_ sender: AnyObject) {
-      self.showSignUpAlert()
+      //self.showSignUpAlert()
+        let signUpVC = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: signUpVC)
+        present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func wachtwoordVergetenButtonPressed(_ sender: Any) {

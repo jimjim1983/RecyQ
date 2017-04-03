@@ -8,6 +8,7 @@ target 'RecyQ' do
 pod 'Firebase/Core'
 pod 'Firebase/Database’
 pod ’Firebase/Auth'
+pod ’Firebase/Messaging'
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
