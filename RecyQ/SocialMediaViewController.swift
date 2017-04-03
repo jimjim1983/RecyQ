@@ -17,7 +17,7 @@ class SocialMediaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.green], for: UIControlState.selected)
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState.selected)
         webView.loadRequest(URLRequest(url: URL(string: "http://www.instagram.com")!))
         // Do any additional setup after loading the view.
     }
