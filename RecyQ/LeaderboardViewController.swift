@@ -25,7 +25,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Ranglijst"
         //userArray = [testUser1,testUser2]
         //userArray.sort(by: {$1.amountOfPlastic < $0.amountOfPlastic})
         
@@ -57,11 +57,11 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                     let amountOfPlastic = (item.value as AnyObject).object(forKey: "amountOfPlastic") as! Double
                     let amountOfBioWaste = (item.value as AnyObject).object(forKey: "amountOfBioWaste") as! Double
                     let amountOfEWaste = (item.value as AnyObject).object(forKey: "amountOfEWaste") as! Double
-                    let amountOfIron = (item.value as AnyObject).object(forKey: "amountOfIron") as! Double
+                    
                     let amountOfPaper = (item.value as AnyObject).object(forKey: "amountOfPaper") as! Double
                     let amountOfTextile = (item.value as AnyObject).object(forKey: "amountOfTextile") as! Double
                     
-                    let wasteAmount = (amountOfPlastic + amountOfBioWaste + amountOfEWaste + amountOfIron + amountOfPaper + amountOfTextile)
+                    let wasteAmount = (amountOfPlastic + amountOfBioWaste + amountOfEWaste + amountOfPaper + amountOfTextile)
                     
                     if let username = (item.value as AnyObject).object(forKey: "name") as? String {
                     
@@ -106,12 +106,4 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
 //            }
             return cell
         }
-    
-    @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-
-
-
 }

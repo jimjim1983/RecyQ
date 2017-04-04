@@ -14,6 +14,8 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Wat gaan we doen?"
 
         scrollView.setContentOffset(CGPoint(x: 0,y: 0), animated: true)
         // Do any additional setup after loading the view.
@@ -23,10 +25,4 @@ class InfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-
 }

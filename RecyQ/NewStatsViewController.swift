@@ -39,12 +39,6 @@ class NewStatsViewController: UIViewController {
         return imageView
     }()
     
-    fileprivate let profileBarButton: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profileGrey"), style: .plain, target: self, action: #selector(showProfile))
-        barButtonItem.tintColor = .lightGray
-        return barButtonItem
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +78,10 @@ class NewStatsViewController: UIViewController {
     
     fileprivate func setupViews() {
         self.navigationController?.navigationBar.topItem?.titleView = self.navBarLogoImageView
-        self.navigationItem.setRightBarButton(self.profileBarButton, animated: true)
+        
+        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profileGrey"), style: .plain, target: self, action: #selector(showProfile))
+        barButtonItem.tintColor = .lightGray
+        self.navigationItem.setRightBarButton(barButtonItem, animated: true)
         
         self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
         self.tokenView.addBorderWith(width: 1, color: .darkGray)
@@ -105,7 +102,7 @@ class NewStatsViewController: UIViewController {
     
     private func scheduleLocalNotification() {
         let localNotification = UILocalNotification()
-        localNotification.alertBody = "Time to recycle some waste"
+        localNotification.alertBody = "Je hebt al een maand niks gerecycled met RecyQ, ben je nog wel zero waste bezig? Breng binnen een week papier, textiel of plastic naar de dichts bijzijnde RecyQ locatie anders deactiveren we je account. No love lost!"
         localNotification.alertAction = "Open"
         localNotification.fireDate = Date(timeIntervalSinceNow: 60)
         

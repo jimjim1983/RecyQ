@@ -19,7 +19,6 @@ class NewCommunityViewController: UIViewController {
     
     fileprivate var wasteArray = [Double]()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +31,7 @@ class NewCommunityViewController: UIViewController {
     }
     
     fileprivate func setupViews() {
+        title = "Community"
         self.watGaanWeDoenButton.addBorderWith(width: 1, color: .darkGray)
         self.wieStaatErBovenaanButton.addBorderWith(width: 1, color: .darkGray)
         self.communityPartnersButton.addBorderWith(width: 1, color: .darkGray)
@@ -48,13 +48,11 @@ class NewCommunityViewController: UIViewController {
                     let amountOfPlastic = (item.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
                     let amountOfBioWaste = (item.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
                     let amountOfEWaste = (item.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
-                    let amountOfIron = (item.value as AnyObject).object(forKey: "amountOfIron") as? Double
                     let amountOfPaper = (item.value as AnyObject).object(forKey: "amountOfPaper") as? Double
                     let amountOfTextile = (item.value as AnyObject).object(forKey: "amountOfTextile") as? Double
                     self.wasteArray.append(amountOfPlastic!)
                     self.wasteArray.append(amountOfBioWaste!)
                     self.wasteArray.append(amountOfEWaste!)
-                    self.wasteArray.append(amountOfIron!)
                     self.wasteArray.append(amountOfPaper!)
                     self.wasteArray.append(amountOfTextile!)
                 }
@@ -78,17 +76,17 @@ class NewCommunityViewController: UIViewController {
 
     @IBAction func watGaanWeDoenButtonTapped(_ sender: Any) {
         let infoVC = InfoViewController()
-        self.present(infoVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(infoVC, animated: true)
     }
     
     @IBAction func wieStaatErBovenaanButtonTapped(_ sender: Any) {
         let leaderboardVC = LeaderboardViewController()
-        self.present(leaderboardVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(leaderboardVC, animated: true)
     }
     
     @IBAction func communityPartnersButtonTapped(_ sender: Any) {
         let partnersVC = PartnersViewController()
-        self.present(partnersVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(partnersVC, animated: true)
     }
     
 }

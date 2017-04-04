@@ -26,11 +26,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGN-uU-0wT">
-                        <rect key="frame" x="8" y="133" width="139" height="17"/>
+                        <rect key="frame" x="8" y="131" width="139" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="139" id="GPW-y3-u1x"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Community -BAR - total recycled" translatesAutoresizingMaskIntoConstraints="NO" id="d44-LX-t9S">
@@ -41,7 +42,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Co2 saved" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-8L-V33">
-                        <rect key="frame" x="375.5" y="133" width="81" height="17"/>
+                        <rect key="frame" x="374.5" y="133" width="81" height="17"/>
                         <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="15"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>

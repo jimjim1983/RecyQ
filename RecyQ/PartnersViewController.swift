@@ -11,16 +11,12 @@ import UIKit
 class PartnersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
+        title = "Partners"
         
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
     }
-
-    @IBAction func terugButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-   
-    
+       
     @IBAction func startupInResidenceButtonPressed(_ sender: UIButton) {
         
         if let url = URL(string: "http://www.startupinresidence.com/") {
