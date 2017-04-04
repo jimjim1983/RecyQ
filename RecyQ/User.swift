@@ -24,7 +24,7 @@ struct User {
     let amountOfEWaste: Double!
     let amountOfBioWaste: Double!
     let uid: String!
-    let spentCoins: Int!
+    let spentCoins: Int?
     
     // Initialize from arbitrary data
     init(name: String, addedByUser: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, uid: String, spentCoins: Int) {

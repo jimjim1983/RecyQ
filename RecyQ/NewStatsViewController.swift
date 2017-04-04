@@ -15,6 +15,8 @@ class NewStatsViewController: UIViewController {
     @IBOutlet var naviagtionItem: UINavigationItem!
     @IBOutlet var kiloGramView: UIView!
     @IBOutlet var tokenView: UIView!
+    @IBOutlet var kiloGramLabel: UILabel!
+    @IBOutlet var tokensLabel: UILabel!
     @IBOutlet var tokenArrowsLabel: UILabel!
     @IBOutlet var statsCollectionView: UICollectionView!
     
@@ -25,6 +27,9 @@ class NewStatsViewController: UIViewController {
     fileprivate var coloredString = NSMutableAttributedString()
     fileprivate var wasteAmounts = [Double]()
     fileprivate var co2Amounts = [Double]()
+    fileprivate var totalWasteAmounts: Double!
+    fileprivate var kiloGramsTurnedIn: Double!
+    fileprivate var tokensEarned: Double!
     
     fileprivate let navBarLogoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
@@ -65,6 +70,12 @@ class NewStatsViewController: UIViewController {
                     self.wasteAmounts.append(user.amountOfEWaste)
 
                     self.co2Amounts = self.wasteAmounts.map { round((round($0) / 35) * 50) }
+                    self.totalWasteAmounts = self.wasteAmounts.reduce(0.0, +)
+                    self.tokensEarned = round(self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
+                    if let totalWasteAmounts = self.totalWasteAmounts, let tokensEarned = self.tokensEarned {
+                        self.kiloGramLabel.text = "\(totalWasteAmounts)"
+                        self.tokensLabel.text = "\(Int(tokensEarned))"
+                    }
                     self.statsCollectionView.reloadData()
                 })
             }
@@ -77,6 +88,7 @@ class NewStatsViewController: UIViewController {
         
         self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
         self.tokenView.addBorderWith(width: 1, color: .darkGray)
+        
         
         // Colors the range of arrows in the label
         self.tokenArrowsString = self.tokenArrowsLabel.text!
@@ -98,6 +110,12 @@ class NewStatsViewController: UIViewController {
         localNotification.fireDate = Date(timeIntervalSinceNow: 60)
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
+    }
+    @IBAction func kiloGramButtonTapped(_ sender: Any) {
+        print("KILO")
+    }
+    @IBAction func tokensButtonTapped(_ sender: Any) {
+        print("TOKENS")
     }
 }
 

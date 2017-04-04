@@ -17,12 +17,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewStatsViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="kiloGramLabel" destination="vzn-8w-oxA" id="OAd-lx-RR2"/>
                 <outlet property="kiloGramView" destination="HNY-cc-rkh" id="7eC-c1-Ae0"/>
                 <outlet property="naviagtionItem" destination="GBl-ia-bl1" id="6bf-EK-89J"/>
                 <outlet property="navigationBar" destination="l7J-Fg-T25" id="lHO-zD-RCV"/>
                 <outlet property="statsCollectionView" destination="Mzi-nx-ahP" id="GTo-3k-OIB"/>
                 <outlet property="tokenArrowsLabel" destination="lHh-LS-JsD" id="754-AQ-hMG"/>
                 <outlet property="tokenView" destination="FTd-Mn-ijc" id="TeA-hT-3lM"/>
+                <outlet property="tokensLabel" destination="GyN-oM-Yem" id="ma7-OZ-xqL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -73,6 +75,12 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1L7-Ci-DyY">
+                                    <rect key="frame" x="0.0" y="0.0" width="164" height="100"/>
+                                    <connections>
+                                        <action selector="kiloGramButtonTapped:" destination="-1" eventType="touchUpInside" id="qAZ-AR-uVu"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -84,8 +92,12 @@
                                 <constraint firstAttribute="height" constant="100" id="Q2N-DV-Ekx"/>
                                 <constraint firstItem="vzn-8w-oxA" firstAttribute="top" secondItem="HNY-cc-rkh" secondAttribute="top" constant="16" id="XV9-18-HwT"/>
                                 <constraint firstAttribute="trailing" secondItem="7YU-eb-FFt" secondAttribute="trailing" constant="13" id="ern-sV-eDo"/>
+                                <constraint firstItem="1L7-Ci-DyY" firstAttribute="leading" secondItem="HNY-cc-rkh" secondAttribute="leading" id="h5G-fL-3Ug"/>
                                 <constraint firstAttribute="width" constant="164" id="n6f-Z5-Bvg"/>
+                                <constraint firstAttribute="bottom" secondItem="1L7-Ci-DyY" secondAttribute="bottom" id="oDT-BO-8A6"/>
                                 <constraint firstAttribute="trailing" secondItem="OeM-Me-D3q" secondAttribute="trailing" constant="13" id="qgX-Xw-m4F"/>
+                                <constraint firstAttribute="trailing" secondItem="1L7-Ci-DyY" secondAttribute="trailing" id="tDQ-Mg-lRq"/>
+                                <constraint firstItem="1L7-Ci-DyY" firstAttribute="top" secondItem="HNY-cc-rkh" secondAttribute="top" id="vnx-TM-0CR"/>
                                 <constraint firstAttribute="trailing" secondItem="vzn-8w-oxA" secondAttribute="trailing" constant="13" id="zjg-jG-Txi"/>
                             </constraints>
                         </view>
@@ -123,11 +135,20 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMW-rV-V3n">
+                            <rect key="frame" x="181" y="0.0" width="139" height="120"/>
+                            <connections>
+                                <action selector="tokensButtonTapped:" destination="-1" eventType="touchUpInside" id="gn3-1i-xJO"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="FTd-Mn-ijc" secondAttribute="bottom" constant="12" id="05J-mU-XCU"/>
                         <constraint firstItem="bLo-YH-6YA" firstAttribute="leading" secondItem="HNY-cc-rkh" secondAttribute="trailing" constant="23" id="Auw-TO-gFL"/>
+                        <constraint firstItem="SMW-rV-V3n" firstAttribute="leading" secondItem="HNY-cc-rkh" secondAttribute="trailing" id="Gcp-o6-ma9"/>
+                        <constraint firstItem="SMW-rV-V3n" firstAttribute="top" secondItem="epu-Ht-Rds" secondAttribute="top" id="LSA-RO-1Zh"/>
+                        <constraint firstAttribute="trailing" secondItem="SMW-rV-V3n" secondAttribute="trailing" id="Lfl-T1-Gne"/>
                         <constraint firstItem="HNY-cc-rkh" firstAttribute="leading" secondItem="epu-Ht-Rds" secondAttribute="leading" constant="17" id="M5X-Dw-8pu"/>
                         <constraint firstAttribute="bottom" secondItem="lHh-LS-JsD" secondAttribute="bottom" constant="29" id="NOm-Zz-9CK"/>
                         <constraint firstItem="GyN-oM-Yem" firstAttribute="top" secondItem="epu-Ht-Rds" secondAttribute="top" constant="24" id="V0P-VK-cdj"/>
@@ -135,6 +156,7 @@
                         <constraint firstItem="bLo-YH-6YA" firstAttribute="top" secondItem="GyN-oM-Yem" secondAttribute="bottom" constant="-7" id="bFW-UG-gwW"/>
                         <constraint firstItem="FTd-Mn-ijc" firstAttribute="top" secondItem="epu-Ht-Rds" secondAttribute="top" constant="8" id="bjr-88-fCH"/>
                         <constraint firstAttribute="trailing" secondItem="bLo-YH-6YA" secondAttribute="trailing" constant="33" id="d1K-J9-BNR"/>
+                        <constraint firstAttribute="bottom" secondItem="SMW-rV-V3n" secondAttribute="bottom" id="ghM-SR-Itb"/>
                         <constraint firstAttribute="trailing" secondItem="lHh-LS-JsD" secondAttribute="trailing" constant="33" id="lxy-Pv-hIe"/>
                         <constraint firstAttribute="bottom" secondItem="HNY-cc-rkh" secondAttribute="bottom" constant="12" id="lzV-dn-Qcq"/>
                         <constraint firstAttribute="trailing" secondItem="FTd-Mn-ijc" secondAttribute="trailing" constant="17" id="mOR-fh-PSy"/>
