@@ -16,7 +16,7 @@ var currentUser: User?
 // We need to remove this global variable after the coupons code is updated.
 var reachability: Reachability?
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
     
     // MARK: - OUtlets
     @IBOutlet weak var textFieldLoginEmail: UITextField!
@@ -57,51 +57,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(faceBookLogInButton)
     }
     
-    // MARK: - Keyboard methods
-    private func addKeyboardNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    private func removeKeyboardNotificationObserver() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
-    }
-    
-    // Keyboard will hide
-    func keyboardWillHide(_ sender: Notification) {
-        let userInfo: [AnyHashable: Any] = sender.userInfo!
-        let keyboardSize: CGSize = (userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size
-        self.view.frame.origin.y += keyboardSize.height
-    }
-    
-    // Keyboard will show
-    func keyboardWillShow(_ sender: Notification) {
-        let userInfo: [AnyHashable: Any] = sender.userInfo!
-        
-        let keyboardSize: CGSize = (userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size
-        let offset: CGSize = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue.size
-        
-        if keyboardSize.height == offset.height {
-            if self.view.frame.origin.y == 0 {
-                UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height
-                })
-            }
-        } else {
-            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                self.view.frame.origin.y += keyboardSize.height - offset.height
-            })
-        }
-        print(self.view.frame.origin.y)
-    }
-    
-    // MARK: - TextField delegate methods
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
     // MARK: - IBActions
     @IBAction func hideKeyBoardwhenViewIsTapped(_ sender: Any) {
         view.endEditing(true)
@@ -128,39 +83,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func wachtwoordVergetenButtonPressed(_ sender: Any) {
         self.showWachtwoordVergetenAlert()
-    }
-    
-    //MARK: - Alerts
-    private func showSignUpAlert() {
-        
-        let alert = UIAlertController(title: "Maak een nieuwe RecyQ account.", message: "", preferredStyle: .alert)
-        
-        alert.addTextField { (textUsername) -> Void in
-            textUsername.placeholder = "Gebruikersnaam"
-        }
-        alert.addTextField { (textEmail) -> Void in
-            textEmail.placeholder = "E-mailadres"
-            textEmail.keyboardType = .emailAddress
-        }
-        alert.addTextField { (textPassword) -> Void in
-            textPassword.placeholder = "Wachtwoord"
-            textPassword.isSecureTextEntry = true
-        }
-        let saveAction = UIAlertAction(title: "Opslaan", style: .default) { (action: UIAlertAction) -> Void in
-            let usernameField = alert.textFields![0]
-            let emailField = alert.textFields![1]
-            let passwordField = alert.textFields![2]
-            
-            if let userName = usernameField.text, let email = emailField.text, let password = passwordField.text {
-                FirebaseHelper.signUpUserWith(userName: userName, email: email, password: password, sender: self)
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Annuleer", style: .default) { (action: UIAlertAction) -> Void in
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        
-        present(alert, animated: true, completion: nil)
     }
     
     private func showWachtwoordVergetenAlert() {
@@ -220,7 +142,8 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 print("FB user logged in suceccfully: \(user)")
                 
                 if let fbCurrentUser = user {
-                    currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, addedByUser: (fbCurrentUser.email)!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: (user?.uid)!, spentCoins: 0)
+                    currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, lastName: "", address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: NearestWasteLocation(rawValue: "")!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: (user?.uid)!, spentCoins: 0)
+                    
                     
                     let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
                     userRef.setValue(currentUser?.toAnyObject())
@@ -233,6 +156,14 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 }
             }
         })
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    // MARK: - TextField delegate methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

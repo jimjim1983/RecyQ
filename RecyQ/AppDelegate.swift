@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FIRApp.configure()
+        FirebaseHelper.observeAuthentication()
         setupNavigationBar()
         setupTabBarController()
-        FirebaseHelper.observeAuthentication()
         registerForRemoteNotifications(application: application)
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let firstTab = NewStatsViewController(nibName: "NewStatsViewController", bundle:  nil)
 //        let firstTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle:  nil)
-let navController = UINavigationController(rootViewController: firstTab)
+        let navController = UINavigationController(rootViewController: firstTab)
         let secondTab = NewCommunityViewController(nibName: "NewCommunityViewController", bundle: nil)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let fourthTab = ProfileViewController(nibName: "ProfileViewController", bundle: nil)

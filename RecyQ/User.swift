@@ -11,26 +11,45 @@ import Firebase
 
 // Todo: Update code by putting the snaphot init inside an extension of User. Than we can use the memberwise init of the struct in stead of the created init.
 
+enum NearestWasteLocation: String {
+    case amsterdamsePoort
+    case locatieB
+    case locatieC
+    case locatieD
+}
+
 struct User {
     
-    let key: String!
-    let name: String!
-    let addedByUser: String!
+    let key: String
+    let name: String
+    let lastName: String?
+    let address: String?
+    let zipCode: String?
+    let city: String?
+    let phoneNumber: String?
+    let addedByUser: String //email
+    let nearestWasteLocation: NearestWasteLocation?
     let ref: FIRDatabaseReference?
-    var completed: Bool!
-    let amountOfPlastic: Double!
-    var amountOfPaper: Double!
-    let amountOfTextile: Double!
-    let amountOfEWaste: Double!
-    let amountOfBioWaste: Double!
-    let uid: String!
+    var completed: Bool
+    let amountOfPlastic: Double
+    var amountOfPaper: Double
+    let amountOfTextile: Double
+    let amountOfEWaste: Double
+    let amountOfBioWaste: Double
+    let uid: String
     let spentCoins: Int?
     
     // Initialize from arbitrary data
-    init(name: String, addedByUser: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, uid: String, spentCoins: Int) {
+    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: NearestWasteLocation, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, uid: String, spentCoins: Int) {
         self.key = key
         self.name = name
+        self.lastName = lastName
+        self.address = address
+        self.zipCode = zipCode
+        self.city = city
+        self.phoneNumber = phoneNumber
         self.addedByUser = addedByUser
+        self.nearestWasteLocation = nearestWasteLocation
         self.completed = completed
         self.ref = nil
         self.amountOfPlastic = amountOfPlastic
@@ -46,23 +65,35 @@ struct User {
     init(snapshot: FIRDataSnapshot) {
         key = snapshot.key
         let snapshotValue = snapshot.value as? NSDictionary
-        name = snapshotValue?["name"] as? String
-        addedByUser = snapshotValue?["addedByUser"] as? String
-        completed = snapshotValue?["completed"] as? Bool
+        name = snapshotValue?["name"] as! String
+        lastName = snapshotValue?["lastName"] as? String
+        address = snapshotValue?["address"] as? String
+        zipCode = snapshotValue?["zipCode"] as? String
+        city = snapshotValue?["city"] as? String
+        phoneNumber = snapshotValue?["phoneNumber"] as? String
+        addedByUser = snapshotValue?["addedByUser"] as! String
+        nearestWasteLocation = snapshotValue?["nearestWasteLocation"] as? NearestWasteLocation
+        completed = snapshotValue?["completed"] as! Bool
         ref = snapshot.ref
-        amountOfPlastic = snapshotValue?["amountOfPlastic"] as? Double
-        amountOfPaper = snapshotValue?["amountOfPaper"] as? Double
-        amountOfTextile = snapshotValue?["amountOfTextile"] as? Double
-        amountOfEWaste = snapshotValue?["amountOfEWaste"] as? Double
-        amountOfBioWaste = snapshotValue?["amountOfBioWaste"] as? Double
-        uid = snapshotValue?["uid"] as? String
+        amountOfPlastic = snapshotValue?["amountOfPlastic"] as! Double
+        amountOfPaper = snapshotValue?["amountOfPaper"] as! Double
+        amountOfTextile = snapshotValue?["amountOfTextile"] as! Double
+        amountOfEWaste = snapshotValue?["amountOfEWaste"] as! Double
+        amountOfBioWaste = snapshotValue?["amountOfBioWaste"] as! Double
+        uid = snapshotValue?["uid"] as! String
         spentCoins = snapshotValue?["uid"] as? Int
     }
     
     func toAnyObject() -> [String: AnyObject] {
         return [
             "name": name as AnyObject,
+            "lastName": lastName as AnyObject,
+            "address": address as AnyObject,
+            "zipCode": zipCode as AnyObject,
+            "city": city as AnyObject,
+            "phoneNumber": phoneNumber as AnyObject,
             "addedByUser": addedByUser as AnyObject,
+            "nearestWasteLocation": nearestWasteLocation as AnyObject,
             "completed": completed as AnyObject,
             "amountOfPlastic": amountOfPlastic as AnyObject,
             "amountOfPaper": amountOfPaper as AnyObject,

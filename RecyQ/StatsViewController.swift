@@ -108,20 +108,25 @@ class StatsViewController: UIViewController {
         // New code with new Firebase
         FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
             if let user = user {
-              FirebaseHelper.References.clientsRef.queryOrdered(byChild: "uid").queryEqual(toValue: user.uid).observe(.childAdded, with: { (snapShot) in
+                FirebaseHelper.References.clientsRef.queryOrdered(byChild: "uid").queryEqual(toValue: user.uid).observe(.childAdded, with: { (snapShot) in
                     let name = (snapShot.value as AnyObject).object(forKey: "name") as? String
-                    let addedByUser = (snapShot.value as AnyObject).object(forKey: "addedByUser") as? String
+                    let lastName = (snapShot.value as AnyObject).object(forKey: "lastName") as? String
+                    let address = (snapShot.value as AnyObject).object(forKey: "address") as? String
+                    let zipCode = (snapShot.value as AnyObject).object(forKey: "zipCode") as? String
+                    let city = (snapShot.value as AnyObject).object(forKey: "city") as? String
+                    let phoneNumber = (snapShot.value as AnyObject).object(forKey: "phoneNumber") as? String
+                    let email = (snapShot.value as AnyObject).object(forKey: "email") as? String
+                    let nearestWasteLocation = (snapShot.value as AnyObject).object(forKey: "nearestWasteLocation") as? NearestWasteLocation
                     let amountOfPlastic = (snapShot.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
                     let amountOfBioWaste = (snapShot.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
                     let amountOfEWaste = (snapShot.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
-                    let amountOfIron = (snapShot.value as AnyObject).object(forKey: "amountOfIron") as? Double
                     let amountOfPaper = (snapShot.value as AnyObject).object(forKey: "amountOfPaper") as? Double
                     let amountOfTextile = (snapShot.value as AnyObject).object(forKey: "amountOfTextile") as? Double
                     let completed = (snapShot.value as AnyObject).object(forKey: "completed") as? Bool
                     let uid = (snapShot.value as AnyObject).object(forKey: "uid") as? String
                     let spentCoins = (snapShot.value as AnyObject).object(forKey: "spentCoins") as? Int
                     
-                  currentUser = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, uid: uid!, spentCoins:  spentCoins!)
+                    currentUser = User(name: name!, lastName: lastName!, address: address!, zipCode: zipCode!, city: city!, phoneNumber: phoneNumber!, addedByUser: email!, nearestWasteLocation: nearestWasteLocation!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, uid: uid!, spentCoins:  spentCoins!)
                     
                     print(currentUser)
                     
@@ -162,11 +167,11 @@ class StatsViewController: UIViewController {
 //                    self.totalWasteAmount = Double(currentUser?.amountOfPlastic!) + Double(currentUser?.amountOfPaper!) + Double(currentUser?.amountOfTextile!) + Double(currentUser?.amountOfIron!) + Double(currentUser?.amountOfEWaste!) + Double(currentUser?.amountOfBioWaste!)
                     
                     
-                    self.totalWasteAmount.add((currentUser?.amountOfPlastic!)!)
-                    self.totalWasteAmount.add((currentUser?.amountOfPaper!)!)
-                    self.totalWasteAmount.add((currentUser?.amountOfTextile!)!)
-                    self.totalWasteAmount.add((currentUser?.amountOfEWaste!)!)
-                    self.totalWasteAmount.add((currentUser?.amountOfBioWaste!)!)
+                    self.totalWasteAmount.add((currentUser?.amountOfPlastic)!)
+                    self.totalWasteAmount.add((currentUser?.amountOfPaper)!)
+                    self.totalWasteAmount.add((currentUser?.amountOfTextile)!)
+                    self.totalWasteAmount.add((currentUser?.amountOfEWaste)!)
+                    self.totalWasteAmount.add((currentUser?.amountOfBioWaste)!)
 
                     
                     self.tokenAmount = round(self.totalWasteAmount/35)

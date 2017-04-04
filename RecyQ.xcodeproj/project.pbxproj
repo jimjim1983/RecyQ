@@ -213,6 +213,8 @@
 				2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */,
 				2BAEEBF41E77D12D008AB044 /* NewCommunityViewController.swift */,
 				2BAEEBF51E77D12D008AB044 /* NewCommunityViewController.xib */,
+				2B3FEE6B1E8FDAB20053BC0C /* SignUpViewController.swift */,
+				2B3FEE6C1E8FDAB20053BC0C /* SignUpViewController.xib */,
 			);
 			name = "New ViewControllers";
 			sourceTree = "<group>";
@@ -232,8 +234,6 @@
 				2BAEEBF81E77D153008AB044 /* New ViewControllers */,
 				2BF8032D1E4F91AA005F67BA /* LoginViewController.swift */,
 				2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */,
-				2B3FEE6B1E8FDAB20053BC0C /* SignUpViewController.swift */,
-				2B3FEE6C1E8FDAB20053BC0C /* SignUpViewController.xib */,
 				2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */,
 				2BF803301E4F91AA005F67BA /* StatsViewController.xib */,
 				2BF803311E4F91AA005F67BA /* RecyQTokenViewController.swift */,

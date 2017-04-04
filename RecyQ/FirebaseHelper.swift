@@ -20,8 +20,8 @@ struct FirebaseHelper {
     }
     
     // MARK: - Sign up user through Firebase
-    static func signUpUserWith(userName: String, email: String, password: String, sender: UIViewController) {
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+    static func signUp(newUser: User, withPassword: String, sender: UIViewController) {
+        FIRAuth.auth()?.createUser(withEmail: newUser.addedByUser, password: withPassword, completion: { (user, error) in
             
             if error != nil {
                 if let errorCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
@@ -31,7 +31,7 @@ struct FirebaseHelper {
                 return
             }
             else {
-                FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+                FIRAuth.auth()?.signIn(withEmail: newUser.addedByUser, password: withPassword, completion: { (user, error) in
                     
                     if error != nil {
                         if let errorCode = FIRAuthErrorCode(rawValue: (error?._code)!) {
@@ -41,7 +41,8 @@ struct FirebaseHelper {
                         return
                     }
                     else {
-                        currentUser = User(name: userName.lowercased(), addedByUser: email, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: (user?.uid)!, spentCoins: 0)
+                        currentUser = User(name: newUser.name.lowercased(), lastName: newUser.lastName!, address: newUser.address!, zipCode: newUser.zipCode!, city: newUser.city!, phoneNumber: newUser.phoneNumber!, addedByUser: newUser.addedByUser, nearestWasteLocation: newUser.nearestWasteLocation!, completed: false, amountOfPlastic: newUser.amountOfPlastic, amountOfPaper: newUser.amountOfPaper, amountOfTextile: newUser.amountOfTextile, amountOfEWaste: newUser.amountOfEWaste, amountOfBioWaste: newUser.amountOfBioWaste, uid: (user?.uid)!, spentCoins: newUser.spentCoins!)
+                        
                         
                         let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
                         userRef.setValue(currentUser?.toAnyObject())
