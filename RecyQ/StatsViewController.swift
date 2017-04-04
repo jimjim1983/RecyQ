@@ -121,7 +121,7 @@ class StatsViewController: UIViewController {
                     let uid = (snapShot.value as AnyObject).object(forKey: "uid") as? String
                     let spentCoins = (snapShot.value as AnyObject).object(forKey: "spentCoins") as? Int
                     
-                  currentUser = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, amountOfIron: amountOfIron!, uid: uid!, spentCoins:  spentCoins!)
+                  currentUser = User(name: name!, addedByUser: addedByUser!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, uid: uid!, spentCoins:  spentCoins!)
                     
                     print(currentUser)
                     
@@ -137,10 +137,7 @@ class StatsViewController: UIViewController {
                         self.textileLabel.text = "\(textile)"
                         print(textile)
                     }
-                    if let iron = currentUser?.amountOfIron {
-                        self.ironLabel.text = "\(iron)"
-                        print(iron)
-                    }
+           
                     if let eWaste = currentUser?.amountOfEWaste {
                         self.eWasteLabel.text = "\(eWaste)"
                         print(eWaste)
@@ -156,8 +153,6 @@ class StatsViewController: UIViewController {
                     self.plasticco2Label.text = "\(plasticCarbonSaved)"
                     let textileCarbonSaved = round(((currentUser?.amountOfTextile)!/35) * 50)
                     self.textileco2Label.text = "\(textileCarbonSaved)"
-                    let ironCarbonSaved = round(((currentUser?.amountOfIron)!/35) * 50)
-                    self.ironco2Label.text = "\(ironCarbonSaved)"
                     let eWasteCarbonSaved = round(((currentUser?.amountOfEWaste)!/35) * 50)
                     self.ewasteco2Label.text = "\(eWasteCarbonSaved)"
                     let biowasteCarbonSaved = round(((currentUser?.amountOfBioWaste)!/35) * 50) 
@@ -170,7 +165,6 @@ class StatsViewController: UIViewController {
                     self.totalWasteAmount.add((currentUser?.amountOfPlastic!)!)
                     self.totalWasteAmount.add((currentUser?.amountOfPaper!)!)
                     self.totalWasteAmount.add((currentUser?.amountOfTextile!)!)
-                    self.totalWasteAmount.add((currentUser?.amountOfIron!)!)
                     self.totalWasteAmount.add((currentUser?.amountOfEWaste!)!)
                     self.totalWasteAmount.add((currentUser?.amountOfBioWaste!)!)
 

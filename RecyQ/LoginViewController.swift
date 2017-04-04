@@ -220,7 +220,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 print("FB user logged in suceccfully: \(user)")
                 
                 if let fbCurrentUser = user {
-                    currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, addedByUser: (fbCurrentUser.email)!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfIron: 0, uid: (user?.uid)!, spentCoins: 0)
+                    currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, addedByUser: (fbCurrentUser.email)!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: (user?.uid)!, spentCoins: 0)
                     
                     let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
                     userRef.setValue(currentUser?.toAnyObject())

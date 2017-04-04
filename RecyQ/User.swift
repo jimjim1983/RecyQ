@@ -23,12 +23,11 @@ struct User {
     let amountOfTextile: Double!
     let amountOfEWaste: Double!
     let amountOfBioWaste: Double!
-    let amountOfIron: Double!
     let uid: String!
     let spentCoins: Int!
     
     // Initialize from arbitrary data
-    init(name: String, addedByUser: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfIron: Double, uid: String, spentCoins: Int) {
+    init(name: String, addedByUser: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, uid: String, spentCoins: Int) {
         self.key = key
         self.name = name
         self.addedByUser = addedByUser
@@ -39,7 +38,6 @@ struct User {
         self.amountOfTextile = amountOfTextile
         self.amountOfEWaste = amountOfEWaste
         self.amountOfBioWaste = amountOfBioWaste
-        self.amountOfIron = amountOfIron
         self.uid = uid
         self.spentCoins = spentCoins
     }
@@ -57,7 +55,6 @@ struct User {
         amountOfTextile = snapshotValue?["amountOfTextile"] as? Double
         amountOfEWaste = snapshotValue?["amountOfEWaste"] as? Double
         amountOfBioWaste = snapshotValue?["amountOfBioWaste"] as? Double
-        amountOfIron = snapshotValue?["amountOfIron"] as? Double
         uid = snapshotValue?["uid"] as? String
         spentCoins = snapshotValue?["uid"] as? Int
     }
@@ -72,7 +69,6 @@ struct User {
             "amountOfTextile": amountOfTextile as AnyObject,
             "amountOfEWaste": amountOfEWaste as AnyObject,
             "amountOfBioWaste": amountOfBioWaste as AnyObject,
-            "amountOfIron": amountOfIron as AnyObject,
             "uid": uid as AnyObject,
             "spentCoins": spentCoins as AnyObject
         ]

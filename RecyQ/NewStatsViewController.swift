@@ -63,7 +63,6 @@ class NewStatsViewController: UIViewController {
                     self.wasteAmounts.append(user.amountOfPlastic)
                     self.wasteAmounts.append(user.amountOfBioWaste)
                     self.wasteAmounts.append(user.amountOfEWaste)
-                    self.wasteAmounts.append(user.amountOfIron)
 
                     self.co2Amounts = self.wasteAmounts.map { round((round($0) / 35) * 50) }
                     self.statsCollectionView.reloadData()
@@ -104,7 +103,7 @@ class NewStatsViewController: UIViewController {
 
 extension NewStatsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

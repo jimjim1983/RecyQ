@@ -33,12 +33,12 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="115" id="6KZ-eV-NGY"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="55"/>
+                        <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="47"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recycled &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ju-42-uvU">
-                        <rect key="frame" x="139" y="30" width="73" height="21"/>
+                        <rect key="frame" x="139" y="30" width="72.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="ver-TX-9CX"/>
                         </constraints>
@@ -56,7 +56,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oS8-5R-fWO">
-                        <rect key="frame" x="220" y="30" width="172" height="21"/>
+                        <rect key="frame" x="219.5" y="30" width="172.5" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="vaB-gs-yCE"/>
                         </constraints>
