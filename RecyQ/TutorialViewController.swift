@@ -38,16 +38,16 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         tutorialScrollView.layer.shadowRadius = 10
         tutorialScrollView.layer.shadowOpacity = 0.2
         
-//        let imgOne = UIImageView(frame: CGRect(x:0, y:0, width: scrollViewWidth, height: scrollViewHeight))
-//        imgOne.image = UIImage(named: "recyqgroen")
-//        let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0, width:scrollViewWidth, height: scrollViewHeight))
-//        imgTwo.image = UIImage(named: "recyqblauw")
-//        let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0, width:scrollViewWidth, height:scrollViewHeight))
-//        imgThree.image = UIImage(named: "recyqrood")
-//        
-//        self.tutorialScrollView.addSubview(imgOne)
-//        self.tutorialScrollView.addSubview(imgTwo)
-//        self.tutorialScrollView.addSubview(imgThree)
+        let imgOne = UIImageView(frame: CGRect(x:0, y:0, width: scrollViewWidth, height: scrollViewHeight))
+        imgOne.image = UIImage(named: "recyqgroen")
+        let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth, y:0, width:scrollViewWidth, height: scrollViewHeight))
+        imgTwo.image = UIImage(named: "recyqblauw")
+        let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0, width:scrollViewWidth, height:scrollViewHeight))
+        imgThree.image = UIImage(named: "recyqrood")
+        
+        self.tutorialScrollView.addSubview(imgOne)
+        self.tutorialScrollView.addSubview(imgTwo)
+        self.tutorialScrollView.addSubview(imgThree)
         
         self.tutorialScrollView.contentSize = CGSize(width: self.tutorialScrollView.frame.width * 3, height: self.tutorialScrollView.frame.height)
         self.tutorialScrollView.delegate = self
@@ -86,6 +86,8 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
     }
+    
+    
     
 
     

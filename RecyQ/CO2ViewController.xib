@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CO2ViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
-                <outlet property="borderView" destination="4Ft-mZ-DkW" id="13y-d2-rlZ"/>
                 <outlet property="co2AmountLabel" destination="Ij2-ld-lk9" id="kMc-P5-peT"/>
-                <outlet property="co2View" destination="quT-BJ-wtd" id="g9Q-k3-lpo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="xButton" destination="9p6-ll-1JJ" id="Fke-JG-6fw"/>
             </connections>
@@ -23,108 +22,88 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ft-mZ-DkW" userLabel="Border View">
-                    <rect key="frame" x="57.5" y="203.5" width="260" height="260"/>
-                    <color key="backgroundColor" red="0.0" green="0.25098040699958801" blue="0.50196081399917603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="260" id="28C-BK-pMd"/>
-                        <constraint firstAttribute="height" constant="260" id="c9m-YM-a2o"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quT-BJ-wtd">
-                    <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7j-kz-Xa5">
+                    <rect key="frame" x="17" y="38" width="343" height="128"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CO2 Token counter" translatesAutoresizingMaskIntoConstraints="NO" id="siY-Nv-ORm">
-                            <rect key="frame" x="83" y="51" width="84" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="GfH-zR-hf6"/>
-                                <constraint firstAttribute="width" constant="84" id="Urm-9p-Zbr"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dit is jouw CO2 teller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doG-E0-lyM">
-                            <rect key="frame" x="25" y="26" width="201" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doG-E0-lyM">
+                            <rect key="frame" x="142" y="0.0" width="201" height="128"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="201" id="Dyg-Gs-Rnc"/>
                                 <constraint firstAttribute="height" constant="21" id="KxU-VC-za8"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <string key="text">Dit is jouw CO2 teller,
+hier zie je wat je hebt
+bespaard aan kooldioxide
+uitstoot door te recyclen.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Door te recyclen heb je bespaard:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFr-bz-ddx">
-                            <rect key="frame" x="8" y="96" width="234" height="57"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij2-ld-lk9" userLabel="CO2 Amount Label">
+                            <rect key="frame" x="8" y="23" width="61" height="17"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="234" id="JBN-xz-1u2"/>
-                                <constraint firstAttribute="height" constant="57" id="zP4-gb-507"/>
+                                <constraint firstAttribute="width" constant="61" id="cai-om-uS3"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij2-ld-lk9" userLabel="CO2 Amount Label">
-                            <rect key="frame" x="0.0" y="154" width="250" height="21"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="42" id="1hz-V8-fWQ"/>
-                                <constraint firstAttribute="height" constant="21" id="7I1-en-M6s"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="1hz-V8-fWQ"/>
-                                </mask>
-                            </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="aan kooldioxide uitstoot." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5z-jf-074">
-                            <rect key="frame" x="0.0" y="183" width="250" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-ll-1JJ">
-                            <rect key="frame" x="96" y="211" width="57" height="30"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BS-Ql-CMP">
+                            <rect key="frame" x="8" y="23" width="183" height="105"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="Jfx-Bl-XSt"/>
-                                <constraint firstAttribute="width" constant="57" id="tiX-aX-AdL"/>
+                                <constraint firstAttribute="width" constant="183" id="tht-T2-bXT"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <state key="normal" title="Terug"/>
-                            <connections>
-                                <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="11O-Tf-lMg"/>
-                            </connections>
-                        </button>
+                            <string key="text">                &gt;&gt;&gt;&gt;
+KILOGRAM
+&gt;Ingeleverd</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="doG-E0-lyM" firstAttribute="top" secondItem="quT-BJ-wtd" secondAttribute="top" constant="26" id="AWc-jY-FqU"/>
-                        <constraint firstItem="Ij2-ld-lk9" firstAttribute="top" secondItem="SFr-bz-ddx" secondAttribute="bottom" constant="1" id="JlF-en-5fO"/>
-                        <constraint firstItem="9p6-ll-1JJ" firstAttribute="top" secondItem="X5z-jf-074" secondAttribute="bottom" constant="7.5" id="Jyn-0G-JGg"/>
-                        <constraint firstAttribute="trailing" secondItem="X5z-jf-074" secondAttribute="trailing" id="Ls2-SH-ZjL"/>
-                        <constraint firstItem="doG-E0-lyM" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="Nyj-2p-qEj"/>
-                        <constraint firstItem="9p6-ll-1JJ" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="RKP-2n-1fN"/>
-                        <constraint firstItem="SFr-bz-ddx" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="UKq-mj-BgE"/>
-                        <constraint firstItem="siY-Nv-ORm" firstAttribute="centerX" secondItem="quT-BJ-wtd" secondAttribute="centerX" id="ctW-6e-qUg"/>
-                        <constraint firstAttribute="trailing" secondItem="Ij2-ld-lk9" secondAttribute="trailing" id="hq3-Rc-s9h"/>
-                        <constraint firstItem="siY-Nv-ORm" firstAttribute="top" secondItem="doG-E0-lyM" secondAttribute="bottom" constant="4" id="n53-6j-axS"/>
-                        <constraint firstAttribute="height" constant="250" id="sq8-nm-ujP"/>
-                        <constraint firstItem="X5z-jf-074" firstAttribute="leading" secondItem="quT-BJ-wtd" secondAttribute="leading" id="ttD-MN-hhn"/>
-                        <constraint firstItem="SFr-bz-ddx" firstAttribute="top" secondItem="siY-Nv-ORm" secondAttribute="bottom" constant="1" id="uId-Dr-sHb"/>
-                        <constraint firstItem="X5z-jf-074" firstAttribute="top" secondItem="Ij2-ld-lk9" secondAttribute="bottom" constant="8" id="v5Z-WC-BbH"/>
-                        <constraint firstItem="Ij2-ld-lk9" firstAttribute="leading" secondItem="quT-BJ-wtd" secondAttribute="leading" id="xeS-Qu-InD"/>
-                        <constraint firstAttribute="width" constant="250" id="yfI-Fb-aXi"/>
+                        <constraint firstItem="3BS-Ql-CMP" firstAttribute="leading" secondItem="Ij2-ld-lk9" secondAttribute="leading" id="4k8-pa-gh6"/>
+                        <constraint firstItem="3BS-Ql-CMP" firstAttribute="bottom" secondItem="doG-E0-lyM" secondAttribute="bottom" id="J4Q-Ze-VSR"/>
+                        <constraint firstItem="Ij2-ld-lk9" firstAttribute="leading" secondItem="j7j-kz-Xa5" secondAttribute="leadingMargin" id="SdH-KJ-a5m"/>
+                        <constraint firstAttribute="bottom" secondItem="3BS-Ql-CMP" secondAttribute="bottom" id="cPd-2a-hhw"/>
+                        <constraint firstItem="Ij2-ld-lk9" firstAttribute="top" secondItem="j7j-kz-Xa5" secondAttribute="top" constant="23" id="hE2-Ol-N9F"/>
+                        <constraint firstItem="3BS-Ql-CMP" firstAttribute="top" secondItem="Ij2-ld-lk9" secondAttribute="top" id="iT1-eX-kJf"/>
+                        <constraint firstItem="doG-E0-lyM" firstAttribute="leading" secondItem="Ij2-ld-lk9" secondAttribute="trailing" constant="73" id="jhR-9L-vvb"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-ll-1JJ">
+                    <rect key="frame" x="0.0" y="0.0" width="74" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Jfx-Bl-XSt"/>
+                        <constraint firstAttribute="width" constant="57" id="tiX-aX-AdL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="&lt; Terug"/>
+                    <connections>
+                        <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="11O-Tf-lMg"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Co2counter" translatesAutoresizingMaskIntoConstraints="NO" id="a2L-hd-NFl">
+                    <rect key="frame" x="0.0" y="174" width="375" height="473"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="quT-BJ-wtd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="D0J-R0-NJV"/>
-                <constraint firstItem="4Ft-mZ-DkW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IdL-Ra-9ZE"/>
-                <constraint firstItem="quT-BJ-wtd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hge-YD-caM"/>
-                <constraint firstItem="4Ft-mZ-DkW" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uGa-9H-Zko"/>
+                <constraint firstItem="9p6-ll-1JJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-159" id="8TG-Pu-drY"/>
+                <constraint firstItem="j7j-kz-Xa5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="17" id="8gY-s4-wdr"/>
+                <constraint firstItem="j7j-kz-Xa5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="38" id="9jp-KY-0TX"/>
+                <constraint firstAttribute="bottom" secondItem="a2L-hd-NFl" secondAttribute="bottom" constant="20" id="RjY-9k-Cul"/>
+                <constraint firstItem="j7j-kz-Xa5" firstAttribute="top" secondItem="9p6-ll-1JJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Rp2-kM-BbX"/>
+                <constraint firstAttribute="bottom" secondItem="j7j-kz-Xa5" secondAttribute="bottom" constant="501" id="ahd-fJ-68X"/>
+                <constraint firstItem="a2L-hd-NFl" firstAttribute="top" secondItem="j7j-kz-Xa5" secondAttribute="bottom" constant="8" symbolic="YES" id="uRz-9u-aNw"/>
+                <constraint firstAttribute="trailing" secondItem="a2L-hd-NFl" secondAttribute="trailing" id="y9T-P2-HjD"/>
+                <constraint firstItem="a2L-hd-NFl" firstAttribute="leading" secondItem="9p6-ll-1JJ" secondAttribute="leading" id="yLQ-Ie-D8x"/>
+                <constraint firstAttribute="trailing" secondItem="j7j-kz-Xa5" secondAttribute="trailing" constant="15" id="zAr-oY-hmj"/>
             </constraints>
+            <point key="canvasLocation" x="32.5" y="56.5"/>
         </view>
     </objects>
     <resources>
-        <image name="CO2 Token counter" width="175" height="50"/>
+        <image name="Co2counter" width="600" height="601"/>
     </resources>
 </document>

@@ -20,6 +20,8 @@ class NewStatsViewController: UIViewController {
     @IBOutlet var tokenArrowsLabel: UILabel!
     @IBOutlet var statsCollectionView: UICollectionView!
     
+    @IBOutlet var co2AmountLabel: UILabel!
+    
     fileprivate let statsCell = UINib.init(nibName: "StatsCell", bundle: nil)
     fileprivate let statsCellWidth: CGFloat! = nil
     fileprivate let statsCellHeight: CGFloat! = nil
@@ -87,7 +89,7 @@ class NewStatsViewController: UIViewController {
                 })
             }
         }
-        blurEffectView.removeFromSuperview()
+    blurEffectView.removeFromSuperview()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -126,11 +128,25 @@ class NewStatsViewController: UIViewController {
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
     }
+    
     @IBAction func kiloGramButtonTapped(_ sender: Any) {
         print("KILO")
+        view.addSubview(blurEffectView)
+                let co2ViewController = CO2ViewController()
+                //co2ViewController.view.backgroundColor = UIColor.clear
+        
+                co2ViewController.co2AmountLabel.text = self.kiloGramLabel.text
+        
+                self.present(co2ViewController, animated: true, completion: nil)
     }
+    
     @IBAction func tokensButtonTapped(_ sender: Any) {
         print("TOKENS")
+        print(self.tokensLabel)
+        view.addSubview(blurEffectView)
+        let tokenVC = RecyQTokenViewController()
+        tokenVC.recyQTokenAmountLabel.text = self.tokensLabel.text
+        self.present(tokenVC, animated: true, completion: nil)
     }
 }
 
@@ -177,7 +193,7 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
             print("NOT the first launch")
         } else {
             print("This is the first launch")
-            view.addSubview(blurEffectView)
+            //view.addSubview(blurEffectView)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             UserDefaults.standard.synchronize()
             let tutorialVC = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
