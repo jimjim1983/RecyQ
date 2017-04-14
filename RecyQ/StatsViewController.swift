@@ -266,7 +266,7 @@ class StatsViewController: UIViewController {
     
     @IBAction func co2ButtonPressed(_ sender: UIButton) {
         
-        view.addSubview(blurEffectView)
+        //view.addSubview(blurEffectView)
 //        let co2ViewController = CO2ViewController()
 //        co2ViewController.view.backgroundColor = UIColor.clear
 //        
