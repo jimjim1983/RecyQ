@@ -15,10 +15,12 @@ class CO2ViewController: UIViewController {
     @IBOutlet weak var xButton: UIButton!
     //@IBOutlet weak var borderView: UIView!
     var co2Amount: String?
+    @IBOutlet weak var descriptionText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.clear
+        //descriptionText.font = UIFont(name: "VolvoBroad", size: 18)!
         if let co2Amount = co2Amount {
             self.co2AmountLabel.text = co2Amount
         }

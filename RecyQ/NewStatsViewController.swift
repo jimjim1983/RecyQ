@@ -55,9 +55,9 @@ class NewStatsViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        //NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
         
-        //UINavigationBar.appearance().backgroundColor = UIColor.white
+        UINavigationBar.appearance().backgroundColor = UIColor.white
 
         setupViews()
         scheduleLocalNotification()
