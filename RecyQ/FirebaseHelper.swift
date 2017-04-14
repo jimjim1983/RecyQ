@@ -44,7 +44,7 @@ struct FirebaseHelper {
                         currentUser = User(name: newUser.name.lowercased(), lastName: newUser.lastName!, address: newUser.address!, zipCode: newUser.zipCode!, city: newUser.city!, phoneNumber: newUser.phoneNumber!, addedByUser: newUser.addedByUser, nearestWasteLocation: newUser.nearestWasteLocation!, completed: false, amountOfPlastic: newUser.amountOfPlastic, amountOfPaper: newUser.amountOfPaper, amountOfTextile: newUser.amountOfTextile, amountOfEWaste: newUser.amountOfEWaste, amountOfBioWaste: newUser.amountOfBioWaste, uid: (user?.uid)!, spentCoins: newUser.spentCoins!)
                         
                         
-                        let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
+                        let userRef = References.clientsRef.child((currentUser?.name)!)
                         userRef.setValue(currentUser?.toAnyObject())
                         
 //                        if let newUserName = currentUser?.name {

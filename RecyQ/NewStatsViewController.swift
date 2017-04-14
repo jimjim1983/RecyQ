@@ -185,5 +185,5 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
             tutorialVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.present(tutorialVC, animated: true, completion: nil)
         }
-}
+    }
 }

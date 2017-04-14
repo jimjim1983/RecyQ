@@ -39,9 +39,9 @@ class SignUpViewController: UIViewController {
     fileprivate func setupViews() {
         title = "Registreer"
 
-        self.wasteLocations = [.amsterdamsePoort, .locatieB, .locatieC, .locatieD]
+        self.wasteLocations = [.amsterdamsePoort, .hBuurt, .holendrecht, .venserpolder]
         self.locationsPickerView.delegate = self
-        self.nearestLocationTextField.inputView = locationsPickerView
+        self.nearestLocationTextField.inputView = self.locationsPickerView
         
         let cancelButton = UIBarButtonItem(title: "Annuleer", style: .plain, target: self, action: #selector(dismissVC))
         self.navigationItem.setLeftBarButton(cancelButton, animated: true)

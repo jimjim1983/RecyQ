@@ -12,10 +12,10 @@ import Firebase
 // Todo: Update code by putting the snaphot init inside an extension of User. Than we can use the memberwise init of the struct in stead of the created init.
 
 enum NearestWasteLocation: String {
-    case amsterdamsePoort
-    case locatieB
-    case locatieC
-    case locatieD
+    case amsterdamsePoort = "A'damse Poort"
+    case hBuurt = "H-Buurt"
+    case holendrecht = "Holendrecht"
+    case venserpolder = "Venserpolder"
 }
 
 struct User {

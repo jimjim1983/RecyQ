@@ -26,9 +26,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGN-uU-0wT">
-                        <rect key="frame" x="8" y="131" width="139" height="19.5"/>
+                        <rect key="frame" x="8" y="131" width="289" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="139" id="GPW-y3-u1x"/>
+                            <constraint firstAttribute="width" constant="289" id="GPW-y3-u1x"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

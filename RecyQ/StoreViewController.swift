@@ -28,6 +28,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        title = "Recyq Shop"
         
         storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
         
@@ -108,11 +109,12 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let storeDetailVC = StoreDetailViewController()
         let storeItem = storeItemArray[indexPath.row]
         storeDetailVC.storeItem = storeItem
-        let navigationController = UINavigationController(rootViewController: storeDetailVC)
-        
-        DispatchQueue.main.async { () -> Void in
-        self.present(navigationController, animated: true, completion: nil)
-        }
+        self.navigationController?.pushViewController(storeDetailVC, animated: true)
+//        let navigationController = UINavigationController(rootViewController: storeDetailVC)
+//        
+//        DispatchQueue.main.async { () -> Void in
+//        self.present(navigationController, animated: true, completion: nil)
+//        }
     }
 
 }

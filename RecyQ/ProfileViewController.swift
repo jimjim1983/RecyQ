@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Profiel"
         
         tableView.dataSource = self
         tableView.delegate = self

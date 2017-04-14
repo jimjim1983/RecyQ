@@ -94,7 +94,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
             
             let leaderboardArray = sortedArrayOfWasteDictionaries[indexPath.row]
             
-            cell.nameLabel.text = leaderboardArray.0
+            cell.nameLabel.text = leaderboardArray.0.capitalized
             cell.co2SavedLabel.text = "\(leaderboardArray.1) kg"
     
 //            let user = userArray[indexPath.row]

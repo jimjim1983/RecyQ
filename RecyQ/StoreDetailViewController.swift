@@ -38,7 +38,6 @@ class StoreDetailViewController: UIViewController {
     var coupon: Coupon?
     
     @IBOutlet weak var price: UILabel!
-    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var image: UIImageView!
@@ -49,13 +48,13 @@ class StoreDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Wissel in"
+        self.image.addBorderWith(width: 1, color: .darkGray)
+        self.redeemButton.addBorderWith(width: 1, color: .darkGray)
         
-        redeemButton.layer.cornerRadius = 10
-      
-        titleLabel.text = storeItem.storeItemName
-        descriptionLabel.text = storeItem.storeItemDescription
-//        descriptionLabel.numberOfLines = 0
-        image.image = storeItem.storeItemImage
+        self.titleLabel.text = storeItem.storeItemName
+        self.descriptionLabel.text = storeItem.storeItemDescription
+        self.image.image = storeItem.storeItemImage
         
         if let tokensPrice = storeItem.storeItemPrice {
             if tokensPrice > 1 {
@@ -64,17 +63,8 @@ class StoreDetailViewController: UIViewController {
                 price.text = "Prijs: \(tokensPrice) token"
             }
         }
-        
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Terug", style: UIBarButtonItemStyle.plain, target: self, action: #selector(StoreDetailViewController.navigateBack))
-        
-        self.navigationItem.title = "Wissel in"
     }
-    
-    func navigateBack() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+
     @IBAction func redeemToken(_ sender: UIButton) {
             
        reachability = Reachability.init()
