@@ -55,9 +55,9 @@ class NewStatsViewController: UIViewController {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
         
-        UINavigationBar.appearance().backgroundColor = UIColor.white
+        //UINavigationBar.appearance().backgroundColor = UIColor.white
 
         setupViews()
         scheduleLocalNotification()
@@ -132,21 +132,20 @@ class NewStatsViewController: UIViewController {
     @IBAction func kiloGramButtonTapped(_ sender: Any) {
         print("KILO")
         view.addSubview(blurEffectView)
-                let co2ViewController = CO2ViewController()
-                //co2ViewController.view.backgroundColor = UIColor.clear
+        let co2ViewController = CO2ViewController()
+        //co2ViewController.view.backgroundColor = UIColor.clear
         
-                co2ViewController.co2AmountLabel.text = self.kiloGramLabel.text
-        
-                self.present(co2ViewController, animated: true, completion: nil)
+        co2ViewController.co2Amount = self.kiloGramLabel.text
+        self.present(co2ViewController, animated: true, completion: nil)
     }
     
     @IBAction func tokensButtonTapped(_ sender: Any) {
         print("TOKENS")
         print(self.tokensLabel)
-        view.addSubview(blurEffectView)
+        //view.addSubview(blurEffectView)
         let tokenVC = RecyQTokenViewController()
-        tokenVC.recyQTokenAmountLabel.text = self.tokensLabel.text
-        self.present(tokenVC, animated: true, completion: nil)
+        tokenVC.tokenAmount = self.tokensLabel.text
+       self.present(tokenVC, animated: true, completion: nil)
     }
 }
 

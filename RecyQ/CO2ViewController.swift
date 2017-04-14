@@ -14,24 +14,14 @@ class CO2ViewController: UIViewController {
     //@IBOutlet weak var co2View: UIView!
     @IBOutlet weak var xButton: UIButton!
     //@IBOutlet weak var borderView: UIView!
+    var co2Amount: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         
-//        borderView.layer.cornerRadius = 33
-//        borderView.layer.cornerRadius = 33
-//        borderView.layer.shadowRadius = 10
-//        borderView.layer.shadowOpacity = 0.2
-//        borderView.layer.shadowOffset = CGSize(width: 1, height: 1);
-//        borderView.layer.shadowPath = UIBezierPath(roundedRect: borderView.bounds, cornerRadius: 33.0).cgPath
-//        co2View.layer.cornerRadius = 33
-//        co2View.layer.shadowRadius = 10
-//        co2View.layer.shadowOpacity = 0.2
-//        co2View.layer.shadowOffset = CGSize(width: 1, height: 1);
-//        co2View.layer.shadowPath = UIBezierPath(roundedRect: co2View.bounds, cornerRadius: 33.0).cgPath
-//        co2View.backgroundColor = UIColor.white
+        if let co2Amount = co2Amount {
+            self.co2AmountLabel.text = co2Amount
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
