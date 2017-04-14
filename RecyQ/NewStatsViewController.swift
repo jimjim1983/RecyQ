@@ -124,7 +124,9 @@ class NewStatsViewController: UIViewController {
         let localNotification = UILocalNotification()
         localNotification.alertBody = "Je hebt al een maand niks gerecycled met RecyQ, ben je nog wel zero waste bezig? Breng binnen een week papier, textiel of plastic naar de dichts bijzijnde RecyQ locatie anders deactiveren we je account. No love lost!"
         localNotification.alertAction = "Open"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
         localNotification.fireDate = Date(timeIntervalSinceNow: 60)
+        localNotification.applicationIconBadgeNumber = 1
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
     }
