@@ -19,7 +19,7 @@ class CO2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.clear
+        //self.view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         //descriptionText.font = UIFont(name: "VolvoBroad", size: 18)!
         if let co2Amount = co2Amount {
             self.co2AmountLabel.text = co2Amount

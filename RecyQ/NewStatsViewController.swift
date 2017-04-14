@@ -33,7 +33,7 @@ class NewStatsViewController: UIViewController {
     fileprivate var kiloGramsTurnedIn: Double!
     fileprivate var tokensEarned: Double!
     
-    var blurEffectView = UIVisualEffectView()
+    //var blurEffectView = UIVisualEffectView()
     
     fileprivate let navBarLogoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
@@ -50,12 +50,12 @@ class NewStatsViewController: UIViewController {
         self.statsCollectionView.dataSource = self
         self.statsCollectionView.delegate = self
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
         
         UINavigationBar.appearance().backgroundColor = UIColor.white
 
@@ -85,11 +85,11 @@ class NewStatsViewController: UIViewController {
                     }
                     self.statsCollectionView.reloadData()
                     
-                    self.blurEffectView.removeFromSuperview()
+//                    self.blurEffectView.removeFromSuperview()
                 })
             }
         }
-    blurEffectView.removeFromSuperview()
+//    blurEffectView.removeFromSuperview()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,11 +131,12 @@ class NewStatsViewController: UIViewController {
     
     @IBAction func kiloGramButtonTapped(_ sender: Any) {
         print("KILO")
-        view.addSubview(blurEffectView)
+        //view.addSubview(blurEffectView)
         let co2ViewController = CO2ViewController()
         //co2ViewController.view.backgroundColor = UIColor.clear
         
         co2ViewController.co2Amount = self.kiloGramLabel.text
+        co2ViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         self.present(co2ViewController, animated: true, completion: nil)
     }
     
@@ -145,7 +146,8 @@ class NewStatsViewController: UIViewController {
         //view.addSubview(blurEffectView)
         let tokenVC = RecyQTokenViewController()
         tokenVC.tokenAmount = self.tokensLabel.text
-       self.present(tokenVC, animated: true, completion: nil)
+        tokenVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        self.present(tokenVC, animated: true, completion: nil)
     }
 }
 
@@ -176,15 +178,15 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100.0)
     }
     
-    func removeBlurView(_ sender: Notification) {
-        DispatchQueue.main.async { [unowned self] in
-            for subview in self.view.subviews as [UIView] {
-                if let blurEffectView = subview as? UIVisualEffectView {
-                    blurEffectView.removeFromSuperview()
-                }
-            }
-        }
-    }
+//    func removeBlurView(_ sender: Notification) {
+//        DispatchQueue.main.async { [unowned self] in
+//            for subview in self.view.subviews as [UIView] {
+//                if let blurEffectView = subview as? UIVisualEffectView {
+//                    blurEffectView.removeFromSuperview()
+//                }
+//            }
+//        }
+//    }
     
     func checkIfFirstLaunch() {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")

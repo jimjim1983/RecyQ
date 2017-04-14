@@ -55,6 +55,7 @@ class LoginViewController: UIViewController {
         faceBookLogInButton.readPermissions = ["email", "public_profile"]
         faceBookLogInButton.frame = CGRect(x: 16, y: 30, width: (UIScreen.main.bounds.width - 32), height: 30)
         self.view.addSubview(faceBookLogInButton)
+        
     }
     
     // MARK: - IBActions
