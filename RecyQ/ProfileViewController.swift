@@ -62,10 +62,13 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
             
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
-        self.nameLabel.text = (currentUser?.name.capitalized)! + " " + (currentUser?.lastName?.capitalized)! ?? currentUser?.name
-        //couponItems.removeAll(keepCapacity: true)
-        //naamInputLabel.text = currentUser?.name
-        //emailLabel.text = currentUser?.addedByUser
+        
+        if let lastname = currentUser?.lastName {
+            self.nameLabel.text = (currentUser?.name.capitalized)! + " " + lastname.capitalized
+        }
+        else {
+            self.nameLabel.text = currentUser?.name.capitalized
+        }
         
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrdered(byChild: "uid").queryEqual(toValue: currentUser?.uid).observe(.value, with: { snapshot in
