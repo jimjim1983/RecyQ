@@ -15,60 +15,25 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController, UITabBarDelegate {
     
-    //var storeItem: StoreItem!
-    var coupon: Coupon?
-    var couponItems = [FIRDataSnapshot]()
-    //var user: User!
-    
-    let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
-    
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var nameLabel: UILabel!
-
-    
+   
+    var coupon: Coupon?
+    var couponItems = [FIRDataSnapshot]()
+    let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     var tapGestureRecogniser: UITapGestureRecognizer!
-    var string: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Profiel"
-        let logOutBarButtonItem = UIBarButtonItem(title: "Log uit", style: .plain, target: self, action: #selector(logOut))
-        self.navigationItem.setRightBarButton(logOutBarButtonItem, animated: true)
-        self.tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(showCameraAlert))
-        self.profileImageView.addGestureRecognizer(tapGestureRecogniser)
-        self.profileImageView.addBorderWith(width: 1, color: .white)
-        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width / 2
-        self.profileImageView.clipsToBounds = true
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        loadProfileImage(pathComponent: "ProfileImage")
-        let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
-        
-        let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location, imageName: "customPinImage.png")
-        
-        let span = MKCoordinateSpanMake(0.002, 0.002)
-        
-        let region = MKCoordinateRegionMake(location, span)
-        
-                
-        let nib = UINib.init(nibName: "CouponsTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "cell")
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
             
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
-        
-        if let lastname = currentUser?.lastName {
-            self.nameLabel.text = (currentUser?.name.capitalized)! + " " + lastname.capitalized
-        }
-        else {
-            self.nameLabel.text = currentUser?.name.capitalized
-        }
         
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrdered(byChild: "uid").queryEqual(toValue: currentUser?.uid).observe(.value, with: { snapshot in
@@ -79,6 +44,34 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    fileprivate func setupViews() {
+        self.navigationItem.title = "Profiel"
+        
+        let logOutBarButtonItem = UIBarButtonItem(title: "Log uit", style: .plain, target: self, action: #selector(logOut))
+        self.navigationItem.setRightBarButton(logOutBarButtonItem, animated: true)
+        
+        self.tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(showCameraAlert))
+        self.profileImageView.addGestureRecognizer(tapGestureRecogniser)
+        
+        self.profileImageView.addBorderWith(width: 1, color: .white)
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width / 2
+        self.profileImageView.clipsToBounds = true
+        
+        if let lastname = currentUser?.lastName {
+            self.nameLabel.text = (currentUser?.name.capitalized)! + " " + lastname.capitalized
+        }
+        else {
+            self.nameLabel.text = currentUser?.name.capitalized
+        }
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        let nib = UINib.init(nibName: "CouponsTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "cell")
+        
+        loadProfileImage(pathComponent: "ProfileImage")
     }
     
     func logOut() {
