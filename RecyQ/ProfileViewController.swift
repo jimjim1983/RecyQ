@@ -177,14 +177,9 @@ extension ProfileViewController: UITableViewDataSource {
         
         if item.key .contains("Doneer") {
             let alertController = UIAlertController(title: "Bedankt voor je donatie", message: "Hou de Community pagina in de gaten om te zien wat er georganiseerd wordt", preferredStyle: .alert)
-            //            let OKAction = UIAlertAction(title: "Coupon verwijderen uit lijst?", style: .Default) { (action) in
-            //
-            //                let redeemedCouponsRef = Firebase(url: "https://recyqdb.firebaseio.com/coupons/\(name)")
-            //                redeemedCouponsRef.removeValue()
-            //            }
+  
             let cancelAction = UIAlertAction(title: "Terug", style: .default) { (action) in
             }
-            //            alertController.addAction(OKAction)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true) {
             }
@@ -219,46 +214,7 @@ extension ProfileViewController: UITableViewDelegate {
     
 }
 
-// MARK: Mapview delegate
-
-extension ProfileViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        let location = view.annotation as! RecyQAnnotation
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
-        // can also set this to driving instructions mode, if preferred. i love walking with garbage though.
-        location.mapItem().openInMaps(launchOptions: launchOptions)
-    }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        let identifier = "MyPin"
-        
-        if annotation.isKind(of: MKUserLocation.self) {
-            return nil
-        }
-        
-        // Reuse the annotation if possible
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        
-        if annotationView == nil
-        {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-            annotationView!.canShowCallout = true
-            annotationView!.image = UIImage(named: "RecyQ Green")
-            annotationView!.frame = CGRect(x: 0, y: 0, width: 55, height: 55)
-            let recyQCalloutButton = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
-            recyQCalloutButton.setImage(UIImage(named: "RecyQ Green"), for: UIControlState())
-            annotationView!.rightCalloutAccessoryView = recyQCalloutButton
-        }
-        else
-        {
-            annotationView!.annotation = annotation
-        }
-        return annotationView
-    }
-}
-
+// MARK: - Image picker functions.
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func showCameraAlert() {
         let alert = UIAlertController(title: "Profiel foto", message: "", preferredStyle: .actionSheet)
