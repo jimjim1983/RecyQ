@@ -1,3 +1,4 @@
+
 //
 //  ProfileViewController.swift
 //  RecyQ
@@ -21,27 +22,29 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
     
     let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     
-    @IBOutlet weak var naamLabel: UILabel!
+    @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var naamInputLabel: UILabel!
-    @IBOutlet var userInfoView: UIView!
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+
     
+    var tapGestureRecogniser: UITapGestureRecognizer!
     var string: String!
-    
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet var buttonToMaps: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Profiel"
         
+        self.navigationItem.title = "Profiel"
+        let logOutBarButtonItem = UIBarButtonItem(title: "Log uit", style: .plain, target: self, action: #selector(logOut))
+        self.navigationItem.setRightBarButton(logOutBarButtonItem, animated: true)
+        self.tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(showCameraAlert))
+        self.profileImageView.addGestureRecognizer(tapGestureRecogniser)
+        self.profileImageView.addBorderWith(width: 1, color: .white)
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.size.width / 2
+        self.profileImageView.clipsToBounds = true
         tableView.dataSource = self
         tableView.delegate = self
-        mapView.delegate = self
-        userInfoView.layer.cornerRadius = 10.0
         
+        loadProfileImage(pathComponent: "ProfileImage")
         let location = CLLocationCoordinate2DMake(52.297375, 4.987511)
         
         let recyQAnnotation = RecyQAnnotation(title: "RecyQ Drop-Off HQ", subtitle: "Wisseloord 182, 1106 MC, Amsterdam", coordinate: location, imageName: "customPinImage.png")
@@ -50,23 +53,19 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         
         let region = MKCoordinateRegionMake(location, span)
         
-        mapView.setRegion(region, animated: true)
-        
-        mapView.addAnnotation(recyQAnnotation)
-        
+                
         let nib = UINib.init(nibName: "CouponsTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "cell")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
             
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
-        
+        self.nameLabel.text = (currentUser?.name.capitalized)! + " " + (currentUser?.lastName?.capitalized)!
         //couponItems.removeAll(keepCapacity: true)
-        naamInputLabel.text = currentUser?.name
-        emailLabel.text = currentUser?.addedByUser
+        //naamInputLabel.text = currentUser?.name
+        //emailLabel.text = currentUser?.addedByUser
         
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         self.couponsRef.queryOrdered(byChild: "uid").queryEqual(toValue: currentUser?.uid).observe(.value, with: { snapshot in
@@ -77,6 +76,28 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    func logOut() {
+        _ = self.navigationController?.popViewController(animated: true)
+        // Check if the user is logged in via facebook
+        if FBSDKAccessToken.current() != nil {
+            
+            // Log out from facebook
+            FBSDKLoginManager().logOut()
+            print("User has logged out from facebook")
+        }
+        
+        // Log out from firebase
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            return
+        }
+        let loginVC = LoginViewController()
+        Constants.appDelegate.window?.rootViewController = loginVC
     }
     
     @IBAction func logoutButtonPressed(_ sender: UIButton) {
@@ -124,19 +145,30 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
 extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return couponItems.count
+        
+        if self.couponItems.count > 0 {
+            return couponItems.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CouponsTableViewCell
-        let item = couponItems[indexPath.row]
-        cell.nameLabel.text = item.key
         
+        if couponItems.count > 0 {
+            let item = couponItems[indexPath.row]
+            cell.nameLabel.text = item.key
+        }
+        else {
+            cell.nameLabel.text = "U heeft nog geen coupons verdiend."
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Uw verdiende coupons:"
+        let titleHeader = "Uw verdiende coupons:"
+        return titleHeader
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -223,9 +255,84 @@ extension ProfileViewController: MKMapViewDelegate {
         {
             annotationView!.annotation = annotation
         }
-        
         return annotationView
     }
 }
 
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func showCameraAlert() {
+        let alert = UIAlertController(title: "Profiel foto", message: "", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (cameraAction) in
+            print("Camera")
+            self.showCameraOrMediaLibrary(sourceType: .camera)
+      
+        }
+        
+        let photoLibraryAction = UIAlertAction(title: "Foto bibliotheek", style: .default) { (photoLibraryAction) in
+            print("Bibliotheek")
+            self.showCameraOrMediaLibrary(sourceType: .photoLibrary)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Annuleer", style: .destructive) { (cancelAction) in
+            print("annuleer")
+        }
+        
+        alert.addAction(cameraAction)
+        alert.addAction(photoLibraryAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showCameraOrMediaLibrary(sourceType: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        if sourceType == .camera {
+            imagePicker.allowsEditing = false
+        } else {
+            imagePicker.allowsEditing = false
+        }
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        self.profileImageView.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+       
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            let profileImage = image.fixOrientation()
+            profileImageView.image = profileImage
+            saveImage(image: profileImage, pathComponent: "ProfileImage")
+        }
+    }
+
+    func saveImage (image: UIImage, pathComponent: String) {
+        let pngImageData = UIImagePNGRepresentation(image)
+        let profileImageFileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent(pathComponent)
+        
+        do {
+            try pngImageData?.write(to: profileImageFileURL, options: .atomic)
+            print("Succesvol")
+        } catch {
+            print(error)
+        }
+    }
+    
+    func loadProfileImage(pathComponent: String) {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask    = FileManager.SearchPathDomainMask.userDomainMask
+        let paths               = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath          = paths.first
+        {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(pathComponent)
+            let image    = UIImage(contentsOfFile: imageURL.path)
+            self.profileImageView.image = image
+        }
+    }
+}
 

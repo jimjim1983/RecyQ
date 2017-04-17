@@ -31,7 +31,7 @@ class NewCommunityViewController: UIViewController {
     }
     
     fileprivate func setupViews() {
-        title = "Community"
+        self.navigationItem.title = "Community"
         self.watGaanWeDoenButton.addBorderWith(width: 1, color: .darkGray)
         self.wieStaatErBovenaanButton.addBorderWith(width: 1, color: .darkGray)
         self.communityPartnersButton.addBorderWith(width: 1, color: .darkGray)

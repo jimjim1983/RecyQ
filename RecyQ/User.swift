@@ -11,13 +11,6 @@ import Firebase
 
 // Todo: Update code by putting the snaphot init inside an extension of User. Than we can use the memberwise init of the struct in stead of the created init.
 
-enum NearestWasteLocation: String {
-    case amsterdamsePoort = "A'damse Poort"
-    case hBuurt = "H-Buurt"
-    case holendrecht = "Holendrecht"
-    case venserpolder = "Venserpolder"
-}
-
 struct User {
     
     let key: String
@@ -28,7 +21,7 @@ struct User {
     let city: String?
     let phoneNumber: String?
     let addedByUser: String //email
-    let nearestWasteLocation: NearestWasteLocation?
+    let nearestWasteLocation: String?
     let ref: FIRDatabaseReference?
     var completed: Bool
     let amountOfPlastic: Double
@@ -36,11 +29,12 @@ struct User {
     let amountOfTextile: Double
     let amountOfEWaste: Double
     let amountOfBioWaste: Double
+    var wasteDepositInfo: [String: Any]?
     let uid: String
     let spentCoins: Int?
     
     // Initialize from arbitrary data
-    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: NearestWasteLocation, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, uid: String, spentCoins: Int) {
+    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, wasteDepositInfo: [String: Any], uid: String, spentCoins: Int) {
         self.key = key
         self.name = name
         self.lastName = lastName
@@ -57,6 +51,7 @@ struct User {
         self.amountOfTextile = amountOfTextile
         self.amountOfEWaste = amountOfEWaste
         self.amountOfBioWaste = amountOfBioWaste
+        self.wasteDepositInfo = wasteDepositInfo
         self.uid = uid
         self.spentCoins = spentCoins
     }
@@ -72,7 +67,7 @@ struct User {
         city = snapshotValue?["city"] as? String
         phoneNumber = snapshotValue?["phoneNumber"] as? String
         addedByUser = snapshotValue?["addedByUser"] as! String
-        nearestWasteLocation = snapshotValue?["nearestWasteLocation"] as? NearestWasteLocation
+        nearestWasteLocation = snapshotValue?["nearestWasteLocation"] as? String
         completed = snapshotValue?["completed"] as! Bool
         ref = snapshot.ref
         amountOfPlastic = snapshotValue?["amountOfPlastic"] as! Double
@@ -80,6 +75,7 @@ struct User {
         amountOfTextile = snapshotValue?["amountOfTextile"] as! Double
         amountOfEWaste = snapshotValue?["amountOfEWaste"] as! Double
         amountOfBioWaste = snapshotValue?["amountOfBioWaste"] as! Double
+        wasteDepositInfo = snapshotValue?["wasteDepositInfo"] as? [String: Any]
         uid = snapshotValue?["uid"] as! String
         spentCoins = snapshotValue?["uid"] as? Int
     }
@@ -100,6 +96,7 @@ struct User {
             "amountOfTextile": amountOfTextile as AnyObject,
             "amountOfEWaste": amountOfEWaste as AnyObject,
             "amountOfBioWaste": amountOfBioWaste as AnyObject,
+            "wasteDepositInfo": wasteDepositInfo as AnyObject,
             "uid": uid as AnyObject,
             "spentCoins": spentCoins as AnyObject
         ]

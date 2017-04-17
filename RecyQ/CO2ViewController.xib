@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,12 +30,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-ll-1JJ">
-                    <rect key="frame" x="9" y="20" width="67" height="17"/>
+                    <rect key="frame" x="16" y="20" width="67" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="67" id="i4h-vr-JdI"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="&lt; Terug"/>
+                    <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
+                    <state key="normal" title="&lt; Terug">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
                     <connections>
                         <action selector="xButtonPressed:" destination="-1" eventType="touchUpInside" id="11O-Tf-lMg"/>
                     </connections>
@@ -100,7 +102,7 @@ KILOGRAM
             <constraints>
                 <constraint firstItem="j7j-kz-Xa5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="68" id="EyX-rN-bME"/>
                 <constraint firstItem="j7j-kz-Xa5" firstAttribute="centerX" secondItem="a2L-hd-NFl" secondAttribute="centerX" id="FyN-H2-nwt"/>
-                <constraint firstItem="9p6-ll-1JJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="9" id="LOC-gc-jgf"/>
+                <constraint firstItem="9p6-ll-1JJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="Uin-04-anl"/>
                 <constraint firstItem="9p6-ll-1JJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="aXI-8J-CHz"/>
                 <constraint firstAttribute="bottom" secondItem="a2L-hd-NFl" secondAttribute="bottom" constant="29" id="bqU-JD-qQL"/>
                 <constraint firstItem="j7j-kz-Xa5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="kgU-dU-jHb"/>

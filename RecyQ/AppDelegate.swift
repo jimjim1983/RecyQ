@@ -52,22 +52,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let newCommunityNavController = UINavigationController(rootViewController: secondTab)
         let thirdTab = StoreViewController(nibName: "StoreViewController", bundle:  nil)
         let storeNavController = UINavigationController(rootViewController: thirdTab)
-        let fourthTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle: nil)
+        let fourthTab = LocationsViewController(nibName: "LocationsViewController", bundle: nil)
+        let locationsNavController = UINavigationController(rootViewController: fourthTab)
+        let fifthTab = SocialMediaViewController(nibName: "SocialMediaViewController", bundle: nil)
         
-        let controllers = [newStatNavController, newCommunityNavController, storeNavController, fourthTab]
+        let controllers = [newStatNavController, newCommunityNavController, storeNavController, locationsNavController, fifthTab]
         
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
         secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
         thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "storeGrey"), tag: 3)
-        fourthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "communityGrey"), tag: 5)
+        fourthTab.tabBarItem = UITabBarItem(title: "Locaties", image: UIImage(named: "locatie2"), tag: 4)
+        fifthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "communityGrey"), tag: 5)
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+      UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -97,7 +99,7 @@ extension AppDelegate {
     }
 }
 
-//MARK: - Notification methods.
+//MARK: - Remote notification methods.
 extension AppDelegate {
     
     fileprivate func registerForRemoteNotifications(application: UIApplication) {
@@ -146,7 +148,6 @@ extension AppDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
         // Print full message.
         print(userInfo)
     }
@@ -160,7 +161,6 @@ extension AppDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
         // Print full message.
         print(userInfo)
         

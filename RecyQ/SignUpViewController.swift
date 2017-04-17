@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
     }
     
     fileprivate func setupViews() {
-        title = "Registreer"
+        self.navigationItem.title = "Registreer"
 
         self.wasteLocations = [.amsterdamsePoort, .hBuurt, .holendrecht, .venserpolder]
         self.locationsPickerView.delegate = self
@@ -58,7 +58,7 @@ class SignUpViewController: UIViewController {
     }
     
     fileprivate func createNewUser() -> User {
-        let newUser = User(name: nameTextField.text!, lastName: lastNameTextField.text!, address: addressTextField.text!, zipCode: zipCodeTextField.text!, city: cityTextField.text!, phoneNumber: phoneNumberTextField.text!, addedByUser: emailTextField.text!, nearestWasteLocation: NearestWasteLocation(rawValue: nearestLocationTextField.text!)!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: "", spentCoins: 0)
+        let newUser = User(name: nameTextField.text!, lastName: lastNameTextField.text!, address: addressTextField.text!, zipCode: zipCodeTextField.text!, city: cityTextField.text!, phoneNumber: phoneNumberTextField.text!, addedByUser: emailTextField.text!, nearestWasteLocation: NearestWasteLocation(rawValue: nearestLocationTextField.text!)!.rawValue, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: ["":""], uid: "", spentCoins: 0)
         return newUser
     }
     

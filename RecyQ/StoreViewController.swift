@@ -11,7 +11,6 @@ import Firebase
 
 class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     let ref = FIRDatabase.database().reference()
     
     var storeItemArray = [StoreItem]()
@@ -28,7 +27,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        title = "Recyq Shop"
+        self.navigationItem.title = "Recyq Shop"
         
         storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
         
@@ -47,36 +46,21 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
             
-        
-
-        
-//        ref.observeAuthEvent { authData in
-//            if self.ref?.authData != nil {
-//                
-//                self.ref?.queryOrdered(byChild: "uid").queryEqual(toValue: self.ref?.authData.uid).observe(.childAdded, with: { snapshot in
-//                    
-//                   let newSpentCoinsAmount = (snapshot?.value as AnyObject).object(forKey: "spentCoins") as? Int
-//            
-//                let totalWasteAmount =  user!.amountOfPlastic! + user!.amountOfPaper! + user!.amountOfTextile! + user!.amountOfIron! + user!.amountOfEWaste! + user!.amountOfBioWaste!
-//                
-//                let tokenAmount = round(totalWasteAmount/35)
-//                
-//                numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)!
-//                
-//                // this weird piece of code is here as a failsafe because sometimes I think the numberOfTokens amount isn't updated in time enough from data on the backend to prevent a negative token balance. TODO: Find another fix for this.
-//                    
-//                    if numberOfTokens <= 0 {
-//                        self.numberOfTokensLabel.text = "0"
-//                    } else {
-//                        self.numberOfTokensLabel.text = "\(numberOfTokens)"
-//                    }
-//                
-////                self.numberOfTokensLabel.text = "\(numberOfTokens)"
-//        
-//        
-//                })
-//            }
-//        }
+        FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
+                    let newSpentCoinsAmount = user.spentCoins ?? 0
+                    let totalWasteAmount =  user.amountOfPlastic + user.amountOfPaper + user.amountOfTextile + user.amountOfEWaste + user.amountOfBioWaste
+                    let tokenAmount = round(totalWasteAmount/35)
+                    numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)
+                    if numberOfTokens <= 0 {
+                        self.numberOfTokensLabel.text = "Je hebt nog geen tokens verdiend."
+                    } else {
+                        self.numberOfTokensLabel.text = "Je hebt \(numberOfTokens) tokens verdiend."
+                    }
+                })
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,14 +78,16 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         cell.selectionStyle = UITableViewCellSelectionStyle.default
         cell.title.text = storeItem.storeItemName
-        //cell.descriptionLabel.text = storeItem.storeItemDescription
         cell.storeItemImageView.image = storeItem.storeItemImage
-        cell.tokenImageView.image = UIImage (named: "recyqToken")
         
         if let price = storeItem.storeItemPrice {
-                cell.storeItemPrice.text = "\(price)"
+            if price > 1 {
+                cell.tokenLabel.text = "\(price) TOKENS"
+            }
+            else{
+                cell.tokenLabel.text = "\(price) TOKEN"
+            }
         }
-   
         return cell
     }
     
@@ -110,11 +96,6 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let storeItem = storeItemArray[indexPath.row]
         storeDetailVC.storeItem = storeItem
         self.navigationController?.pushViewController(storeDetailVC, animated: true)
-//        let navigationController = UINavigationController(rootViewController: storeDetailVC)
-//        
-//        DispatchQueue.main.async { () -> Void in
-//        self.present(navigationController, animated: true, completion: nil)
-//        }
     }
 
 }

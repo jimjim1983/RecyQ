@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Dit is nodig om een profiel foto in te stellen.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Dit is nodig om een profiel foto in te stellen.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PTMono.ttc</string>
@@ -61,12 +65,12 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb429280927413329</string>
+				<string>fb400420007007004</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>429280927413329</string>
+	<string>400420007007004</string>
 	<key>FacebookDisplayName</key>
 	<string>RecyQ</string>
 	<key>LSApplicationQueriesSchemes</key>
