@@ -194,6 +194,8 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
         if launchedBefore {
             print("NOT the first launch")
         } else {
+            self.tabBarController?.tabBar.isHidden = true
+            
             print("This is the first launch")
             //view.addSubview(blurEffectView)
             UserDefaults.standard.set(true, forKey: "launchedBefore")

@@ -20,6 +20,7 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tabBarController?.tabBar.isHidden = true
 
         self.scrollView.frame = CGRect(x:0, y:0, width: self.view.frame.width, height: self.view.frame.height)
         let scrollViewWidth:CGFloat = self.scrollView.frame.width
@@ -96,6 +97,7 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func startButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
 
