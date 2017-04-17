@@ -139,23 +139,24 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 print("Something went wrong with FB user login: \(error)")
             }
             else {
-                FirebaseHelper.queryOrderedBy(child: "uid", value: (user?.uid)!, completionHandler: { (fbUser) in
-                    if fbUser.address == "" {
-                        
-                        print("FB user logged in suceccfully: \(user)")
-                        if let result = result as? NSDictionary, let lastName = result["last_name"] as? String, let firstName = result["first_name"] as? String {
-                            if let fbCurrentUser = user {
-                                currentUser = User(name: firstName.lowercased(), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
-                                
-                                let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
-                                userRef.setValue(currentUser?.toAnyObject())
-                            }
+                print("FB user logged in suceccfully: \(user)")
+                if let result = result as? NSDictionary, let firstName = result["first_name"] as? String, let lastName = result["last_name"] as? String {
+                    
+                    FirebaseHelper.queryOrderedBy(child: "uid", value: (user?.uid)!, completionHandler: { (fbUser) in
+                        print("FBUSER = \(fbUser)")
+                        if fbUser.address == "" {
+                            
                         }
-                        else {
-                            currentUser = User(name: fbUser.name, lastName: fbUser.lastName!, address: fbUser.address!, zipCode: fbUser.zipCode!, city: fbUser.city!, phoneNumber: fbUser.phoneNumber!, addedByUser: fbUser.addedByUser, nearestWasteLocation: fbUser.nearestWasteLocation!, completed: fbUser.completed, amountOfPlastic: fbUser.amountOfPlastic, amountOfPaper: fbUser.amountOfPaper, amountOfTextile: fbUser.amountOfTextile, amountOfEWaste: fbUser.amountOfEWaste, amountOfBioWaste: fbUser.amountOfBioWaste, wasteDepositInfo: fbUser.wasteDepositInfo, uid: fbUser.uid, spentCoins: fbUser.spentCoins!)
-                        }
-                    }})
-               
+
+                    })
+                    
+//                    if let fbCurrentUser = user {
+//                        currentUser = User(name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
+//                        
+//                        let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
+//                        userRef.setValue(currentUser?.toAnyObject())
+//                    }
+                }
             }
         })
     }

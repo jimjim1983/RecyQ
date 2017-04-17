@@ -150,6 +150,7 @@ class NewStatsViewController: UIViewController {
             ref.child("city").setValue(currentUser?.city)
             ref.child("phoneNumber").setValue(currentUser?.phoneNumber)
             ref.child("nearestWasteLocation").setValue(currentUser?.nearestWasteLocation)
+            self.showAlertWith(title: "Bedankt.", message: "We zullen voorzichtig omgaan met uw gegevens.")
 
         }
         
