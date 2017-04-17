@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
             
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
-        self.nameLabel.text = (currentUser?.name.capitalized)! + " " + (currentUser?.lastName?.capitalized)!
+        self.nameLabel.text = (currentUser?.name.capitalized)! + " " + (currentUser?.lastName?.capitalized)! ?? currentUser?.name
         //couponItems.removeAll(keepCapacity: true)
         //naamInputLabel.text = currentUser?.name
         //emailLabel.text = currentUser?.addedByUser
