@@ -37,13 +37,17 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         stepsTextView.textColor = .black
         self.startButton.addBorderWith(width: 1, color: .darkGray)
         
-        let imgOne = UIImageView(frame: CGRect(x:66, y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        let imgOne = UIImageView(frame: CGRect(x:screenWidth/5, y:175,width:textView1.frame.width, height:textView1.frame.height))
         imgOne.image = UIImage(named: "recyqgroen")
-        let imgTwo = UIImageView(frame: CGRect(x:scrollViewWidth+66, y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgTwo = UIImageView(frame: CGRect(x:screenWidth+(screenWidth/5), y:175,width:textView1.frame.width, height:textView1.frame.height))
         imgTwo.image = UIImage(named: "recyqblauw")
-        let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2+66, y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgThree = UIImageView(frame: CGRect(x:screenWidth*2+(screenWidth/5), y:175,width:textView1.frame.width, height:textView1.frame.height))
         imgThree.image = UIImage(named: "recyqrood")
-        let imgFour = UIImageView(frame: CGRect(x:scrollViewWidth*3+66, y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgFour = UIImageView(frame: CGRect(x:screenWidth*3+(screenWidth/5), y:175,width:textView1.frame.width, height:textView1.frame.height))
         imgFour.image = UIImage(named: "recyqgeel")
         
         self.scrollView.addSubview(imgOne)
@@ -94,6 +98,7 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
             textView2.text = "Draag bij aan een betere wereld"
             stepsTextView.text = "Klaar"
 
+            pageControl.alpha = 0.0
             self.startButton.alpha = 1.0
             }
         }
