@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -62,19 +62,9 @@
                         <constraint firstAttribute="height" constant="147" id="2c2-hT-bk1"/>
                     </constraints>
                 </imageView>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="62O-j9-wjf">
-                    <rect key="frame" x="67" y="541" width="241" height="37"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="pageIndicatorTintColor" red="0.33007593600000001" green="0.99848425389999995" blue="0.38939808850000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="currentPageIndicatorTintColor" red="0.0" green="0.7843137255" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                </pageControl>
                 <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2t-Pn-KRf">
-                    <rect key="frame" x="77" y="530" width="220" height="40"/>
+                    <rect key="frame" x="77" y="603" width="220" height="44"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="iJ1-aN-j8W"/>
-                        <constraint firstAttribute="width" constant="220" id="zR0-CB-r1K"/>
-                    </constraints>
                     <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="32"/>
                     <state key="normal" title="Start">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,7 +74,7 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Stap 1" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzO-80-zkZ">
-                    <rect key="frame" x="152.5" y="139" width="71.5" height="28"/>
+                    <rect key="frame" x="152" y="139" width="72" height="28"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="sui-fQ-eC9"/>
@@ -92,28 +82,35 @@
                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="62O-j9-wjf">
+                    <rect key="frame" x="68" y="603" width="241" height="37"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="pageIndicatorTintColor" red="0.33007593600000001" green="0.99848425389999995" blue="0.38939808850000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="0.0" green="0.7843137255" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Bgf-Hh-rjQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="5Jb-st-dtX"/>
-                <constraint firstItem="8lS-aC-pBk" firstAttribute="centerX" secondItem="O2t-Pn-KRf" secondAttribute="centerX" id="CzF-F8-x7B"/>
-                <constraint firstAttribute="bottom" secondItem="62O-j9-wjf" secondAttribute="bottom" constant="89" id="Duh-8g-dzh"/>
-                <constraint firstAttribute="bottom" secondItem="O2t-Pn-KRf" secondAttribute="bottom" constant="97" id="Fbq-8K-saF"/>
+                <constraint firstItem="62O-j9-wjf" firstAttribute="trailing" secondItem="8lS-aC-pBk" secondAttribute="trailing" id="9O1-0W-Qj8"/>
+                <constraint firstItem="62O-j9-wjf" firstAttribute="centerX" secondItem="dzO-80-zkZ" secondAttribute="centerX" id="9f5-pw-Z2L"/>
                 <constraint firstItem="S7e-GK-7Qv" firstAttribute="trailing" secondItem="Bgf-Hh-rjQ" secondAttribute="trailing" id="HPa-n0-ZcT"/>
                 <constraint firstAttribute="bottom" secondItem="DQa-fq-qIo" secondAttribute="bottom" id="IED-9l-A3m"/>
+                <constraint firstAttribute="bottom" secondItem="O2t-Pn-KRf" secondAttribute="bottom" constant="20" id="L6B-KQ-8xX"/>
                 <constraint firstItem="DQa-fq-qIo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ndo-RH-rOP"/>
+                <constraint firstItem="O2t-Pn-KRf" firstAttribute="centerX" secondItem="S7e-GK-7Qv" secondAttribute="centerX" id="PZk-q6-bp9"/>
                 <constraint firstItem="8lS-aC-pBk" firstAttribute="centerX" secondItem="dzO-80-zkZ" secondAttribute="centerX" id="Q1X-OU-Jic"/>
                 <constraint firstItem="S7e-GK-7Qv" firstAttribute="leading" secondItem="Bgf-Hh-rjQ" secondAttribute="leading" id="STv-ij-wQe"/>
                 <constraint firstItem="DQa-fq-qIo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tfl-S0-m7m"/>
                 <constraint firstItem="Bgf-Hh-rjQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="UJ0-ab-Qsv"/>
                 <constraint firstItem="DQa-fq-qIo" firstAttribute="centerX" secondItem="Bgf-Hh-rjQ" secondAttribute="centerX" id="UzT-sP-Xra"/>
+                <constraint firstItem="62O-j9-wjf" firstAttribute="top" secondItem="O2t-Pn-KRf" secondAttribute="top" id="Y62-rh-hev"/>
                 <constraint firstItem="dzO-80-zkZ" firstAttribute="bottom" secondItem="Bgf-Hh-rjQ" secondAttribute="bottom" id="Y84-TC-tbX"/>
                 <constraint firstAttribute="trailing" secondItem="DQa-fq-qIo" secondAttribute="trailing" id="a5Z-bg-wsX"/>
-                <constraint firstItem="62O-j9-wjf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="67" id="iN3-41-hN9"/>
+                <constraint firstItem="O2t-Pn-KRf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="77" id="hNS-BD-IZH"/>
                 <constraint firstItem="S7e-GK-7Qv" firstAttribute="top" secondItem="8lS-aC-pBk" secondAttribute="bottom" constant="8" symbolic="YES" id="iaE-pf-vAH"/>
                 <constraint firstItem="8lS-aC-pBk" firstAttribute="top" secondItem="dzO-80-zkZ" secondAttribute="bottom" constant="31" id="uPQ-x8-UMm"/>
                 <constraint firstItem="dzO-80-zkZ" firstAttribute="centerX" secondItem="Bgf-Hh-rjQ" secondAttribute="centerX" id="uUr-JG-nTT"/>
-                <constraint firstItem="62O-j9-wjf" firstAttribute="centerX" secondItem="O2t-Pn-KRf" secondAttribute="centerX" id="z1j-1d-1bM"/>
                 <constraint firstItem="8lS-aC-pBk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="zdQ-xE-xeJ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
