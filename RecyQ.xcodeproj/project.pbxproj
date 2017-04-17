@@ -47,6 +47,8 @@
 		2BF803791E53646D005F67BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BF803781E53646D005F67BA /* GoogleService-Info.plist */; };
 		329B0060BCAC0E1462BE16BC /* Pods_RecyQTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F188368708ACACBA27794E /* Pods_RecyQTests.framework */; };
 		44F48B4D22AFBAC446146A70 /* Pods_RecyQUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35399C4795AEF0F51359899F /* Pods_RecyQUITests.framework */; };
+		A60F134F1EA4BEF2008AF695 /* NewTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60F134D1EA4BEF2008AF695 /* NewTutorialViewController.swift */; };
+		A60F13501EA4BEF2008AF695 /* NewTutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60F134E1EA4BEF2008AF695 /* NewTutorialViewController.xib */; };
 		A63B04201E782528006A7529 /* SocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63B041E1E782528006A7529 /* SocialMediaViewController.swift */; };
 		A63B04211E782528006A7529 /* SocialMediaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63B041F1E782528006A7529 /* SocialMediaViewController.xib */; };
 		A66778121E5C58E500B7B829 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66778101E5C58E500B7B829 /* TutorialViewController.swift */; };
@@ -135,6 +137,8 @@
 		5ACD1C2B68795C3FD1FEC637 /* Pods-RecyQUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQUITests/Pods-RecyQUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		802B308428765DEF1C80C6B8 /* Pods-RecyQ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQ.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQ/Pods-RecyQ.release.xcconfig"; sourceTree = "<group>"; };
 		A5F188368708ACACBA27794E /* Pods_RecyQTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A60F134D1EA4BEF2008AF695 /* NewTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTutorialViewController.swift; sourceTree = "<group>"; };
+		A60F134E1EA4BEF2008AF695 /* NewTutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTutorialViewController.xib; sourceTree = "<group>"; };
 		A63B041E1E782528006A7529 /* SocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaViewController.swift; sourceTree = "<group>"; };
 		A63B041F1E782528006A7529 /* SocialMediaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialMediaViewController.xib; sourceTree = "<group>"; };
 		A66778101E5C58E500B7B829 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				2BAEEBF51E77D12D008AB044 /* NewCommunityViewController.xib */,
 				2B3FEE6B1E8FDAB20053BC0C /* SignUpViewController.swift */,
 				2B3FEE6C1E8FDAB20053BC0C /* SignUpViewController.xib */,
+				A60F134D1EA4BEF2008AF695 /* NewTutorialViewController.swift */,
+				A60F134E1EA4BEF2008AF695 /* NewTutorialViewController.xib */,
 			);
 			name = "New ViewControllers";
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				2BF803791E53646D005F67BA /* GoogleService-Info.plist in Resources */,
 				A6A595A41CA023D400A120C1 /* LaunchScreen.storyboard in Resources */,
 				2BAEEBF71E77D12D008AB044 /* NewCommunityViewController.xib in Resources */,
+				A60F13501EA4BEF2008AF695 /* NewTutorialViewController.xib in Resources */,
 				2BF803501E4F91AA005F67BA /* CommunityViewController.xib in Resources */,
 				2BF803541E4F91AA005F67BA /* StoreViewController.xib in Resources */,
 				2BF8034C1E4F91AA005F67BA /* LeaderboardViewController.xib in Resources */,
@@ -718,6 +725,7 @@
 				F25FF4761CA1DDD5004BA7AB /* RecyQAnnotation.swift in Sources */,
 				F2510BAE1CA0450D008894CE /* StoreTableViewCell.swift in Sources */,
 				2BF803471E4F91AA005F67BA /* RecyQTokenViewController.swift in Sources */,
+				A60F134F1EA4BEF2008AF695 /* NewTutorialViewController.swift in Sources */,
 				2B33B0251E5DB798001524EF /* ReachabilityHelper.swift in Sources */,
 				2BF8034F1E4F91AA005F67BA /* CommunityViewController.swift in Sources */,
 				2BF803531E4F91AA005F67BA /* StoreViewController.swift in Sources */,

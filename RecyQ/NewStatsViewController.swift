@@ -65,6 +65,7 @@ class NewStatsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
             if let user = user {
                 FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
@@ -197,7 +198,7 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
             //view.addSubview(blurEffectView)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             UserDefaults.standard.synchronize()
-            let tutorialVC = TutorialViewController(nibName: "TutorialViewController", bundle: nil)
+            let tutorialVC = NewTutorialViewController(nibName: "NewTutorialViewController", bundle: nil)
             tutorialVC.view.backgroundColor = UIColor.clear
             tutorialVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.present(tutorialVC, animated: true, completion: nil)
