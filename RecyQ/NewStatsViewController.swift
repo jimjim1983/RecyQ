@@ -32,6 +32,11 @@ class NewStatsViewController: UIViewController {
     fileprivate var totalWasteAmounts: Double!
     fileprivate var kiloGramsTurnedIn: Double!
     fileprivate var tokensEarned: Double!
+    fileprivate var missingInformationAlert = UIAlertController()
+    fileprivate var dataSource: PickerViewDataSource!
+    fileprivate let locationsPickerView = UIPickerView()
+
+    var recyQLocations = [NearestWasteLocation]()
     
     fileprivate let navBarLogoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
@@ -58,6 +63,7 @@ class NewStatsViewController: UIViewController {
         FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
             if let user = user {
                 FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
+                    
                     self.wasteAmounts.removeAll()
                     
                     self.wasteAmounts.append(user.amountOfTextile)
@@ -98,6 +104,11 @@ class NewStatsViewController: UIViewController {
         self.coloredString = NSMutableAttributedString(string: self.tokenArrowsString, attributes: [NSForegroundColorAttributeName: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1)])
         self.coloredString.addAttribute(NSForegroundColorAttributeName, value: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), range: NSRange(location: 1, length: 5))
 //        self.tokenArrowsLabel.text = ""
+        
+        self.recyQLocations = [.amsterdamsePoort, .hBuurt, .holendrecht, .venserpolder]
+        self.dataSource = PickerViewDataSource(wasteLocations: self.recyQLocations)
+        self.locationsPickerView.dataSource = self.dataSource
+        self.locationsPickerView.delegate = self
     }
     
     func showProfile() {
@@ -105,12 +116,81 @@ class NewStatsViewController: UIViewController {
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
+    fileprivate func showMissingInformationAlert() {
+        self.missingInformationAlert = UIAlertController(title: "Let op!", message: "We hebben nog wat aanvullende informatie van u nodig.", preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Opslaan", style: .default) { (saveAction) in
+            let addressField = self.missingInformationAlert.textFields![0]
+            let zipCodeField = self.missingInformationAlert.textFields![1]
+            let cityField = self.missingInformationAlert.textFields![2]
+            let phoneNumberField = self.missingInformationAlert.textFields![3]
+            let nearestWasteLocationField = self.missingInformationAlert.textFields![4]
+            
+            for textField in self.missingInformationAlert.textFields! {
+                guard textField.text != "" else {
+                    let alert = UIAlertController(title: " \(textField.placeholder!) is niet ingevuld", message: "Zorg ervoor dat alle velden ingevuld zijn.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (okAction) in
+                        self.showMissingInformationAlert()
+                    })
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+            }
+            currentUser?.address = addressField.text!
+            currentUser?.zipCode = zipCodeField.text!
+            currentUser?.city = cityField.text!
+            currentUser?.phoneNumber = phoneNumberField.text!
+            currentUser?.nearestWasteLocation = nearestWasteLocationField.text!
+            
+            let name = currentUser?.name
+            let ref = FirebaseHelper.References.clientsRef.child(name!)
+            ref.child("address").setValue(currentUser?.address)
+            ref.child("zipCode").setValue(currentUser?.zipCode)
+            ref.child("city").setValue(currentUser?.city)
+            ref.child("phoneNumber").setValue(currentUser?.phoneNumber)
+            ref.child("nearestWasteLocation").setValue(currentUser?.nearestWasteLocation)
+
+        }
+        
+        self.missingInformationAlert.addTextField { (addressField) in
+            addressField.placeholder = "Adres en huisnummer"
+            addressField.autocapitalizationType = .words
+        }
+        
+        self.missingInformationAlert.addTextField { (zipCodeField) in
+            zipCodeField.placeholder = "Postcode"
+            zipCodeField.keyboardType = .numbersAndPunctuation
+            zipCodeField.autocapitalizationType = .allCharacters
+        }
+        
+        self.missingInformationAlert.addTextField { (cityField) in
+            cityField.placeholder = "Woonplaats"
+            cityField.autocapitalizationType = .words
+        }
+        
+        self.missingInformationAlert.addTextField { (phoneNumberField) in
+            phoneNumberField.placeholder = "Telefoonnummer"
+            phoneNumberField.keyboardType = .phonePad
+        }
+        
+        self.missingInformationAlert.addTextField { (nearestWasteLocationField) in
+            nearestWasteLocationField.placeholder = "Selecteer een locatie"
+            nearestWasteLocationField.inputView = self.locationsPickerView
+        }
+        
+        self.missingInformationAlert.addAction(saveAction)
+        
+        present(self.missingInformationAlert, animated: true, completion: nil)
+    }
+    
+    // Stil needs logic to set the date of the notification to 30 days after last waste deposit.
     private func scheduleLocalNotification() {
         let localNotification = UILocalNotification()
         localNotification.alertBody = "Je hebt al een maand niks gerecycled met RecyQ, ben je nog wel zero waste bezig? Breng binnen een week papier, textiel of plastic naar de dichts bijzijnde RecyQ locatie anders deactiveren we je account. No love lost!"
         localNotification.alertAction = "Open"
         localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.fireDate = Date(timeIntervalSinceNow: 60)
+        localNotification.fireDate = Date(timeIntervalSinceNow: 60 * 60 * 24 * 30)
         localNotification.applicationIconBadgeNumber = 1
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
@@ -162,6 +242,9 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             print("NOT the first launch")
+            if currentUser?.address == "" {
+                self.showMissingInformationAlert()
+            }
         } else {
             self.tabBarController?.tabBar.isHidden = true
             
@@ -173,5 +256,17 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
             tutorialVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.present(tutorialVC, animated: true, completion: nil)
         }
+    }
+}
+
+// MARK: - PickerView delegate methods
+extension NewStatsViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return recyQLocations[row].rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.missingInformationAlert.textFields?[4].text = recyQLocations[row].rawValue
     }
 }

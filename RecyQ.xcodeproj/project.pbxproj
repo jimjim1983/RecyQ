@@ -27,6 +27,7 @@
 		2BC69AE51E6C880D007D7291 /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69AE31E6C880D007D7291 /* StatsCell.xib */; };
 		2BC69AE91E6C8B92007D7291 /* PTMono.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69AE71E6C88A2007D7291 /* PTMono.ttc */; };
 		2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BC69AE81E6C88A2007D7291 /* VolvoBroad.ttf */; };
+		2BF00CF51EA542D40045DD7D /* PickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF00CF41EA542D40045DD7D /* PickerViewDataSource.swift */; };
 		2BF803431E4F91AA005F67BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8032D1E4F91AA005F67BA /* LoginViewController.swift */; };
 		2BF803441E4F91AA005F67BA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */; };
 		2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */; };
@@ -119,6 +120,7 @@
 		2BC69AE31E6C880D007D7291 /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatsCell.xib; sourceTree = "<group>"; };
 		2BC69AE71E6C88A2007D7291 /* PTMono.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = PTMono.ttc; sourceTree = "<group>"; };
 		2BC69AE81E6C88A2007D7291 /* VolvoBroad.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VolvoBroad.ttf; sourceTree = "<group>"; };
+		2BF00CF41EA542D40045DD7D /* PickerViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewDataSource.swift; sourceTree = "<group>"; };
 		2BF8032D1E4F91AA005F67BA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BF8032E1E4F91AA005F67BA /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		2BF8032F1E4F91AA005F67BA /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		2BAEEBF81E77D153008AB044 /* New ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2BF00CF41EA542D40045DD7D /* PickerViewDataSource.swift */,
 				2BC69ADE1E6C87EA007D7291 /* NewStatsViewController.swift */,
 				2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */,
 				2BAEEBF41E77D12D008AB044 /* NewCommunityViewController.swift */,
@@ -720,6 +723,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF8034B1E4F91AA005F67BA /* LeaderboardViewController.swift in Sources */,
+				2BF00CF51EA542D40045DD7D /* PickerViewDataSource.swift in Sources */,
 				A66778121E5C58E500B7B829 /* TutorialViewController.swift in Sources */,
 				2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */,
 				2B000DED1EA136C9007E5490 /* LocationsViewController.swift in Sources */,

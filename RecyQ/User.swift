@@ -15,13 +15,13 @@ struct User {
     
     let key: String
     let name: String
-    let lastName: String?
-    let address: String?
-    let zipCode: String?
-    let city: String?
-    let phoneNumber: String?
+    var lastName: String?
+    var address: String?
+    var zipCode: String?
+    var city: String?
+    var phoneNumber: String?
     let addedByUser: String //email
-    let nearestWasteLocation: String?
+    var nearestWasteLocation: String?
     let ref: FIRDatabaseReference?
     var completed: Bool
     let amountOfPlastic: Double
@@ -34,7 +34,7 @@ struct User {
     let spentCoins: Int?
     
     // Initialize from arbitrary data
-    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, wasteDepositInfo: [String: Any], uid: String, spentCoins: Int) {
+    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int) {
         self.key = key
         self.name = name
         self.lastName = lastName

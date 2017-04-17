@@ -114,6 +114,7 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
             print ("Error signing out: %@", signOutError)
             return
         }
+        currentUser = nil
         
         let loginVC = LoginViewController()
         Constants.appDelegate.window?.rootViewController = loginVC
