@@ -331,7 +331,13 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         {
             let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(pathComponent)
             let image    = UIImage(contentsOfFile: imageURL.path)
-            self.profileImageView.image = image
+            
+            if image == nil {
+                return
+            }
+            else {
+                self.profileImageView.image = image
+            }
         }
     }
 }
