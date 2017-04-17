@@ -17,6 +17,8 @@ class CO2ViewController: UIViewController {
     var co2Amount: String?
     @IBOutlet weak var descriptionText: UILabel!
     
+    var myTabBarControllerItems: [UITabBarItem]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.view.backgroundColor = UIColor(white: 1, alpha: 0.5)

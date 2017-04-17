@@ -114,21 +114,20 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             print("Error loggin in to facebook \(error)")
             return
         }
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, first_name, last_name, email, picture.type(large)"]).start { (connection, result, err) in
             print("Result is :\(result)")
-            
+            self.addFacebookUserToFireBase(result: result)
+
         }
-    
         print("Successfully logged in to facebook \(result)")
         FirebaseHelper.observeAuthentication()
-        self.addFacebookUserToFireBase()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Did logout from facebook")
     }
     
-    func addFacebookUserToFireBase() {
+    func addFacebookUserToFireBase(result: Any) {
         let accessToken = FBSDKAccessToken.current()
         guard let accessTokenString = accessToken?.tokenString else {
             return
@@ -141,20 +140,15 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             }
             else {
                 print("FB user logged in suceccfully: \(user)")
-                
-                if let fbCurrentUser = user {
-                    currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, lastName: "", address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: NearestWasteLocation(rawValue: "")!, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: (user?.uid)!, spentCoins: 0)
-                    
-                    
-                    let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
-                    userRef.setValue(currentUser?.toAnyObject())
-                    
-//                    if let newUserName = currentUser?.name {
-//                        self.username = newUserName
-//                        print(self.username as Any)
-//                    }
-//                    self.userUID = currentUser?.uid
+                if let result = result as? NSDictionary, let lastName = result["last_name"] as? String {
+                    if let fbCurrentUser = user {
+                        currentUser = User(name: (fbCurrentUser.displayName?.lowercased())!, lastName: "", address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: ["":""], uid: (user?.uid)!, spentCoins: 0)
+                        
+                        let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
+                        userRef.setValue(currentUser?.toAnyObject())
+                    }
                 }
+             
             }
         })
     }

@@ -109,26 +109,9 @@ class StatsViewController: UIViewController {
         FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
             if let user = user {
                 FirebaseHelper.References.clientsRef.queryOrdered(byChild: "uid").queryEqual(toValue: user.uid).observe(.childAdded, with: { (snapShot) in
-                    let name = (snapShot.value as AnyObject).object(forKey: "name") as? String
-                    let lastName = (snapShot.value as AnyObject).object(forKey: "lastName") as? String
-                    let address = (snapShot.value as AnyObject).object(forKey: "address") as? String
-                    let zipCode = (snapShot.value as AnyObject).object(forKey: "zipCode") as? String
-                    let city = (snapShot.value as AnyObject).object(forKey: "city") as? String
-                    let phoneNumber = (snapShot.value as AnyObject).object(forKey: "phoneNumber") as? String
-                    let email = (snapShot.value as AnyObject).object(forKey: "email") as? String
-                    let nearestWasteLocation = (snapShot.value as AnyObject).object(forKey: "nearestWasteLocation") as? NearestWasteLocation
-                    let amountOfPlastic = (snapShot.value as AnyObject).object(forKey: "amountOfPlastic") as? Double
-                    let amountOfBioWaste = (snapShot.value as AnyObject).object(forKey: "amountOfBioWaste") as? Double
-                    let amountOfEWaste = (snapShot.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
-                    let amountOfPaper = (snapShot.value as AnyObject).object(forKey: "amountOfPaper") as? Double
-                    let amountOfTextile = (snapShot.value as AnyObject).object(forKey: "amountOfTextile") as? Double
-                    let completed = (snapShot.value as AnyObject).object(forKey: "completed") as? Bool
-                    let uid = (snapShot.value as AnyObject).object(forKey: "uid") as? String
-                    let spentCoins = (snapShot.value as AnyObject).object(forKey: "spentCoins") as? Int
                     
-                    currentUser = User(name: name!, lastName: lastName!, address: address!, zipCode: zipCode!, city: city!, phoneNumber: phoneNumber!, addedByUser: email!, nearestWasteLocation: nearestWasteLocation!, completed: completed!, amountOfPlastic: amountOfPlastic!, amountOfPaper: amountOfPaper!, amountOfTextile: amountOfTextile!, amountOfEWaste: amountOfEWaste!, amountOfBioWaste: amountOfBioWaste!, uid: uid!, spentCoins:  spentCoins!)
+                    currentUser = User(snapshot: snapShot)
                     
-                    print(currentUser)
                     
                     if let plastic = currentUser?.amountOfPlastic {
                         self.plasticLabel.text = "\(plastic)"
@@ -163,10 +146,6 @@ class StatsViewController: UIViewController {
                     let biowasteCarbonSaved = round(((currentUser?.amountOfBioWaste)!/35) * 50) 
                     self.biowasteco2Label.text = "\(biowasteCarbonSaved)"
                     
-                    
-//                    self.totalWasteAmount = Double(currentUser?.amountOfPlastic!) + Double(currentUser?.amountOfPaper!) + Double(currentUser?.amountOfTextile!) + Double(currentUser?.amountOfIron!) + Double(currentUser?.amountOfEWaste!) + Double(currentUser?.amountOfBioWaste!)
-                    
-                    
                     self.totalWasteAmount.add((currentUser?.amountOfPlastic)!)
                     self.totalWasteAmount.add((currentUser?.amountOfPaper)!)
                     self.totalWasteAmount.add((currentUser?.amountOfTextile)!)
@@ -181,9 +160,6 @@ class StatsViewController: UIViewController {
                     numberOfTokens = (Int(self.tokenAmount))  - (currentUser?.spentCoins)!
                     
                     self.co2AmountLabel.text = "\(Int(self.co2Amount)) kg"
-                    
-                    
-                    // this weird piece of code is here as a failsafe because sometimes I think the numberOfTokens amount isn't updated in time enough from data on the backend to prevent a negative token balance. TODO: Find another fix for this.
                     
                     if numberOfTokens <= 0 {
                         self.tokenAmountLabel.text = "0"

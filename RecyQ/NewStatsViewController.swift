@@ -33,8 +33,6 @@ class NewStatsViewController: UIViewController {
     fileprivate var kiloGramsTurnedIn: Double!
     fileprivate var tokensEarned: Double!
     
-    //var blurEffectView = UIVisualEffectView()
-    
     fileprivate let navBarLogoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
         imageView.contentMode = .scaleAspectFit
@@ -49,15 +47,6 @@ class NewStatsViewController: UIViewController {
         self.statsCollectionView.register(statsCell, forCellWithReuseIdentifier: StatsCell.identifier)
         self.statsCollectionView.dataSource = self
         self.statsCollectionView.delegate = self
-        
-//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-//        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = view.bounds
-//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(StatsViewController.removeBlurView(_:)), name: NSNotification.Name(rawValue: "removeBlurView"), object: nil)
-        
-        UINavigationBar.appearance().backgroundColor = UIColor.white
 
         setupViews()
         scheduleLocalNotification()
@@ -84,12 +73,9 @@ class NewStatsViewController: UIViewController {
                         self.tokensLabel.text = "\(Int(tokensEarned))"
                     }
                     self.statsCollectionView.reloadData()
-                    
-//                    self.blurEffectView.removeFromSuperview()
                 })
             }
         }
-//    blurEffectView.removeFromSuperview()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,13 +85,12 @@ class NewStatsViewController: UIViewController {
     fileprivate func setupViews() {
         self.navigationController?.navigationBar.topItem?.titleView = self.navBarLogoImageView
         
-        let barButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profileGrey"), style: .plain, target: self, action: #selector(showProfile))
-        barButtonItem.tintColor = .lightGray
-        self.navigationItem.setRightBarButton(barButtonItem, animated: true)
+        let profileBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profileGrey"), style: .plain, target: self, action: #selector(showProfile))
+        profileBarButtonItem.tintColor = .lightGray
+        self.navigationItem.setRightBarButton(profileBarButtonItem, animated: true)
         
         self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
         self.tokenView.addBorderWith(width: 1, color: .darkGray)
-        
         
         // Colors the range of arrows in the label
         self.tokenArrowsString = self.tokenArrowsLabel.text!
@@ -117,7 +102,6 @@ class NewStatsViewController: UIViewController {
     func showProfile() {
         let profileVC = ProfileViewController()
         self.navigationController?.pushViewController(profileVC, animated: true)
-        
     }
     
     private func scheduleLocalNotification() {
@@ -132,20 +116,13 @@ class NewStatsViewController: UIViewController {
     }
     
     @IBAction func kiloGramButtonTapped(_ sender: Any) {
-        print("KILO")
-        //view.addSubview(blurEffectView)
         let co2ViewController = CO2ViewController()
-        //co2ViewController.view.backgroundColor = UIColor.clear
-        
         co2ViewController.co2Amount = self.kiloGramLabel.text
         co2ViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         self.present(co2ViewController, animated: true, completion: nil)
     }
     
     @IBAction func tokensButtonTapped(_ sender: Any) {
-        print("TOKENS")
-        print(self.tokensLabel)
-        //view.addSubview(blurEffectView)
         let tokenVC = RecyQTokenViewController()
         tokenVC.tokenAmount = self.tokensLabel.text
         tokenVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
@@ -180,23 +157,12 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100.0)
     }
     
-//    func removeBlurView(_ sender: Notification) {
-//        DispatchQueue.main.async { [unowned self] in
-//            for subview in self.view.subviews as [UIView] {
-//                if let blurEffectView = subview as? UIVisualEffectView {
-//                    blurEffectView.removeFromSuperview()
-//                }
-//            }
-//        }
-//    }
-    
     func checkIfFirstLaunch() {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             print("NOT the first launch")
         } else {
             print("This is the first launch")
-            //view.addSubview(blurEffectView)
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             UserDefaults.standard.synchronize()
             let tutorialVC = TutorialViewController(nibName: "TutorialViewController", bundle: nil)

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B000DED1EA136C9007E5490 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B000DEB1EA136C9007E5490 /* LocationsViewController.swift */; };
+		2B000DEE1EA136C9007E5490 /* LocationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B000DEC1EA136C9007E5490 /* LocationsViewController.xib */; };
+		2B000DF31EA375F8007E5490 /* LocationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B000DF11EA375F8007E5490 /* LocationsCell.swift */; };
+		2B000DF41EA375F8007E5490 /* LocationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B000DF21EA375F8007E5490 /* LocationsCell.xib */; };
+		2B000DF61EA38C44007E5490 /* RecyQLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B000DF51EA38C44007E5490 /* RecyQLocation.swift */; };
 		2B33B0251E5DB798001524EF /* ReachabilityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B33B0241E5DB798001524EF /* ReachabilityHelper.swift */; };
 		2B3FEE6D1E8FDAB20053BC0C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3FEE6B1E8FDAB20053BC0C /* SignUpViewController.swift */; };
 		2B3FEE6E1E8FDAB20053BC0C /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B3FEE6C1E8FDAB20053BC0C /* SignUpViewController.xib */; };
@@ -91,6 +96,11 @@
 /* Begin PBXFileReference section */
 		0202F441CAF079FDFE40917C /* Pods-RecyQTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecyQTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecyQTests/Pods-RecyQTests.release.xcconfig"; sourceTree = "<group>"; };
 		1234D1A815A0841D1AFDD903 /* Pods_RecyQ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecyQ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B000DEB1EA136C9007E5490 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		2B000DEC1EA136C9007E5490 /* LocationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationsViewController.xib; sourceTree = "<group>"; };
+		2B000DF11EA375F8007E5490 /* LocationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsCell.swift; sourceTree = "<group>"; };
+		2B000DF21EA375F8007E5490 /* LocationsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationsCell.xib; sourceTree = "<group>"; };
+		2B000DF51EA38C44007E5490 /* RecyQLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecyQLocation.swift; sourceTree = "<group>"; };
 		2B33B0241E5DB798001524EF /* ReachabilityHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityHelper.swift; sourceTree = "<group>"; };
 		2B3FEE6B1E8FDAB20053BC0C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		2B3FEE6C1E8FDAB20053BC0C /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -213,6 +223,8 @@
 				2BC69ADF1E6C87EA007D7291 /* NewStatsViewController.xib */,
 				2BAEEBF41E77D12D008AB044 /* NewCommunityViewController.swift */,
 				2BAEEBF51E77D12D008AB044 /* NewCommunityViewController.xib */,
+				2B000DEB1EA136C9007E5490 /* LocationsViewController.swift */,
+				2B000DEC1EA136C9007E5490 /* LocationsViewController.xib */,
 				2B3FEE6B1E8FDAB20053BC0C /* SignUpViewController.swift */,
 				2B3FEE6C1E8FDAB20053BC0C /* SignUpViewController.xib */,
 			);
@@ -342,6 +354,7 @@
 				A6E1FF6B1CA18ECD006F0F4B /* User.swift */,
 				A6E1FF691CA15980006F0F4B /* StoreItem.swift */,
 				A6BC039F1CCA27B8009FAACE /* Coupon.swift */,
+				2B000DF51EA38C44007E5490 /* RecyQLocation.swift */,
 				F25FF4751CA1DDD5004BA7AB /* RecyQAnnotation.swift */,
 			);
 			name = Models;
@@ -367,6 +380,8 @@
 				F2510BAD1CA0450D008894CE /* StoreTableViewCell.xib */,
 				A683EE6A1CD91B5600D6E725 /* CouponsTableViewCell.swift */,
 				A683EE6B1CD91B5600D6E725 /* CouponsTableViewCell.xib */,
+				2B000DF11EA375F8007E5490 /* LocationsCell.swift */,
+				2B000DF21EA375F8007E5490 /* LocationsCell.xib */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -521,6 +536,7 @@
 				2BF803481E4F91AA005F67BA /* RecyQTokenViewController.xib in Resources */,
 				A6A5959F1CA023D400A120C1 /* Main.storyboard in Resources */,
 				A66778131E5C58E500B7B829 /* TutorialViewController.xib in Resources */,
+				2B000DF41EA375F8007E5490 /* LocationsCell.xib in Resources */,
 				2BC69AEA1E6C8B95007D7291 /* VolvoBroad.ttf in Resources */,
 				F2510BAF1CA0450D008894CE /* StoreTableViewCell.xib in Resources */,
 				2B3FEE6E1E8FDAB20053BC0C /* SignUpViewController.xib in Resources */,
@@ -528,6 +544,7 @@
 				A63B04211E782528006A7529 /* SocialMediaViewController.xib in Resources */,
 				2BF8034E1E4F91AA005F67BA /* PartnersViewController.xib in Resources */,
 				2BC69AE91E6C8B92007D7291 /* PTMono.ttc in Resources */,
+				2B000DEE1EA136C9007E5490 /* LocationsViewController.xib in Resources */,
 				2BF803461E4F91AA005F67BA /* StatsViewController.xib in Resources */,
 				2BF803561E4F91AA005F67BA /* StoreDetailViewController.xib in Resources */,
 				2BF803521E4F91AA005F67BA /* InfoViewController.xib in Resources */,
@@ -698,8 +715,11 @@
 				2BF8034B1E4F91AA005F67BA /* LeaderboardViewController.swift in Sources */,
 				A66778121E5C58E500B7B829 /* TutorialViewController.swift in Sources */,
 				2BC69AE41E6C880D007D7291 /* StatsCell.swift in Sources */,
+				2B000DED1EA136C9007E5490 /* LocationsViewController.swift in Sources */,
 				2B4C17B61E5C5C2C00F34CC2 /* Constants.swift in Sources */,
 				A6BC03A01CCA27B8009FAACE /* Coupon.swift in Sources */,
+				2B000DF31EA375F8007E5490 /* LocationsCell.swift in Sources */,
+				2B000DF61EA38C44007E5490 /* RecyQLocation.swift in Sources */,
 				2B4F0FA21E73E44600B16B09 /* NavBarLogoImageView.swift in Sources */,
 				2BF803571E4F91AA005F67BA /* ProfileViewController.swift in Sources */,
 				2BF803451E4F91AA005F67BA /* StatsViewController.swift in Sources */,
