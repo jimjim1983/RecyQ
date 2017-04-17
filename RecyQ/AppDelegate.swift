@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
-        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
+        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "home-icon"), tag: 2)
         thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "storeGrey"), tag: 3)
         fourthTab.tabBarItem = UITabBarItem(title: "Locaties", image: UIImage(named: "locatie2"), tag: 4)
         fifthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "communityGrey"), tag: 5)
