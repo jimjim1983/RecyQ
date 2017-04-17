@@ -34,7 +34,7 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         stepsTextView.text = "Stap 1"
         textView2.textColor = .black
         stepsTextView.textColor = .black
-        self.startButton.layer.cornerRadius = 4.0
+        self.startButton.addBorderWith(width: 1, color: .darkGray)
         
         let imgOne = UIImageView(frame: CGRect(x:66, y:175,width:textView1.frame.width, height:textView1.frame.height))
         imgOne.image = UIImage(named: "recyqgroen")
@@ -74,16 +74,19 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
             textView1.text = "Welkom bij RecyQ"
             textView2.text = "Je account is geopend. Je kunt nu beginnen met het scheiden van plastic, textiel en papier"
             stepsTextView.text = "Stap 1"
+            self.startButton.alpha = 0
         }
         else if Int(currentPage) == 1{
             textView1.text = "Lever je volle tassen in"
             textView2.text = "Haal een zero waste tas op bij een van de locaties om je afval in te leveren"
             stepsTextView.text = "Stap 2"
+            self.startButton.alpha = 0
         }
         else if Int(currentPage) == 2{
             textView1.text = "Verzilver je gespaarde tokens"
             textView2.text = "Voor korting op producten en diensten in de Zero Waste Store en bij ondernemers in de Amsterdamse Poort"
             stepsTextView.text = "Stap 3"
+            self.startButton.alpha = 0
         }
         else {
             textView1.text = "Red het milieu"
