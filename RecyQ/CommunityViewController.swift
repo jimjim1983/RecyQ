@@ -64,8 +64,6 @@ class CommunityViewController: UIViewController {
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                eurosCount = snapshots.count
                 print(snapshots)
-                print(eurosCount)
-                
                 if let communityEuros = eurosCount {
                 
                 self.communityCounterLabel.text = "€\(communityEuros)"

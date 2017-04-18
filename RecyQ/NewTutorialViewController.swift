@@ -23,8 +23,6 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         //self.tabBarController?.tabBar.isHidden = true
 
         self.scrollView.frame = CGRect(x:0, y:0, width: self.view.frame.width, height: self.view.frame.height)
-        let scrollViewWidth:CGFloat = self.scrollView.frame.width
-        let scrollViewHeight:CGFloat = self.scrollView.frame.height
         
         textView1.font = UIFont(name: "VolvoBroad", size: 38)!
         textView1.textAlignment = .center
@@ -39,7 +37,6 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
         
         let imgOne = UIImageView(frame: CGRect(x:0, y:175,width:screenWidth, height:textView1.frame.height))
         imgOne.image = UIImage(named: "recyqgroen")

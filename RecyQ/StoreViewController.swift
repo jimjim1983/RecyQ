@@ -56,7 +56,9 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     if numberOfTokens <= 0 {
                         self.numberOfTokensLabel.text = "Je hebt nog geen tokens verdiend."
                     } else {
-                        self.numberOfTokensLabel.text = "Je hebt \(numberOfTokens) tokens verdiend."
+                        if let numberOfTokens = numberOfTokens {
+                            self.numberOfTokensLabel.text = "Je hebt \(numberOfTokens) tokens verdiend."
+                        }
                     }
                 })
             }
