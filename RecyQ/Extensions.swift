@@ -68,7 +68,6 @@ extension UIViewController {
 }
 
 //MARK:- Image Orientation fix
-
 extension UIImage {
     func fixOrientation() -> UIImage {
         

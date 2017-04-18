@@ -120,7 +120,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
 
         }
         print("Successfully logged in to facebook \(result)")
-        FirebaseHelper.observeAuthentication()
+        //FirebaseHelper.observeAuthentication()
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -151,10 +151,18 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     })
                     
                     if let fbCurrentUser = user {
-                        currentUser = User(name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
+                        FirebaseHelper.queryOrderedBy(child: "uid", value: fbCurrentUser.uid, completionHandler: { (fbUser) in
+                            if fbUser.address == "" {
+                                currentUser = User(name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
+                                
+                                let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
+                                userRef.setValue(currentUser?.toAnyObject())
+                            } else {
+                                return
+                            }
+                        })
                         
-                        let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
-                        userRef.setValue(currentUser?.toAnyObject())
+                       
                     }
                 }
             }
