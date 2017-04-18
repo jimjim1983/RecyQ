@@ -80,13 +80,16 @@ class NewStatsViewController: UIViewController {
                         self.tokensLabel.text = "\(Int(tokensEarned))"
                     }
                     self.statsCollectionView.reloadData()
+                    if user.address == "" {
+                        self.showMissingInformationAlert()
+                    }
                 })
             }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        checkIfFirstLaunch()
+        //checkIfFirstLaunch()
     }
     
     fileprivate func setupViews() {
@@ -151,7 +154,7 @@ class NewStatsViewController: UIViewController {
             ref.child("phoneNumber").setValue(currentUser?.phoneNumber)
             ref.child("nearestWasteLocation").setValue(currentUser?.nearestWasteLocation)
             self.showAlertWith(title: "Bedankt.", message: "We zullen voorzichtig omgaan met uw gegevens.")
-
+            self.checkIfFirstLaunch()
         }
         
         self.missingInformationAlert.addTextField { (addressField) in
@@ -243,9 +246,7 @@ extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
             print("NOT the first launch")
-            if currentUser?.address == "" {
-                self.showMissingInformationAlert()
-            }
+          
         } else {
             self.tabBarController?.tabBar.isHidden = true
             
