@@ -25,7 +25,7 @@ class SocialMediaViewController: UIViewController {
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
         case 0: //textLabel.text = "Instagram"
-            webView.loadRequest(URLRequest(url: URL(string: "http://www.instagram.com")!));
+            webView.loadRequest(URLRequest(url: URL(string: "https://www.instagram.com/zerowasteamsterdam/")!));
         case 1: //textLabel.text = "Youtube"
             webView.loadRequest(URLRequest(url: URL(string: "https://www.youtube.com/channel/UChP2c-VMkBxykwp8CFQuZDQ")!));
         case 2: //textLabel.text = "Facebook"
