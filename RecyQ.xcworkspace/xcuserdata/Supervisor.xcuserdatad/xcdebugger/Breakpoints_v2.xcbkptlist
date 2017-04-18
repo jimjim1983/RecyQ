@@ -6,70 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RecyQ/LoginViewController.swift"
-            timestampString = "514158012.462982"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "addFacebookUserToFireBase(result:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1)"
-                  moduleName = "RecyQ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.923048"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "2600">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1)"
-                  moduleName = "RecyQ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.929459"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "2948">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "RecyQ"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.937757"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "592">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/LoginViewController.swift"
@@ -89,53 +26,69 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/LoginViewController.swift"
-            timestampString = "514158257.504119"
+            timestampString = "514197343.543109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "addFacebookUserToFireBase(result:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/LoginViewController.swift"
+            timestampString = "514197409.667288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "addFacebookUserToFireBase(result:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1)"
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.964645"
+                  timestampString = "514199601.380602"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
                   endingLineNumber = "145"
-                  offsetFromSymbolStart = "2600">
+                  offsetFromSymbolStart = "2624">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1)"
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.970289"
+                  timestampString = "514199601.383369"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
                   endingLineNumber = "145"
-                  offsetFromSymbolStart = "2948">
+                  offsetFromSymbolStart = "7068">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.976397"
+                  timestampString = "514199601.386877"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "146"
@@ -152,11 +105,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/LoginViewController.swift"
-            timestampString = "514159463.917009"
+            timestampString = "514199500.489858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "addFacebookUserToFireBase(result:)"
             landmarkType = "7">
             <Locations>
@@ -168,27 +121,155 @@
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.992099"
+                  timestampString = "514200735.41624"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "2724">
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "2824">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1).(closure #1)"
+                  symbolName = "RecyQ.LoginViewController.(addFacebookUserToFireBase (result : Swift.Optional&lt;Any&gt;) -&gt; ()).(closure #1)"
                   moduleName = "RecyQ"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
-                  timestampString = "514159559.999247"
+                  timestampString = "514200735.419227"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "1808">
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "2856">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/FirebaseHelper.swift"
+            timestampString = "514198613.717686"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "queryOrderedBy(child:value:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RecyQ.FirebaseHelper.queryOrderedBy (child : Swift.String, value : Swift.String, completionHandler : (RecyQ.User) -&gt; ()) -&gt; ()"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
+                  timestampString = "514200735.426945"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static RecyQ.FirebaseHelper.(queryOrderedBy (child : Swift.String, value : Swift.String, completionHandler : (RecyQ.User) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/FirebaseHelper.swift"
+                  timestampString = "514200735.430031"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/FirebaseHelper.swift"
+            timestampString = "514198622.590873"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "queryOrderedBy(child:value:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/FirebaseHelper.swift"
+            timestampString = "514198623.601586"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "queryOrderedBy(child:value:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecyQ/LoginViewController.swift"
+            timestampString = "514198797.933476"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "loginButton(_:didCompleteWith:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecyQ.LoginViewController.loginButton (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FBSDKLoginButton&gt;, didCompleteWith : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FBSDKLoginManagerLoginResult&gt;, error : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
+                  timestampString = "514200735.449814"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RecyQ.LoginViewController.(loginButton (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FBSDKLoginButton&gt;, didCompleteWith : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FBSDKLoginManagerLoginResult&gt;, error : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Error&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "RecyQ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Supervisor/RecyQ/RecyQ/LoginViewController.swift"
+                  timestampString = "514200735.452726"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -200,12 +281,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/LoginViewController.swift"
-            timestampString = "514159463.917009"
+            timestampString = "514198811.224553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "addFacebookUserToFireBase(result:)"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "loginButton(_:didCompleteWith:error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
