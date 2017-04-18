@@ -17,6 +17,24 @@ extension UIViewController {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func checkIfFirstLaunch() {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore {
+            print("NOT the first launch")
+            
+        } else {
+            self.tabBarController?.tabBar.isHidden = true
+            
+            print("This is the first launch")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.synchronize()
+            let tutorialVC = NewTutorialViewController(nibName: "NewTutorialViewController", bundle: nil)
+            tutorialVC.view.backgroundColor = UIColor.clear
+            tutorialVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(tutorialVC, animated: true, completion: nil)
+        }
+    }
 }
 
 // Ads aborder to a view.

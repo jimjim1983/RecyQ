@@ -88,10 +88,6 @@ class NewStatsViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //checkIfFirstLaunch()
-    }
-    
     fileprivate func setupViews() {
         self.navigationController?.navigationBar.topItem?.titleView = self.navBarLogoImageView
         
@@ -240,24 +236,6 @@ extension NewStatsViewController: UICollectionViewDataSource {
 extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100.0)
-    }
-    
-    func checkIfFirstLaunch() {
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore {
-            print("NOT the first launch")
-          
-        } else {
-            self.tabBarController?.tabBar.isHidden = true
-            
-            print("This is the first launch")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            UserDefaults.standard.synchronize()
-            let tutorialVC = NewTutorialViewController(nibName: "NewTutorialViewController", bundle: nil)
-            tutorialVC.view.backgroundColor = UIColor.clear
-            tutorialVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            self.present(tutorialVC, animated: true, completion: nil)
-        }
     }
 }
 
