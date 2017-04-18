@@ -904,7 +904,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C8021EA8521A8D6D25053F9A /* Pods-RecyQ.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RecyQ/RecyQ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -931,7 +931,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 802B308428765DEF1C80C6B8 /* Pods-RecyQ.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = RecyQ/RecyQ.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: The App Academy Ventures B.V. (HZWL927386)";
