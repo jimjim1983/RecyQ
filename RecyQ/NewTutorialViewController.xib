@@ -37,11 +37,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </scrollView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Main text" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lS-aC-pBk">
-                    <rect key="frame" x="66" y="198" width="243" height="210"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Main text" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lS-aC-pBk">
+                    <rect key="frame" x="32" y="198" width="314" height="210"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="210" id="22y-fE-gdm"/>
+                        <constraint firstAttribute="height" constant="210" id="Xnb-uJ-DEC"/>
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -83,7 +83,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="62O-j9-wjf">
-                    <rect key="frame" x="68" y="603" width="241" height="37"/>
+                    <rect key="frame" x="160" y="603" width="55" height="37"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="pageIndicatorTintColor" red="0.33007593600000001" green="0.99848425389999995" blue="0.38939808850000002" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="currentPageIndicatorTintColor" red="0.0" green="0.7843137255" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,14 +92,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Bgf-Hh-rjQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="5Jb-st-dtX"/>
-                <constraint firstItem="62O-j9-wjf" firstAttribute="trailing" secondItem="8lS-aC-pBk" secondAttribute="trailing" id="9O1-0W-Qj8"/>
                 <constraint firstItem="62O-j9-wjf" firstAttribute="centerX" secondItem="dzO-80-zkZ" secondAttribute="centerX" id="9f5-pw-Z2L"/>
                 <constraint firstItem="S7e-GK-7Qv" firstAttribute="trailing" secondItem="Bgf-Hh-rjQ" secondAttribute="trailing" id="HPa-n0-ZcT"/>
                 <constraint firstAttribute="bottom" secondItem="DQa-fq-qIo" secondAttribute="bottom" id="IED-9l-A3m"/>
                 <constraint firstAttribute="bottom" secondItem="O2t-Pn-KRf" secondAttribute="bottom" constant="20" id="L6B-KQ-8xX"/>
+                <constraint firstItem="S7e-GK-7Qv" firstAttribute="top" secondItem="8lS-aC-pBk" secondAttribute="bottom" constant="8" symbolic="YES" id="MjW-ZF-duK"/>
                 <constraint firstItem="DQa-fq-qIo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ndo-RH-rOP"/>
                 <constraint firstItem="O2t-Pn-KRf" firstAttribute="centerX" secondItem="S7e-GK-7Qv" secondAttribute="centerX" id="PZk-q6-bp9"/>
-                <constraint firstItem="8lS-aC-pBk" firstAttribute="centerX" secondItem="dzO-80-zkZ" secondAttribute="centerX" id="Q1X-OU-Jic"/>
                 <constraint firstItem="S7e-GK-7Qv" firstAttribute="leading" secondItem="Bgf-Hh-rjQ" secondAttribute="leading" id="STv-ij-wQe"/>
                 <constraint firstItem="DQa-fq-qIo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tfl-S0-m7m"/>
                 <constraint firstItem="Bgf-Hh-rjQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="UJ0-ab-Qsv"/>
@@ -108,10 +107,10 @@
                 <constraint firstItem="dzO-80-zkZ" firstAttribute="bottom" secondItem="Bgf-Hh-rjQ" secondAttribute="bottom" id="Y84-TC-tbX"/>
                 <constraint firstAttribute="trailing" secondItem="DQa-fq-qIo" secondAttribute="trailing" id="a5Z-bg-wsX"/>
                 <constraint firstItem="O2t-Pn-KRf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="77" id="hNS-BD-IZH"/>
-                <constraint firstItem="S7e-GK-7Qv" firstAttribute="top" secondItem="8lS-aC-pBk" secondAttribute="bottom" constant="8" symbolic="YES" id="iaE-pf-vAH"/>
-                <constraint firstItem="8lS-aC-pBk" firstAttribute="top" secondItem="dzO-80-zkZ" secondAttribute="bottom" constant="31" id="uPQ-x8-UMm"/>
+                <constraint firstItem="8lS-aC-pBk" firstAttribute="centerX" secondItem="dzO-80-zkZ" secondAttribute="centerX" id="hUb-Me-ZXz"/>
+                <constraint firstItem="8lS-aC-pBk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="lSt-YG-hqd"/>
                 <constraint firstItem="dzO-80-zkZ" firstAttribute="centerX" secondItem="Bgf-Hh-rjQ" secondAttribute="centerX" id="uUr-JG-nTT"/>
-                <constraint firstItem="8lS-aC-pBk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="66" id="zdQ-xE-xeJ"/>
+                <constraint firstItem="8lS-aC-pBk" firstAttribute="top" secondItem="dzO-80-zkZ" secondAttribute="bottom" constant="31" id="vZh-IP-4C9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
