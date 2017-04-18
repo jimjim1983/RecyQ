@@ -15,6 +15,7 @@ import FirebaseAuth
 
 class ProfileViewController: UIViewController, UITabBarDelegate {
     
+    @IBOutlet var cameraIconImageView: UIImageView!
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var nameLabel: UILabel!
@@ -251,6 +252,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         self.profileImageView.image = image
+        self.cameraIconImageView.isHidden = true
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -259,7 +261,8 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let profileImage = image.fixOrientation()
-            profileImageView.image = profileImage
+            self.profileImageView.image = profileImage
+            self.cameraIconImageView.isHidden = true
             saveImage(image: profileImage, pathComponent: "ProfileImage")
         }
     }
@@ -290,6 +293,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             }
             else {
                 self.profileImageView.image = image
+                self.cameraIconImageView.isHidden = true
             }
         }
     }

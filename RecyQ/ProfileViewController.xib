@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="cameraIconImageView" destination="kqk-ad-i1U" id="JG5-J6-irS"/>
                 <outlet property="nameLabel" destination="pUa-pD-N9i" id="CjT-Da-ap8"/>
                 <outlet property="profileImageView" destination="lZB-B3-ier" id="oEy-Sc-RKa"/>
                 <outlet property="tableView" destination="sYK-cU-E7D" id="6Dj-bm-t53"/>
@@ -46,6 +47,10 @@
                                 <constraint firstAttribute="width" constant="150" id="CmI-HM-TYk"/>
                                 <constraint firstAttribute="height" constant="150" id="wcQ-f3-yd2"/>
                             </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Camera_898989_75" translatesAutoresizingMaskIntoConstraints="NO" id="kqk-ad-i1U">
+                            <rect key="frame" x="150" y="97" width="75" height="75"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.17647058823529413" green="0.80784313725490198" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,6 +88,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Camera_898989_75" width="75" height="75"/>
         <image name="buurtactiviteitStore" width="950" height="713"/>
     </resources>
 </document>

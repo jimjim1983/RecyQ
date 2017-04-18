@@ -121,6 +121,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
         }
         print("Successfully logged in to facebook \(result)")
         //FirebaseHelper.observeAuthentication()
+
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -139,31 +140,25 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 print("Something went wrong with FB user login: \(error)")
             }
             else {
-                print("FB user logged in suceccfully: \(user)")
+                
                 if let result = result as? NSDictionary, let firstName = result["first_name"] as? String, let lastName = result["last_name"] as? String {
                     
-                    FirebaseHelper.queryOrderedBy(child: "uid", value: (user?.uid)!, completionHandler: { (fbUser) in
-                        print("FBUSER = \(fbUser)")
-                        if fbUser.address == "" {
-                            
-                        }
-
-                    })
-                    
-                    if let fbCurrentUser = user {
-                        FirebaseHelper.queryOrderedBy(child: "uid", value: fbCurrentUser.uid, completionHandler: { (fbUser) in
-                            if fbUser.address == "" {
-                                currentUser = User(name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (fbCurrentUser.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
-                                
-                                let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
-                                userRef.setValue(currentUser?.toAnyObject())
-                            } else {
-                                return
-                            }
-                        })
+                    FirebaseHelper.References.clientsRef.queryOrdered(byChild: "uid").queryEqual(toValue: user?.uid).observe(.value, with: { (snapShot) in
                         
-                       
-                    }
+                        if snapShot.value is NSNull {
+                            currentUser = User(name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (user?.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
+                            
+                            let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
+                            userRef.setValue(currentUser?.toAnyObject())
+                        }
+                    })
+                }
+                print("FB user logged in suceccfully: \(user)")
+                
+                if let fbCurrentUser = user {
+                    FirebaseHelper.queryOrderedBy(child: "uid", value: fbCurrentUser.uid, completionHandler: { (fbUser) in
+                        
+                    })
                 }
             }
         })
