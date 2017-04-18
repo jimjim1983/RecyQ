@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var signUpButton: UIButton!
     
     var wasteLocations = [NearestWasteLocation]()
-    let locationsPickerView = UIPickerView()
+    var locationsPickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.removeKeyboardNotificationObserver()
+        self.checkIfFirstLaunch()
     }
     
     fileprivate func setupViews() {
@@ -108,5 +109,6 @@ extension SignUpViewController: UIPickerViewDataSource {
 extension SignUpViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.nearestLocationTextField.text = wasteLocations[row].rawValue
+        self.view.endEditing(true)
     }
 }

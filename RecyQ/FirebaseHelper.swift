@@ -94,6 +94,7 @@ struct FirebaseHelper {
             if user != nil {
                 Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
                 Constants.appDelegate.tabbarController?.selectedIndex = 0
+                Constants.appDelegate.window?.rootViewController?.checkIfFirstLaunch()
             }
             else {
                 let loginViewController = LoginViewController()
@@ -121,7 +122,7 @@ struct FirebaseHelper {
             
         default:
             print("Handle default situation")
-            sender.showAlertWith(title: "Oeps!", message: "Something went wrong. Please check your internet connection & try again.")
+            sender.showAlertWith(title: "Oeps!", message: "Of het wachtwoord heeft mider dan 6 karakters, of het emailadres bestaat al")
         }
     }
     
