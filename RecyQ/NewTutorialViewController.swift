@@ -41,13 +41,13 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
-        let imgOne = UIImageView(frame: CGRect(x:screenWidth/5, y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgOne = UIImageView(frame: CGRect(x:0, y:175,width:screenWidth, height:textView1.frame.height))
         imgOne.image = UIImage(named: "recyqgroen")
-        let imgTwo = UIImageView(frame: CGRect(x:screenWidth+(screenWidth/5), y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgTwo = UIImageView(frame: CGRect(x:screenWidth, y:175,width:screenWidth, height:textView1.frame.height))
         imgTwo.image = UIImage(named: "recyqblauw")
-        let imgThree = UIImageView(frame: CGRect(x:screenWidth*2+(screenWidth/5), y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgThree = UIImageView(frame: CGRect(x:screenWidth*2, y:175,width:screenWidth, height:textView1.frame.height))
         imgThree.image = UIImage(named: "recyqrood")
-        let imgFour = UIImageView(frame: CGRect(x:screenWidth*3+(screenWidth/5), y:175,width:textView1.frame.width, height:textView1.frame.height))
+        let imgFour = UIImageView(frame: CGRect(x:screenWidth*3, y:175,width:screenWidth, height:textView1.frame.height))
         imgFour.image = UIImage(named: "recyqgeel")
         
         self.scrollView.addSubview(imgOne)
@@ -62,6 +62,10 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,8 +108,9 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         }
     
     @IBAction func startButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
         self.tabBarController?.tabBar.isHidden = false
+        self.dismiss(animated: true, completion: nil)
+        
     }
 
 
