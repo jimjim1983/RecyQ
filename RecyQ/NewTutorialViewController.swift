@@ -63,6 +63,10 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -104,8 +108,9 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
         }
     
     @IBAction func startButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
         self.tabBarController?.tabBar.isHidden = false
+        self.dismiss(animated: true, completion: nil)
+        
     }
 
 
