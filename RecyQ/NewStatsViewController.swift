@@ -80,6 +80,7 @@ class NewStatsViewController: UIViewController {
                         self.tokensLabel.text = "\(Int(tokensEarned))"
                     }
                     self.statsCollectionView.reloadData()
+                    /* Check if we have all the user information by checking if we have an address. If a user signs in via Facebook for the first time this will prompt the user to provide the missing information.*/
                     if user.address == "" {
                         self.showMissingInformationAlert()
                     }
