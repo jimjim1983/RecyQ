@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SocialMediaViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="annotationView" destination="JX8-jD-NaA" id="wBR-j5-9uq"/>
                 <outlet property="segmentedControl" destination="h7y-vK-zqG" id="8O6-Pl-ljh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="aTR-iF-lM8" id="xgI-79-ZjY"/>
@@ -23,6 +24,7 @@
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="h7y-vK-zqG">
                     <rect key="frame" x="27" y="66" width="320" height="29"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <segments>
                         <segment title="Instagram"/>
                         <segment title="Youtube"/>
@@ -46,11 +48,17 @@
                     <rect key="frame" x="0.0" y="102" width="375" height="545"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </webView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="JX8-jD-NaA">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" red="0.1764705882" green="0.80784313730000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="JX8-jD-NaA" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0dG-fX-mvl"/>
                 <constraint firstAttribute="trailing" secondItem="JWk-7p-WBB" secondAttribute="trailing" id="6YZ-6e-XqN"/>
                 <constraint firstItem="aTR-iF-lM8" firstAttribute="trailing" secondItem="JWk-7p-WBB" secondAttribute="trailing" id="7mT-fk-3lW"/>
+                <constraint firstItem="JX8-jD-NaA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kzb-gl-ttZ"/>
                 <constraint firstItem="aTR-iF-lM8" firstAttribute="leading" secondItem="JWk-7p-WBB" secondAttribute="leading" id="L3U-Eh-7ey"/>
                 <constraint firstItem="h7y-vK-zqG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="LBZ-0y-c5z"/>
                 <constraint firstItem="h7y-vK-zqG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LUA-uE-O3g"/>

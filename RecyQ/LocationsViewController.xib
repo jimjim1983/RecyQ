@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationsViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Ldh-wG-Dwj" id="Nn1-GP-9KC"/>
                 <outlet property="tableView" destination="gIW-tT-ipe" id="A7s-KZ-L8N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,11 +25,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-wG-Dwj">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" red="0.1764705882" green="0.80784313730000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gIW-tT-ipe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Pl-rK-BgH"/>
                 <constraint firstItem="gIW-tT-ipe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Eu7-Nf-UHz"/>
+                <constraint firstItem="Ldh-wG-Dwj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Gcy-gD-AAs"/>
+                <constraint firstItem="Ldh-wG-Dwj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PsV-hf-RtJ"/>
                 <constraint firstAttribute="trailing" secondItem="gIW-tT-ipe" secondAttribute="trailing" id="iH2-XJ-Y38"/>
                 <constraint firstAttribute="bottom" secondItem="gIW-tT-ipe" secondAttribute="bottom" id="yqv-6z-niA"/>
             </constraints>

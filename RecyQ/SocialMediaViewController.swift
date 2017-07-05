@@ -11,43 +11,46 @@ import UIKit
 class SocialMediaViewController: UIViewController {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    //@IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet var annotationView: UIActivityIndicatorView!
     
+    fileprivate let instagramURL = URL(string: "http://www.instagram.com")
+    fileprivate let youtubeURL = URL(string: "https://www.youtube.com/channel/UChP2c-VMkBxykwp8CFQuZDQ")
+    fileprivate let facebookURL = URL(string: "https://www.facebook.com/RecyQ-381878658877532/")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.white], for: UIControlState.selected)
-        webView.loadRequest(URLRequest(url: URL(string: "http://www.instagram.com")!))
-        // Do any additional setup after loading the view.
+        self.webView.delegate = self
+        setUpInitialWebView()
+    }
+    
+    fileprivate func setUpInitialWebView() {
+        if let instagramURL = self.instagramURL {
+            self.webView.loadRequest(URLRequest(url: instagramURL))
+        }
     }
 
     @IBAction func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {
-        case 0: //textLabel.text = "Instagram"
-            webView.loadRequest(URLRequest(url: URL(string: "https://www.instagram.com/zerowasteamsterdam/")!));
-        case 1: //textLabel.text = "Youtube"
-            webView.loadRequest(URLRequest(url: URL(string: "https://www.youtube.com/channel/UChP2c-VMkBxykwp8CFQuZDQ")!));
-        case 2: //textLabel.text = "Facebook"
-            webView.loadRequest(URLRequest(url: URL(string: "https://www.facebook.com/RecyQ-381878658877532/")!));
+        case 0:
+            if let instagramURL = self.instagramURL {
+                self.webView.loadRequest(URLRequest(url: instagramURL))
+            }
+        case 1:
+            if let youtubeURL = self.youtubeURL {
+                self.webView.loadRequest(URLRequest(url: youtubeURL))
+            }
+        case 2:
+            if let facebookURL = self.facebookURL {
+            self.webView.loadRequest(URLRequest(url: facebookURL))
+            }
         default: break
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension SocialMediaViewController: UIWebViewDelegate {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        self.annotationView.stopAnimating()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
