@@ -7,38 +7,49 @@
 //
 
 import UIKit
+import KDCircularProgress
 
 class RecyQTokenViewController: UIViewController {
 
+    @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet weak var recyQTokenAmountLabel: UILabel!
-    @IBOutlet weak var xButton: UIButton!
-    @IBOutlet weak var recyQTokenView: UIView!
-    @IBOutlet weak var shopButton: UIButton!
+    @IBOutlet var tokenProgressView: KDCircularProgress!
     
     var tokenAmount: String?
+    fileprivate var angle: Double!
+    fileprivate let navBarLogoImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "recyq_logo_s_RGB")
+        imageView.image = image
+        return imageView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let tokenAmount = self.tokenAmount {
-            self.recyQTokenAmountLabel.text = tokenAmount
+            self.recyQTokenAmountLabel.text = tokenAmount + " TOKENS VERDIEND"
         }
+        self.navigationBar.topItem?.titleView = self.navBarLogoImageView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
+        animateProgressView()
     }
     
-    @IBAction func xButtonPressed(_ sender: UIButton) {
+    @IBAction func dismissButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-         //NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "removeBlurView"), object:  self))
     }
-    
-    @IBAction func shopButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-        
-        Constants.appDelegate.window?.rootViewController = Constants.appDelegate.tabbarController
-        Constants.appDelegate.tabbarController?.selectedIndex = 2
+}
+
+extension RecyQTokenViewController {
+    func animateProgressView() {
+        let startAngle = 0
+        self.angle = 300
+        self.tokenProgressView.animate(fromAngle: Double(startAngle), toAngle: angle, duration: 1) { (completed) in
+        }
     }
 }

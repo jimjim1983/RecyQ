@@ -48,13 +48,13 @@
                             <rect key="frame" x="199" y="55" width="137" height="112"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Totaal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-QC-ibC">
-                                    <rect key="frame" x="38" y="8" width="61.5" height="20"/>
+                                    <rect key="frame" x="38.5" y="8" width="61.5" height="20"/>
                                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="780.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ImJ-nP-kVX">
-                                    <rect key="frame" x="0.0" y="34" width="91" height="40"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="000.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ImJ-nP-kVX">
+                                    <rect key="frame" x="12" y="34" width="91" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="e6X-wr-kHP"/>
                                     </constraints>
@@ -63,13 +63,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gerecycled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzP-AL-nBE">
-                                    <rect key="frame" x="18" y="82" width="102.5" height="21"/>
+                                    <rect key="frame" x="17.5" y="82" width="102.5" height="21"/>
                                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="KG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-ea-lTP">
-                                    <rect key="frame" x="91" y="31" width="26" height="21"/>
+                                    <rect key="frame" x="103" y="31" width="26" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="IuK-fO-IwF"/>
                                         <constraint firstAttribute="width" constant="26" id="fxO-8a-hHx"/>
@@ -85,12 +85,12 @@
                                 <constraint firstAttribute="bottom" secondItem="xzP-AL-nBE" secondAttribute="bottom" constant="9" id="7pm-k1-Jnm"/>
                                 <constraint firstItem="xzP-AL-nBE" firstAttribute="centerX" secondItem="hpV-NM-cag" secondAttribute="centerX" id="Ecs-5H-AMU"/>
                                 <constraint firstItem="xzP-AL-nBE" firstAttribute="top" secondItem="UoY-ea-lTP" secondAttribute="bottom" constant="29.5" id="JR2-P7-dsG"/>
-                                <constraint firstAttribute="trailing" secondItem="UoY-ea-lTP" secondAttribute="trailing" constant="20" id="M9P-Jh-Xim"/>
+                                <constraint firstAttribute="trailing" secondItem="UoY-ea-lTP" secondAttribute="trailing" constant="8" id="M9P-Jh-Xim"/>
                                 <constraint firstItem="3cq-QC-ibC" firstAttribute="centerX" secondItem="hpV-NM-cag" secondAttribute="centerX" id="Nzd-W4-chK"/>
                                 <constraint firstItem="ImJ-nP-kVX" firstAttribute="top" secondItem="3cq-QC-ibC" secondAttribute="bottom" constant="6" id="eNe-SQ-HNJ"/>
                                 <constraint firstItem="UoY-ea-lTP" firstAttribute="leading" secondItem="ImJ-nP-kVX" secondAttribute="trailing" id="mLa-iL-G1E"/>
                                 <constraint firstItem="UoY-ea-lTP" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="top" constant="31" id="mNQ-W2-zB6"/>
-                                <constraint firstItem="ImJ-nP-kVX" firstAttribute="leading" secondItem="hpV-NM-cag" secondAttribute="leading" id="msP-6V-l6z"/>
+                                <constraint firstItem="ImJ-nP-kVX" firstAttribute="leading" secondItem="hpV-NM-cag" secondAttribute="leading" constant="12" id="msP-6V-l6z"/>
                                 <constraint firstItem="xzP-AL-nBE" firstAttribute="top" secondItem="ImJ-nP-kVX" secondAttribute="bottom" constant="8" id="vYA-UF-qQA"/>
                                 <constraint firstItem="3cq-QC-ibC" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="top" constant="8" id="zRZ-VV-rcg"/>
                             </constraints>
@@ -98,7 +98,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bER-DK-3G6" userLabel="Looks Like View">
                             <rect key="frame" x="61" y="182" width="263" height="139"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="125" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-f4-X2y">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ude-f4-X2y">
                                     <rect key="frame" x="0.0" y="56" width="96" height="48"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="51"/>
@@ -144,7 +144,7 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="620.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-nK-qFF">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="000.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-nK-qFF">
                                     <rect key="frame" x="0.0" y="57" width="116" height="55"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="51"/>

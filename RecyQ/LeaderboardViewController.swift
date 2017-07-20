@@ -9,40 +9,33 @@
 import UIKit
 import Firebase
 
-class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var wasteDictionary = [String: Double]()
-    
-    var snapshotArray = [FIRDataSnapshot]()
+class LeaderboardViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-
     
-    // Test users for the leaderboards
-    //var userArray = [User]()
-    //var testUser1 = User(name: "Jim", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: "0", spentCoins: 0)
-   // var testUser2 = User(name: "Alyson", addedByUser: "Recyq", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, uid: "0", spentCoins: 0)
+    var wasteDictionary = [String: Double]()
+    var snapshotArray = [FIRDataSnapshot]()
+    var totalParticipantsItem: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Ranglijst"
-        //userArray = [testUser1,testUser2]
-        //userArray.sort(by: {$1.amountOfPlastic < $0.amountOfPlastic})
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.allowsSelection = false
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
-        let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "cell")
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
         getAmountOfWaste()
+    }
+    
+    func setupViews() {
+        title = "Ranglijst"
+        let nib = UINib.init(nibName: "CommunityTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "cell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.allowsSelection = false
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
     
     func getAmountOfWaste() {
@@ -57,53 +50,50 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
                     let amountOfPlastic = (item.value as AnyObject).object(forKey: "amountOfPlastic") as! Double
                     let amountOfBioWaste = (item.value as AnyObject).object(forKey: "amountOfBioWaste") as! Double
                     let amountOfEWaste = (item.value as AnyObject).object(forKey: "amountOfEWaste") as! Double
-                    
                     let amountOfPaper = (item.value as AnyObject).object(forKey: "amountOfPaper") as! Double
                     let amountOfTextile = (item.value as AnyObject).object(forKey: "amountOfTextile") as! Double
                     
                     let wasteAmount = (amountOfPlastic + amountOfBioWaste + amountOfEWaste + amountOfPaper + amountOfTextile)
                     
-                    if let username = (item.value as AnyObject).object(forKey: "name") as? String {
-                    
-                        self.wasteDictionary["\(username)"] = wasteAmount
+                    if let name = (item.value as AnyObject).object(forKey: "name") as? String {
+                        if let lastName = (item.value as AnyObject).object(forKey: "lastName") as? String {
+                            let fullName = name + " " + lastName
+                            self.wasteDictionary["\(fullName)"] = wasteAmount
+                        }
                     }
                 }
                 self.tableView.reloadData()
+                self.showTotalParticipants()
             }
             print(self.wasteDictionary)
         })
     }
     
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.wasteDictionary.count
-        }
+    func showTotalParticipants() {
+        self.totalParticipantsItem = UIBarButtonItem(title: "\(self.snapshotArray.count)", style: .plain, target: nil, action: nil)
+        self.totalParticipantsItem.tintColor = .lightGray
+        self.navigationItem.setRightBarButton(self.totalParticipantsItem, animated: true)
+    }
+}
+
+extension LeaderboardViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.wasteDictionary.count
+    }
     
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 60
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityTableViewCell
-            
-            let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sorted {$1.1 < $0.1})
-            
-//            for (k, v) in sortedArrayOfWasteDictionaries {
-//                cell.nameLabel.text = k
-//                cell.co2SavedLabel.text = "\(v)"
-//            }
-            
-            let leaderboardArray = sortedArrayOfWasteDictionaries[indexPath.row]
-            
-            cell.nameLabel.text = leaderboardArray.0.capitalized
-            cell.co2SavedLabel.text = "\(leaderboardArray.1) kg"
-    
-//            let user = userArray[indexPath.row]
-//            cell.nameLabel.text = user.name
-    
-            //change amountOfPlastic to co2 saved calculation
-//            if let co2Saved = user.amountOfPlastic {
-//                cell.co2SavedLabel.text = "\(co2Saved)"
-//            }
-            return cell
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityTableViewCell
+        
+        let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sorted {$1.1 < $0.1})
+        let leaderboardArray = sortedArrayOfWasteDictionaries[indexPath.row]
+        
+        cell.nameLabel.text = leaderboardArray.0.capitalized
+        cell.co2SavedLabel.text = "\(leaderboardArray.1) kg"
+        
+        return cell
+    }
 }

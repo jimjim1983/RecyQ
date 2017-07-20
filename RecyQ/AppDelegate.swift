@@ -60,12 +60,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabbarController!.viewControllers = controllers
         firstTab.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named: "statsGrey"), tag: 1)
-        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "home-icon"), tag: 2)
+        secondTab.tabBarItem = UITabBarItem(title: "Community", image: UIImage(named: "communityGrey"), tag: 2)
         thirdTab.tabBarItem = UITabBarItem(title: "Shop", image: UIImage(named: "storeGrey"), tag: 3)
-        fourthTab.tabBarItem = UITabBarItem(title: "Locaties", image: UIImage(named: "locatie2"), tag: 4)
-        fifthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "communityGrey"), tag: 5)
+        fourthTab.tabBarItem = UITabBarItem(title: "Locaties", image: UIImage(named: "Locatie"), tag: 4)
+        fifthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "Social Icon"), tag: 5)
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
+        firstTab.tabBarItem.badgeValue = "Hello"
+         if #available(iOS 10.0, *) {
+            //firstTab.tabBarItem.badgeColor = .green
+
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import KDCircularProgress
 import FirebaseAuth
 
 class NewStatsViewController: UIViewController {
     
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var naviagtionItem: UINavigationItem!
-    @IBOutlet var kiloGramView: UIView!
-    @IBOutlet var tokenView: UIView!
+    @IBOutlet var co2ProgressView: KDCircularProgress!
+    @IBOutlet var tokenProgressView: KDCircularProgress!
+    
     @IBOutlet var kiloGramLabel: UILabel!
     @IBOutlet var tokensLabel: UILabel!
-    @IBOutlet var tokenArrowsLabel: UILabel!
     @IBOutlet var statsCollectionView: UICollectionView!
     
     @IBOutlet var co2AmountLabel: UILabel!
@@ -59,10 +60,32 @@ class NewStatsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        ///////////////////////////////////////////////////
+        self.co2ProgressView.animate(fromAngle: 0, toAngle: 240, duration: 1) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
+        
+        self.tokenProgressView.animate(fromAngle: 0, toAngle: 270, duration: 1) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
+        }
+
+
+        
         self.tabBarController?.tabBar.isHidden = false
         FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
             if let user = user {
                 FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
+                    
+                    print("USER UID = \(user.uid)")
                     
                     self.wasteAmounts.removeAll()
                     
@@ -76,8 +99,8 @@ class NewStatsViewController: UIViewController {
                     self.totalWasteAmounts = self.wasteAmounts.reduce(0.0, +)
                     self.tokensEarned = round(self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
                     if let totalWasteAmounts = self.totalWasteAmounts, let tokensEarned = self.tokensEarned {
-                        self.kiloGramLabel.text = "\(totalWasteAmounts)"
-                        self.tokensLabel.text = "\(Int(tokensEarned))"
+                        self.kiloGramLabel.text = "\(totalWasteAmounts)kg CO2"
+                        self.tokensLabel.text = "\(Int(tokensEarned)) TOKENS"
                     }
                     self.statsCollectionView.reloadData()
                     /* Check if we have all the user information by checking if we have an address. If a user signs in via Facebook for the first time this will prompt the user to provide the missing information.*/
@@ -95,14 +118,17 @@ class NewStatsViewController: UIViewController {
         let profileBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profileGrey"), style: .plain, target: self, action: #selector(showProfile))
         profileBarButtonItem.tintColor = .lightGray
         self.navigationItem.setRightBarButton(profileBarButtonItem, animated: true)
-        
-        self.kiloGramView.addBorderWith(width: 1, color: .darkGray)
-        self.tokenView.addBorderWith(width: 1, color: .darkGray)
+
+        self.co2ProgressView.addGestureRecognizer(createTapGestureRecognizer())
+        self.tokenProgressView.addGestureRecognizer(createTapGestureRecognizer())
+        self.co2ProgressView.isUserInteractionEnabled = true
+        self.tokenProgressView.isUserInteractionEnabled = true
+
         
         // Colors the range of arrows in the label
-        self.tokenArrowsString = self.tokenArrowsLabel.text!
-        self.coloredString = NSMutableAttributedString(string: self.tokenArrowsString, attributes: [NSForegroundColorAttributeName: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1)])
-        self.coloredString.addAttribute(NSForegroundColorAttributeName, value: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), range: NSRange(location: 1, length: 5))
+        //self.tokenArrowsString = self.tokenArrowsLabel.text!
+        //self.coloredString = NSMutableAttributedString(string: self.tokenArrowsString, attributes: [NSForegroundColorAttributeName: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1)])
+        //self.coloredString.addAttribute(NSForegroundColorAttributeName, value: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), range: NSRange(location: 1, length: 5))
 //        self.tokenArrowsLabel.text = ""
         
         self.recyQLocations = [.amsterdamsePoort, .hBuurt, .holendrecht, .venserpolder]
@@ -181,7 +207,6 @@ class NewStatsViewController: UIViewController {
         }
         
         self.missingInformationAlert.addAction(saveAction)
-        
         present(self.missingInformationAlert, animated: true, completion: nil)
     }
     
@@ -195,20 +220,6 @@ class NewStatsViewController: UIViewController {
         localNotification.applicationIconBadgeNumber = 1
         
         UIApplication.shared.scheduleLocalNotification(localNotification)
-    }
-    
-    @IBAction func kiloGramButtonTapped(_ sender: Any) {
-        let co2ViewController = CO2ViewController()
-        co2ViewController.co2Amount = self.kiloGramLabel.text
-        co2ViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(co2ViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func tokensButtonTapped(_ sender: Any) {
-        let tokenVC = RecyQTokenViewController()
-        tokenVC.tokenAmount = self.tokensLabel.text
-        tokenVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(tokenVC, animated: true, completion: nil)
     }
 }
 
@@ -236,7 +247,7 @@ extension NewStatsViewController: UICollectionViewDataSource {
 
 extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100.0)
+        return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100)
     }
 }
 
@@ -249,5 +260,28 @@ extension NewStatsViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.missingInformationAlert.textFields?[4].text = recyQLocations[row].rawValue
+    }
+}
+
+//MARK: - Gestures.
+extension NewStatsViewController {
+    fileprivate func createTapGestureRecognizer() -> UITapGestureRecognizer {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapWasDetected))
+        return tapGestureRecognizer
+    }
+    
+    func tapWasDetected(sender: UITapGestureRecognizer) {
+        if sender.view == self.co2ProgressView {
+            let co2ViewController = CO2ViewController()
+            co2ViewController.co2Amount = self.kiloGramLabel.text
+            co2ViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(co2ViewController, animated: true, completion: nil)
+        }
+        else if sender.view == self.tokenProgressView {
+            let tokenVC = RecyQTokenViewController()
+            tokenVC.tokenAmount = self.tokensLabel.text
+            tokenVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(tokenVC, animated: true, completion: nil)
+        }
     }
 }

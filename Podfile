@@ -12,6 +12,7 @@ pod ’Firebase/Messaging'
 pod 'FBSDKCoreKit'
 pod 'FBSDKShareKit'
 pod 'FBSDKLoginKit'
+pod 'KDCircularProgress'
 
 end
 

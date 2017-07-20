@@ -85,7 +85,7 @@ class NewCommunityViewController: UIViewController {
     }
     
     @IBAction func communityPartnersButtonTapped(_ sender: Any) {
-        let partnersVC = PartnersViewController()
+        let partnersVC = NewPartnersViewController()
         self.navigationController?.pushViewController(partnersVC, animated: true)
     }
     
