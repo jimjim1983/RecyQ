@@ -16,21 +16,20 @@ class NewStatsViewController: UIViewController {
     @IBOutlet var naviagtionItem: UINavigationItem!
     @IBOutlet var co2ProgressView: KDCircularProgress!
     @IBOutlet var tokenProgressView: KDCircularProgress!
-    
     @IBOutlet var kiloGramLabel: UILabel!
     @IBOutlet var tokensLabel: UILabel!
+    @IBOutlet var treeAmountLabel: UILabel!
     @IBOutlet var statsCollectionView: UICollectionView!
-    
-    @IBOutlet var co2AmountLabel: UILabel!
     
     fileprivate let statsCell = UINib.init(nibName: "StatsCell", bundle: nil)
     fileprivate let statsCellWidth: CGFloat! = nil
     fileprivate let statsCellHeight: CGFloat! = nil
-    fileprivate var tokenArrowsString = String()
-    fileprivate var coloredString = NSMutableAttributedString()
     fileprivate var wasteAmounts = [Double]()
     fileprivate var co2Amounts = [Double]()
     fileprivate var totalWasteAmounts: Double!
+    fileprivate var totalCo2Amounts: Double!
+    fileprivate var remainingValueTillNextTree: Double!
+    fileprivate var remainingValueTillNextToken: Double!
     fileprivate var kiloGramsTurnedIn: Double!
     fileprivate var tokensEarned: Double!
     fileprivate var missingInformationAlert = UIAlertController()
@@ -60,26 +59,7 @@ class NewStatsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        ///////////////////////////////////////////////////
-        self.co2ProgressView.animate(fromAngle: 0, toAngle: 240, duration: 1) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
-        
-        self.tokenProgressView.animate(fromAngle: 0, toAngle: 270, duration: 1) { completed in
-            if completed {
-                print("animation stopped, completed")
-            } else {
-                print("animation stopped, was interrupted")
-            }
-        }
 
-
-        
         self.tabBarController?.tabBar.isHidden = false
         FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
             if let user = user {
@@ -92,15 +72,25 @@ class NewStatsViewController: UIViewController {
                     self.wasteAmounts.append(user.amountOfTextile)
                     self.wasteAmounts.append(user.amountOfPaper)
                     self.wasteAmounts.append(user.amountOfPlastic)
+                    // Glass was added later, that's why it is an optional and needs unwrapping.
+                    let amountOfGlass = user.amountOfGlass ?? 0
+                    self.wasteAmounts.append(amountOfGlass)
                     self.wasteAmounts.append(user.amountOfBioWaste)
                     self.wasteAmounts.append(user.amountOfEWaste)
-
+                
                     self.co2Amounts = self.wasteAmounts.map { round((round($0) / 35) * 50) }
                     self.totalWasteAmounts = self.wasteAmounts.reduce(0.0, +)
-                    self.tokensEarned = round(self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
-                    if let totalWasteAmounts = self.totalWasteAmounts, let tokensEarned = self.tokensEarned {
-                        self.kiloGramLabel.text = "\(totalWasteAmounts)kg CO2"
-                        self.tokensLabel.text = "\(Int(tokensEarned)) TOKENS"
+                    self.totalCo2Amounts = self.co2Amounts.reduce(0.0, +)
+                    self.tokensEarned =  (self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
+                    if let totalCo2Amounts = self.totalCo2Amounts, let tokensEarned = self.tokensEarned {
+                        self.kiloGramLabel.text = "\(totalCo2Amounts)kg CO2"
+                        self.tokensLabel.text = tokensEarned.stringFromDoubleWth(fractionDigits: 0) + " TOKENS"
+                        // This wil take the remaining decimal value to use for the animation of the progress view.
+                        self.animateProgress(view: self.tokenProgressView, toAngle: tokensEarned.calculateRemaining())
+                        let treesSaved = totalCo2Amounts / 16.6
+                        self.treeAmountLabel.text = treesSaved.stringFromDoubleWth(fractionDigits: 0)
+                        // This wil take the remaining decimal value to use for the animation of the progress view.
+                        self.animateProgress(view: self.co2ProgressView, toAngle: treesSaved.calculateRemaining())
                     }
                     self.statsCollectionView.reloadData()
                     /* Check if we have all the user information by checking if we have an address. If a user signs in via Facebook for the first time this will prompt the user to provide the missing information.*/
@@ -123,13 +113,6 @@ class NewStatsViewController: UIViewController {
         self.tokenProgressView.addGestureRecognizer(createTapGestureRecognizer())
         self.co2ProgressView.isUserInteractionEnabled = true
         self.tokenProgressView.isUserInteractionEnabled = true
-
-        
-        // Colors the range of arrows in the label
-        //self.tokenArrowsString = self.tokenArrowsLabel.text!
-        //self.coloredString = NSMutableAttributedString(string: self.tokenArrowsString, attributes: [NSForegroundColorAttributeName: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1)])
-        //self.coloredString.addAttribute(NSForegroundColorAttributeName, value: #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), range: NSRange(location: 1, length: 5))
-//        self.tokenArrowsLabel.text = ""
         
         self.recyQLocations = [.amsterdamsePoort, .hBuurt, .holendrecht, .venserpolder]
         self.dataSource = PickerViewDataSource(wasteLocations: self.recyQLocations)
@@ -223,9 +206,10 @@ class NewStatsViewController: UIViewController {
     }
 }
 
+// MARK: Collection view data source methods.
 extension NewStatsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -245,6 +229,7 @@ extension NewStatsViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Collection view delegate methods.
 extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100)
@@ -274,14 +259,31 @@ extension NewStatsViewController {
         if sender.view == self.co2ProgressView {
             let co2ViewController = CO2ViewController()
             co2ViewController.co2Amount = self.kiloGramLabel.text
+            co2ViewController.treesAmount = self.treeAmountLabel.text
+            co2ViewController.totalCO2Amount = self.totalCo2Amounts
             co2ViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.present(co2ViewController, animated: true, completion: nil)
         }
         else if sender.view == self.tokenProgressView {
             let tokenVC = RecyQTokenViewController()
             tokenVC.tokenAmount = self.tokensLabel.text
+            tokenVC.tokensEarned = self.tokensEarned
             tokenVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             self.present(tokenVC, animated: true, completion: nil)
+        }
+    }
+}
+
+// MARK: - Animations.
+extension NewStatsViewController {
+    func animateProgress(view: KDCircularProgress, toAngle: Double) {
+        let angle = 360 / 1 * toAngle
+        view.animate(fromAngle: 0, toAngle: angle, duration: 1) { completed in
+            if completed {
+                print("animation stopped, completed")
+            } else {
+                print("animation stopped, was interrupted")
+            }
         }
     }
 }

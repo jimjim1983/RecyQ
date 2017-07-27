@@ -20,8 +20,7 @@ class NewTutorialViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tabBarController?.tabBar.isHidden = true
-
+        
         self.scrollView.frame = CGRect(x:0, y:0, width: self.view.frame.width, height: self.view.frame.height)
         
         textView1.font = UIFont(name: "VolvoBroad", size: 38)!

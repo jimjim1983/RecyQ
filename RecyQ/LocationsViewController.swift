@@ -35,7 +35,7 @@ class LocationsViewController: UIViewController {
     }
     
     fileprivate func getLoacationsFromFirebase() {
-        FirebaseHelper.References.ref.child("RecyQ Locations").observe(.value, with: { (snapshot) in
+        FirebaseHelper.References.recyQLocations.observe(.value, with: { (snapshot) in
             var recyqLocations: [RecyQLocation] = []
             for location in snapshot.children {
                 let recyqLocation = RecyQLocation(snapshot: location as! FIRDataSnapshot)
@@ -62,6 +62,10 @@ extension LocationsViewController: UITableViewDataSource {
         cell.model = LocationsCell.Model(location: location)
         cell.locationNameLabel.backgroundColor = LocationsCell.bacKGroundColors[indexPath.row]
         cell.addAnnotation()
+        cell.tapAction = {[weak self] (cell) in
+            let pickUpServiceVC = PickUpServiceViewController()
+            self?.navigationController?.pushViewController(pickUpServiceVC, animated: true)
+        }
         return cell
     }
 }

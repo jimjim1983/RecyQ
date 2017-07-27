@@ -17,6 +17,8 @@ struct FirebaseHelper {
         static let ref = FIRDatabase.database().reference()
         static let clientsRef = FIRDatabase.database().reference(withPath: "clients")
         static let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
+        static let recyQLocations = FIRDatabase.database().reference(withPath: "RecyQ Locations")
+        static let shops = FIRDatabase.database().reference(withPath: "Shops")
     }
     
     // MARK: - Sign up user through Firebase
@@ -41,7 +43,7 @@ struct FirebaseHelper {
                         return
                     }
                     else {
-                        currentUser = User(name: newUser.name.lowercased(), lastName: newUser.lastName!, address: newUser.address!, zipCode: newUser.zipCode!, city: newUser.city!, phoneNumber: newUser.phoneNumber!, addedByUser: newUser.addedByUser, nearestWasteLocation: newUser.nearestWasteLocation!, completed: false, amountOfPlastic: newUser.amountOfPlastic, amountOfPaper: newUser.amountOfPaper, amountOfTextile: newUser.amountOfTextile, amountOfEWaste: newUser.amountOfEWaste, amountOfBioWaste: newUser.amountOfBioWaste, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: newUser.spentCoins!)
+                        currentUser = User(name: newUser.name.lowercased(), lastName: newUser.lastName!, address: newUser.address!, zipCode: newUser.zipCode!, city: newUser.city!, phoneNumber: newUser.phoneNumber!, addedByUser: newUser.addedByUser, nearestWasteLocation: newUser.nearestWasteLocation!, completed: false, amountOfPlastic: newUser.amountOfPlastic, amountOfPaper: newUser.amountOfPaper, amountOfTextile: newUser.amountOfTextile, amountOfEWaste: newUser.amountOfEWaste, amountOfBioWaste: newUser.amountOfBioWaste,amountOfGlass: newUser.amountOfGlass, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: newUser.spentCoins!)
                         
                         let userRef = References.clientsRef.child((currentUser?.name)!)
                         userRef.setValue(currentUser?.toAnyObject())

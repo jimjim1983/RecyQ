@@ -34,7 +34,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 class StoreDetailViewController: UIViewController {
     
-    var storeItem: StoreItem!
+    var shop: Shop!
     var coupon: Coupon?
     
     @IBOutlet weak var price: UILabel!
@@ -52,16 +52,18 @@ class StoreDetailViewController: UIViewController {
         self.image.addBorderWith(width: 1, color: .darkGray)
         self.redeemButton.addBorderWith(width: 1, color: .darkGray)
         
-        self.titleLabel.text = storeItem.storeItemName
-        self.descriptionLabel.text = storeItem.storeItemDescription
-        self.image.image = storeItem.storeItemImage
+        self.titleLabel.text = self.shop.itemName
+        self.descriptionLabel.text = self.shop.detailDescription
+        let imageString = shop.imageString
+        if let imageData = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters) {
+            self.image.image = UIImage(data: imageData)
+        }
         
-        if let tokensPrice = storeItem.storeItemPrice {
-            if tokensPrice > 1 {
-        price.text = "Prijs: \(tokensPrice) tokens"
-            } else {
-                price.text = "Prijs: \(tokensPrice) token"
-            }
+        let tokensPrice = self.shop.tokenAmount
+        if tokensPrice > 1 {
+            price.text = "Prijs: \(tokensPrice) tokens"
+        } else {
+            price.text = "Prijs: \(tokensPrice) token"
         }
     }
 
@@ -78,7 +80,7 @@ class StoreDetailViewController: UIViewController {
                     
                     // follow-up: I think the issue is actually the numberOfTokens that we use for calculation here is a global variable from the StatsVC. Thus that's the reason why this number isn't getting updated properly and sometimes leads to a negative balance? Still need to think this through a bit more and troubleshoot.
                     
-                    if self.storeItem.storeItemPrice > numberOfTokens || numberOfTokens <= 0 {
+                    if self.shop.tokenAmount > numberOfTokens || numberOfTokens <= 0 {
                         
                         let alertController = UIAlertController(title: "U heeft niet genoeg tokens!", message: "Lever meer recyclebaar afval in om tokens te verdienen.", preferredStyle: .alert)
                         
@@ -185,9 +187,9 @@ class StoreDetailViewController: UIViewController {
         
         let uuid = UUID().uuidString
         
-        coupon = Coupon(uid: (currentUser?.uid)!, couponName: storeItem.storeItemName!, couponValue: storeItem.storeItemPrice!, redeemed: false)
+        coupon = Coupon(uid: (currentUser?.uid)!, couponName: self.shop.itemName, couponValue: self.shop.tokenAmount, redeemed: false)
         
-        let couponsRef = self.couponsRef.child(storeItem.storeItemName! + uuid)
+        let couponsRef = self.couponsRef.child(self.shop.itemName + uuid)
         couponsRef.setValue(self.coupon!.toAnyObject())
     }
   

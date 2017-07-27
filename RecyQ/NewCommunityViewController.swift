@@ -16,18 +16,25 @@ class NewCommunityViewController: UIViewController {
     @IBOutlet fileprivate var watGaanWeDoenButton: UIButton!
     @IBOutlet fileprivate var wieStaatErBovenaanButton: UIButton!
     @IBOutlet fileprivate var communityPartnersButton: UIButton!
+    @IBOutlet fileprivate var treeIconImageView: UIImageView!
+    @IBOutlet fileprivate var totalTreesSaved: UILabel!
+    @IBOutlet fileprivate var totalTokensSaved: UILabel!
+
     
     fileprivate var wasteArray = [Double]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         getTotalCo2AndRecycledAmounts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let treeIcon = #imageLiteral(resourceName: "Boom Icon")
+        treeIcon.withRenderingMode(.automatic)
+        self.treeIconImageView.image = treeIcon
+        self.treeIconImageView.tintColor = .white
     }
     
     fileprivate func setupViews() {
@@ -68,14 +75,20 @@ class NewCommunityViewController: UIViewController {
             self.recycledTotalLabel.text = "\(round(total))"
             
             let co2Amount = (round((total/35) * 50))
-            
             self.co2TotalLabel.text = "\(co2Amount)"
+            
+            let totalTokens = total / 35
+            self.totalTokensSaved.text = totalTokens.stringFromDoubleWth(fractionDigits: 0) + " TOKENS"
+            
+            let treesSaved = total / 11.6
+            self.totalTreesSaved.text = treesSaved.stringFromDoubleWth(fractionDigits: 0)
         })
-
     }
 
     @IBAction func watGaanWeDoenButtonTapped(_ sender: Any) {
-        let infoVC = InfoViewController()
+        let infoVC = NewInfoViewController()
+        let sender = sender as! UIButton
+        infoVC.title = sender.title(for: .normal)
         self.navigationController?.pushViewController(infoVC, animated: true)
     }
     
@@ -85,8 +98,7 @@ class NewCommunityViewController: UIViewController {
     }
     
     @IBAction func communityPartnersButtonTapped(_ sender: Any) {
-        let partnersVC = NewPartnersViewController()
+        let partnersVC = PartnersViewController()
         self.navigationController?.pushViewController(partnersVC, animated: true)
     }
-    
 }

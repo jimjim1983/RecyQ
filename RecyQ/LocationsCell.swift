@@ -29,6 +29,7 @@ class LocationsCell: UITableViewCell {
     static let bacKGroundColors = [#colorLiteral(red: 1, green: 0.4083568454, blue: 0.251519829, alpha: 1), #colorLiteral(red: 0, green: 0.7605165839, blue: 1, alpha: 1), #colorLiteral(red: 1, green: 0.8486332297, blue: 0.249439925, alpha: 1), #colorLiteral(red: 0, green: 0.8078528643, blue: 0.427520901, alpha: 1), #colorLiteral(red: 0.506552279, green: 0.5065647364, blue: 0.5065580606, alpha: 1)]
     
     var delegate: LocationCellDelegate?
+    var tapAction: ((UITableViewCell) -> Void)?
     
     var model: Model? {
         didSet {
@@ -84,6 +85,11 @@ class LocationsCell: UITableViewCell {
             let annotation = MKPointAnnotation()
             annotation.coordinate = location
             self.locationMapView.addAnnotation(annotation)
+        }
+    }
+    @IBAction func pickUpServiceButtonTapped(_ sender: Any) {
+        if let tapAction = self.tapAction {
+            tapAction(self)
         }
     }
 }

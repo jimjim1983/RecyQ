@@ -16,7 +16,7 @@ class RecyQTokenViewController: UIViewController {
     @IBOutlet var tokenProgressView: KDCircularProgress!
     
     var tokenAmount: String?
-    fileprivate var angle: Double!
+    var tokensEarned: Double?
     fileprivate let navBarLogoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 30))
         imageView.contentMode = .scaleAspectFit
@@ -27,17 +27,21 @@ class RecyQTokenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationBar.topItem?.titleView = self.navBarLogoImageView
         
         if let tokenAmount = self.tokenAmount {
-            self.recyQTokenAmountLabel.text = tokenAmount + " TOKENS VERDIEND"
+            self.recyQTokenAmountLabel.text = tokenAmount + " VERDIEND"
         }
-        self.navigationBar.topItem?.titleView = self.navBarLogoImageView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
-        animateProgressView()
+        if let tokensEarned = self.tokensEarned {
+            // Here we use calculate remaining to get only the numbers after the decimal point.
+            let remainingUntilNextTokenEarned = tokensEarned.calculateRemaining()
+            animateProgressView(toAngle: remainingUntilNextTokenEarned)
+        }
     }
     
     @IBAction func dismissButtonPressed(_ sender: Any) {
@@ -45,11 +49,11 @@ class RecyQTokenViewController: UIViewController {
     }
 }
 
+// MARK: - Animations.
 extension RecyQTokenViewController {
-    func animateProgressView() {
-        let startAngle = 0
-        self.angle = 300
-        self.tokenProgressView.animate(fromAngle: Double(startAngle), toAngle: angle, duration: 1) { (completed) in
+    func animateProgressView(toAngle: Double) {
+        let angle = 360 / 1 * toAngle
+        self.tokenProgressView.animate(fromAngle: 0, toAngle: angle, duration: 1) { (completed) in
         }
     }
 }

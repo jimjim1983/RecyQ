@@ -66,11 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fifthTab.tabBarItem = UITabBarItem(title: "Social", image: UIImage(named: "Social Icon"), tag: 5)
         
         UITabBar.appearance().tintColor = UIColor(red: 33.0/255, green: 210.0/255, blue: 37.0/255, alpha: 1.0)
-        firstTab.tabBarItem.badgeValue = "Hello"
-         if #available(iOS 10.0, *) {
-            //firstTab.tabBarItem.badgeColor = .green
-
-        }
+        //firstTab.tabBarItem.badgeValue = "Hello"
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

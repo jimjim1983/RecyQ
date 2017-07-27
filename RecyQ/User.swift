@@ -25,16 +25,17 @@ struct User {
     let ref: FIRDatabaseReference?
     var completed: Bool
     let amountOfPlastic: Double
-    var amountOfPaper: Double
+    let amountOfPaper: Double
     let amountOfTextile: Double
     let amountOfEWaste: Double
     let amountOfBioWaste: Double
+    let amountOfGlass: Double?
     var wasteDepositInfo: [String: Any]?
     let uid: String
     let spentCoins: Int?
     
     // Initialize from arbitrary data
-    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int) {
+    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfGlass: Double?, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int) {
         self.key = key
         self.name = name
         self.lastName = lastName
@@ -51,6 +52,7 @@ struct User {
         self.amountOfTextile = amountOfTextile
         self.amountOfEWaste = amountOfEWaste
         self.amountOfBioWaste = amountOfBioWaste
+        self.amountOfGlass = amountOfGlass
         self.wasteDepositInfo = wasteDepositInfo
         self.uid = uid
         self.spentCoins = spentCoins
@@ -75,6 +77,7 @@ struct User {
         amountOfTextile = snapshotValue?["amountOfTextile"] as! Double
         amountOfEWaste = snapshotValue?["amountOfEWaste"] as! Double
         amountOfBioWaste = snapshotValue?["amountOfBioWaste"] as! Double
+        amountOfGlass = snapshotValue?["amountOfGlass"] as? Double
         wasteDepositInfo = snapshotValue?["wasteDepositInfo"] as? [String: Any]
         uid = snapshotValue?["uid"] as! String
         spentCoins = snapshotValue?["uid"] as? Int
@@ -96,6 +99,7 @@ struct User {
             "amountOfTextile": amountOfTextile as AnyObject,
             "amountOfEWaste": amountOfEWaste as AnyObject,
             "amountOfBioWaste": amountOfBioWaste as AnyObject,
+            "amountOfGlass": amountOfGlass as AnyObject,
             "wasteDepositInfo": wasteDepositInfo as AnyObject,
             "uid": uid as AnyObject,
             "spentCoins": spentCoins as AnyObject

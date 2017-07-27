@@ -88,6 +88,17 @@
                             <constraint firstAttribute="width" constant="242" id="YbU-dG-4QU"/>
                         </constraints>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzk-G2-ctK">
+                        <rect key="frame" x="322" y="223" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="0q7-GE-dai"/>
+                            <constraint firstAttribute="width" constant="50" id="tzG-3R-yUO"/>
+                        </constraints>
+                        <state key="normal" image="bicycle-icon"/>
+                        <connections>
+                            <action selector="pickUpServiceButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xzb-eu-hHh"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dEf-Gt-h95" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="34" id="075-xe-ucY"/>
@@ -96,7 +107,9 @@
                     <constraint firstItem="LL1-s8-lKX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="NXx-XY-wMe"/>
                     <constraint firstItem="dEf-Gt-h95" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cqC-Q0-LAp"/>
                     <constraint firstItem="lhe-Gn-TBQ" firstAttribute="top" secondItem="LL1-s8-lKX" secondAttribute="bottom" constant="10" id="efu-kr-V0a"/>
+                    <constraint firstAttribute="bottom" secondItem="Rzk-G2-ctK" secondAttribute="bottom" constant="18" id="tdZ-QP-IsA"/>
                     <constraint firstItem="LL1-s8-lKX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="54" id="w7w-sS-bqi"/>
+                    <constraint firstAttribute="trailing" secondItem="Rzk-G2-ctK" secondAttribute="trailing" constant="32" id="xNN-ZL-1tm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -112,4 +125,7 @@
             <point key="canvasLocation" x="75" y="131"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="bicycle-icon" width="50" height="50"/>
+    </resources>
 </document>

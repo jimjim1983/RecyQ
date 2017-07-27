@@ -146,3 +146,19 @@ extension UIImage {
     }
 }
 
+extension Double {
+    // This returns a double with a flexible amount of decimals or none. For no decimals you user 0.
+    func stringFromDoubleWth(fractionDigits :Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = fractionDigits
+        formatter.maximumFractionDigits = fractionDigits
+        return formatter.string(from: NSNumber(value: self)) ?? "\(self)"
+    }
+    
+    // This returns the value after the decimal point of a Double.
+    func calculateRemaining() -> Double {
+        let ramainingValue = self.truncatingRemainder(dividingBy: 1)
+        return ramainingValue
+    }
+}
+

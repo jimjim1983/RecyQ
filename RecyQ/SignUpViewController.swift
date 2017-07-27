@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
@@ -39,6 +40,8 @@ class SignUpViewController: UIViewController {
     
     fileprivate func setupViews() {
         self.navigationItem.title = "Registreer"
+        
+        self.scrollView.delegate = self
 
         self.wasteLocations = [.amsterdamsePoort, .hBuurt, .holendrecht, .venserpolder]
         self.locationsPickerView.delegate = self
@@ -51,7 +54,7 @@ class SignUpViewController: UIViewController {
             textField.delegate = self
             textField.addBorderWith(width: 1, color: .lightGray)
         }
-        signUpButton.addBorderWith(width: 1, color: .darkGray)
+        self.signUpButton.addBorderWith(width: 1, color: .darkGray)
     }
     
     func dismissVC() {
@@ -59,7 +62,7 @@ class SignUpViewController: UIViewController {
     }
     
     fileprivate func createNewUser() -> User {
-        let newUser = User(name: nameTextField.text!, lastName: lastNameTextField.text!, address: addressTextField.text!, zipCode: zipCodeTextField.text!, city: cityTextField.text!, phoneNumber: phoneNumberTextField.text!, addedByUser: emailTextField.text!, nearestWasteLocation: NearestWasteLocation(rawValue: nearestLocationTextField.text!)!.rawValue, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, wasteDepositInfo: ["":""], uid: "", spentCoins: 0)
+        let newUser = User(name: nameTextField.text!, lastName: lastNameTextField.text!, address: addressTextField.text!, zipCode: zipCodeTextField.text!, city: cityTextField.text!, phoneNumber: phoneNumberTextField.text!, addedByUser: emailTextField.text!, nearestWasteLocation: NearestWasteLocation(rawValue: nearestLocationTextField.text!)!.rawValue, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfGlass: 0, wasteDepositInfo: ["":""], uid: "", spentCoins: 0)
         return newUser
     }
     
@@ -76,6 +79,14 @@ class SignUpViewController: UIViewController {
             }
         }
         FirebaseHelper.signUp(newUser: createNewUser(), withPassword: passWordTextField.text!, sender: self)
+    }
+}
+
+extension SignUpViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.x = 0
+        }
     }
 }
 

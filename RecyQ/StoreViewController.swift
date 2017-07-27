@@ -13,7 +13,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     let ref = FIRDatabase.database().reference()
     
-    var storeItemArray = [StoreItem]()
+    var shops = [Shop]()
     
     var storeItem4 = StoreItem(storeItemName: "Upcycling boodschappentas gemaakt van denim", storeItemDescription: "Wissel je tokens in voor deze leuke upcycling boodschappentas gemaakt van denim.", storeItemImage: "denim-bag", storeItemPrice: 5)
     var storeItem1 = StoreItem(storeItemName: "10% korting bij de aanschaf van een Go-Upcycle", storeItemDescription: "Krijg 10% korting bij de aanschaf van een Go-Upcycle.", storeItemImage: "fiets2", storeItemPrice: 1)
@@ -23,13 +23,44 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var numberOfTokensLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    fileprivate func getShopsFromFirebase() {
+        FirebaseHelper.References.shops.observe(.value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                var shops: [Shop] = []
+                for shopName in result {
+                    let shopNameKey = shopName.key
+                    FirebaseHelper.References.shops.child(shopNameKey).observe(.value, with: { (snapshot) in
+                        for item in snapshot.children {
+                            let recyqShop = Shop(snapShot: item as! FIRDataSnapshot)
+                            shops.append(recyqShop)
+                        }
+                        self.shops = shops
+                        self.tableView.reloadData()
+                    })
+                }
+            }
+        })
+    }
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.navigationItem.title = "Recyq Shop"
+        getShopsFromFirebase()
+        /*self.navigationItem.title = "Recyq Shop"
+        let name = "Buurtafvalfonds"
+        let image = #imageLiteral(resourceName: "buurtactiviteitStore")
+        let data = UIImageJPEGRepresentation(image, 0.5)
+        let imageString = data?.base64EncodedString(options: .lineLength64Characters)
+        let shopItem = Shop(shopName: name, itemName: "Doneer aan het Buurtafvalfonds", detailDescription: "Doneer je RecyQ token aan het Buurtafvalfonds voor ondersteuning van buurtactiviteiten.", tokenAmount: 1, imageString: imageString!)
+        let shop = FirebaseHelper.References.shops.child(name).childByAutoId()
+        //shop.removeValue()
         
-        storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
+        
+        shop.setValue(shopItem.toAnyObject())
+        */
+        
+        //storeItemArray = [storeItem1, storeItem2, storeItem3, storeItem4]
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -66,7 +97,7 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItemArray.count
+        return self.shops.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,29 +105,34 @@ class StoreViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! StoreTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! StoreTableViewCell
         
-        let storeItem = storeItemArray[indexPath.row]
+        let shop = self.shops[indexPath.row]
         
         cell.selectionStyle = UITableViewCellSelectionStyle.default
-        cell.title.text = storeItem.storeItemName
-        cell.storeItemImageView.image = storeItem.storeItemImage
+        cell.title.text = shop.itemName
+        let imageString = shop.imageString
+        if let imageData = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters) {
+            DispatchQueue.main.async {
+                cell.storeItemImageView.image = UIImage(data: imageData)
+            }
+        }
         
-        if let price = storeItem.storeItemPrice {
-            if price > 1 {
-                cell.tokenLabel.text = "\(price) TOKENS"
-            }
-            else{
-                cell.tokenLabel.text = "\(price) TOKEN"
-            }
+        let price = shop.tokenAmount
+        if price > 1 {
+            cell.tokenLabel.text = "\(price) TOKENS"
+        }
+        else {
+            cell.tokenLabel.text = "\(price) TOKEN"
         }
         return cell
     }
-    
+
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storeDetailVC = StoreDetailViewController()
-        let storeItem = storeItemArray[indexPath.row]
-        storeDetailVC.storeItem = storeItem
+        let shop = self.shops[indexPath.row]
+        storeDetailVC.shop = shop
         self.navigationController?.pushViewController(storeDetailVC, animated: true)
     }
 

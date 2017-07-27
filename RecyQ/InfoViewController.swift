@@ -42,7 +42,7 @@ extension UITextView {
             }
         }
     }
-    
+    /// This animates the text as if it is being typed letter by letter.
     func setTextWithTypeAnimation(typedText: String, characterInterval: TimeInterval = 0.25, completion:@escaping () -> Void) {
         text = ""
         DispatchQueue.global(qos: .userInteractive).async {
@@ -53,7 +53,7 @@ extension UITextView {
                     self.text = self.text! + String(character)
                 }
                 if character == "." {
-                    Thread.sleep(forTimeInterval: 1)
+                    Thread.sleep(forTimeInterval: 0.5)
                 }else {
                     Thread.sleep(forTimeInterval: characterInterval)
                 }
