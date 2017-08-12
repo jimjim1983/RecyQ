@@ -19,6 +19,7 @@ class NewStatsViewController: UIViewController {
     @IBOutlet var kiloGramLabel: UILabel!
     @IBOutlet var tokensLabel: UILabel!
     @IBOutlet var treeAmountLabel: UILabel!
+    @IBOutlet var totalWasteAmountLabel: UILabel!
     @IBOutlet var statsCollectionView: UICollectionView!
     
     fileprivate let statsCell = UINib.init(nibName: "StatsCell", bundle: nil)
@@ -61,46 +62,9 @@ class NewStatsViewController: UIViewController {
         super.viewWillAppear(animated)
 
         self.tabBarController?.tabBar.isHidden = false
-        FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
-            if let user = user {
-                FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
-                    
-                    print("USER UID = \(user.uid)")
-                    
-                    self.wasteAmounts.removeAll()
-                    
-                    self.wasteAmounts.append(user.amountOfTextile)
-                    self.wasteAmounts.append(user.amountOfPaper)
-                    self.wasteAmounts.append(user.amountOfPlastic)
-                    // Glass was added later, that's why it is an optional and needs unwrapping.
-                    let amountOfGlass = user.amountOfGlass ?? 0
-                    self.wasteAmounts.append(amountOfGlass)
-                    self.wasteAmounts.append(user.amountOfBioWaste)
-                    self.wasteAmounts.append(user.amountOfEWaste)
-                
-                    self.co2Amounts = self.wasteAmounts.map { round((round($0) / 35) * 50) }
-                    self.totalWasteAmounts = self.wasteAmounts.reduce(0.0, +)
-                    self.totalCo2Amounts = self.co2Amounts.reduce(0.0, +)
-                    self.tokensEarned =  (self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
-                    if let totalCo2Amounts = self.totalCo2Amounts, let tokensEarned = self.tokensEarned {
-                        self.kiloGramLabel.text = "\(totalCo2Amounts)kg CO2"
-                        self.tokensLabel.text = tokensEarned.stringFromDoubleWth(fractionDigits: 0) + " TOKENS"
-                        // This wil take the remaining decimal value to use for the animation of the progress view.
-                        self.animateProgress(view: self.tokenProgressView, toAngle: tokensEarned.calculateRemaining())
-                        let treesSaved = totalCo2Amounts / 16.6
-                        self.treeAmountLabel.text = treesSaved.stringFromDoubleWth(fractionDigits: 0)
-                        // This wil take the remaining decimal value to use for the animation of the progress view.
-                        self.animateProgress(view: self.co2ProgressView, toAngle: treesSaved.calculateRemaining())
-                    }
-                    self.statsCollectionView.reloadData()
-                    /* Check if we have all the user information by checking if we have an address. If a user signs in via Facebook for the first time this will prompt the user to provide the missing information.*/
-                    if user.address == "" {
-                        self.showMissingInformationAlert()
-                    }
-                })
-            }
-        }
+        loadWasteAmountsFromFirebase()
     }
+ 
     
     fileprivate func setupViews() {
         self.navigationController?.navigationBar.topItem?.titleView = self.navBarLogoImageView
@@ -118,6 +82,52 @@ class NewStatsViewController: UIViewController {
         self.dataSource = PickerViewDataSource(wasteLocations: self.recyQLocations)
         self.locationsPickerView.dataSource = self.dataSource
         self.locationsPickerView.delegate = self
+    }
+    
+    fileprivate func loadWasteAmountsFromFirebase() {
+        FIRAuth.auth()!.addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
+                    
+                    print("USER UID = \(user.uid)")
+                    
+                    self.wasteAmounts.removeAll()
+                    
+                    self.wasteAmounts.append(user.amountOfTextile)
+                    self.wasteAmounts.append(user.amountOfPaper)
+                    self.wasteAmounts.append(user.amountOfPlastic)
+                    // Glass was added later, that's why it is an optional and needs unwrapping.
+                    let amountOfGlass = user.amountOfGlass ?? 0
+                    self.wasteAmounts.append(amountOfGlass)
+                    self.wasteAmounts.append(user.amountOfBioWaste)
+                    self.wasteAmounts.append(user.amountOfEWaste)
+                    
+                    self.co2Amounts = self.wasteAmounts.map { ($0 / 35) * 50 }
+                    self.totalWasteAmounts = self.wasteAmounts.reduce(0.0, +)
+                    if let totalWasteAmounts = self.totalWasteAmounts {
+                        self.totalWasteAmountLabel.text = "Totaal \(totalWasteAmounts) kg ingeleverd."
+                    }
+                    self.totalCo2Amounts = self.co2Amounts.reduce(0.0, +)
+                    self.tokensEarned =  (self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
+                    if let totalCo2Amounts = self.totalCo2Amounts, let tokensEarned = self.tokensEarned {
+                        self.kiloGramLabel.text = totalCo2Amounts.stringFromDoubleWth(fractionDigits: 1) + "kg CO2"
+                        let tokens = tokensEarned.rounded(.down).stringFromDoubleWth(fractionDigits: 0)
+                        self.tokensLabel.text = tokens == "1" ? tokens + " TOKEN" : tokens + " TOKENS"
+                        // This wil take the remaining decimal value to use for the animation of the progress view.
+                        self.animateProgress(view: self.tokenProgressView, toAngle: tokensEarned.calculateRemaining())
+                        let treesSaved = totalCo2Amounts / 16.6
+                        self.treeAmountLabel.text = treesSaved.stringFromDoubleWth(fractionDigits: 0)
+                        // This wil take the remaining decimal value to use for the animation of the progress view.
+                        self.animateProgress(view: self.co2ProgressView, toAngle: treesSaved.calculateRemaining())
+                    }
+                    self.statsCollectionView.reloadData()
+                    /* Check if we have all the user information by checking if we have an address. If a user signs in via Facebook for the first time this will prompt the user to provide the missing information.*/
+                    if user.address == "" {
+                        self.showMissingInformationAlert()
+                    }
+                })
+            }
+        }
     }
     
     func showProfile() {
@@ -218,8 +228,10 @@ extension NewStatsViewController: UICollectionViewDataSource {
         cell.backgroundColor = StatsCell.bacKGroundColors[indexPath.row]
         cell.wasteTypeLabel.text = StatsCell.wasteTypes[indexPath.row]
         if !self.wasteAmounts.isEmpty {
-            cell.wasteAmount = "\(self.wasteAmounts[indexPath.row]) KG"
-            cell.co2Amount = "\(self.co2Amounts[indexPath.row]) KG"
+            let wasteAmount = self.wasteAmounts[indexPath.row]
+            let co2Amount = self.co2Amounts[indexPath.row]
+            cell.wasteAmount = wasteAmount == 0 ? "0,0 KG" : wasteAmount.stringFromDoubleWth(fractionDigits: 1) + " KG"
+            cell.co2Amount = co2Amount == 0 ? "0,0 KG" : co2Amount.stringFromDoubleWth(fractionDigits: 1) + " KG"
         }
         else {
             cell.wasteAmount = "00000.0 KG"
@@ -232,7 +244,7 @@ extension NewStatsViewController: UICollectionViewDataSource {
 // MARK: - Collection view delegate methods.
 extension NewStatsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 100)
+        return CGSize(width: self.statsCollectionView.bounds.width - 32, height: 90)
     }
 }
 

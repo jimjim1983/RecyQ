@@ -162,3 +162,11 @@ extension Double {
     }
 }
 
+extension UITextField {
+    func allowsOnlyNumbers(text: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: text)
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
+}
+

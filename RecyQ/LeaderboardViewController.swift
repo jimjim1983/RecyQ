@@ -35,7 +35,6 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.allowsSelection = false
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
     }
     
     func getAmountOfWaste() {
@@ -70,7 +69,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate {
     }
     
     func showTotalParticipants() {
-        self.totalParticipantsItem = UIBarButtonItem(title: "\(self.snapshotArray.count)", style: .plain, target: nil, action: nil)
+        self.totalParticipantsItem = UIBarButtonItem(title: "\(self.wasteDictionary.count)", style: .plain, target: nil, action: nil)
         self.totalParticipantsItem.tintColor = .lightGray
         self.navigationItem.setRightBarButton(self.totalParticipantsItem, animated: true)
     }
@@ -93,6 +92,7 @@ extension LeaderboardViewController: UITableViewDataSource {
         
         cell.nameLabel.text = leaderboardArray.0.capitalized
         cell.co2SavedLabel.text = "\(leaderboardArray.1) kg"
+        cell.positionLabel.text = "\(indexPath.row + 1)"
         
         return cell
     }

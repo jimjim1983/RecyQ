@@ -1,5 +1,5 @@
 //
-//  NewPartnersViewController.swift
+//  NewInfoViewController.swift
 //  RecyQ
 //
 //  Created by Supervisor on 06-07-17.
@@ -16,7 +16,7 @@ class NewInfoViewController: UIViewController {
     @IBOutlet var textView: UITextView!
     
     fileprivate let userDefaults = UserDefaults.standard
-    fileprivate let partnerCell = UINib.init(nibName: "PartnerCell", bundle: nil)
+    fileprivate let infoCell = UINib.init(nibName: "InfoCell", bundle: nil)
     fileprivate var partners = [RecyQPartner]()
     
      let textToAnimate = "Afval scheiden loont. Niet alleen voor de wereld maar ook voor de portemonnee en je buurt. Afval is geen afval maar de basis voor wat nieuws. Door bewuster om te gaan met grondstoffen heb je veel voordelen. Afval verbranden kost geld en is slecht voor het milieu. Wees daarom bewust over wat je weggooit. RecyQ biedt via haar partners verschillende initiatieven waar aan je mee kan doen."
@@ -45,16 +45,16 @@ class NewInfoViewController: UIViewController {
     }
     
     fileprivate func setupTableView() {
-        self.tableView.register(self.partnerCell, forCellReuseIdentifier: PartnerCell.identifier)
+        self.tableView.register(self.infoCell, forCellReuseIdentifier: InfoCell.identifier)
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
     
     fileprivate func addRecyQInitiatives() {
-        let wormenHotel = RecyQPartner(name: "Wormen Hotel", image: #imageLiteral(resourceName: "Wormenhotel"), description: "Meld je aan voor een Wormenhotel-Buurtcompost in jouw buurt!")
-        let recyQJeans = RecyQPartner(name: "RecyQ Denim Bags", image: #imageLiteral(resourceName: "Spijkerbroek"), description: "Laat je oude spijkerbroek upcyclen tot hippe en duurzame denim tas!")//"RecyQ Jeans"
-        let weesFiets = RecyQPartner(name: "Go-Upcycle!", image: #imageLiteral(resourceName: "Weesfiets"), description: "Meld je aan voor een exclusieve Fietsdepot weesfiets. Volledig opgeknapt voor een scherpe prijs!")//"Wees Fiets"
-        let plasticFantastic = RecyQPartner(name: "Plastic Fantastic Workshop", image: #imageLiteral(resourceName: "PlasticFantastic"), description: "Meld je aan voor de Plastic Fantastic  Workshop. Creatief met plastic!")//"Plastic Fantastic"
+        let wormenHotel = RecyQPartner(name: "Wormen Hotel", image: #imageLiteral(resourceName: "Wormenhotel"), description: "Meld je aan voor een Wormenhotel-Buurtcompost in jouw buurt!", urlString: "")
+        let recyQJeans = RecyQPartner(name: "RecyQ Denim Bags", image: #imageLiteral(resourceName: "Spijkerbroek"), description: "Laat je oude spijkerbroek upcyclen tot hippe en duurzame denim tas!", urlString: "")
+        let weesFiets = RecyQPartner(name: "Go-Upcycle!", image: #imageLiteral(resourceName: "Weesfiets"), description: "Meld je aan voor een exclusieve Fietsdepot weesfiets. Volledig opgeknapt voor een scherpe prijs!", urlString: "")
+        let plasticFantastic = RecyQPartner(name: "Plastic Fantastic Workshop", image: #imageLiteral(resourceName: "PlasticFantastic"), description: "Meld je aan voor de Plastic Fantastic  Workshop. Creatief met plastic!", urlString: "")
         self.partners.append(wormenHotel)
         self.partners.append(recyQJeans)
         self.partners.append(weesFiets)
@@ -64,6 +64,7 @@ class NewInfoViewController: UIViewController {
     fileprivate func addInformtionBarButtonItem() {
         let informationBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "info-icon"), style: .plain, target: self, action: #selector(showText))
         informationBarButtonItem.tintColor = .lightGray
+        informationBarButtonItem.setBackgroundImage(#imageLiteral(resourceName: "info-icon"), for: .selected, barMetrics: .default)
         self.navigationItem.setRightBarButton(informationBarButtonItem, animated: true)
     }
 }
@@ -75,10 +76,10 @@ extension NewInfoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PartnerCell.identifier, for: indexPath) as! PartnerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: InfoCell.identifier, for: indexPath) as! InfoCell
         let partner = self.partners[indexPath.row]
         cell.partnerNameLabel.text = " " + partner.name
-        cell.partnerNameLabel.backgroundColor = PartnerCell.bacKGroundColors[indexPath.row]
+        cell.partnerNameLabel.backgroundColor = InfoCell.bacKGroundColors[indexPath.row]
         cell.partnerImageView.image = partner.image
         cell.partnerDescription.text = partner.description
         return cell

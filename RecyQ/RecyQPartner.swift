@@ -12,4 +12,5 @@ struct RecyQPartner {
     let name: String
     let image: UIImage
     let description: String
+    let urlString: String
 }

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,9 @@
             <string>PTMono-Bold</string>
             <string>PTMono-Regular</string>
         </array>
+        <array key="VolvoBroad.ttf">
+            <string>VolvoBroad</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoreDetailViewController" customModule="RecyQ" customModuleProvider="target">
@@ -21,6 +24,7 @@
                 <outlet property="image" destination="3Iq-z8-kPn" id="9Px-od-tF9"/>
                 <outlet property="price" destination="l7O-V1-fPw" id="Ri1-ee-RnX"/>
                 <outlet property="redeemButton" destination="AOG-g3-GJ6" id="ffv-wZ-3Ff"/>
+                <outlet property="shopNameLabel" destination="9vz-K1-izk" id="w41-Eu-jbA"/>
                 <outlet property="titleLabel" destination="YDy-KF-qIC" id="lA8-NY-lbk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,7 +46,7 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQx-DU-RPt">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQx-DU-RPt">
                             <rect key="frame" x="0.0" y="70" width="300" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="5X8-Ay-S32"/>
@@ -52,22 +56,23 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7O-V1-fPw">
-                            <rect key="frame" x="0.0" y="120" width="300" height="50"/>
+                            <rect key="frame" x="0.0" y="120" width="300" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="XYF-sW-eoz"/>
+                                <constraint firstAttribute="height" constant="40" id="XYF-sW-eoz"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOG-g3-GJ6">
-                            <rect key="frame" x="0.0" y="170" width="300" height="30"/>
+                            <rect key="frame" x="0.0" y="160" width="300" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="V9P-Zd-I8I"/>
+                                <constraint firstAttribute="height" constant="40" id="V9P-Zd-I8I"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="17"/>
-                            <state key="normal" title="OK">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Koop">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="redeemToken:" destination="-1" eventType="touchUpInside" id="0oG-sS-Y8t"/>
@@ -79,17 +84,30 @@
                     </constraints>
                 </stackView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Iq-z8-kPn">
-                    <rect key="frame" x="8" y="70" width="359" height="337"/>
+                    <rect key="frame" x="32" y="90" width="311" height="317"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" zero waste store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vz-K1-izk">
+                    <rect key="frame" x="16" y="70" width="200" height="40"/>
+                    <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Kq3-v8-H6W"/>
+                        <constraint firstAttribute="height" constant="40" id="q9T-kr-48u"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="25"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3Iq-z8-kPn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="77p-He-tzQ"/>
+                <constraint firstItem="3Iq-z8-kPn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="77p-He-tzQ"/>
                 <constraint firstItem="x4Y-hv-z5X" firstAttribute="top" secondItem="3Iq-z8-kPn" secondAttribute="bottom" id="Cxu-ar-BVT"/>
-                <constraint firstItem="3Iq-z8-kPn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Mwk-KB-30c"/>
+                <constraint firstItem="3Iq-z8-kPn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="Mwk-KB-30c"/>
                 <constraint firstAttribute="bottom" secondItem="x4Y-hv-z5X" secondAttribute="bottom" constant="60" id="WYc-UM-4LO"/>
+                <constraint firstItem="9vz-K1-izk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="ar8-cr-qol"/>
                 <constraint firstItem="x4Y-hv-z5X" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eKp-UE-afA"/>
-                <constraint firstAttribute="trailing" secondItem="3Iq-z8-kPn" secondAttribute="trailing" constant="8" id="qZa-KD-YBv"/>
+                <constraint firstItem="9vz-K1-izk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="nCR-m4-xBg"/>
+                <constraint firstAttribute="trailing" secondItem="3Iq-z8-kPn" secondAttribute="trailing" constant="32" id="qZa-KD-YBv"/>
             </constraints>
             <point key="canvasLocation" x="40" y="-363"/>
         </view>

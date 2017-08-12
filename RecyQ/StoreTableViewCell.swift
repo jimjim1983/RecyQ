@@ -10,6 +10,7 @@ import UIKit
 
 class StoreTableViewCell: UITableViewCell {
 
+    @IBOutlet var storeName: UILabel!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var storeItemImageView: UIImageView!
     @IBOutlet weak var storeItemPrice: UILabel!

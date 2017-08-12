@@ -35,7 +35,7 @@ struct User {
     let spentCoins: Int?
     
     // Initialize from arbitrary data
-    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfGlass: Double?, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int) {
+    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfGlass: Double?, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int?) {
         self.key = key
         self.name = name
         self.lastName = lastName
@@ -80,7 +80,7 @@ struct User {
         amountOfGlass = snapshotValue?["amountOfGlass"] as? Double
         wasteDepositInfo = snapshotValue?["wasteDepositInfo"] as? [String: Any]
         uid = snapshotValue?["uid"] as! String
-        spentCoins = snapshotValue?["uid"] as? Int
+        spentCoins = snapshotValue?["spentCoins"] as? Int
     }
     
     func toAnyObject() -> [String: AnyObject] {

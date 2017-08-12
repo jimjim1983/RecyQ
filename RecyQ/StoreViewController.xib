@@ -8,16 +8,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="PTMono.ttc">
-            <string>PTMono-Bold</string>
-            <string>PTMono-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoreViewController" customModule="RecyQ" customModuleProvider="target">
             <connections>
-                <outlet property="numberOfTokensLabel" destination="bRZ-cd-bxq" id="dyc-IO-BmO"/>
+                <outlet property="activityIndicator" destination="9t1-1j-ZX9" id="btA-bF-zeh"/>
                 <outlet property="tableView" destination="asg-3S-iAE" id="Ph5-6N-kWO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="asg-3S-iAE">
-                    <rect key="frame" x="0.0" y="152" width="375" height="463"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="345" id="GNn-jH-KQZ"/>
@@ -42,70 +36,22 @@
                         <outlet property="delegate" destination="-1" id="T6B-TP-GwD"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="tokens" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRZ-cd-bxq">
-                    <rect key="frame" x="0.0" y="82" width="375" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="118" id="BiM-Gn-ojW"/>
-                        <constraint firstAttribute="height" constant="20.5" id="FPX-hj-dAW"/>
-                        <constraint firstAttribute="width" constant="92.5" id="Nqd-zh-ROx"/>
-                        <constraint firstAttribute="height" constant="30" id="fSF-Tc-Ye8"/>
-                        <constraint firstAttribute="width" constant="100.5" id="rhi-c6-Zm9"/>
-                        <constraint firstAttribute="width" constant="78" id="tVD-ib-4ra"/>
-                        <constraint firstAttribute="width" constant="68" id="ykr-uN-kVB"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="17"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="BiM-Gn-ojW"/>
-                            <exclude reference="FPX-hj-dAW"/>
-                            <exclude reference="Nqd-zh-ROx"/>
-                            <exclude reference="rhi-c6-Zm9"/>
-                            <exclude reference="tVD-ib-4ra"/>
-                            <exclude reference="ykr-uN-kVB"/>
-                        </mask>
-                    </variation>
-                </label>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8t-UF-Cv8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="GAX-7S-gEd"/>
-                    </constraints>
-                    <items>
-                        <navigationItem title="RecyQ Shop" id="vEV-wW-Ytl"/>
-                    </items>
-                </navigationBar>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wissel hier je RecyQ tokens in." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-U4-5He">
-                    <rect key="frame" x="25" y="120" width="325" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="325" id="C00-qj-oem"/>
-                        <constraint firstAttribute="height" constant="24" id="o7t-uJ-Bpn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9t1-1j-ZX9">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" red="0.1764705882" green="0.80784313730000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bRZ-cd-bxq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1AR-mj-5rJ"/>
-                <constraint firstItem="asg-3S-iAE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7d2-kI-h0o"/>
-                <constraint firstItem="a8t-UF-Cv8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ago-B1-qML"/>
-                <constraint firstItem="bRZ-cd-bxq" firstAttribute="top" secondItem="a8t-UF-Cv8" secondAttribute="bottom" constant="22" id="DdL-1A-je2"/>
-                <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="SGv-U4-5He" secondAttribute="bottom" constant="8" id="Djw-hg-SGv"/>
-                <constraint firstItem="a8t-UF-Cv8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FYx-gy-07j"/>
-                <constraint firstItem="SGv-U4-5He" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ivd-7F-Ks7"/>
-                <constraint firstAttribute="bottom" secondItem="asg-3S-iAE" secondAttribute="bottom" constant="52" id="JHl-QL-Ns1"/>
+                <constraint firstAttribute="bottom" secondItem="asg-3S-iAE" secondAttribute="bottom" id="55i-BQ-o2o"/>
+                <constraint firstItem="9t1-1j-ZX9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="9Re-oH-Rvp"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kf4-ek-OJC"/>
+                <constraint firstItem="9t1-1j-ZX9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OqD-5x-rvJ"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RAC-gz-bM1"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="SAx-77-via"/>
-                <constraint firstItem="a8t-UF-Cv8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mDm-Ms-dRU"/>
+                <constraint firstItem="asg-3S-iAE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nBM-2P-JQQ"/>
                 <constraint firstItem="asg-3S-iAE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ram-J7-xbb"/>
-                <constraint firstItem="bRZ-cd-bxq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sFW-4P-Z0t"/>
-                <constraint firstItem="SGv-U4-5He" firstAttribute="top" secondItem="bRZ-cd-bxq" secondAttribute="bottom" constant="8" id="tAT-FL-m2g"/>
                 <constraint firstAttribute="trailing" secondItem="asg-3S-iAE" secondAttribute="trailing" id="tu4-gc-pZR"/>
-                <constraint firstAttribute="trailing" secondItem="bRZ-cd-bxq" secondAttribute="trailing" id="uHQ-qd-5oG"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

@@ -48,18 +48,23 @@
                                 <constraint firstAttribute="height" constant="150" id="wcQ-f3-yd2"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Camera_898989_75" translatesAutoresizingMaskIntoConstraints="NO" id="kqk-ad-i1U">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera_898989_75" translatesAutoresizingMaskIntoConstraints="NO" id="kqk-ad-i1U">
                             <rect key="frame" x="150" y="97" width="75" height="75"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="75" id="Ow1-pU-TUe"/>
+                                <constraint firstAttribute="width" constant="75" id="erI-ir-DMk"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.17647058823529413" green="0.80784313725490198" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="kqk-ad-i1U" firstAttribute="centerX" secondItem="tIK-bg-eCN" secondAttribute="centerX" id="49S-IX-92X"/>
                         <constraint firstAttribute="trailing" secondItem="pUa-pD-N9i" secondAttribute="trailing" constant="16" id="9ea-Cy-bzV"/>
                         <constraint firstItem="pUa-pD-N9i" firstAttribute="leading" secondItem="tIK-bg-eCN" secondAttribute="leading" constant="16" id="BNT-aF-wB1"/>
                         <constraint firstItem="pUa-pD-N9i" firstAttribute="top" secondItem="lZB-B3-ier" secondAttribute="bottom" constant="13" id="CNm-bs-4Oh"/>
                         <constraint firstAttribute="bottom" secondItem="pUa-pD-N9i" secondAttribute="bottom" constant="8" id="Wv5-0f-RHB"/>
                         <constraint firstItem="lZB-B3-ier" firstAttribute="centerY" secondItem="tIK-bg-eCN" secondAttribute="centerY" constant="-0.5" id="bQF-Zy-QZI"/>
+                        <constraint firstItem="kqk-ad-i1U" firstAttribute="centerY" secondItem="tIK-bg-eCN" secondAttribute="centerY" id="idt-Ou-wgk"/>
                         <constraint firstItem="lZB-B3-ier" firstAttribute="centerX" secondItem="tIK-bg-eCN" secondAttribute="centerX" id="jl0-mG-20w"/>
                         <constraint firstAttribute="height" constant="269" id="n4P-XV-juB"/>
                     </constraints>
@@ -88,7 +93,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Camera_898989_75" width="75" height="75"/>
+        <image name="Camera_898989_75" width="37" height="37"/>
         <image name="buurtactiviteitStore" width="950" height="713"/>
     </resources>
 </document>

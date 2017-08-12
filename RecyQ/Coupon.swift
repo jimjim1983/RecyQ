@@ -4,42 +4,42 @@ import Foundation
 import Firebase
 
 struct Coupon {
-    
-    //let key: String!
-    let uid: String!
-    let couponName: String!
-    let couponValue: Int!
-    let redemeed: Bool!
-    
-    // Initialize from arbitrary data
-    init(/*key: String = "",*/  uid: String, couponName: String, couponValue: Int, redeemed: Bool) {
-        //self.key = key
-        self.uid = uid
-        self.couponName = couponName
-        self.couponValue = couponValue
-        self.redemeed = redeemed
-        //self.ref = nil
-    }
-    
-    init(snapshot: FIRDataSnapshot) {
-        /*key = snapshot.key*/
-        let snapshotValue = snapshot.value as? NSDictionary
-        couponName = snapshotValue?["couponName"] as? String
-        couponValue = snapshotValue?["couponValue"] as? Int
-        uid = snapshotValue?["uid"] as? String
-        redemeed = snapshotValue?["redeemed"] as? Bool
-        //ref = snapshot.ref
-        
-    }                
+    let uid: String
+    let ownerID: String
+    let shopName: String
+    let validationCode: Int
+    let couponName: String
+    let couponValue: Int
+    let redemeed: Bool
+    let dateCreated: String
+    let dateRedeemd: String?
     
     func toAnyObject() -> [String: Any] {
         return [
-            "couponName": couponName,
-            "couponValue": couponValue,
-            "uid": uid,
-            "redeemed": redemeed
-            /*"key": key*/
+            "uid": uid as AnyObject,
+            "ownerID": ownerID as AnyObject,
+            "shopName": shopName as AnyObject,
+            "validationCode": validationCode as AnyObject,
+            "couponName": couponName as AnyObject,
+            "couponValue": couponValue as AnyObject,
+            "redeemed": redemeed as AnyObject,
+            "dateCreated": dateCreated as AnyObject,
+            "dateRedeemed": dateRedeemd as AnyObject
         ]
     }
-    
+}
+
+extension Coupon {
+    init(snapshot: FIRDataSnapshot) {
+        let snapshotValue = snapshot.value as? NSDictionary
+        uid = snapshotValue?["uid"] as! String
+        ownerID = snapshotValue?["ownerID"] as! String
+        shopName = snapshotValue?["shopName"] as! String
+        validationCode = snapshotValue?["validationCode"] as! Int
+        couponName = snapshotValue?["couponName"] as! String
+        couponValue = snapshotValue?["couponValue"] as! Int
+        redemeed = snapshotValue?["redeemed"] as! Bool
+        dateCreated = snapshotValue?["dateCreated"] as! String
+        dateRedeemd = snapshotValue?["dateRedeemed"] as? String
+    }
 }

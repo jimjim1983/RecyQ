@@ -42,12 +42,13 @@ class NewCommunityViewController: UIViewController {
         self.watGaanWeDoenButton.addBorderWith(width: 1, color: .darkGray)
         self.wieStaatErBovenaanButton.addBorderWith(width: 1, color: .darkGray)
         self.communityPartnersButton.addBorderWith(width: 1, color: .darkGray)
+        // Sets the alpha value for the four value labels.
+        set(alpha: 0)
     }
     
     // This code needs refactoring. For now i copied it from the CommunityVC.
     fileprivate func getTotalCo2AndRecycledAmounts() {
         
-        // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
         FirebaseHelper.References.clientsRef.queryOrdered(byChild: "amountOfBioWaste").observe(.value, with: { snapshot in
             
             if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -66,13 +67,8 @@ class NewCommunityViewController: UIViewController {
                 
             }
             
-            var total = Double()
-            
-            for i in self.wasteArray {
-                total = total + i
-            }
-            
-            self.recycledTotalLabel.text = "\(round(total))"
+            let total = self.wasteArray.reduce(0.0, +)
+            self.recycledTotalLabel.text = "\(total.rounded(.down))"
             
             let co2Amount = (round((total/35) * 50))
             self.co2TotalLabel.text = "\(co2Amount)"
@@ -82,6 +78,8 @@ class NewCommunityViewController: UIViewController {
             
             let treesSaved = total / 11.6
             self.totalTreesSaved.text = treesSaved.stringFromDoubleWth(fractionDigits: 0)
+            // Animates the calculated values in sight from alpha 0 to 1.
+            self.animateValuesIn()
         })
     }
 
@@ -100,5 +98,20 @@ class NewCommunityViewController: UIViewController {
     @IBAction func communityPartnersButtonTapped(_ sender: Any) {
         let partnersVC = PartnersViewController()
         self.navigationController?.pushViewController(partnersVC, animated: true)
+    }
+}
+
+extension NewCommunityViewController {
+    func set(alpha: CGFloat) {
+        self.recycledTotalLabel.alpha = alpha
+        self.co2TotalLabel.alpha = alpha
+        self.totalTokensSaved.alpha = alpha
+        self.totalTreesSaved.alpha = alpha
+    }
+    
+    func animateValuesIn() {
+        UIView.animate(withDuration: 0.5) { 
+            self.set(alpha: 1)
+        }
     }
 }

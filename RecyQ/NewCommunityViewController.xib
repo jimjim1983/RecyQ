@@ -44,36 +44,36 @@
                         <navigationItem title="Community" id="YE3-h4-AZG"/>
                     </items>
                 </navigationBar>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bU-FM-xbj">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bU-FM-xbj">
                     <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bER-DK-3G6" userLabel="Trees Saved View">
                             <rect key="frame" x="184" y="49" width="152" height="180"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Totaal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFU-It-7rG">
-                                    <rect key="frame" x="20" y="8" width="112" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="12"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Boom Icon" translatesAutoresizingMaskIntoConstraints="NO" id="1hT-r2-fhM">
                                     <rect key="frame" x="0.0" y="21" width="152" height="114"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bomen een jaar lang laten groeien" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ln-0v-rld">
-                                    <rect key="frame" x="0.0" y="135" width="152" height="45"/>
+                                    <rect key="frame" x="8" y="135" width="136" height="45"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="12"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-0b-O4q">
-                                    <rect key="frame" x="48" y="58" width="62" height="31"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-0b-O4q">
+                                    <rect key="frame" x="44" y="57" width="72" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="19"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Totaal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFU-It-7rG">
+                                    <rect key="frame" x="24" y="4" width="112" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -81,7 +81,7 @@
                             <color key="tintColor" red="0.082352941176470587" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="180" id="JYQ-5K-mUk"/>
-                                <constraint firstAttribute="width" constant="152" id="mkN-3S-Ci6"/>
+                                <constraint firstAttribute="width" constant="152" id="LoF-KI-3UM"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpV-NM-cag" userLabel="Recycled View">
@@ -101,12 +101,9 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="KG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-ea-lTP">
-                                    <rect key="frame" x="98" y="22" width="26" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="21" id="IuK-fO-IwF"/>
-                                        <constraint firstAttribute="width" constant="26" id="fxO-8a-hHx"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="KG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoY-ea-lTP">
+                                    <rect key="frame" x="102" y="20" width="18" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="21"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -135,7 +132,7 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="000.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-nK-qFF">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="000.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-nK-qFF">
                                     <rect key="frame" x="0.0" y="43" width="97" height="41"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="VolvoBroad" family="VolvoBroad" pointSize="41"/>
@@ -157,7 +154,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.96862745100000003" green="0.16862745100000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.74509803921568629" green="0.15686274509803921" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="127" id="ORh-xz-w6g"/>
                                 <constraint firstAttribute="height" constant="141" id="Zor-qW-ihL"/>
@@ -247,8 +244,9 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="TpU-ks-rwf" firstAttribute="leading" secondItem="1bU-FM-xbj" secondAttribute="leading" constant="78" id="2Ck-wJ-kiv"/>
+                        <constraint firstItem="TpU-ks-rwf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="1bU-FM-xbj" secondAttribute="leading" constant="78" id="2Ck-wJ-kiv"/>
                         <constraint firstItem="Ndq-Hi-yR6" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="bottom" constant="8" id="3J0-EF-Lpb"/>
+                        <constraint firstAttribute="trailing" secondItem="bER-DK-3G6" secondAttribute="trailing" constant="39" id="8Bg-Z9-uVA"/>
                         <constraint firstItem="hpV-NM-cag" firstAttribute="leading" secondItem="1bU-FM-xbj" secondAttribute="leading" constant="75" id="G2M-lu-o2p"/>
                         <constraint firstItem="sYN-Qv-bIn" firstAttribute="top" secondItem="hpV-NM-cag" secondAttribute="bottom" constant="122" id="Nm2-4Q-wTk"/>
                         <constraint firstItem="bER-DK-3G6" firstAttribute="top" secondItem="1bU-FM-xbj" secondAttribute="top" constant="49" id="d3b-tJ-qAO"/>

@@ -24,19 +24,31 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Pick up fiets" translatesAutoresizingMaskIntoConstraints="NO" id="cph-Zl-sbf">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pick up fiets" translatesAutoresizingMaskIntoConstraints="NO" id="cph-Zl-sbf">
                     <rect key="frame" x="0.0" y="363" width="375" height="219"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="219" id="txf-m3-efO"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Laat je plastic, papier, textiel en E-waste ophalen door de Zero Waste Pickup. Bel-06-36537264" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ4-8K-DhC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laat je plastic, papier, textiel en E-waste ophalen door de Zero Waste Pickup. Bel-06-36537264" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ4-8K-DhC">
                     <rect key="frame" x="16" y="71" width="343" height="118"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="118" id="Np0-Ae-U5j"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="19"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cph-Zl-sbf" secondAttribute="bottom" constant="85" id="2BF-ra-TUo"/>
+                <constraint firstItem="cQ4-8K-DhC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="6KJ-uy-Med"/>
+                <constraint firstItem="cph-Zl-sbf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dFg-9Z-l7u"/>
+                <constraint firstItem="cQ4-8K-DhC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="nJC-yx-XWG"/>
+                <constraint firstAttribute="trailing" secondItem="cQ4-8K-DhC" secondAttribute="trailing" constant="16" id="tBf-TO-OiK"/>
+                <constraint firstAttribute="trailing" secondItem="cph-Zl-sbf" secondAttribute="trailing" id="zIF-wx-cMh"/>
+            </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>

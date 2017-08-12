@@ -35,10 +35,22 @@
                             <rect key="frame" x="82" y="86" width="128" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-0f-UjV">
+                            <rect key="frame" x="140" y="142" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="FUy-fS-0R0"/>
+                                <constraint firstAttribute="height" constant="20" id="RM6-kJ-46R"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="20"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="MO9-6n-GOE"/>
+                        <constraint firstItem="S6h-0f-UjV" firstAttribute="centerY" secondItem="11V-Hk-RP6" secondAttribute="centerY" constant="2" id="b5z-TN-5ip"/>
+                        <constraint firstItem="S6h-0f-UjV" firstAttribute="centerX" secondItem="11V-Hk-RP6" secondAttribute="centerX" id="h4d-kZ-IV0"/>
                         <constraint firstAttribute="width" constant="300" id="yaH-Yb-ky0"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -90,7 +102,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="129" id="CnD-9b-oqM"/>
                     </constraints>
-                    <string key="text">Bij 35 kg ingeleverd afval verdien je een digitale token die korting geeft en heb je ook 50 kg CO2 gecompenseerd. Evenveelals 3 bomen die een jaar lang groeien. Voor een betere planeet!</string>
+                    <string key="text">Bij 35 kg ingeleverd afval verdien je een digitale token die korting geeft en heb je ook 50 kg CO2 gecompenseerd. Evenveel als 3 bomen die een jaar lang groeien. Voor een betere planeet!</string>
                     <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>

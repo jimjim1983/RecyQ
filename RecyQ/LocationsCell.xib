@@ -35,7 +35,7 @@
                     </mapView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" zero waste store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEf-Gt-h95">
                         <rect key="frame" x="16" y="34" width="200" height="40"/>
-                        <color key="backgroundColor" red="0.74901960779999999" green="0.80784313730000001" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.25490196079999999" green="0.52941176469999995" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="ZNt-W0-QWo"/>
                             <constraint firstAttribute="height" constant="40" id="Zvn-2h-a7l"/>
@@ -89,7 +89,7 @@
                         </constraints>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzk-G2-ctK">
-                        <rect key="frame" x="322" y="223" width="50" height="50"/>
+                        <rect key="frame" x="322" y="215" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="0q7-GE-dai"/>
                             <constraint firstAttribute="width" constant="50" id="tzG-3R-yUO"/>
@@ -99,15 +99,27 @@
                             <action selector="pickUpServiceButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Xzb-eu-hHh"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PICKUP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yII-cD-x15">
+                        <rect key="frame" x="322" y="260" width="50" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="oDV-9T-KTu"/>
+                            <constraint firstAttribute="height" constant="13.5" id="rfb-MK-OaI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dEf-Gt-h95" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="34" id="075-xe-ucY"/>
                     <constraint firstItem="lhe-Gn-TBQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="36H-Jj-LN1"/>
                     <constraint firstAttribute="trailing" secondItem="LL1-s8-lKX" secondAttribute="trailing" constant="32" id="F2D-hM-2fz"/>
+                    <constraint firstItem="yII-cD-x15" firstAttribute="top" secondItem="Rzk-G2-ctK" secondAttribute="bottom" constant="-5" id="KlO-7E-ciy"/>
                     <constraint firstItem="LL1-s8-lKX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="NXx-XY-wMe"/>
+                    <constraint firstAttribute="trailing" secondItem="yII-cD-x15" secondAttribute="trailing" constant="32" id="c4L-F6-mXB"/>
                     <constraint firstItem="dEf-Gt-h95" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="cqC-Q0-LAp"/>
                     <constraint firstItem="lhe-Gn-TBQ" firstAttribute="top" secondItem="LL1-s8-lKX" secondAttribute="bottom" constant="10" id="efu-kr-V0a"/>
-                    <constraint firstAttribute="bottom" secondItem="Rzk-G2-ctK" secondAttribute="bottom" constant="18" id="tdZ-QP-IsA"/>
+                    <constraint firstAttribute="bottom" secondItem="yII-cD-x15" secondAttribute="bottom" constant="18" id="uAi-fj-Dsb"/>
                     <constraint firstItem="LL1-s8-lKX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="54" id="w7w-sS-bqi"/>
                     <constraint firstAttribute="trailing" secondItem="Rzk-G2-ctK" secondAttribute="trailing" constant="32" id="xNN-ZL-1tm"/>
                 </constraints>

@@ -39,7 +39,7 @@ class LocationsViewController: UIViewController {
             var recyqLocations: [RecyQLocation] = []
             for location in snapshot.children {
                 let recyqLocation = RecyQLocation(snapshot: location as! FIRDataSnapshot)
-                recyqLocations.append(recyqLocation)
+                recyqLocations.insert(recyqLocation, at: 0)
             }
             self.recyqLocations = recyqLocations
             self.tableView.reloadData()

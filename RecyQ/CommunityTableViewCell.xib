@@ -10,6 +10,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="PTMono.ttc">
+            <string>PTMono-Bold</string>
             <string>PTMono-Regular</string>
         </array>
     </customFonts>
@@ -20,30 +21,45 @@
             <rect key="frame" x="0.0" y="0.0" width="498" height="62"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="498" height="62"/>
+                <rect key="frame" x="0.0" y="0.0" width="498" height="61"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGN-uU-0wT">
-                        <rect key="frame" x="8" y="8" width="482" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TGN-uU-0wT">
+                        <rect key="frame" x="56" y="8" width="434" height="20"/>
                         <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="17"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Co2 saved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-8L-V33">
-                        <rect key="frame" x="8" y="36" width="482" height="17"/>
-                        <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="15"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="56" y="36" width="434" height="17"/>
+                        <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t1w-OQ-dzl">
+                        <rect key="frame" x="8" y="10" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.1764705882" green="0.80784313730000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="LjT-9K-tld"/>
+                            <constraint firstAttribute="height" constant="40" id="bjn-29-dWG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="TGN-uU-0wT" firstAttribute="leading" secondItem="t1w-OQ-dzl" secondAttribute="trailing" constant="8" id="4cw-CJ-8uK"/>
                     <constraint firstAttribute="trailing" secondItem="TGN-uU-0wT" secondAttribute="trailing" constant="8" id="7mL-An-6ha"/>
-                    <constraint firstItem="TGN-uU-0wT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="LfC-bD-shr"/>
+                    <constraint firstItem="t1w-OQ-dzl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="8G6-qa-qJf"/>
+                    <constraint firstAttribute="bottom" secondItem="t1w-OQ-dzl" secondAttribute="bottom" constant="11" id="Ack-yP-6Un"/>
                     <constraint firstAttribute="bottom" secondItem="FWk-8L-V33" secondAttribute="bottom" constant="8" id="LrO-sy-W3N"/>
                     <constraint firstAttribute="trailing" secondItem="FWk-8L-V33" secondAttribute="trailing" constant="8" id="cHP-Zw-2lF"/>
                     <constraint firstItem="FWk-8L-V33" firstAttribute="top" secondItem="TGN-uU-0wT" secondAttribute="bottom" constant="8" id="dgS-iN-ib6"/>
-                    <constraint firstItem="FWk-8L-V33" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="erJ-bT-T6b"/>
                     <constraint firstItem="FWk-8L-V33" firstAttribute="leading" secondItem="TGN-uU-0wT" secondAttribute="trailing" constant="8" id="f3s-wY-Nud"/>
+                    <constraint firstItem="t1w-OQ-dzl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ibv-7b-5sc"/>
+                    <constraint firstItem="FWk-8L-V33" firstAttribute="leading" secondItem="t1w-OQ-dzl" secondAttribute="trailing" constant="8" id="tZB-LG-SMc"/>
                     <constraint firstItem="TGN-uU-0wT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uwl-Jc-8sf"/>
                     <constraint firstItem="FWk-8L-V33" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yNw-DL-hBq"/>
                 </constraints>
@@ -57,6 +73,7 @@
             <connections>
                 <outlet property="co2SavedLabel" destination="FWk-8L-V33" id="riI-pk-tJd"/>
                 <outlet property="nameLabel" destination="TGN-uU-0wT" id="Hvj-vZ-3hQ"/>
+                <outlet property="positionLabel" destination="t1w-OQ-dzl" id="PEH-OO-khO"/>
             </connections>
             <point key="canvasLocation" x="271" y="205"/>
         </tableViewCell>

@@ -21,13 +21,12 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
     @IBOutlet var nameLabel: UILabel!
    
     var coupon: Coupon?
-    var couponItems = [FIRDataSnapshot]()
+    var couponItems = [Coupon]()
     let couponsRef = FIRDatabase.database().reference(withPath: "coupons")
     var tapGestureRecogniser: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
     }
     
@@ -37,11 +36,14 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         ReachabilityHelper.checkReachability(viewController: self)
         
         // go trough all coupons and find the one with the same user uid, then add them to the array for the tableview
-        self.couponsRef.queryOrdered(byChild: "uid").queryEqual(toValue: currentUser?.uid).observe(.value, with: { snapshot in
-            
-            if let itemsFromSnapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                self.couponItems = itemsFromSnapshots
+        self.couponsRef.queryOrdered(byChild: "ownerID").queryEqual(toValue: currentUser?.uid).observe(.value, with: { snapshot in
+            var coupons = [Coupon]()
+            if let couponsFromSnapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for snapshot in couponsFromSnapshots {
+                    let coupon = Coupon(snapshot: snapshot)
+                    coupons.append(coupon)
+                }
+                self.couponItems = coupons.sorted{ $0.1.redemeed }
                 self.tableView.reloadData()
             }
         })
@@ -66,11 +68,10 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         else {
             self.nameLabel.text = currentUser?.name.capitalized
         }
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
         let nib = UINib.init(nibName: "CouponsTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "cell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         loadProfileImage(pathComponent: "ProfileImage")
     }
@@ -120,23 +121,6 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         let loginVC = LoginViewController()
         Constants.appDelegate.window?.rootViewController = loginVC
     }
-    
-    @IBAction func openInMaps (_ sender: UIButton) {
-        
-        let alertController = UIAlertController(title: "Google Maps openen", message: "voor een routebeschrijving", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
-            if let url = URL(string: "https://www.google.nl/maps/place/Wisseloord+182,+1106+MC+Amsterdam-Zuidoost/@52.2973944,4.9853276,17z/data=!3m1!4b1!4m2!3m1!1s0x47c60c8ac7dd7be3:0x3eb79f318071fdae") {
-                UIApplication.shared.openURL(url)
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Annuleer", style: .default) { (action) in
-        }
-        alertController.addAction(cancelAction)
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true) {
-        }
-    }
 }
 
 // MARK: Tableview datasource methods
@@ -155,8 +139,15 @@ extension ProfileViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CouponsTableViewCell
         
         if couponItems.count > 0 {
-            let item = couponItems[indexPath.row]
-            cell.nameLabel.text = item.key
+            let coupon = couponItems[indexPath.row]
+            cell.nameLabel.text = coupon.couponName
+            if coupon.redemeed {
+                cell.nameLabel.alpha = 0.5
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            } else {
+                cell.nameLabel.alpha = 1
+                cell.accessoryType = UITableViewCellAccessoryType.none
+            }
         }
         else {
             cell.nameLabel.text = "U heeft nog geen coupons verdiend."
@@ -168,23 +159,56 @@ extension ProfileViewController: UITableViewDataSource {
         let titleHeader = "Uw verdiende coupons:"
         return titleHeader
     }
+}
+
+// MARK: Tableview delegate methods.
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 45
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font = UIFont(name: "Futura", size: 15)!
+        header.textLabel?.textColor = UIColor.darkGray
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let coupon = couponItems[indexPath.row]
+        if coupon.redemeed {
+            return nil
+        }
+        return indexPath
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = couponItems[indexPath.row]
-        let name = item.key
+        let coupon = couponItems[indexPath.row]
+        let name = coupon.couponName
         
-        if item.key .contains("Doneer") {
-            let alertController = UIAlertController(title: "Bedankt voor je donatie", message: "Hou de Community pagina in de gaten om te zien wat er georganiseerd wordt", preferredStyle: .alert)
-  
-            let cancelAction = UIAlertAction(title: "Terug", style: .default) { (action) in
-            }
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true) {
-            }
-            
+        if name.contains("Donatie") {
+            self.showAlertWith(title: "Bedankt voor uw donatie.", message: "Houd de Community pagina in de gaten om te zien wat er georganiseerd wordt.")
+            self.couponsRef.child(coupon.uid).child("redeemed").setValue(true)
         } else {
-            let alertController = UIAlertController(title: "Toon deze coupon bij het Recyq inzamelpunt om te verzilveren", message: name, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Validatie vereist.", message: "Vraag de winkel eigenaar om zijn validatie code in te voeren.", preferredStyle: .alert)
+            
             let OKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+                let codeTextField = alertController.textFields![0]
+                guard codeTextField.text != "" && codeTextField.text == String(coupon.validationCode) else {
+                    self.showAlertWith(title: "Fout", message: "De ingevoerde code is niet correct.")
+                    return
+                }
+                self.couponsRef.child(coupon.uid).child("redeemed").setValue(true)
+                self.showAlertWith(title: "Bedankt!", message: "Het valideren van uw coupon is gelukt.")
+            }
+            alertController.addTextField{ (codeTextField) in
+                codeTextField.delegate = self
+                codeTextField.keyboardType = .numberPad
+                codeTextField.isSecureTextEntry = true
+                codeTextField.placeholder = "Voer hier de validatie code in."
             }
             alertController.addAction(OKAction)
             self.present(alertController, animated: true) {
@@ -193,23 +217,11 @@ extension ProfileViewController: UITableViewDataSource {
     }
 }
 
-// MARK: Tableview delegate methods.
-extension ProfileViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+// MARK: - UITetFieldDelegate functions.
+extension ProfileViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return textField.allowsOnlyNumbers(text: string)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont(name: "Futura", size: 15)!
-        header.textLabel?.textColor = UIColor.black
-    }
-    
 }
 
 // MARK: - Image picker functions.
