@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecyQ/LoginViewController.swift"
-            timestampString = "514198797.933476"
+            timestampString = "524217109.17889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "loginButton(_:didCompleteWith:error:)"
             landmarkType = "7">
             <Locations>
@@ -64,22 +64,6 @@
             startingLineNumber = "171"
             endingLineNumber = "171"
             landmarkName = "partnersButtonPressed(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RecyQ/FirebaseHelper.swift"
-            timestampString = "522572297.222045"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "observeAuthentication()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

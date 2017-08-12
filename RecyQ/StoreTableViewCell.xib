@@ -68,7 +68,7 @@
                         </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RA0-bU-G7u">
-                        <rect key="frame" x="317" y="210" width="150" height="30"/>
+                        <rect key="frame" x="309" y="210" width="150" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 token " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdN-gP-TaA">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
@@ -104,7 +104,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="RA0-bU-G7u" secondAttribute="trailing" id="3m0-qN-SRY"/>
+                    <constraint firstAttribute="trailing" secondItem="RA0-bU-G7u" secondAttribute="trailing" constant="8" id="3m0-qN-SRY"/>
                     <constraint firstAttribute="trailing" secondItem="i4V-BN-59B" secondAttribute="trailing" constant="8" id="AMx-TN-8bn"/>
                     <constraint firstItem="0kE-zZ-url" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="G4w-qe-TJ1"/>
                     <constraint firstItem="0kE-zZ-url" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IqA-iH-oBG"/>
