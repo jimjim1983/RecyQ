@@ -110,7 +110,7 @@ class NewStatsViewController: UIViewController {
                     self.totalCo2Amounts = self.co2Amounts.reduce(0.0, +)
                     self.tokensEarned =  (self.totalWasteAmounts / 35) - Double(user.spentCoins ?? 0)
                     if let totalCo2Amounts = self.totalCo2Amounts, let tokensEarned = self.tokensEarned {
-                        self.kiloGramLabel.text = totalCo2Amounts.stringFromDoubleWth(fractionDigits: 1) + "kg CO2"
+                        self.kiloGramLabel.text = totalCo2Amounts > 0 ? totalCo2Amounts.stringFromDoubleWth(fractionDigits: 1) + "kg CO2" : "0,0 kg CO2"
                         let tokens = tokensEarned.rounded(.down).stringFromDoubleWth(fractionDigits: 0)
                         self.tokensLabel.text = tokens == "1" ? tokens + " TOKEN" : tokens + " TOKENS"
                         // This wil take the remaining decimal value to use for the animation of the progress view.

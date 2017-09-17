@@ -12,7 +12,7 @@ import Firebase
 // Todo: Update code by putting the snaphot init inside an extension of User. Than we can use the memberwise init of the struct in stead of the created init.
 
 struct User {
-    
+    var dateCreated: String?
     let key: String
     let name: String
     var lastName: String?
@@ -22,6 +22,8 @@ struct User {
     var phoneNumber: String?
     let addedByUser: String //email
     var nearestWasteLocation: String?
+    var registeredVia = "iOS App"
+    var didReceiveRecyQBags: Bool?
     let ref: FIRDatabaseReference?
     var completed: Bool
     let amountOfPlastic: Double
@@ -35,7 +37,8 @@ struct User {
     let spentCoins: Int?
     
     // Initialize from arbitrary data
-    init(name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfGlass: Double?, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int?) {
+    init(dateCreated: String?, name: String, lastName: String, address: String, zipCode: String, city: String, phoneNumber: String, addedByUser: String, nearestWasteLocation: String, didReceiveRecyQBags: Bool?, completed: Bool, key: String = "",  amountOfPlastic: Double, amountOfPaper: Double, amountOfTextile: Double, amountOfEWaste: Double, amountOfBioWaste: Double, amountOfGlass: Double?, wasteDepositInfo: [String: Any]?, uid: String, spentCoins: Int?) {
+        self.dateCreated = dateCreated
         self.key = key
         self.name = name
         self.lastName = lastName
@@ -45,6 +48,7 @@ struct User {
         self.phoneNumber = phoneNumber
         self.addedByUser = addedByUser
         self.nearestWasteLocation = nearestWasteLocation
+        self.didReceiveRecyQBags = didReceiveRecyQBags
         self.completed = completed
         self.ref = nil
         self.amountOfPlastic = amountOfPlastic
@@ -62,6 +66,7 @@ struct User {
     init(snapshot: FIRDataSnapshot) {
         key = snapshot.key
         let snapshotValue = snapshot.value as? NSDictionary
+        dateCreated = snapshotValue?["dateCreated"] as? String
         name = snapshotValue?["name"] as! String
         lastName = snapshotValue?["lastName"] as? String
         address = snapshotValue?["address"] as? String
@@ -70,6 +75,8 @@ struct User {
         phoneNumber = snapshotValue?["phoneNumber"] as? String
         addedByUser = snapshotValue?["addedByUser"] as! String
         nearestWasteLocation = snapshotValue?["nearestWasteLocation"] as? String
+        registeredVia = snapshotValue?["registeredVia"] as! String
+        didReceiveRecyQBags = snapshotValue?["didReceiveRecyQBags"] as? Bool
         completed = snapshotValue?["completed"] as! Bool
         ref = snapshot.ref
         amountOfPlastic = snapshotValue?["amountOfPlastic"] as! Double
@@ -85,6 +92,7 @@ struct User {
     
     func toAnyObject() -> [String: AnyObject] {
         return [
+            "dateCreated" : dateCreated as AnyObject,
             "name": name as AnyObject,
             "lastName": lastName as AnyObject,
             "address": address as AnyObject,
@@ -93,6 +101,8 @@ struct User {
             "phoneNumber": phoneNumber as AnyObject,
             "addedByUser": addedByUser as AnyObject,
             "nearestWasteLocation": nearestWasteLocation as AnyObject,
+            "registeredVia": registeredVia as AnyObject,
+            "didReceiveRecyQBags": didReceiveRecyQBags as AnyObject,
             "completed": completed as AnyObject,
             "amountOfPlastic": amountOfPlastic as AnyObject,
             "amountOfPaper": amountOfPaper as AnyObject,
@@ -105,5 +115,4 @@ struct User {
             "spentCoins": spentCoins as AnyObject
         ]
     }
-    
 }

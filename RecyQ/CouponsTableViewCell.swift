@@ -10,7 +10,8 @@ import UIKit
 
 class CouponsTableViewCell: UITableViewCell {
 
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var shopItemName: UILabel!
+    @IBOutlet var shopName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

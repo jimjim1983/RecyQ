@@ -23,6 +23,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    // DateFormatter
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
+    
     // MARK: - View life cycles.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +153,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                     FirebaseHelper.References.clientsRef.queryOrdered(byChild: "uid").queryEqual(toValue: user?.uid).observe(.value, with: { (snapShot) in
                         
                         if snapShot.value is NSNull {
-                            currentUser = User(name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (user?.email)!, nearestWasteLocation: "", completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfGlass: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
+                            currentUser = User(dateCreated: self.dateFormatter.string(from: Date()), name: (firstName.lowercased()), lastName: lastName, address: "", zipCode: "", city: "", phoneNumber: "", addedByUser: (user?.email)!, nearestWasteLocation: "", didReceiveRecyQBags: false, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfGlass: 0, wasteDepositInfo: nil, uid: (user?.uid)!, spentCoins: 0)
                             
                             let userRef = FirebaseHelper.References.clientsRef.child((currentUser?.name)!)
                             userRef.setValue(currentUser?.toAnyObject())

@@ -25,6 +25,12 @@ class SignUpViewController: UIViewController {
     
     var wasteLocations = [NearestWasteLocation]()
     var locationsPickerView = UIPickerView()
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +68,7 @@ class SignUpViewController: UIViewController {
     }
     
     fileprivate func createNewUser() -> User {
-        let newUser = User(name: nameTextField.text!, lastName: lastNameTextField.text!, address: addressTextField.text!, zipCode: zipCodeTextField.text!, city: cityTextField.text!, phoneNumber: phoneNumberTextField.text!, addedByUser: emailTextField.text!, nearestWasteLocation: NearestWasteLocation(rawValue: nearestLocationTextField.text!)!.rawValue, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfGlass: 0, wasteDepositInfo: ["":""], uid: "", spentCoins: 0)
+        let newUser = User(dateCreated: self.dateFormatter.string(from: Date()), name: nameTextField.text!, lastName: lastNameTextField.text!, address: addressTextField.text!, zipCode: zipCodeTextField.text!, city: cityTextField.text!, phoneNumber: phoneNumberTextField.text!, addedByUser: emailTextField.text!, nearestWasteLocation: NearestWasteLocation(rawValue: nearestLocationTextField.text!)!.rawValue, didReceiveRecyQBags: false, completed: false, amountOfPlastic: 0, amountOfPaper: 0, amountOfTextile: 0, amountOfEWaste: 0, amountOfBioWaste: 0, amountOfGlass: 0, wasteDepositInfo: ["":""], uid: "", spentCoins: 0)
         return newUser
     }
     

@@ -140,17 +140,21 @@ extension ProfileViewController: UITableViewDataSource {
         
         if couponItems.count > 0 {
             let coupon = couponItems[indexPath.row]
-            cell.nameLabel.text = coupon.couponName
+            cell.shopItemName.text = coupon.couponName
+            cell.shopName.text = coupon.shopName
             if coupon.redemeed {
-                cell.nameLabel.alpha = 0.5
+                cell.shopItemName.alpha = 0.5
+                cell.shopName.alpha = 0.5
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
             } else {
-                cell.nameLabel.alpha = 1
+                cell.shopItemName.alpha = 1
+                cell.shopName.alpha = 1
                 cell.accessoryType = UITableViewCellAccessoryType.none
             }
         }
         else {
-            cell.nameLabel.text = "U heeft nog geen coupons verdiend."
+            cell.shopItemName.text = "U heeft nog geen coupons verdiend."
+            cell.shopName.text = ""
         }
         return cell
     }
@@ -168,7 +172,7 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 45
+        return 60
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

@@ -9,13 +9,15 @@
 import UIKit
 import Firebase
 
-class LeaderboardViewController: UIViewController, UITableViewDelegate {
+class LeaderboardViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var wasteDictionary = [String: Double]()
     var snapshotArray = [FIRDataSnapshot]()
     var totalParticipantsItem: UIBarButtonItem!
+    var currentUserFullName: String?
+    var currentUserPosition: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,14 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate {
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
         getAmountOfWaste()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let currentUserPosition = self.currentUserPosition {
+            let indexPath = IndexPath(row: currentUserPosition, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
     
     func setupViews() {
@@ -56,6 +66,11 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate {
                     
                     if let name = (item.value as AnyObject).object(forKey: "name") as? String {
                         if let lastName = (item.value as AnyObject).object(forKey: "lastName") as? String {
+                            if let uid = (item.value as AnyObject).object(forKey: "uid") as? String {
+                                if uid == currentUser?.uid {
+                                    self.currentUserFullName = name + " " + lastName
+                                }
+                            }
                             let fullName = name + " " + lastName
                             self.wasteDictionary["\(fullName)"] = wasteAmount
                         }
@@ -64,7 +79,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate {
                 self.tableView.reloadData()
                 self.showTotalParticipants()
             }
-            print(self.wasteDictionary)
+            debugPrint(self.wasteDictionary)
         })
     }
     
@@ -80,20 +95,46 @@ extension LeaderboardViewController: UITableViewDataSource {
         return self.wasteDictionary.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CommunityTableViewCell
         
+        // Todo: remove this from here. This is not a good location.
         let sortedArrayOfWasteDictionaries = (Array(wasteDictionary).sorted {$1.1 < $0.1})
         let leaderboardArray = sortedArrayOfWasteDictionaries[indexPath.row]
+        if let currentUserName = self.currentUserFullName {
+            if currentUserName.lowercased() == leaderboardArray.0.lowercased() {
+                self.currentUserPosition = indexPath.row
+                print("CURRENTUSER = : \(currentUserName), posion =: \(indexPath.row)")
+            }
+        }
         
         cell.nameLabel.text = leaderboardArray.0.capitalized
         cell.co2SavedLabel.text = "\(leaderboardArray.1) kg"
         cell.positionLabel.text = "\(indexPath.row + 1)"
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let currentUserPosition = self.currentUserPosition {
+            return "U STAAT OP POSITIE: \(currentUserPosition + 1)"
+        }
+        return "Uw positie is onbekend."
+    }
+}
+
+extension LeaderboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        guard let headerTextLabel = header.textLabel else {
+            return
+        }
+        headerTextLabel.font = UIFont(name: "Futura", size: 15)!
+        headerTextLabel.textColor = UIColor.darkGray
+        headerTextLabel.textAlignment = .center
     }
 }
