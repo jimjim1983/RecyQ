@@ -55,7 +55,7 @@ class NewStatsViewController: UIViewController {
         self.statsCollectionView.delegate = self
 
         setupViews()
-        scheduleLocalNotification()
+//        scheduleLocalNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -30,6 +30,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBar()
         setupTabBarController()
         registerForRemoteNotifications(application: application)
+        
+        if #available(iOS 10.0, *) {
+//            UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
+//                print("\(requests.count) requests -------")
+//                for request in requests{
+//                    print(request.identifier)
+//                }
+//            })
+//            
+//            UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: {deliveredNotifications -> () in
+//                print("\(deliveredNotifications.count) Delivered notifications-------")
+//                for notification in deliveredNotifications{
+//                    print(notification.request.identifier)
+//                }
+//            })
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+            
+        } else {
+            // Fallback on earlier versions
+            application.cancelAllLocalNotifications()
+        }
 
         return true
     }

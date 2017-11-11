@@ -15,7 +15,11 @@ class StoreViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     var shops = [Shop]()
-    var numberOfTokens = 0
+    var numberOfTokens = 0 {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         
@@ -33,7 +37,7 @@ class StoreViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            
+            super.viewWillAppear(animated)
         // Check if there's an internet connection
         ReachabilityHelper.checkReachability(viewController: self)
             
@@ -41,7 +45,7 @@ class StoreViewController: UIViewController {
             if let user = user {
                 FirebaseHelper.queryOrderedBy(child: "uid", value: user.uid, completionHandler: { (user) in
                     let newSpentCoinsAmount = user.spentCoins ?? 0
-                    let totalWasteAmount =  user.amountOfPlastic + user.amountOfPaper + user.amountOfTextile + user.amountOfEWaste + user.amountOfBioWaste
+                    let totalWasteAmount =  user.amountOfPlastic + user.amountOfPaper + user.amountOfTextile + user.amountOfEWaste + user.amountOfBioWaste + (user.amountOfGlass ?? 0)
                     let tokenAmount = (totalWasteAmount / 35).rounded(.down)
                     self.numberOfTokens = (Int(tokenAmount))  - (newSpentCoinsAmount)
                 })
@@ -105,7 +109,7 @@ extension StoreViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.numberOfTokens <= 0 {
-            return "Je hebt nog geen tokens verdiend."
+            return "Je hebt geen tokens beschikbaar."
         } else {
             return self.numberOfTokens == 1 ? "Je hebt \(self.numberOfTokens) token." : "Je hebt \(self.numberOfTokens) tokens."
         }

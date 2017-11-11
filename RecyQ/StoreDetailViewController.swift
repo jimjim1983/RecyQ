@@ -163,7 +163,7 @@ class StoreDetailViewController: UIViewController {
                  let user = User(snapshot: snapshot)
                     if let startingSpentCoinsAmount = user.spentCoins {
                         let endingSpentCoinsAmount = startingSpentCoinsAmount + self.shop.tokenAmount
-                        FirebaseHelper.References.clientsRef.child(user.name).child("spentCoins").setValue(endingSpentCoinsAmount)
+                        FirebaseHelper.References.clientsRef.child(user.uid).child("spentCoins").setValue(endingSpentCoinsAmount)
                     }
             })
         }

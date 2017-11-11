@@ -58,13 +58,15 @@ class NewCommunityViewController: UIViewController {
                     let amountOfEWaste = (item.value as AnyObject).object(forKey: "amountOfEWaste") as? Double
                     let amountOfPaper = (item.value as AnyObject).object(forKey: "amountOfPaper") as? Double
                     let amountOfTextile = (item.value as AnyObject).object(forKey: "amountOfTextile") as? Double
+                    let amountOfGlass = (item.value as AnyObject).object(forKey: "amountOfGlass") as? Double ?? 0
+
                     self.wasteArray.append(amountOfPlastic!)
                     self.wasteArray.append(amountOfBioWaste!)
                     self.wasteArray.append(amountOfEWaste!)
                     self.wasteArray.append(amountOfPaper!)
                     self.wasteArray.append(amountOfTextile!)
+                    self.wasteArray.append(amountOfGlass)
                 }
-                
             }
             
             let total = self.wasteArray.reduce(0.0, +)
